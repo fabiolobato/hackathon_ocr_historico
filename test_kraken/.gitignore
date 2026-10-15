@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Imagens/
+models/
+outputs/
+vault
+ground_truth/*
+!ground_truth/README.md
+configs/*.json
