@@ -74,10 +74,12 @@ def baixar_modelo(variante: str = 'medium', pasta: Path = RAIZ / 'models', copia
 
 
 class MotorKraken:
-    def __init__(self, modelo: Path, dispositivo: str = 'cpu') -> None:
+    def __init__(self, modelo: Path, dispositivo: str = 'cpu', paginas_treino: list[int] | None = None) -> None:
         from kraken_pipeline.engine import KrakenEngine
 
         self.modelo = Path(modelo)
+        # páginas vistas no fine-tuning: avaliá-lo nelas infla o resultado
+        self.paginas_treino = sorted(paginas_treino or [])
         self.engine = KrakenEngine(PipelineConfig(
             image_dir=PASTA_IMAGENS, reference_dir=PASTA_GABARITOS,
             recognition_model=self.modelo, device=dispositivo))

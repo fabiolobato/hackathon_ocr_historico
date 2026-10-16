@@ -105,3 +105,16 @@ def test_cada_treino_usa_pasta_nova(tmp_path: Path, monkeypatch) -> None:
     assert primeiro.parent.name == '20261016-010000' and segundo.parent.name == '20261016-020000'
     assert segundo.name == 'best_0.2.safetensors'  # não pega o best da execução anterior
     assert comandos[0][comandos[0].index('--max-width') + 1] == '512'  # 200×40 → 480 na altura 96, +32
+
+
+def test_modelo_mais_recente(tmp_path: Path) -> None:
+    from ocr_historico.finetuning import modelo_mais_recente
+
+    with pytest.raises(FileNotFoundError):
+        modelo_mais_recente(tmp_path)
+    for execucao, score in (('20261016-010000', '0.80'), ('20261016-020000', '0.75'), ('20261016-030000', None)):
+        (tmp_path / execucao).mkdir()
+        if score:
+            (tmp_path / execucao / f'best_{score}.safetensors').touch()
+    # a execução mais recente com modelo, mesmo que outra antiga tenha score maior
+    assert modelo_mais_recente(tmp_path).parent.name == '20261016-020000'

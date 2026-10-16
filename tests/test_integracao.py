@@ -158,3 +158,34 @@ def test_resultado_de_outro_modelo_nao_e_misturado(acervo) -> None:
            acervo['resultados'] / 'kraken_original.json')
     with pytest.raises(ValueError):
         executar(interpretar('kraken_original'), paginas_de(acervo), acervo['resultados'], KrakenFalso())
+
+
+class KrakenFtFalso(KrakenFalso):
+    nome = 'kraken/best_0.8182'
+    paginas_treino = [5]
+
+
+def test_combinacoes_do_modelo_finetunado() -> None:
+    ft = interpretar('kraken_ft_original_2x')
+    assert (ft.motor, ft.entrada, ft.escala, ft.finetunado) == ('kraken', 'original', 2.0, True)
+    assert not interpretar('kraken_original_2x').finetunado
+    assert interpretar('llm_corrige_kraken_ft_original_2x').base == 'kraken_ft_original_2x'
+    with pytest.raises(ValueError):
+        interpretar('llm_ft_original')
+
+
+def test_finetunado_marca_paginas_de_treino_ate_na_correcao(acervo) -> None:
+    paginas = paginas_de(acervo)
+    with pytest.raises(ValueError, match='fine-tunado'):
+        executar(interpretar('kraken_ft_original'), paginas, acervo['resultados'], motor_kraken=KrakenFalso())
+    executar(interpretar('kraken_ft_original'), paginas, acervo['resultados'], motor_kraken_ft=KrakenFtFalso())
+    assert carregar(acervo['resultados'] / 'kraken_ft_original.json')['paginas_treino'] == [5]
+    simulacao = acervo['resultados'] / 'simulacao'
+    executar(interpretar('llm_corrige_kraken_ft_original'), paginas, simulacao, motor_llm=MotorLLM(simular=True))
+    assert carregar(simulacao / 'llm_corrige_kraken_ft_original.json')['paginas_treino'] == [5]
+
+    resumo = {l['combinacao']: l for l in avaliar_pasta(acervo['resultados'], paginas)}
+    assert 'inclui páginas de treino [5]' in resumo['kraken_ft_original']['status']
+    so_reservada = avaliar_pasta(acervo['resultados'], paginas[1:], sufixo='_reservadas')
+    assert so_reservada[0]['status'] == 'ok'
+    assert (acervo['resultados'] / 'comparacao_reservadas.csv').exists()

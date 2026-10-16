@@ -1,7 +1,8 @@
 """Executa combinações e gera a tabela comparativa.
 
     python -m ocr_historico.executar rodar kraken_original kraken_binarizada --paginas 7 10 12
-    python -m ocr_historico.executar rodar llm_corrige_kraken_binarizada --simular
+    python -m ocr_historico.executar rodar kraken_ft_original_2x --paginas 7 10 12
+    python -m ocr_historico.executar rodar llm_corrige_kraken_ft_original_2x --simular
     python -m ocr_historico.executar avaliar
 
 Cada combinação grava resultados/<nome>.json após cada página e retoma de onde parou.
@@ -24,11 +25,16 @@ PASTA_RESULTADOS = RAIZ / 'resultados'
 
 
 def executar(combinacao: Combinacao, paginas: list[Pagina], pasta: Path = PASTA_RESULTADOS,
-             motor_kraken: Any = None, motor_llm: Any = None, refazer: bool = False) -> Path:
+             motor_kraken: Any = None, motor_llm: Any = None, refazer: bool = False,
+             motor_kraken_ft: Any = None) -> Path:
     destino = pasta / f'{combinacao.nome}.json'
-    motor = motor_kraken if combinacao.motor == 'kraken' else motor_llm
+    if combinacao.motor == 'kraken':
+        motor = motor_kraken_ft if combinacao.finetunado else motor_kraken
+    else:
+        motor = motor_llm
     if motor is None:
-        raise ValueError(f'{combinacao.nome} precisa de um motor {combinacao.motor}.')
+        tipo = 'kraken fine-tunado (motor_kraken_ft)' if combinacao.finetunado else combinacao.motor
+        raise ValueError(f'{combinacao.nome} precisa de um motor {tipo}.')
     if destino.exists() and not refazer:
         resultado = carregar(destino)
         if resultado.get('modelo') != motor.nome:
@@ -40,6 +46,8 @@ def executar(combinacao: Combinacao, paginas: list[Pagina], pasta: Path = PASTA_
             detalhes['esforco_raciocinio'] = motor.esforco
         if combinacao.base:
             detalhes['base'] = combinacao.base
+        if getattr(motor, 'paginas_treino', None):
+            detalhes['paginas_treino'] = motor.paginas_treino
         resultado = novo_resultado(combinacao.nome, motor.nome, **detalhes)
     textos_base = {}
     if combinacao.base:
@@ -48,7 +56,10 @@ def executar(combinacao: Combinacao, paginas: list[Pagina], pasta: Path = PASTA_
                              if (p / f'{combinacao.base}.json').exists()), None)
         if arquivo_base is None:
             raise FileNotFoundError(f'Rode {combinacao.base} antes de {combinacao.nome}.')
-        textos_base = textos_por_arquivo(carregar(arquivo_base))
+        base = carregar(arquivo_base)
+        textos_base = textos_por_arquivo(base)
+        if base.get('paginas_treino'):  # a correção herda as páginas que o Kraken fine-tunado já viu
+            resultado['paginas_treino'] = base['paginas_treino']
     feitas = set(textos_por_arquivo(resultado))
     for pagina in paginas:
         if pagina.arquivo in feitas:
@@ -71,8 +82,8 @@ def executar(combinacao: Combinacao, paginas: list[Pagina], pasta: Path = PASTA_
 
 
 def avaliar_pasta(pasta: Path = PASTA_RESULTADOS, paginas: list[Pagina] | None = None,
-                  nomes: list[str] | None = None) -> list[dict[str, Any]]:
-    """Avalia todos os JSON da pasta nas mesmas páginas e grava metricas_paginas.csv e comparacao.csv."""
+                  nomes: list[str] | None = None, sufixo: str = '') -> list[dict[str, Any]]:
+    """Avalia todos os JSON da pasta nas mesmas páginas e grava metricas_paginas<sufixo>.csv e comparacao<sufixo>.csv."""
     paginas = paginas or listar_paginas()
     arquivos = sorted(pasta.glob('*.json')) if nomes is None else [pasta / f'{n}.json' for n in nomes]
     todas, resumo = [], []
@@ -81,8 +92,8 @@ def avaliar_pasta(pasta: Path = PASTA_RESULTADOS, paginas: list[Pagina] | None =
         todas.extend(linhas)
         resumo.append(corpus)
     resumo.sort(key=lambda linha: linha['wer_sem_pontuacao'])
-    salvar_csv(todas, pasta / 'metricas_paginas.csv')
-    salvar_csv(resumo, pasta / 'comparacao.csv')
+    salvar_csv(todas, pasta / f'metricas_paginas{sufixo}.csv')
+    salvar_csv(resumo, pasta / f'comparacao{sufixo}.csv')
     return resumo
 
 
@@ -102,6 +113,8 @@ def main() -> None:
     rodar.add_argument('--paginas', nargs='*', type=int)
     rodar.add_argument('--pasta', type=Path, default=PASTA_RESULTADOS)
     rodar.add_argument('--modelo-kraken', type=Path, help='padrão: baixa o PP-OCRv6 medium')
+    rodar.add_argument('--modelo-kraken-ft', type=Path,
+                       help='modelo fine-tunado para kraken_ft_*; padrão: o treino mais recente em finetuning/modelo/')
     rodar.add_argument('--dispositivo', default=None, help='cpu, cuda:0... (padrão: automático)')
     rodar.add_argument('--modelo-llm', default=None)
     rodar.add_argument('--permitir-gasto', action='store_true', help='autoriza requisições pagas ao OpenRouter')
@@ -109,6 +122,8 @@ def main() -> None:
     rodar.add_argument('--refazer', action='store_true')
     aval = sub.add_parser('avaliar', help='gera comparacao.csv com todas as combinações da pasta')
     aval.add_argument('--paginas', nargs='*', type=int)
+    aval.add_argument('--reservadas', action='store_true',
+                      help='só as páginas fora do fine-tuning (7, 10, 12); grava comparacao_reservadas.csv')
     aval.add_argument('--pasta', type=Path, default=PASTA_RESULTADOS)
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
@@ -116,11 +131,17 @@ def main() -> None:
     paginas = listar_paginas(args.paginas or None)
 
     if args.comando == 'avaliar':
-        imprimir_tabela(avaliar_pasta(args.pasta, paginas))
+        if args.reservadas:
+            from .finetuning import dividir_paginas
+
+            _, reservadas = dividir_paginas(listar_paginas())
+            imprimir_tabela(avaliar_pasta(args.pasta, reservadas, sufixo='_reservadas'))
+        else:
+            imprimir_tabela(avaliar_pasta(args.pasta, paginas))
         return
 
     combinacoes = [interpretar(nome) for nome in args.combinacoes]
-    motor_kraken = motor_llm = None
+    motor_kraken = motor_kraken_ft = motor_llm = None
     if any(c.motor == 'kraken' for c in combinacoes):
         from .motor_kraken import MotorKraken, baixar_modelo
 
@@ -128,7 +149,12 @@ def main() -> None:
         if dispositivo is None:
             import torch
             dispositivo = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        motor_kraken = MotorKraken(args.modelo_kraken or baixar_modelo('medium', RAIZ / 'models'), dispositivo)
+        if any(c.motor == 'kraken' and not c.finetunado for c in combinacoes):
+            motor_kraken = MotorKraken(args.modelo_kraken or baixar_modelo('medium', RAIZ / 'models'), dispositivo)
+        if any(c.finetunado for c in combinacoes):
+            from .finetuning import carregar_finetunado
+
+            motor_kraken_ft = carregar_finetunado(dispositivo, args.modelo_kraken_ft)
     if any(c.gasta_dinheiro for c in combinacoes):
         from .motor_llm import MODELO_PADRAO, MotorLLM
 
@@ -136,7 +162,7 @@ def main() -> None:
                              simular=args.simular)
     for combinacao in combinacoes:
         pasta = args.pasta / 'simulacao' if args.simular and combinacao.gasta_dinheiro else args.pasta
-        print(executar(combinacao, paginas, pasta, motor_kraken, motor_llm, args.refazer))
+        print(executar(combinacao, paginas, pasta, motor_kraken, motor_llm, args.refazer, motor_kraken_ft))
 
 
 if __name__ == '__main__':

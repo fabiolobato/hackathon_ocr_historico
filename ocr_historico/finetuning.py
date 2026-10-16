@@ -127,6 +127,24 @@ def melhor_modelo(saida: Path) -> Path:
     return modelos[-1]
 
 
+def modelo_mais_recente(pasta: Path = PASTA_FINETUNING / 'modelo') -> Path:
+    """O melhor modelo da execução de treino mais recente em `pasta` (subpastas data-hora)."""
+    execucoes = sorted(p for p in pasta.glob('*/') if any(p.glob('best_*.safetensors')))
+    if not execucoes:
+        raise FileNotFoundError(f'Nenhum modelo treinado em {pasta}. Rode o fine-tuning ou informe o caminho '
+                                '(por exemplo, a cópia salva no Drive).')
+    return melhor_modelo(execucoes[-1])
+
+
+def carregar_finetunado(dispositivo: str, modelo: Path | None = None) -> Any:
+    """MotorKraken com o modelo fine-tunado, sabendo em quais páginas ele foi treinado."""
+    from .motor_kraken import MotorKraken
+
+    treino, _ = dividir_paginas(listar_paginas())
+    return MotorKraken(Path(modelo) if modelo else modelo_mais_recente(), dispositivo,
+                       paginas_treino=[p.numero for p in treino])
+
+
 def treinar(modelo_base: Path, pasta_linhas: Path, saida: Path, dispositivo: str, **opcoes: Any) -> Path:
     """Treina numa subpasta nova de `saida` (uma por execução) e devolve o melhor modelo dela."""
     treino, validacao = dividir_linhas(pasta_linhas)
@@ -191,7 +209,7 @@ def main() -> None:
     nome = f'kraken_{args.entrada}' + ('_2x' if args.escala == 2 else '')
     combinacao = interpretar(nome)
     executar(combinacao, reserva, args.pasta / 'antes', motor_kraken=base)
-    executar(combinacao, reserva, args.pasta / 'depois', motor_kraken=MotorKraken(modelo, args.dispositivo))
+    executar(combinacao, reserva, args.pasta / 'depois', motor_kraken=carregar_finetunado(args.dispositivo, modelo))
     for rotulo in ('antes', 'depois'):
         print(f'\n{rotulo.upper()} do fine-tuning (páginas reservadas {[p.numero for p in reserva]}):')
         imprimir_tabela(avaliar_pasta(args.pasta / rotulo, reserva))

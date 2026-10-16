@@ -135,6 +135,7 @@ def avaliar(resultado: dict[str, Any], paginas: list[Pagina]) -> tuple[list[dict
     textos = textos_por_arquivo(resultado)
     base = {'combinacao': resultado.get('combinacao', ''), 'modelo': resultado.get('modelo', ''),
             'entrada': resultado.get('entrada', ''), 'escala': resultado.get('escala', '')}
+    treino = set(resultado.get('paginas_treino', []))
     linhas, referencias, hipoteses, faltando = [], [], [], []
     custo_total = 0.0
     for pagina in paginas:
@@ -151,12 +152,17 @@ def avaliar(resultado: dict[str, Any], paginas: list[Pagina]) -> tuple[list[dict
         referencias.append(referencia)
         hipoteses.append(hipotese)
         linhas.append({**base, 'pagina': pagina.numero, 'custo': custo,
-                       'status': 'sem transcrição' if pagina.numero in faltando else 'ok',
+                       'status': 'sem transcrição' if pagina.numero in faltando
+                       else 'página de treino' if pagina.numero in treino else 'ok',
                        **calcular([referencia], [hipotese])})
     if not referencias:
         raise ValueError('Nenhuma página selecionada tem gabarito.')
+    avisos = [f'faltando {faltando}'] if faltando else []
+    vistas = sorted(treino & {p.numero for p in paginas if p.gabarito is not None})
+    if vistas:
+        avisos.append(f'inclui páginas de treino {vistas}: resultado inflado')
     corpus = {**base, 'pagina': 'corpus', 'custo': custo_total,
-              'status': f'faltando {faltando}' if faltando else 'ok', **calcular(referencias, hipoteses)}
+              'status': '; '.join(avisos) or 'ok', **calcular(referencias, hipoteses)}
     return linhas, corpus
 
 
