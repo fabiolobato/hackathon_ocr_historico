@@ -1,0 +1,214 @@
+{
+  "source_sha256": "b6c6eaa7c6c65d2bcb82b0632ddfdc051d1eee95f79c48924c3e9f3c0876c4ec",
+  "pages": {
+    "5.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1894": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        4,
+        6,
+        7,
+        9
+      ],
+      "image_sha256": "e9cd97e59ad1105a06cb7b0751409a440d7640eb9d3b037a4d26318534f7e5c9",
+      "reference_sha256": "a025a41a524b6e1d08b5336468b944b723bffec893d190920491e8b11ecadc61"
+    },
+    "6.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "image_sha256": "ee05ba1f683e7fa44e4cd277073d5e4801bc62f8ee4511bba0545129994c40f4",
+      "reference_sha256": "3e4d876a81f6e282a56971c9a6fe9660479939861c077e0b5f83a84dada6e629"
+    },
+    "7.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "image_sha256": "744eed4bd5cf7297c312245af45d202b77cfb2fb0bcfe7206cbbd6c9b9e47d28",
+      "reference_sha256": "3224c43f793dc9cb3d88d78d68ee8c8340ad2d9afb407554d867426f389fb9f4"
+    },
+    "8.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130
+      ],
+      "image_sha256": "665da7d71cad94e530b6a83afcff321646b2736e8c23c319360a9a5d3148171a",
+      "reference_sha256": "879996bb922dc1366aa39e7ad445beebb88a4205d174a30713381a3ee5dcd26e"
+    },
+    "9.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167
+      ],
+      "image_sha256": "b0e6f0de67b82003e16ea225f81e427b5782cebb21a0e151e883a4f474fe081f",
+      "reference_sha256": "0104c67a0d689004fd2053da9d9be357de4c008084b7e55397b066e3cf167a6c"
+    },
+    "10.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202
+      ],
+      "image_sha256": "e647cdfbc9bad2f09b0d636823e87ad6c785c11df34cde02696621a1219a03ce",
+      "reference_sha256": "913dd3082d67329330836165d766c6a5329f7c809e87d81cb95d7cc7b265f4b5"
+    },
+    "11.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236
+      ],
+      "image_sha256": "f64ff5605b4e0d0fdc279f20877a309cefd42708c05e5d6b61805822bd60c685",
+      "reference_sha256": "66f4b8b02c19f2fd17237086c8f500fcf5d17b0febc16b5e56e462a58ff029d1"
+    },
+    "12.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        262,
+        263,
+        264,
+        265,
+        266
+      ],
+      "image_sha256": "a267055e19cfd23246a6320c647faab6f3984a1cf10b3611aae3a9dea5407492",
+      "reference_sha256": "8bfcc239f7a1ac0bdd7e7d700ce14884e7fdbd082bff421b155374b0d963bbbf"
+    },
+    "13.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303
+      ],
+      "image_sha256": "006c86665fc0e031cf195b46c29f2cb673770c7e66f5cee751f9a68a6eebf0bb",
+      "reference_sha256": "390955b87880e77987b464e11b089a3433f08ed2cca83bfd2bc88a41b78c6846"
+    },
+    "14.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335
+      ],
+      "image_sha256": "7631a5572cafe2cda666699b27a551907977af3333489b5c55374b329c2a082c",
+      "reference_sha256": "d486208fda276661718f62cce3c209f24e0d5a1be8cc5a361c9da8a082fa5a23"
+    },
+    "15.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        372,
+        373
+      ],
+      "image_sha256": "21d41dc7e693c35e67834ffeadb677b21c0e038f7445d00f98bbe8748e6cc9ac",
+      "reference_sha256": "4378cd8125a2e12390b457e52ed4866bdd558e8ee8957b780c0cba640067915b"
+    },
+    "16.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984": {
+      "status": "supplied_unverified",
+      "source": "Transcrição Livro de Registro de Leis nº 1, 1892-1894.docx",
+      "source_paragraph_indices": [
+        397,
+        398,
+        399,
+        400,
+        401,
+        402
+      ],
+      "image_sha256": "e727db33472831a67448a6571c487adae015e81d4f8e3f4a8e6da08d671858bf",
+      "reference_sha256": "8c3a885572f30b5bb5a76ae4c1ebc88cb06aa5fa3e7ff7272617bde83b50e615"
+    }
+  }
+}
