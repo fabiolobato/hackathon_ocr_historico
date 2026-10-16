@@ -1,0 +1,17 @@
+# Torna ocr_historico e kraken_pipeline importáveis de qualquer pasta, inclusive depois de
+# reiniciar a sessão do Colab: pip install -e . --no-deps
+# As dependências fixadas continuam em requirements.txt / test_kraken/requirements.txt.
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocr-historico"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+packages = ["ocr_historico", "kraken_pipeline"]
+
+[tool.setuptools.package-dir]
+kraken_pipeline = "test_kraken/kraken_pipeline"
