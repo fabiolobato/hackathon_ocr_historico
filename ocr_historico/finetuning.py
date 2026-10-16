@@ -18,6 +18,7 @@ import os
 import random
 import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -87,17 +88,35 @@ def dividir_linhas(pasta: Path, fracao_validacao: float = 0.1, semente: int = 42
     return pasta / 'treino.txt', pasta / 'validacao.txt'
 
 
+def largura_necessaria(pasta: Path, altura: int = 96, margem: int = 32, multiplo: int = 64) -> int:
+    """Menor --max-width que comporta todas as linhas.
+
+    O ppocrv6 redimensiona cada linha para `altura`, soma a margem lateral do ketos (--pad 16
+    de cada lado) e completa todas até --max-width: a memória da GPU cresce com esse valor.
+    """
+    from PIL import Image
+
+    maior = 0.0
+    for linha in pasta.glob('*.png'):
+        with Image.open(linha) as imagem:
+            maior = max(maior, imagem.width * altura / imagem.height)
+    if not maior:
+        raise ValueError(f'Nenhuma linha .png em {pasta}.')
+    return -(-int(maior + margem) // multiplo) * multiplo
+
+
 def comando_treino(modelo_base: Path, treino: Path, validacao: Path, saida: Path, dispositivo: str,
-                   epocas: int = 30, lote: int = 16, taxa: float = 1e-4, largura_maxima: int = 2560,
-                   aumentar: bool = True, semente: int = 42) -> list[str]:
+                   largura_maxima: int, epocas: int = 30, lote: int = 4, acumular: int = 4,
+                   taxa: float = 1e-4, aumentar: bool = True, semente: int = 42) -> list[str]:
+    # lote 4 × acumulação 4 = lote efetivo 16 com ~1/4 da memória (lote 16 estourou uma T4 de 15 GB)
     # ppocrv6 usa schedule cosine, que exige número fixo de épocas (-q fixed)
     return [sys.executable, '-c', 'from kraken.ketos import cli; cli()',
             '-d', dispositivo, '-s', str(semente), '--workers', '2', '--threads', str(os.cpu_count() or 1),
             'train', '-f', 'path', '-i', str(modelo_base), '--resize', 'union',
             '-t', str(treino), '-e', str(validacao), '-o', str(saida),
             '-q', 'fixed', '-N', str(epocas), '--cos-max', str(epocas),
-            '-B', str(lote), '-r', str(taxa), '--max-width', str(largura_maxima),
-            '--augment' if aumentar else '--no-augment']
+            '-B', str(lote), '--accumulate-grad-batches', str(acumular), '-r', str(taxa),
+            '--max-width', str(largura_maxima), '--augment' if aumentar else '--no-augment']
 
 
 def melhor_modelo(saida: Path) -> Path:
@@ -109,19 +128,35 @@ def melhor_modelo(saida: Path) -> Path:
 
 
 def treinar(modelo_base: Path, pasta_linhas: Path, saida: Path, dispositivo: str, **opcoes: Any) -> Path:
+    """Treina numa subpasta nova de `saida` (uma por execução) e devolve o melhor modelo dela."""
     treino, validacao = dividir_linhas(pasta_linhas)
+    opcoes.setdefault('largura_maxima', largura_necessaria(pasta_linhas))
+    # pasta nova por execução: checkpoints de um treino anterior não podem virar o "melhor modelo"
+    saida = saida / datetime.now().strftime('%Y%m%d-%H%M%S')
+    saida.mkdir(parents=True)
     comando = comando_treino(modelo_base, treino, validacao, saida, dispositivo, **opcoes)
     logger.info('Treinando: %s', ' '.join(comando))
-    saida.mkdir(parents=True, exist_ok=True)
+    ambiente = {**os.environ, 'PYTORCH_CUDA_ALLOC_CONF': 'expandable_segments:True'}
     # repassa a saída do ketos linha a linha: no Colab, a saída de um subprocesso não aparece sozinha
-    with subprocess.Popen(comando, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                          bufsize=1) as processo, (saida / 'treino.log').open('w', encoding='utf-8') as log:
+    with subprocess.Popen(comando, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1,
+                          env=ambiente) as processo, (saida / 'treino.log').open('w', encoding='utf-8') as log:
         for linha in processo.stdout:
             print(linha, end='', flush=True)
             log.write(linha)
     if processo.returncode:
         raise RuntimeError(f'ketos train terminou com código {processo.returncode}; veja {saida / "treino.log"}')
     return melhor_modelo(saida)
+
+
+def liberar_gpu() -> None:
+    """Devolve a memória de modelos já descartados (sem referência) antes do treino."""
+    import gc
+
+    import torch
+
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
 
 def main() -> None:
@@ -132,7 +167,8 @@ def main() -> None:
     parser.add_argument('--entrada', default='original')
     parser.add_argument('--escala', type=float, default=2.0)
     parser.add_argument('--epocas', type=int, default=30)
-    parser.add_argument('--lote', type=int, default=16)
+    parser.add_argument('--lote', type=int, default=4)
+    parser.add_argument('--acumular', type=int, default=4, help='lote efetivo = lote × acumular')
     parser.add_argument('--taxa', type=float, default=1e-4)
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
@@ -145,11 +181,12 @@ def main() -> None:
     modelo_base = args.modelo_base or baixar_modelo('medium', RAIZ / 'models')
     treino, reserva = dividir_paginas(listar_paginas())
     logger.info('Treino: %s | reservadas: %s', [p.numero for p in treino], [p.numero for p in reserva])
-    base = MotorKraken(modelo_base, args.dispositivo)
-    gerar_dataset(base, treino, args.pasta / 'linhas', args.entrada, args.escala)
+    gerar_dataset(MotorKraken(modelo_base, args.dispositivo), treino, args.pasta / 'linhas', args.entrada, args.escala)
+    liberar_gpu()  # o treino roda em outro processo e precisa da GPU inteira
     modelo = treinar(modelo_base, args.pasta / 'linhas', args.pasta / 'modelo', args.dispositivo,
-                     epocas=args.epocas, lote=args.lote, taxa=args.taxa)
+                     epocas=args.epocas, lote=args.lote, acumular=args.acumular, taxa=args.taxa)
     logger.info('Modelo treinado: %s', modelo)
+    base = MotorKraken(modelo_base, args.dispositivo)
 
     nome = f'kraken_{args.entrada}' + ('_2x' if args.escala == 2 else '')
     combinacao = interpretar(nome)
