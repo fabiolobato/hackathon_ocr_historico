@@ -1,0 +1,2 @@
+-r test_kraken/requirements.txt
+jiwer==4.0.0

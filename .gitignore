@@ -1,0 +1,9 @@
+.env
+models/
+resultados/simulacao/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+outputs/
+finetuning/
