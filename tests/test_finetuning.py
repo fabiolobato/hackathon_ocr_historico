@@ -5,7 +5,9 @@ from PIL import Image
 
 from ocr_historico.alinhamento import alinhar_posicoes, distancia, dividir_gabarito
 from ocr_historico.dados import listar_paginas
-from ocr_historico.finetuning import comando_treino, dividir_linhas, dividir_paginas, melhor_modelo
+import ocr_historico.finetuning as finetuning
+from ocr_historico.finetuning import (comando_treino, dividir_linhas, dividir_paginas, largura_necessaria,
+                                     melhor_modelo, treinar)
 
 
 def test_alinhamento_atravessa_edicoes() -> None:
@@ -53,8 +55,10 @@ def test_listas_de_treino_e_validacao(tmp_path: Path) -> None:
 
 
 def test_comando_e_melhor_modelo(tmp_path: Path) -> None:
-    comando = comando_treino(Path('m.safetensors'), Path('t.txt'), Path('v.txt'), tmp_path, 'cuda:0', epocas=5)
+    comando = comando_treino(Path('m.safetensors'), Path('t.txt'), Path('v.txt'), tmp_path, 'cuda:0', 2176, epocas=5)
     assert comando[comando.index('-d') + 1] == 'cuda:0'
+    assert comando[comando.index('-B') + 1] == '4' and comando[comando.index('--accumulate-grad-batches') + 1] == '4'
+    assert comando[comando.index('--max-width') + 1] == '2176'
     assert comando[comando.index('-N') + 1] == comando[comando.index('--cos-max') + 1] == '5'
     assert ['-q', 'fixed'] == comando[comando.index('-q'):comando.index('-q') + 2]
     with pytest.raises(FileNotFoundError):
@@ -62,3 +66,42 @@ def test_comando_e_melhor_modelo(tmp_path: Path) -> None:
     for score in ('0.7012', '0.8123', '0.7999'):
         (tmp_path / f'best_{score}.safetensors').touch()
     assert melhor_modelo(tmp_path).name == 'best_0.8123.safetensors'
+
+
+def test_largura_necessaria_cobre_a_linha_mais_larga(tmp_path: Path) -> None:
+    Image.new('L', (1000, 48)).save(tmp_path / 'a.png')  # 2000 px na altura 96
+    Image.new('L', (300, 96)).save(tmp_path / 'b.png')
+    assert largura_necessaria(tmp_path) == 2048  # 2000 + 32 de margem, múltiplo de 64
+    with pytest.raises(ValueError):
+        largura_necessaria(tmp_path / 'vazia')
+
+
+def test_cada_treino_usa_pasta_nova(tmp_path: Path, monkeypatch) -> None:
+    for i in range(12):
+        Image.new('L', (200, 40)).save(tmp_path / f'p05_{i:03d}.png')
+    comandos = []
+
+    class Processo:
+        returncode = 0
+
+        def __init__(self, comando, **_):
+            comandos.append(comando)
+            saida = Path(comando[comando.index('-o') + 1])
+            (saida / f'best_0.{len(comandos)}.safetensors').touch()
+            self.stdout = iter(['treinando\n'])
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *erro):
+            return False
+
+    monkeypatch.setattr(finetuning.subprocess, 'Popen', Processo)
+    datas = iter(['20261016-010000', '20261016-020000'])
+    monkeypatch.setattr(finetuning, 'datetime', type('D', (), {'now': staticmethod(
+        lambda: type('T', (), {'strftime': lambda self, _: next(datas)})())}))
+    primeiro = treinar(Path('m.safetensors'), tmp_path, tmp_path / 'modelo', 'cpu')
+    segundo = treinar(Path('m.safetensors'), tmp_path, tmp_path / 'modelo', 'cpu')
+    assert primeiro.parent.name == '20261016-010000' and segundo.parent.name == '20261016-020000'
+    assert segundo.name == 'best_0.2.safetensors'  # não pega o best da execução anterior
+    assert comandos[0][comandos[0].index('--max-width') + 1] == '512'  # 200×40 → 480 na altura 96, +32

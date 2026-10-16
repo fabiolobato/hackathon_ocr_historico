@@ -88,7 +88,7 @@ Com a segmentação neural, **binarizar piora o Kraken em ~9 pontos de WER e ~11
 `finetuning_kraken.ipynb` (Colab com GPU) ou `python -m ocr_historico.finetuning --dispositivo cuda:0`:
 
 1. **Dataset:** as 9 páginas de treino passam pela mesma entrada da melhor combinação (original 2×), são segmentadas e reconhecidas pelo modelo base. O gabarito de cada página é cortado nas quebras de linha do OCR (`ocr_historico/alinhamento.py`). Localmente, isso deu 259 linhas usadas e 52 descartadas (rubricas, números de página, linhas mal alinhadas), todas listadas em `finetuning/linhas/manifesto.json`.
-2. **Treino:** `ketos train` a partir do PP-OCRv6 medium (`--resize union`, augmentation, 30 épocas, lote 16). O melhor checkpoint vira `finetuning/modelo/best_<acurácia>.safetensors`.
+2. **Treino:** `ketos train` a partir do PP-OCRv6 medium (`--resize union`, augmentation, 30 épocas, lote 4 com acumulação 4 = lote efetivo 16, largura máxima calculada a partir das linhas). Cada execução grava em `finetuning/modelo/<data-hora>/`; o melhor checkpoint vira `best_<acurácia>.safetensors`. Lote 16 direto estourou os 15 GB de uma T4.
 3. **Avaliação:** antes × depois nas páginas reservadas 7, 10 e 12, que nunca entram no treino (mesmo sorteio do `test_kraken`).
 
 O caminho completo foi testado em CPU com um treino mínimo (3 linhas, 1 época). O treino de verdade precisa de GPU: em CPU, o lote padrão do ppocrv6 estoura a memória e cada época leva horas. O modelo aprende a grafia do gabarito, então revise `ground_truth/` antes de um treino definitivo.
