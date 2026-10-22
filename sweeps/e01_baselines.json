@@ -1,0 +1,9 @@
+{
+  "base": {},
+  "variants": {
+    "raw_medium":            {"seg_ops": ""},
+    "nlbin_medium":          {"seg_ops": "kraken_nlbin", "rec_ops": "kraken_nlbin"},
+    "nlbin_seg_raw_rec":     {"seg_ops": "kraken_nlbin", "rec_ops": ""},
+    "raw_small":             {"seg_ops": "", "rec.model": "small"}
+  }
+}

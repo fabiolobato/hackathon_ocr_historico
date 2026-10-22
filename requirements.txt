@@ -1,0 +1,12 @@
+kraken @ git+https://github.com/mittagessen/kraken.git@bb487219e7d8289274443d1ad0989efb4924dc2a
+numpy==2.2.6
+torch==2.11.0
+torchvision==0.26.0
+pillow==12.3.0
+opencv-python-headless==4.12.0.88
+matplotlib==3.10.6
+ipykernel==6.30.1; sys_platform == "darwin"
+pytest==8.4.2
+requests==2.32.4
+transformers==4.57.1
+rapidfuzz==3.14.1
