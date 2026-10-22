@@ -8,7 +8,8 @@ from pathlib import Path
 RUN = 'ft_v1'
 DATA = '/content/data_v1'
 # ppocrv6 trains with a cosine schedule, which needs a fixed epoch budget (early stopping -> inf steps).
-ARGS = ['-B', '16', '-r', '1e-4', '--augment', '-q', 'fixed', '-N', '50', '-p', '0.9', '-u', 'NFD',
+# Lines are padded to max_width 2560 px: batch 16 OOMs on a 22 GB L4, so 4 x 4 accumulation.
+ARGS = ['-B', '4', '--accumulate-grad-batches', '4', '-r', '1e-4', '--augment', '-q', 'fixed', '-N', '50', '-p', '0.9', '-u', 'NFD',
         '--resize', 'union']
 
 out = Path('/content') / RUN
