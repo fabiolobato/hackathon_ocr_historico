@@ -4,6 +4,6 @@ RUN=$1; MAX=${2:-60}; LOCAL=outputs/${RUN}_train.log
 for i in $(seq 1 $((MAX * 60 / 90))); do
   sleep 90
   colab download -s ft /content/$RUN/train.log $LOCAL > /dev/null 2>&1
-  if tr '\r' '\n' < $LOCAL | grep -qE "Error|Traceback|max_epochs=|Trainer.fit. stopped"; then break; fi
+  if tr '\r' '\n' < $LOCAL | grep -qE "Traceback|OutOfMemory|max_epochs=|Trainer.fit. stopped"; then break; fi
 done
-tr '\r' '\n' < $LOCAL | grep -v "^\s*$" | grep -iE "val_|stopped|Error" | tail -15
+tr '\r' '\n' < $LOCAL | grep -v "^\s*$" | grep -iE "val_|stopped|Traceback|OutOfMemory|epoch" | tail -15
