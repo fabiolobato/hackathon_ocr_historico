@@ -1,0 +1,29 @@
+{
+  "base": {
+    "seg_ops": "kraken_nlbin",
+    "rec_ops": "",
+    "post.conventions": true,
+    "post.dehyphenate": true,
+    "post.domain_lexicon": true,
+    "post.lexicon": "models/lexicon/pt_br_50k.txt",
+    "post.lexicon_max_ratio": 0.4,
+    "post.lexicon_min_len": 3,
+    "post.lexicon_size": 0
+  },
+  "variants": {
+    "ref": {},
+    "rec_contrast": { "rec_ops": "contrast" },
+    "rec_contrast_sharp": { "rec_ops": "contrast,sharpen" },
+    "minline_10": { "seg.min_line_frac": 0.1 },
+    "minline_20": { "seg.min_line_frac": 0.2 },
+    "pad_8": { "rec.padding": 8 },
+    "pad_32": { "rec.padding": 32 },
+    "nlbin_t04": { "params.nlbin_threshold": 0.4 },
+    "nlbin_t06": { "params.nlbin_threshold": 0.6 },
+    "seg_clahe_nlbin": { "seg_ops": "clahe,kraken_nlbin" },
+    "seg_contrast": { "seg_ops": "contrast" },
+    "up15": { "geometric_ops": "upscale", "params.upscale_factor": 1.5 },
+    "up20": { "geometric_ops": "upscale", "params.upscale_factor": 2.0 },
+    "deskew": { "geometric_ops": "deskew" }
+  }
+}
