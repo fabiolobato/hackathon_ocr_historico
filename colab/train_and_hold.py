@@ -39,8 +39,10 @@ def setup() -> Path:
 
 
 def train(data: Path) -> int:
-    OUT.mkdir(parents=True, exist_ok=True)
-    cmd = ['ketos', '-d', 'cuda:0', '-s', '42', '--workers', '2', 'train', '-f', 'page', '-i', str(WEIGHTS),
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    (OUT / 'tb').mkdir(parents=True)  # ketos requires an existing --log-dir
+    cmd =['ketos', '-d', 'cuda:0', '-s', '42', '--workers', '2', 'train', '-f', 'page', '-i', str(WEIGHTS),
            '-o', str(OUT / 'model'), '--logger', 'tensorboard', '--log-dir', str(OUT / 'tb'), *ARGS,
            *sorted(str(p) for p in data.glob('*.xml'))]
     (OUT / 'cmd.txt').write_text(' '.join(cmd))
