@@ -1,0 +1,12 @@
+{
+  "base": {"seg_ops": "kraken_nlbin", "rec_ops": "", "post.conventions": true, "post.dehyphenate": true,
+           "post.domain_lexicon": true, "post.lexicon": "models/lexicon/pt_br_50k.txt",
+           "post.lexicon_max_ratio": 0.4, "post.lexicon_min_len": 3, "post.lexicon_size": 0},
+  "variants": {
+    "edit":              {"post.decoder": "edit"},
+    "ctc_a16":           {"post.decoder": "ctc", "post.ctc_alpha": 16},
+    "hybrid_a16":        {"post.decoder": "ctc+edit", "post.ctc_alpha": 16},
+    "hybrid_a8":         {"post.decoder": "ctc+edit", "post.ctc_alpha": 8},
+    "hybrid_a16_r50":    {"post.decoder": "ctc+edit", "post.ctc_alpha": 16, "post.lexicon_max_ratio": 0.5}
+  }
+}

@@ -58,6 +58,9 @@ class PostConfig:
     domain_lexicon: bool = False  # add words from tuning-page GT, never from the evaluated page
     lexicon_max_ratio: float = 0.34  # max normalized edit distance accepted for a correction
     lexicon_min_len: int = 4
+    decoder: str = 'edit'  # 'edit' | 'ctc' (rescore with CTC posteriors) | 'ctc+edit' (then edit pass)
+    ctc_alpha: float = 4.0  # log-likelihood bonus for in-lexicon candidates
+    ctc_candidates: int = 10
 
 
 @dataclass(frozen=True)

@@ -69,13 +69,18 @@ def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices:
     return pre + fixed + post
 
 
+def lexicon_choices(config: PostConfig, domain: tuple[str, ...]) -> tuple[str, ...]:
+    """Domain words first, then generic words; each block ordered by frequency."""
+    generic = load_lexicon(config.lexicon, config.lexicon_size) if config.lexicon else ()
+    return tuple(dict.fromkeys(domain + generic))
+
+
 def correct(lines: list[str], config: PostConfig, domain: tuple[str, ...] = ()) -> list[str]:
     if config.conventions:
         lines = [map_conventions(line) for line in lines]
     if config.dehyphenate:
         lines = dehyphenate(lines)
-    generic = load_lexicon(config.lexicon, config.lexicon_size) if config.lexicon else ()
-    choices = tuple(dict.fromkeys(domain + generic))
+    choices = lexicon_choices(config, domain) if config.decoder in ('edit', 'ctc+edit') else ()
     if choices:
         known = frozenset(choices)
         lines = [' '.join(_correct_word(w, config, known, choices) for w in line.split()) for line in lines]

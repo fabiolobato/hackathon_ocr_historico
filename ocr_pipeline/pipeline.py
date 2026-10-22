@@ -9,7 +9,8 @@ from .config import OpParams, PipelineConfig, stable_hash
 from .data import Page
 from .engine import Engine, filter_lines
 from .metrics import corpus, score
-from .postprocess import correct, domain_vocabulary
+from .ctc_rescore import RescoreParams, rescore_line
+from .postprocess import correct, domain_vocabulary, lexicon_choices
 from .preprocessing import apply_chain
 
 logger = logging.getLogger(__name__)
@@ -34,7 +35,8 @@ def cache_keys(page: Page, config: PipelineConfig) -> tuple[str, str]:
     return seg_key, rec_key
 
 
-def recognize_page(engine: Engine, page: Page, config: PipelineConfig) -> tuple[list[str], int]:
+def recognize_page(engine: Engine, page: Page, config: PipelineConfig,
+                   domain: tuple[str, ...] = ()) -> tuple[list[str], int]:
     seg_key, rec_key = cache_keys(page, config)
     with Image.open(page.image) as original:
         base = apply_chain(original.convert('RGB'), config.geometric_ops, config.params, geometric=True)
@@ -42,12 +44,27 @@ def recognize_page(engine: Engine, page: Page, config: PipelineConfig) -> tuple[
                                   config.seg, seg_key)
     segmentation = filter_lines(segmentation, config.seg, *base.size)
     rec_image = apply_chain(base, config.rec_ops, config.params, geometric=False)
+    if config.post.decoder in ('ctc', 'ctc+edit'):
+        return rescore_page(engine, rec_image, segmentation, config, rec_key, domain), len(segmentation.lines)
     lines = engine.recognize(rec_image, segmentation, config.rec, rec_key)
     return lines, len(segmentation.lines)
 
 
+def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: PipelineConfig, key: str,
+                 domain: tuple[str, ...]) -> list[str]:
+    logits = engine.recognize_logits(image, segmentation, config.rec, key)
+    choices = lexicon_choices(config.post, domain)
+    if not choices:
+        return [line.prediction for line in logits]
+    c2l, l2c, n_classes = engine.codec(config.rec.model)
+    params = RescoreParams(config.post.ctc_alpha, config.post.lexicon_max_ratio, config.post.ctc_candidates,
+                           config.post.lexicon_min_len)
+    known = frozenset(choices)
+    return [rescore_line(line, c2l, l2c, n_classes, known, choices, params) for line in logits]
+
+
 def run_page(engine: Engine, page: Page, config: PipelineConfig, domain: tuple[str, ...] = ()) -> dict[str, Any]:
-    lines, n_lines = recognize_page(engine, page, config)
+    lines, n_lines = recognize_page(engine, page, config, domain)
     text = '\n'.join(correct(lines, config.post, domain))
     return {'page': page.number, 'lines': n_lines, 'pred_words': len(text.split()), 'text': text,
             **score(page.reference_text(), text)}

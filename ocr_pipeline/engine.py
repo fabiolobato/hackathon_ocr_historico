@@ -84,6 +84,26 @@ class Engine:
             return [r.prediction for r in self._recognizer(config.model).predict(image, segmentation, rec_config)]
         return self._cached('rec', key, compute)
 
+    def recognize_logits(self, image: Image.Image, segmentation: Any, config: RecConfig, key: str) -> list[Any]:
+        from .ctc_rescore import LineLogits, compress
+
+        def compute() -> list[Any]:
+            if not segmentation.lines:
+                return []
+            seed_everything(self.seed)
+            rec_config = self._rec_config_cls(**self._common, num_line_workers=0, padding=config.padding,
+                                              no_legacy_polygons=config.no_legacy_polygons, return_logits=True)
+            records = self._recognizer(config.model).predict(image, segmentation, rec_config)
+            # Lines whose polygon extraction failed come back empty and without logits.
+            return [LineLogits(r.prediction, *compress(r.logits)) for r in records if r.logits is not None]
+        return self._cached('reclog', key, compute)
+
+    def codec(self, model: str) -> tuple[dict[str, list[int]], dict[int, str], int]:
+        codec = self._recognizer(model).net.codec
+        c2l = {char: list(labels) for char, labels in codec.c2l.items()}
+        l2c = {labels[0]: char for char, labels in c2l.items() if len(labels) == 1}
+        return c2l, l2c, codec.max_label + 1
+
 
 def filter_lines(segmentation: Any, config: SegConfig, width: int, height: int) -> Any:
     def keep(line: Any) -> bool:
