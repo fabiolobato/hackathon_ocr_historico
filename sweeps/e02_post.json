@@ -1,0 +1,9 @@
+{
+  "base": {"seg_ops": "kraken_nlbin", "rec_ops": ""},
+  "variants": {
+    "ref":               {},
+    "conventions":       {"post.conventions": true},
+    "dehyphenate":       {"post.dehyphenate": true},
+    "conv_dehyph":       {"post.conventions": true, "post.dehyphenate": true}
+  }
+}
