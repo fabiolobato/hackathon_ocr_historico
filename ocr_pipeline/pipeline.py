@@ -9,7 +9,7 @@ from .config import OpParams, PipelineConfig, stable_hash
 from .data import Page
 from .engine import Engine, filter_lines
 from .metrics import corpus, score
-from .postprocess import correct
+from .postprocess import correct, domain_vocabulary
 from .preprocessing import apply_chain
 
 logger = logging.getLogger(__name__)
@@ -46,13 +46,22 @@ def recognize_page(engine: Engine, page: Page, config: PipelineConfig) -> tuple[
     return lines, len(segmentation.lines)
 
 
-def run_page(engine: Engine, page: Page, config: PipelineConfig) -> dict[str, Any]:
+def run_page(engine: Engine, page: Page, config: PipelineConfig, domain: tuple[str, ...] = ()) -> dict[str, Any]:
     lines, n_lines = recognize_page(engine, page, config)
-    text = '\n'.join(correct(lines, config.post))
+    text = '\n'.join(correct(lines, config.post, domain))
     return {'page': page.number, 'lines': n_lines, 'pred_words': len(text.split()), 'text': text,
             **score(page.reference_text(), text)}
 
 
-def evaluate(engine: Engine, pages: list[Page], config: PipelineConfig) -> dict[str, Any]:
-    rows = [run_page(engine, page, config) for page in pages]
+def domain_for(page: Page, pool: list[Page]) -> tuple[str, ...]:
+    """Leave-one-out: in-domain words from tuning pages other than the evaluated one."""
+    return domain_vocabulary([p.reference_text() for p in pool if p.number != page.number])
+
+
+def evaluate(engine: Engine, pages: list[Page], config: PipelineConfig,
+             lexicon_pool: list[Page] | None = None) -> dict[str, Any]:
+    """lexicon_pool: pages whose GT may feed the domain lexicon (the tuning split, never held-out pages)."""
+    pool = lexicon_pool if lexicon_pool is not None else []
+    rows = [run_page(engine, page, config, domain_for(page, pool) if config.post.domain_lexicon else ())
+            for page in pages]
     return {'corpus': corpus(rows), 'pages': rows}

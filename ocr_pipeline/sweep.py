@@ -9,7 +9,7 @@ import logging
 from pathlib import Path
 
 from .config import load_config, with_overrides
-from .data import discover, select
+from .data import discover, select, split
 from .engine import Engine
 from .pipeline import evaluate
 
@@ -47,7 +47,9 @@ def main() -> None:
         logging.getLogger(noisy).setLevel(logging.ERROR)
     spec = json.loads(args.sweep.read_text(encoding='utf-8'))
     base = with_overrides(load_config(args.config), spec.get('base', {}))
-    pages = select(discover(args.images, args.references), args.pages)
+    all_pages = discover(args.images, args.references)
+    pages = select(all_pages, args.pages)
+    tuning_pool = split(all_pages)[0]
     engine = Engine(args.cache, args.device, args.seed)
     only = set(args.only.split(',')) if args.only else None
     out = args.out / f'{args.sweep.stem}__{args.pages}.jsonl'
@@ -57,7 +59,7 @@ def main() -> None:
         if only and name not in only:
             continue
         config = with_overrides(base, overrides)
-        result = evaluate(engine, pages, config)
+        result = evaluate(engine, pages, config, tuning_pool)
         row = {'variant': name, 'overrides': overrides, 'pages_subset': args.pages,
                'config': config.to_dict(), **result}
         rows.append(row)

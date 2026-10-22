@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import load_config, with_overrides
-from .data import discover, select
+from .data import discover, select, split
 from .engine import Engine
 from .pipeline import evaluate
 
@@ -40,9 +40,11 @@ def main() -> None:
     args = build_parser().parse_args()
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     config = with_overrides(load_config(args.config), parse_sets(args.set))
-    pages = select(discover(args.images, args.references), args.pages)
+    all_pages = discover(args.images, args.references)
+    pages = select(all_pages, args.pages)
+    tuning_pool = split(all_pages)[0]
     engine = Engine(args.cache, args.device, args.seed)
-    result = evaluate(engine, pages, config)
+    result = evaluate(engine, pages, config, tuning_pool)
     name = args.name or datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     out = args.out / name
     out.mkdir(parents=True, exist_ok=True)

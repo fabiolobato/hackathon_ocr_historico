@@ -53,7 +53,9 @@ class RecConfig:
 class PostConfig:
     conventions: bool = False  # map model notation (n^o, ⁋) to GT notation (nº, §)
     dehyphenate: bool = False  # join word split by a line-final hyphen
-    lexicon: str | None = None  # path to a wordlist; None disables correction
+    lexicon: str | None = None  # path to a generic wordlist (most frequent first); None disables it
+    lexicon_size: int = 20000  # keep the N most frequent generic words (0 = all)
+    domain_lexicon: bool = False  # add words from tuning-page GT, never from the evaluated page
     lexicon_max_ratio: float = 0.34  # max normalized edit distance accepted for a correction
     lexicon_min_len: int = 4
 
