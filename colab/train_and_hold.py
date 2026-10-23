@@ -13,9 +13,9 @@ import time
 import urllib.request
 from pathlib import Path
 
-RUN = 'ft_v1'
+RUN = 'ft_v2'
 DATA_ZIP = '/content/v1.zip'
-ARGS = ['-B', '4', '--accumulate-grad-batches', '4', '-r', '1e-4', '--augment', '-q', 'fixed', '-N', '50',
+ARGS = ['-B', '4', '--accumulate-grad-batches', '4', '-r', '1e-4', '--augment', '-q', 'fixed', '-N', '100',
         '-p', '0.9', '-u', 'NFD', '--resize', 'union']
 HOLD_HOURS = 6
 KRAKEN = 'kraken @ git+https://github.com/mittagessen/kraken.git@bb487219e7d8289274443d1ad0989efb4924dc2a'

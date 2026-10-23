@@ -17,6 +17,8 @@ MODELS = {
     'medium': Path('models/10.5281_zenodo.21788410/medium.safetensors'),
     'small': Path('models/10.5281_zenodo.21788405/small.safetensors'),
     'traprinq': Path('models/10.5281_zenodo.14543904/traprinq.mlmodel'),
+    # medium fine-tuned on the 9 tuning pages (E07); never evaluate it on tuning pages
+    'ft_v1': Path('models/finetuned/ft_v1.safetensors'),
 }
 
 
