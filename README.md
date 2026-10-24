@@ -108,3 +108,24 @@ cd test_kraken && python -m pytest
 ```
 
 Os testes de integração usam motores falsos e não fazem requisições.
+
+## Seleção dos Modelos (LLMs)
+
+- **Gemini 3.1 Pro Preview** — Pather et al. (2026); Zhang et al. (2026); Semnani et al. (2025); Boillet, Tarride e Kermorvant (2026).
+- **Gemini 3.8 Flash** — Semnani et al. (2025); Zhang et al. (2026).
+- **GPT-5.6 Terra** — Pather et al. (2026); Crosilla, Klic e Colavizza (2025).
+- **Claude Sonnet 5.5** — Humphries et al. (2024); Crosilla, Klic e Colavizza (2025); Pather et al. (2026).
+
+## Referências
+
+BOILLET, Mélodie; TARRIDE, Solène; KERMORVANT, Christopher. **METATR: A Multilingual, Evolving Benchmark for Automatic Text Recognition**. 2026. [Artigo](https://arxiv.org/abs/2605.26712).
+
+CROSILLA, Giorgia; KLIC, Lukas; COLAVIZZA, Giovanni. **Benchmarking Large Language Models for Handwritten Text Recognition**. 2025. [Artigo](https://arxiv.org/abs/2503.15195v2).
+
+HUMPHRIES, Mark et al. **Unlocking the Archives: Using Large Language Models to Transcribe Handwritten Historical Documents**. 2024. [Artigo](https://arxiv.org/abs/2411.03340v1).
+
+PATHER, Nicholas et al. **From Handwriting to Structured Data: Benchmarking AI Digitisation of Handwritten Forms**. 2026. [Artigo](https://arxiv.org/abs/2604.16504v1).
+
+SEMNANI, Sina J. et al. **CHURRO: Making History Readable with an Open-Weight Large Vision-Language Model for High-Accuracy, Low-Cost Historical Text Recognition**. 2025. [Artigo](https://arxiv.org/abs/2509.19768v1).
+
+ZHANG, Jun et al. **WildHandBench: A Benchmark for Handwritten Text Understanding that Challenges MLLMs and Humans**. 2026. [Artigo](https://arxiv.org/abs/2608.22959).
