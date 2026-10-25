@@ -19,8 +19,8 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 IMAGE_KEYS = ('geometric_ops', 'seg_ops', 'seg.', 'params.')
-STATUS = {'accepted': ('var(--miss-fg)', 'accepted'), 'improver': ('var(--acc)', 'improved, not combined'),
-          'rejected': ('var(--sub-fg)', 'no gain: rejected'), 'incumbent': ('var(--muted)', 'incumbent')}
+STATUS = {'accepted': ('var(--miss-fg)', 'accepted'), 'improver': ('var(--acc)', 'improved alone'),
+          'rejected': ('var(--sub-fg)', 'no gain: rejected'), 'incumbent': ('var(--muted)', 'reference: current choices minus this stage')}
 
 
 def status(record: dict[str, Any], min_gain: float) -> str:

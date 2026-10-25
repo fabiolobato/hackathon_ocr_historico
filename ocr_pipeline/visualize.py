@@ -39,7 +39,7 @@ body { background:var(--bg); color:var(--fg); font:14px/1.45 -apple-system, "Seg
 h1 { font-size:22px; } h2 { font-size:18px; margin-top:32px; border-bottom:1px solid var(--line); } h3 { font-size:15px; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px; margin:12px 0; }
 .pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; align-items:start; }
-.imgs { display:grid; grid-template-columns:1fr 1fr; gap:8px; } .imgs img, .lines img { max-width:100%; display:block; }
+.imgs { display:grid; grid-template-columns:1fr 1fr; gap:8px; } img { max-width:100%; height:auto; display:block; }
 .cap { color:var(--muted); font-size:12px; } .text { font-family:ui-monospace, Menlo, monospace; font-size:13px; }
 .sub { background:var(--sub-bg); color:var(--sub-fg); text-decoration:line-through; }
 .miss { background:var(--miss-bg); color:var(--miss-fg); }
