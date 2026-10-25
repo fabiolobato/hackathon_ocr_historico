@@ -20,6 +20,8 @@ MODELS = {
     'mccatmus': Path('models/10.5281_zenodo.13788177/mccatmus.mlmodel'),  # multilingual hand/print, 16th-21st c.
     # medium fine-tuned on the 9 tuning pages (E07); never evaluate it on tuning pages
     'ft_v1': Path('models/finetuned/ft_v1.safetensors'),
+    # TraPrInq fine-tuned on the same tuning lines as ft_v1 (E08); same held-out-only rule
+    'ft_traprinq_v1': Path('models/finetuned/ft_traprinq_v1.safetensors'),
 }
 
 
