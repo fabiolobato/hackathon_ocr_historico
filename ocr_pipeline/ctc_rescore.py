@@ -25,6 +25,10 @@ class LineLogits:
     top_val: np.ndarray  # (T, k) float16 probabilities
 
 
+def empty_line(k: int = 20) -> LineLogits:
+    return LineLogits('', np.zeros((0, k), np.int16), np.zeros((0, k), np.float16))
+
+
 def compress(probs: torch.Tensor, k: int = 20) -> tuple[np.ndarray, np.ndarray]:
     values, indices = probs.float().topk(k, dim=0)  # probs: (C, T)
     return indices.T.numpy().astype(np.int16), values.T.numpy().astype(np.float16)
