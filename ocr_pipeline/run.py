@@ -1,4 +1,4 @@
-"""Evaluate one pipeline configuration. Writes metrics + predicted text only (no images).
+"""Evaluate one pipeline configuration. Writes metrics + predicted text; --viz adds report.html (images ↔ text).
 
 Example:
   python -m ocr_pipeline.run --config configs/baseline.json --pages tuning --set rec_ops=grayscale
@@ -33,6 +33,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--device', default='cpu')
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--name', default=None)
+    parser.add_argument('--viz', action='store_true', help='also write report.html pairing images with text')
     return parser
 
 
@@ -52,6 +53,11 @@ def main() -> None:
     (out / 'result.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     for row in result['pages']:
         (out / f"page_{row['page']:02d}.txt").write_text(row['text'], encoding='utf-8')
+    if args.viz:
+        from .visualize import build_report
+
+        report = build_report(engine, pages, {name: config}, tuning_pool, title=f'OCR run {name}')
+        (out / 'report.html').write_text(report, encoding='utf-8')
     c = result['corpus']
     logger.info('WER strict %.2f%% | WER norm %.2f%% | CER norm %.2f%% -> %s',
                 100 * c['wer_strict'], 100 * c['wer_norm'], 100 * c['cer_norm'], out)
