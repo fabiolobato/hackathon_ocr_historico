@@ -5,9 +5,9 @@ Spec (JSON):
    "stages": [{"name": "seg_image", "candidates": {"nlbin": {"seg_ops": "kraken_nlbin"},
                                                     "t04": {"set": {...}, "requires": {"seg_ops": "kraken_nlbin"}}}}]}
 Per stage, the incumbent is every current choice except this stage's own:
-  1. each candidate alone; improvers are strictly better than the incumbent by more than min_gain.
-  2. forward selection among improvers: start from the best one, add the improver that helps most, repeat
-     while the combination keeps improving. Tuple fields (ops chains) concatenate in declaration order;
+  1. each candidate alone; the stage moves only if the best one beats the incumbent by more than min_gain.
+  2. forward selection: start from that best one, try every other candidate on top of it (including ones
+     that hurt alone), keep the one that helps most, repeat while the combination keeps improving. Tuple fields (ops chains) concatenate in declaration order;
      candidates setting the same scalar to different values cannot be combined.
   3. the stage's picks change only if the new winner beats the current configuration. No gain, no change.
 After all stages, a backward pass re-tests every accepted choice in the final context and drops the one whose
@@ -141,23 +141,23 @@ class Search:
 
     def singles(self, stage: str, candidates: tuple[Candidate, ...], chosen: list[Candidate],
                 ref: float) -> list[tuple[float, Candidate]]:
+        """Every applicable candidate alone on top of the incumbent, best first."""
         incumbent = self.build(chosen)
-        improvers = []
+        tested = []
         for candidate in candidates:
             config = self.build(chosen + [candidate])
             if not satisfied(incumbent, candidate.requires) or config is None or config == incumbent:
                 logger.info('[%s] skip %s (requirement unmet or no-op)', stage, candidate.name)
                 continue
-            value = self.record(stage, 'single', [candidate.name], config, ref)
-            if value < ref - self.spec.min_gain:
-                improvers.append((value, candidate))
-        return sorted(improvers, key=lambda item: (item[0], item[1].order))
+            tested.append((self.record(stage, 'single', [candidate.name], config, ref), candidate))
+        return sorted(tested, key=lambda item: (item[0], item[1].order))
 
-    def combine(self, stage: str, improvers: list[tuple[float, Candidate]], kept: list[Candidate],
+    def combine(self, stage: str, tested: list[tuple[float, Candidate]], kept: list[Candidate],
                 ref: float) -> tuple[float, list[Candidate]]:
-        """Forward selection: grow the best improver with whichever other improver helps most."""
-        best, picked = improvers[0][0], [improvers[0][1]]
-        rest = [c for _, c in improvers[1:]]
+        """Forward selection: grow the best single with whichever other candidate helps most on top of it.
+        Every candidate is tried on top, including ones that hurt alone; one is kept only if it helps."""
+        best, picked = tested[0][0], [tested[0][1]]
+        rest = [c for _, c in tested[1:]]
         while rest:
             trials = [(self.record(stage, 'combo', [c.name for c in picked + [x]], cfg, ref), x)
                       for x in rest if (cfg := self.build(kept + picked + [x])) is not None]
@@ -173,10 +173,10 @@ class Search:
         kept = [c for c in chosen if c.stage != stage]
         current = self.score(self.build(chosen))
         ref = self.record(stage, 'incumbent', [], self.build(kept), self.score(self.build(kept)))
-        improvers = self.singles(stage, candidates, kept, ref)
+        tested = self.singles(stage, candidates, kept, ref)
         result = kept if ref <= current - self.spec.min_gain or kept == chosen else chosen
-        if improvers:
-            best, picked = self.combine(stage, improvers, kept, ref)
+        if tested and tested[0][0] < ref - self.spec.min_gain:
+            best, picked = self.combine(stage, tested, kept, ref)
             if best < current - self.spec.min_gain or kept == chosen:
                 self.mark(stage, [c.name for c in picked])
                 result = kept + picked
