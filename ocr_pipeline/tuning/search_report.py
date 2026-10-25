@@ -8,11 +8,11 @@ from typing import TYPE_CHECKING, Any
 
 from PIL import Image
 
-from .config import from_dict
-from .data import Page
-from .engine import Engine
-from .pipeline import PageTrace, domain_for, score_trace, trace_page
-from .visualize import bar_svg, describe, img, line_box, line_table, overlay, pct, render, word_diff
+from ..config import from_dict
+from ..data import Page
+from ..engine import Engine
+from ..pipeline import PageTrace, domain_for, score_trace, trace_page
+from ..visualize import bar_svg, describe, img, line_box, line_table, overlay, pct, render, word_diff
 
 if TYPE_CHECKING:
     from .search import Candidate, Search

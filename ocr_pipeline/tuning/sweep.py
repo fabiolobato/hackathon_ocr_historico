@@ -8,10 +8,10 @@ import json
 import logging
 from pathlib import Path
 
-from .config import load_config, with_overrides
-from .data import discover, select, split
-from .engine import Engine
-from .pipeline import evaluate
+from ..config import load_config, with_overrides
+from ..data import discover, select, split
+from ..engine import Engine
+from ..pipeline import evaluate
 
 logger = logging.getLogger(__name__)
 

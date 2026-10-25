@@ -1,0 +1,6 @@
+# Tuning (ocr_pipeline.tuning), notebooks and tests, on top of the runtime.
+-r requirements.txt
+matplotlib==3.10.6
+ipykernel==6.30.1; sys_platform == "darwin"
+pytest==8.4.2
+requests==2.32.4

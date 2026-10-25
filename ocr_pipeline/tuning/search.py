@@ -16,7 +16,7 @@ context of all later choices, e.g. image ops once the lexicon is on) until the c
 requires: {key: value} is satisfied when the current value equals it, contains it (tuple fields), or is truthy
 for "*"; a list of such dicts means any of them.
 
-  python -m ocr_pipeline.search sweeps/search_v1.json --pages tuning
+  python -m ocr_pipeline.tuning.search sweeps/search_v1.json --pages tuning
 """
 import argparse
 import json
@@ -25,10 +25,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .config import PipelineConfig, stable_hash, with_overrides
-from .data import Page, discover, select, split
-from .engine import Engine
-from .pipeline import evaluate
+from ..config import PipelineConfig, stable_hash, with_overrides
+from ..data import Page, discover, select, split
+from ..engine import Engine
+from ..pipeline import evaluate
 
 logger = logging.getLogger(__name__)
 

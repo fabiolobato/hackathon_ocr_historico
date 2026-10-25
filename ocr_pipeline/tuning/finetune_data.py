@@ -5,7 +5,7 @@ align GT words to OCR words with a weighted edit distance, and give every OCR li
 to it. Lines whose OCR and assigned GT disagree too much are dropped. Only pages passed with --pages are
 used; for honest evaluation pass the tuning split and evaluate the fine-tuned model on held-out pages.
 
-  python -m ocr_pipeline.finetune_data --config configs/best_v1.json --pages tuning --out outputs/finetune/v1
+  python -m ocr_pipeline.tuning.finetune_data --config configs/best_v1.json --pages tuning --out outputs/finetune/v1
 """
 import argparse
 import json
@@ -18,11 +18,11 @@ from typing import Any
 from PIL import Image
 from rapidfuzz.distance import Levenshtein
 
-from .config import PipelineConfig, load_config
-from .data import Page, discover, select
-from .engine import Engine, filter_lines
-from .pipeline import cache_keys
-from .preprocessing import apply_chain
+from ..config import PipelineConfig, load_config
+from ..data import Page, discover, select
+from ..engine import Engine, filter_lines
+from ..pipeline import cache_keys
+from ..preprocessing import apply_chain
 
 logger = logging.getLogger(__name__)
 PAGE_NS = 'http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15'
