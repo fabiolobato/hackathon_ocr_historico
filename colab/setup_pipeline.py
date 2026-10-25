@@ -5,7 +5,7 @@ Run from the repository root:
   !python -m ocr_pipeline.run --config configs/best_v3_ft.json --pages heldout --device cuda:0
 Installs Kraken and the text deps on top of Colab's preinstalled torch (never reinstalls torch), downloads
 the PP-OCRv6 medium weights and the pt-BR lexicon, and installs ft_v1 from a path you provide (it is not public).
-Every file is hash-checked. Without ft_v1, use configs/best_v2.json.
+Every file is hash-checked. Without ft_v1, use configs/best_v4.json.
 """
 import argparse
 import hashlib
@@ -52,7 +52,7 @@ def install_ft(source: Path | None) -> bool:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
     if not target.is_file():
-        logger.warning('ft_v1 missing: configs/best_v3_ft.json will not run; use configs/best_v2.json '
+        logger.warning('ft_v1 missing: configs/best_v3_ft.json will not run; use configs/best_v4.json '
                        'or pass --ft-weights')
         return False
     actual = digest(target, algorithm)
