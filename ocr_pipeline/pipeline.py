@@ -1,6 +1,6 @@
 """Page-level pipeline: base geometry -> segmentation image -> line filter -> recognition image -> text -> scores."""
 import logging
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 from typing import Any
 
 from PIL import Image
@@ -35,39 +35,54 @@ def cache_keys(page: Page, config: PipelineConfig) -> tuple[str, str]:
     return seg_key, rec_key
 
 
-def recognize_page(engine: Engine, page: Page, config: PipelineConfig,
-                   domain: tuple[str, ...] = ()) -> tuple[list[str], int]:
+@dataclass
+class PageTrace:
+    """Every intermediate of one page run; lines/greedy are index-aligned with segmentation.lines."""
+    base: Image.Image
+    seg_image: Image.Image
+    rec_image: Image.Image
+    segmentation: Any
+    greedy: list[str]  # recognizer best path
+    lines: list[str]  # after the decoder (CTC rescoring), before text post-processing
+
+
+def trace_page(engine: Engine, page: Page, config: PipelineConfig, domain: tuple[str, ...] = ()) -> PageTrace:
     seg_key, rec_key = cache_keys(page, config)
     with Image.open(page.image) as original:
         base = apply_chain(original.convert('RGB'), config.geometric_ops, config.params, geometric=True)
-    segmentation = engine.segment(apply_chain(base, config.seg_ops, config.params, geometric=False),
-                                  config.seg, seg_key)
-    segmentation = filter_lines(segmentation, config.seg, *base.size)
+    seg_image = apply_chain(base, config.seg_ops, config.params, geometric=False)
+    segmentation = filter_lines(engine.segment(seg_image, config.seg, seg_key), config.seg, *base.size)
     rec_image = apply_chain(base, config.rec_ops, config.params, geometric=False)
     if config.post.decoder in ('ctc', 'ctc+edit'):
-        return rescore_page(engine, rec_image, segmentation, config, rec_key, domain), len(segmentation.lines)
-    lines = engine.recognize(rec_image, segmentation, config.rec, rec_key)
-    return lines, len(segmentation.lines)
+        greedy, lines = rescore_page(engine, rec_image, segmentation, config, rec_key, domain)
+    else:
+        greedy = lines = engine.recognize(rec_image, segmentation, config.rec, rec_key)
+    return PageTrace(base, seg_image, rec_image, segmentation, greedy, lines)
 
 
 def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: PipelineConfig, key: str,
-                 domain: tuple[str, ...]) -> list[str]:
+                 domain: tuple[str, ...]) -> tuple[list[str], list[str]]:
+    """(greedy, rescored) per line."""
     logits = engine.recognize_logits(image, segmentation, config.rec, key)
+    greedy = [line.prediction for line in logits]
     choices = lexicon_choices(config.post, domain)
     if not choices:
-        return [line.prediction for line in logits]
+        return greedy, greedy
     c2l, l2c, n_classes = engine.codec(config.rec.model)
     params = RescoreParams(config.post.ctc_alpha, config.post.lexicon_max_ratio, config.post.ctc_candidates,
                            config.post.lexicon_min_len)
     known = frozenset(choices)
-    return [rescore_line(line, c2l, l2c, n_classes, known, choices, params) for line in logits]
+    return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params) for line in logits]
+
+
+def score_trace(page: Page, trace: PageTrace, config: PipelineConfig, domain: tuple[str, ...] = ()) -> dict[str, Any]:
+    text = '\n'.join(correct(trace.lines, config.post, domain))
+    return {'page': page.number, 'lines': len(trace.segmentation.lines), 'pred_words': len(text.split()),
+            'text': text, **score(page.reference_text(), text)}
 
 
 def run_page(engine: Engine, page: Page, config: PipelineConfig, domain: tuple[str, ...] = ()) -> dict[str, Any]:
-    lines, n_lines = recognize_page(engine, page, config, domain)
-    text = '\n'.join(correct(lines, config.post, domain))
-    return {'page': page.number, 'lines': n_lines, 'pred_words': len(text.split()), 'text': text,
-            **score(page.reference_text(), text)}
+    return score_trace(page, trace_page(engine, page, config, domain), config, domain)
 
 
 def domain_for(page: Page, pool: list[Page]) -> tuple[str, ...]:
