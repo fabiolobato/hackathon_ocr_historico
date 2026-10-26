@@ -6,8 +6,9 @@ Esta pasta tem tudo o que é preciso para rodar o pipeline de OCR final e aprese
 - configuração
 - imagens e GT
 - caderno de apresentação
+- modelo e léxico
 
-O modelo e o léxico não ficam no Git. `setup_pipeline.py` baixa os dois e confere o hash.
+`setup_pipeline.py` instala as dependências e confere o hash do modelo e do léxico (e baixa os dois, se faltarem).
 
 O processo completo (experimentos, decisões e números) está em [`PROCESSO.md`](PROCESSO.md).
 
@@ -40,7 +41,7 @@ ocr_pipeline/         código do pipeline
 configs/final.json    configuração final
 imagens/              12 páginas (JPEG)
 ground_truth/         transcrição de referência de cada página (.txt), usada só para medir o erro
-models/               PP-OCRv6 medium e léxico pt-BR 50k (baixados por setup_pipeline.py; fora do Git)
+models/               PP-OCRv6 medium e léxico pt-BR 50k
 relatorios/           relatório HTML da busca de parâmetros nas páginas de ajuste
 resultados/textos/    texto final de cada página
 ```
@@ -51,13 +52,13 @@ resultados/textos/    texto final de cada página
 
 Há duas formas de abrir o caderno:
 
-- **Pelo Drive** (recomendado, já inclui o GT): copie esta pasta para `Meu Drive/entrega_ocr` (ajuste o caminho na primeira célula se usar outro), abra `apresentacao.ipynb` com o Google Colaboratory e use `ORIGEM = 'drive'` na primeira célula.
-- **Pelo GitHub:** com `ORIGEM = 'github'` a primeira célula clona o repositório. O GT não fica no Git, então copie antes os `.txt` dele para `test_kraken/ground_truth/` do clone.
+- **Pelo GitHub** (mais simples): abra o caderno no Colab pelo link do README principal do repositório. Com `ORIGEM = 'github'`, a primeira célula clona o repositório e entra nesta pasta.
+- **Pelo Drive:** copie esta pasta para `Meu Drive/entrega_ocr` (ajuste o caminho na primeira célula se usar outro), abra `apresentacao.ipynb` com o Google Colaboratory e use `ORIGEM = 'drive'`.
 
 Depois, nos dois casos:
 
 1. A GPU é opcional (Ambiente de execução → Alterar o tipo de ambiente de execução → T4). Em CPU também funciona, só demora mais.
-2. Execute tudo (Ambiente de execução → Executar tudo). A primeira célula entra na pasta e roda `setup_pipeline.py`. Esse script instala o Kraken e as bibliotecas de texto sem reinstalar o torch do Colab, e baixa e confere o modelo e o léxico.
+2. Execute tudo (Ambiente de execução → Executar tudo). A primeira célula entra na pasta e roda `setup_pipeline.py`. Esse script instala o Kraken e as bibliotecas de texto sem reinstalar o torch do Colab, e confere o modelo e o léxico.
 
 O caderno já vem com todas as saídas, então dá para apresentar sem executar. Executar só é preciso para regenerar os resultados. A primeira execução leva de 20 a 60 s por página em CPU, e os intermediários ficam em `cache/`.
 
@@ -67,7 +68,6 @@ O caderno já vem com todas as saídas, então dá para apresentar sem executar.
 cd entrega_ocr
 python3.12 -m venv .venv
 .venv/bin/pip install -r requirements.txt jupyter
-.venv/bin/python setup_pipeline.py --skip-install   # baixa (se faltar) e confere o modelo e o léxico
 .venv/bin/jupyter notebook apresentacao.ipynb
 ```
 

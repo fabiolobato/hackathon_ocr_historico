@@ -1,0 +1,52 @@
+{
+  "geometric_ops": [
+    "upscale",
+    "deskew"
+  ],
+  "seg_ops": [
+    "illumination",
+    "clahe"
+  ],
+  "rec_ops": [
+    "illumination",
+    "gamma"
+  ],
+  "params": {
+    "upscale_factor": 1.5,
+    "deskew_limit": 5.0,
+    "deskew_step": 0.25,
+    "contrast_factor": 1.8,
+    "clahe_clip": 2.0,
+    "clahe_grid": 8,
+    "denoise_strength": 7.0,
+    "background_sigma": 25.0,
+    "nlbin_threshold": 0.5,
+    "nlbin_zoom": 0.5,
+    "sharpen_amount": 1.0,
+    "gamma": 0.7,
+    "rule_kernel_frac": 0.08
+  },
+  "seg": {
+    "model": null,
+    "min_line_frac": 0.0,
+    "min_line_px": 0,
+    "drop_top_frac": 0.0
+  },
+  "rec": {
+    "model": "medium",
+    "padding": 16,
+    "no_legacy_polygons": false
+  },
+  "post": {
+    "conventions": true,
+    "dehyphenate": true,
+    "lexicon": "models/lexicon/pt_br_50k.txt",
+    "lexicon_size": 0,
+    "domain_lexicon": false,
+    "lexicon_max_ratio": 0.5,
+    "lexicon_min_len": 3,
+    "decoder": "ctc+edit",
+    "ctc_alpha": 2,
+    "ctc_candidates": 10
+  }
+}

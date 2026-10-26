@@ -4,10 +4,10 @@ Pipeline de OCR para manuscritos do século XIX (Kraken + PP-OCRv6), avaliado em
 
 ## Resumo visual: comece por aqui
 
-**[`docs/entrega/apresentacao.ipynb`](docs/entrega/apresentacao.ipynb)**: o caderno de apresentação, já executado, com todas as saídas. É a forma mais fácil de ver o pipeline funcionando.
+**[`entrega_ocr/apresentacao.ipynb`](entrega_ocr/apresentacao.ipynb)**: o caderno de apresentação, já executado, com todas as saídas. É a forma mais fácil de ver o pipeline funcionando.
 
-- [Ver no nbviewer](https://nbviewer.org/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/docs/entrega/apresentacao.ipynb): mostra as imagens e tabelas completas.
-- [Abrir no Colab](https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/docs/entrega/apresentacao.ipynb): mostra as saídas salvas, sem instalar nada.
+- [Ver no nbviewer](https://nbviewer.org/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/entrega_ocr/apresentacao.ipynb): mostra as imagens e tabelas completas.
+- [Abrir no Colab](https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/entrega_ocr/apresentacao.ipynb): mostra as saídas salvas; "Executar tudo" roda de novo, sem instalar nada no seu computador.
 
 Para cada uma das 12 páginas, o caderno mostra:
 
@@ -16,7 +16,7 @@ Para cada uma das 12 páginas, o caderno mostra:
 - o texto final ao lado do GT, com as palavras erradas marcadas;
 - linha a linha, o recorte da imagem ao lado do texto lido.
 
-Ele também resume o que foi testado, quanto cada escolha vale e o que cada etapa faz. A documentação completa dos experimentos está em [`docs/entrega/PROCESSO.md`](docs/entrega/PROCESSO.md).
+Ele também resume o que foi testado, quanto cada escolha vale e o que cada etapa faz. A documentação completa dos experimentos está em [`entrega_ocr/PROCESSO.md`](entrega_ocr/PROCESSO.md).
 
 ## Resultado
 
@@ -95,52 +95,59 @@ Foram 3 passes e 330 configurações. O caderno mostra o caminho da busca e quan
 
 ### Só ver os resultados
 
-Abra [`docs/entrega/apresentacao.ipynb`](docs/entrega/apresentacao.ipynb) por um dos links acima.
+Abra [`entrega_ocr/apresentacao.ipynb`](entrega_ocr/apresentacao.ipynb) por um dos links acima.
 
-### Google Colab (gratuito)
+### Google Colab (gratuito, um clique)
 
-Para só ver, basta o link do Colab acima.
+Abra o caderno pelo link do Colab e use "Executar tudo". A primeira célula (com `ORIGEM = 'github'`):
 
-Para executar de novo é preciso o GT, que não fica no Git (`test_kraken/ground_truth/`, ver `test_kraken/ARMAZENAMENTO.md`). O caminho mais simples é a pasta `entrega_ocr/` no Drive (abaixo), que já inclui o GT. Na primeira célula, com `ORIGEM = 'drive'`, o caderno:
+1. clona este repositório;
+2. entra em `entrega_ocr/`;
+3. instala o Kraken sem reinstalar o torch do Colab;
+4. confere o modelo e o léxico.
 
-1. entra na pasta;
-2. instala o Kraken sem reinstalar o torch do Colab;
-3. baixa e confere o modelo e o léxico.
+A GPU é opcional. A primeira execução leva de 20 a 60 s por página em CPU.
 
-Com `ORIGEM = 'github'`, o caderno clona o repositório; nesse caso, copie antes os `.txt` do GT para `test_kraken/ground_truth/`. A GPU é opcional.
+### A pasta `entrega_ocr/`
 
-### Pasta de entrega `entrega_ocr/` (local ou Drive)
-
-A pasta `entrega_ocr/` **não fica no Git**. Ela é gerada automaticamente a partir deste repositório e reúne só o necessário para rodar e apresentar:
+[`entrega_ocr/`](entrega_ocr/) reúne tudo o que é preciso para rodar e apresentar o pipeline:
 
 - caderno executado;
 - código do pipeline e `configs/final.json`;
 - imagens e GT;
-- modelo e léxico;
+- modelo PP-OCRv6 medium e léxico;
 - README e PROCESSO.
 
-O caderno gerado é o mesmo de [`docs/entrega/apresentacao.ipynb`](docs/entrega/apresentacao.ipynb).
+Ela é gerada automaticamente a partir do código-fonte deste repositório:
+
+- o código vem de `ocr_pipeline/`;
+- o caderno, o README e o PROCESSO vêm de `docs/entrega/`.
+
+Para rodar localmente (Python 3.12):
 
 ```bash
 git clone -b feat/visual_report_greedy_search https://github.com/fabiolobato/hackathon_ocr_historico.git
-cd hackathon_ocr_historico
+cd hackathon_ocr_historico/entrega_ocr
 python3.12 -m venv .venv
-.venv/bin/pip install -r requirements-dev.txt
-.venv/bin/python docs/entrega/setup_pipeline.py --skip-install       # baixa e confere o modelo e o léxico em models/
-.venv/bin/python tools/build_entrega.py --out entrega_ocr --execute  # gera a pasta e executa o caderno (~5–10 min em CPU)
+.venv/bin/pip install -r requirements.txt jupyter
+.venv/bin/jupyter notebook apresentacao.ipynb
 ```
 
-Depois, há dois caminhos:
+Também dá para copiar a pasta para `Meu Drive/entrega_ocr` e abrir no Colab com `ORIGEM = 'drive'` na primeira célula.
 
-- **Local:** `cd entrega_ocr && ../.venv/bin/jupyter notebook apresentacao.ipynb`.
-- **Drive:** copie `entrega_ocr/` para `Meu Drive/entrega_ocr`, abra `apresentacao.ipynb` com o Google Colaboratory, mude a primeira célula para `ORIGEM = 'drive'` e execute tudo.
+Para regenerar a pasta depois de mudar o código-fonte (requer `models/` na raiz, baixado por `python docs/entrega/setup_pipeline.py --skip-install`):
 
-`--execute` também grava o caderno executado em `docs/entrega/apresentacao.ipynb`. Sem `--execute`, a pasta é só montada. Detalhes da pasta em [`docs/entrega/README.md`](docs/entrega/README.md), que vira o `README.md` dela.
+```bash
+pip install -r requirements-dev.txt
+python tools/build_entrega.py --out entrega_ocr --execute   # monta a pasta e executa o caderno (~5–10 min em CPU)
+```
 
 ### Linha de comando
 
+Dentro de `entrega_ocr/`:
+
 ```bash
-python -m ocr_pipeline.run --config configs/final.json --pages all --viz --name final_todas
+python -m ocr_pipeline.run --config configs/final.json --pages all --references ground_truth --viz --name final_todas
 ```
 
 `--pages` aceita `all`, `tuning`, `heldout` ou uma lista (`5,8,13`). Saída em `outputs/runs/<nome>/`: métricas, texto por página e, com `--viz`, um relatório HTML imagem ↔ texto.
@@ -148,7 +155,8 @@ python -m ocr_pipeline.run --config configs/final.json --pages all --viz --name 
 ## Estrutura do repositório
 
 ```
-docs/entrega/           caderno de apresentação (executado), PROCESSO.md, README e setup da pasta de entrega
+entrega_ocr/            pasta de apresentação: caderno executado, código, configuração, dados, modelo, docs
+docs/entrega/           fontes do caderno, README, PROCESSO e setup da pasta de entrega
 ocr_pipeline/           código do pipeline: imagem, segmentação, reconhecimento, pós-processamento, métricas, relatórios
 ocr_pipeline/tuning/    busca de parâmetros e utilitários de experimentos
 configs/                configurações (final.json é a final)
@@ -158,4 +166,4 @@ imagens/                as 12 páginas
 test_kraken/            experimentos anteriores e transcrições de referência (ground_truth/)
 ```
 
-Os pesos e o léxico ficam fora do Git, em `models/`. `docs/entrega/setup_pipeline.py` baixa os dois e confere o hash.
+Na raiz, os pesos e o léxico ficam em `models/` (fora do Git); `docs/entrega/setup_pipeline.py` baixa os dois e confere o hash. A cópia em `entrega_ocr/models/` está no Git.

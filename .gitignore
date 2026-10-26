@@ -3,6 +3,7 @@ __pycache__/
 models/
 outputs/
 .DS_Store
-entrega_ocr/
+!entrega_ocr/models/
+entrega_ocr/cache/
 /cache/
 /resultados/

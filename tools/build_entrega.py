@@ -1,10 +1,11 @@
 """Assemble the self-contained delivery folder (runtime code, final config, data, weights, notebook, docs).
 
   python tools/build_entrega.py --out entrega_ocr --execute
-The folder is generated and gitignored. Sources live in docs/entrega/ and the repository; weights and reports
-that are missing (e.g. in a fresh clone) are skipped, and the folder's setup_pipeline.py downloads the weights.
---execute runs the notebook inside the folder so it opens with every output already rendered, and writes the
-executed notebook back to docs/entrega/apresentacao.ipynb (the version linked from the README).
+The folder is committed (model and lexicon included) so it can be browsed and run from a clone; only cache/ is
+gitignored. Sources live in
+docs/entrega/ and the repository; weights and reports that are missing (e.g. in a fresh clone) are skipped, and
+the folder's setup_pipeline.py downloads the weights.
+--execute runs the notebook inside the folder so it opens with every output already rendered.
 """
 import argparse
 import logging
@@ -70,8 +71,7 @@ def execute(out: Path, timeout: int) -> None:
     notebook = nbformat.read(path, as_version=4)
     NotebookClient(notebook, timeout=timeout, kernel_name='python3', resources={'metadata': {'path': str(out)}}).execute()
     nbformat.write(notebook, path)
-    shutil.copy2(path, SOURCE_NOTEBOOK)
-    logger.info('executed %s (written back to %s)', path, SOURCE_NOTEBOOK)
+    logger.info('executed %s', path)
 
 
 def main() -> None:
