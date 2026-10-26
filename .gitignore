@@ -4,3 +4,5 @@ models/
 outputs/
 .DS_Store
 entrega_ocr/
+/cache/
+/resultados/

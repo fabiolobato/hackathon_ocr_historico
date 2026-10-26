@@ -1,8 +1,10 @@
 """Assemble the self-contained delivery folder (runtime code, final config, data, weights, notebook, docs).
 
   python tools/build_entrega.py --out entrega_ocr --execute
-The folder is gitignored: it holds model weights. Sources live in docs/entrega/ and the repository.
---execute runs the notebook inside the folder so it opens with every output already rendered.
+The folder is generated and gitignored. Sources live in docs/entrega/ and the repository; weights and reports
+that are missing (e.g. in a fresh clone) are skipped, and the folder's setup_pipeline.py downloads the weights.
+--execute runs the notebook inside the folder so it opens with every output already rendered, and writes the
+executed notebook back to docs/entrega/apresentacao.ipynb (the version linked from the README).
 """
 import argparse
 import logging
@@ -10,15 +12,18 @@ import shutil
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
+SOURCE_NOTEBOOK = Path('docs/entrega/apresentacao.ipynb')
 RUNTIME = ['__init__.py', 'config.py', 'ctc_rescore.py', 'data.py', 'engine.py', 'metrics.py', 'pipeline.py',
            'postprocess.py', 'preprocessing.py', 'presentation.py', 'run.py', 'visualize.py']
 FILES = {  # destination (inside the folder) -> source (repository)
     'README.md': 'docs/entrega/README.md',
     'PROCESSO.md': 'docs/entrega/PROCESSO.md',
-    'apresentacao.ipynb': 'docs/entrega/apresentacao.ipynb',
+    'apresentacao.ipynb': str(SOURCE_NOTEBOOK),
     'requirements.txt': 'requirements.txt',
     'setup_pipeline.py': 'docs/entrega/setup_pipeline.py',
     'configs/final.json': 'configs/final.json',
+}
+OPTIONAL = {  # not in git: copied when present, otherwise skipped (setup_pipeline.py downloads the weights)
     'models/10.5281_zenodo.21788410/medium.safetensors': 'models/10.5281_zenodo.21788410/medium.safetensors',
     'models/lexicon/pt_br_50k.txt': 'models/lexicon/pt_br_50k.txt',
     'relatorios/busca_gulosa.html': 'outputs/search/search_v1__tuning/report.html',
@@ -46,6 +51,11 @@ def assemble(out: Path) -> None:
     engine.write_text(without_finetuned(engine.read_text(encoding='utf-8')), encoding='utf-8')
     for destination, source in FILES.items():
         copy(Path(source), out / destination)
+    for destination, source in OPTIONAL.items():
+        if Path(source).is_file():
+            copy(Path(source), out / destination)
+        else:
+            logger.warning('skipped missing %s', source)
     for destination, (source, pattern) in TREES.items():
         for path in sorted(Path(source).glob(pattern)):
             copy(path, out / destination / path.name)
@@ -60,7 +70,8 @@ def execute(out: Path, timeout: int) -> None:
     notebook = nbformat.read(path, as_version=4)
     NotebookClient(notebook, timeout=timeout, kernel_name='python3', resources={'metadata': {'path': str(out)}}).execute()
     nbformat.write(notebook, path)
-    logger.info('executed %s', path)
+    shutil.copy2(path, SOURCE_NOTEBOOK)
+    logger.info('executed %s (written back to %s)', path, SOURCE_NOTEBOOK)
 
 
 def main() -> None:
