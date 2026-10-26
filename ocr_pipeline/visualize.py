@@ -6,7 +6,7 @@ Per (config, page) card:
   post-processing: decoded page text -> final page text, changed words marked
 Self-contained HTML (images embedded). Scores use the normalized policy of metrics.py.
 
-  python -m ocr_pipeline.visualize --config configs/best_v2.json --config configs/best_v3_ft.json --pages heldout
+  python -m ocr_pipeline.visualize --config configs/best_v2.json --config configs/best_v4.json --pages heldout
 """
 import argparse
 import base64
