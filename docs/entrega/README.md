@@ -51,8 +51,8 @@ resultados/textos/    texto final de cada página
 
 Há duas formas de abrir o caderno:
 
-- **Pelo GitHub** (mais simples): abra o caderno no Colab pelo link do README principal e mantenha `ORIGEM = 'github'` na primeira célula. Ela clona o repositório sozinha.
-- **Pelo Drive:** copie esta pasta para `Meu Drive/entrega_ocr` (ajuste o caminho na primeira célula se usar outro), abra `apresentacao.ipynb` com o Google Colaboratory e mude para `ORIGEM = 'drive'`.
+- **Pelo Drive** (recomendado, já inclui o GT): copie esta pasta para `Meu Drive/entrega_ocr` (ajuste o caminho na primeira célula se usar outro), abra `apresentacao.ipynb` com o Google Colaboratory e use `ORIGEM = 'drive'` na primeira célula.
+- **Pelo GitHub:** com `ORIGEM = 'github'` a primeira célula clona o repositório. O GT não fica no Git, então copie antes os `.txt` dele para `test_kraken/ground_truth/` do clone.
 
 Depois, nos dois casos:
 

@@ -7,7 +7,7 @@ Pipeline de OCR para manuscritos do século XIX (Kraken + PP-OCRv6), avaliado em
 **[`docs/entrega/apresentacao.ipynb`](docs/entrega/apresentacao.ipynb)**: o caderno de apresentação, já executado, com todas as saídas. É a forma mais fácil de ver o pipeline funcionando.
 
 - [Ver no nbviewer](https://nbviewer.org/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/docs/entrega/apresentacao.ipynb): mostra as imagens e tabelas completas.
-- [Abrir no Colab](https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/docs/entrega/apresentacao.ipynb): mostra as saídas salvas; "Executar tudo" clona o repositório e roda de novo.
+- [Abrir no Colab](https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/feat/visual_report_greedy_search/docs/entrega/apresentacao.ipynb): mostra as saídas salvas, sem instalar nada.
 
 Para cada uma das 12 páginas, o caderno mostra:
 
@@ -99,13 +99,15 @@ Abra [`docs/entrega/apresentacao.ipynb`](docs/entrega/apresentacao.ipynb) por um
 
 ### Google Colab (gratuito)
 
-Abra o caderno pelo link do Colab e use "Executar tudo". A primeira célula (com `ORIGEM = 'github'`):
+Para só ver, basta o link do Colab acima.
 
-1. clona este repositório;
+Para executar de novo é preciso o GT, que não fica no Git (`test_kraken/ground_truth/`, ver `test_kraken/ARMAZENAMENTO.md`). O caminho mais simples é a pasta `entrega_ocr/` no Drive (abaixo), que já inclui o GT. Na primeira célula, com `ORIGEM = 'drive'`, o caderno:
+
+1. entra na pasta;
 2. instala o Kraken sem reinstalar o torch do Colab;
 3. baixa e confere o modelo e o léxico.
 
-A GPU é opcional.
+Com `ORIGEM = 'github'`, o caderno clona o repositório; nesse caso, copie antes os `.txt` do GT para `test_kraken/ground_truth/`. A GPU é opcional.
 
 ### Pasta de entrega `entrega_ocr/` (local ou Drive)
 
