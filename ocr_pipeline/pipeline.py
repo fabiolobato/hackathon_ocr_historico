@@ -9,8 +9,9 @@ from .config import OpParams, PipelineConfig, stable_hash
 from .data import Page
 from .engine import Engine, filter_lines
 from .metrics import corpus, score
-from .ctc_rescore import RescoreParams, rescore_line
-from .postprocess import correct, domain_vocabulary, lexicon_choices
+from .context_lm import load_lm
+from .ctc_rescore import RescoreParams, rescore_line, rescore_line_context
+from .postprocess import _HYPHEN_END, correct, domain_vocabulary, lexicon_choices
 from .preprocessing import apply_chain
 
 logger = logging.getLogger(__name__)
@@ -72,6 +73,12 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
     params = RescoreParams(config.post.ctc_alpha, config.post.lexicon_max_ratio, config.post.ctc_candidates,
                            config.post.lexicon_min_len)
     known = frozenset(choices)
+    post = config.post
+    if post.context_lm:
+        lm = load_lm(post.context_lm)
+        split = [False] + [bool(_HYPHEN_END.search(g)) for g in greedy[:-1]]
+        return greedy, [rescore_line_context(line, c2l, l2c, n_classes, known, choices, params, lm, post.context_beta,
+                                             post.context_open_known, s) for line, s in zip(logits, split)]
     return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params) for line in logits]
 
 

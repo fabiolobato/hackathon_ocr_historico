@@ -15,6 +15,8 @@ import torch.nn.functional as F
 from rapidfuzz import process
 from rapidfuzz.distance import Levenshtein
 
+from .context_lm import BigramLM, decode_line
+
 FLOOR = 1e-6
 
 
@@ -110,28 +112,28 @@ class RescoreParams:
     min_len: int = 3
 
 
-def rescore_line(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
-                 known: frozenset[str], choices: tuple[str, ...], params: RescoreParams) -> str:
-    runs = _greedy_runs(line, l2c)
-    replacements: dict[int, tuple[int, str]] = {}
-    for first, last, start, end in _letter_words(runs, line.top_idx.shape[0]):
-        original = unicodedata.normalize('NFC', ''.join(r[0] for r in runs[first:last + 1]))
-        lower = original.lower()
-        if len(original) < params.min_len or lower in known or end <= start:
-            continue
-        cutoff = max(1, int(len(original) * params.max_ratio))
-        found = process.extract(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff,
-                                limit=params.candidates)
-        cands = [_match_case(c, original) for c, _, _ in found]
-        encoded = [(c, _encode(c, c2l)) for c in [original] + cands]
-        encoded = [(c, e) for c, e in encoded if e and len(e) <= end - start]
-        if len(encoded) < 2:
-            continue
-        scores = _ctc_scores(_log_probs(line, n_classes, start, end), [e for _, e in encoded])
-        bonus = torch.tensor([0.0] + [params.alpha] * (len(encoded) - 1))
-        best = int(torch.argmax(scores + bonus))
-        if best:
-            replacements[first] = (last, encoded[best][0])
+def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
+               c2l: dict[str, list[int]], n_classes: int, known: frozenset[str], choices: tuple[str, ...],
+               params: RescoreParams, open_known: bool) -> list[tuple[str, float]]:
+    """(candidate, CTC log-likelihood + alpha if in lexicon) for one word; the read word first.
+    A single entry means the word is left as read (too short, in the lexicon and not opened, or no candidate)."""
+    first, last, start, end = span
+    original = unicodedata.normalize('NFC', ''.join(r[0] for r in runs[first:last + 1]))
+    lower = original.lower()
+    if len(original) < params.min_len or end <= start or (lower in known and not open_known):
+        return [(original, 0.0)]
+    cutoff = max(1, int(len(original) * params.max_ratio))
+    found = process.extract(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff,
+                            limit=params.candidates + 1)
+    cands = [_match_case(c, original) for c, _, _ in found if c != lower][:params.candidates]
+    encoded = [(c, e) for c, e in [(c, _encode(c, c2l)) for c in [original] + cands] if e and len(e) <= end - start]
+    if len(encoded) < 2 or encoded[0][0] != original:
+        return [(original, 0.0)]
+    scores = _ctc_scores(_log_probs(line, n_classes, start, end), [e for _, e in encoded])
+    return [(c, float(s) + (params.alpha if c.lower() in known else 0.0)) for (c, _), s in zip(encoded, scores)]
+
+
+def _assemble(runs: list[tuple[str, int, int]], replacements: dict[int, tuple[int, str]]) -> str:
     out, i = [], 0
     while i < len(runs):
         if i in replacements:
@@ -142,3 +144,32 @@ def rescore_line(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str
             out.append(runs[i][0])
             i += 1
     return unicodedata.normalize('NFC', ''.join(out))
+
+
+def rescore_line(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
+                 known: frozenset[str], choices: tuple[str, ...], params: RescoreParams) -> str:
+    """Each out-of-lexicon word on its own: the best of (read word, lexicon candidates) by CTC score + alpha."""
+    runs = _greedy_runs(line, l2c)
+    replacements: dict[int, tuple[int, str]] = {}
+    for span in _letter_words(runs, line.top_idx.shape[0]):
+        slot = _word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known=False)
+        best = max(range(len(slot)), key=lambda k: slot[k][1])
+        if best:
+            replacements[span[0]] = (span[1], slot[best][0])
+    return _assemble(runs, replacements)
+
+
+def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
+                         known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: BigramLM,
+                         beta: float, open_known: bool, continues_word: bool = False) -> str:
+    """The whole line at once: candidates as in rescore_line (plus in-lexicon words when open_known), chosen
+    jointly with a bigram language model weighted by beta (context_lm.decode_line). continues_word: the previous
+    line ends with a hyphen, so the first word is the tail of a split word and is left as read."""
+    runs = _greedy_runs(line, l2c)
+    spans = _letter_words(runs, line.top_idx.shape[0])
+    slots = [_word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known) for span in spans]
+    if continues_word and slots:
+        slots[0] = slots[0][:1]
+    words = decode_line(slots, lm, beta)
+    replacements = {span[0]: (span[1], word) for span, slot, word in zip(spans, slots, words) if word != slot[0][0]}
+    return _assemble(runs, replacements)

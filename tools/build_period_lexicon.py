@@ -3,7 +3,8 @@
 Books are selected by a fixed rule on the Gutenberg catalog, never by looking at this project's pages or GT:
 language pt, at least one author born in [--born-min, --born-max] and alive after --alive-after.
 Output: one "word count" per line, most frequent first (the FrequencyWords format read by postprocess.load_lexicon),
-plus a manifest with the selected book ids and the SHA-256 of every downloaded text.
+a manifest with the selected book ids and the SHA-256 of every downloaded text, and the bigram counts over the kept
+words (<out>.bigrams.npz: words, unigram counts, sorted pair keys id1 * V + id2, pair counts) for context_lm.
 
   python tools/build_period_lexicon.py --out models/lexicon/pt_hist_gutenberg.txt
 """
@@ -18,6 +19,7 @@ import unicodedata
 from collections import Counter
 from pathlib import Path
 
+import numpy as np
 import requests
 
 CATALOG_URL = 'https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv'
@@ -68,6 +70,20 @@ def count_words(text: str) -> Counter[str]:
     return Counter(_WORD.findall(unicodedata.normalize('NFC', text).lower()))
 
 
+def bigram_counts(texts: list[Path], words: list[str], min_count: int) -> tuple[np.ndarray, np.ndarray]:
+    """Counts of adjacent kept-word pairs; a dropped word breaks the chain. Keys are id1 * len(words) + id2."""
+    index = {w: i for i, w in enumerate(words)}
+    keys = []
+    for path in texts:
+        ids = np.array([index.get(w, -1) for w in _WORD.findall(unicodedata.normalize(
+            'NFC', body(path.read_text(encoding='utf-8', errors='replace'))).lower())], dtype=np.int64)
+        valid = (ids[:-1] >= 0) & (ids[1:] >= 0)
+        keys.append(ids[:-1][valid] * len(words) + ids[1:][valid])
+    unique, counts = np.unique(np.concatenate(keys), return_counts=True)
+    kept = counts >= min_count
+    return unique[kept], counts[kept].astype(np.int32)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--out', type=Path, default=Path('models/lexicon/pt_hist_gutenberg.txt'))
@@ -107,6 +123,11 @@ def main() -> None:
     manifest = {'rule': {k: v for k, v in vars(args).items() if k not in ('out', 'sources')},
                 'catalog_url': CATALOG_URL, 'tokens': sum(counts.values()), 'words_kept': len(words),
                 'output_sha256': hashlib.sha256(args.out.read_bytes()).hexdigest(), 'books': books}
+    texts = [args.sources / f'pg{b["id"]}.txt' for b in books if b['sha256']]
+    keys, pair_counts = bigram_counts(texts, [w for w, _ in words], args.min_count)
+    np.savez_compressed(args.out.with_suffix('.bigrams.npz'), words=np.array([w for w, _ in words]),
+                        unigrams=np.array([n for _, n in words], dtype=np.int64), keys=keys, counts=pair_counts)
+    logger.info('%d bigrams kept', len(keys))
     args.out.with_suffix('.manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2, default=str),
                                                       encoding='utf-8')
     logger.info('%d tokens, %d words kept -> %s', manifest['tokens'], len(words), args.out)
