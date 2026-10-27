@@ -11,7 +11,7 @@ from .engine import Engine, filter_lines
 from .metrics import corpus, score
 from .context_lm import load_lm
 from .ctc_rescore import RescoreParams, rescore_line, rescore_line_context
-from .postprocess import _HYPHEN_END, correct, domain_vocabulary, lexicon_choices
+from .postprocess import _HYPHEN_END, correct, domain_vocabulary, fold_index, lexicon_choices
 from .preprocessing import apply_chain
 
 logger = logging.getLogger(__name__)
@@ -75,12 +75,13 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
                            *((config.post.context_min_edits, config.post.context_pool) if config.post.context_lm else ()))
     known = frozenset(choices)
     post = config.post
+    folded = fold_index(choices) if post.fold_accents else None
     if post.context_lm:
         lm = load_lm(post.context_lm)
         split = [False] + [bool(_HYPHEN_END.search(g)) for g in greedy[:-1]]
         return greedy, [rescore_line_context(line, c2l, l2c, n_classes, known, choices, params, lm, post.context_beta,
-                                             post.context_open_known, s) for line, s in zip(logits, split)]
-    return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params) for line in logits]
+                                             post.context_open_known, s, folded) for line, s in zip(logits, split)]
+    return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params, folded) for line in logits]
 
 
 def score_trace(page: Page, trace: PageTrace, config: PipelineConfig, domain: tuple[str, ...] = ()) -> dict[str, Any]:

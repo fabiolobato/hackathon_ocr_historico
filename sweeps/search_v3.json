@@ -298,6 +298,19 @@
               "post.period_lexicon": "*"
             }
           ]
+        },
+        "fold_accents": {
+          "set": {
+            "post.fold_accents": true
+          },
+          "requires": [
+            {
+              "post.lexicon": "*"
+            },
+            {
+              "post.period_lexicon": "*"
+            }
+          ]
         }
       }
     },

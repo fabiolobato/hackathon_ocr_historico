@@ -1,6 +1,8 @@
 """Text post-processing applied to recognized lines. Lexicons must never be built from evaluation GT."""
 import re
+import unicodedata
 from collections import Counter
+from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 
@@ -51,19 +53,60 @@ def domain_vocabulary(texts: list[str]) -> tuple[str, ...]:
     return tuple(w for w, _ in counts.most_common())
 
 
-def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices: tuple[str, ...]) -> str:
+def fold(word: str) -> str:
+    """Drop accents and cedillas (não -> nao, ç -> c): the recognizer often misses faint diacritics."""
+    return unicodedata.normalize('NFC', ''.join(c for c in unicodedata.normalize('NFD', word)
+                                                if unicodedata.category(c) != 'Mn'))
+
+
+@dataclass(frozen=True)
+class FoldIndex:
+    keys: tuple[str, ...]  # accent-free forms, in lexicon order
+    surface: dict[str, str]  # accent-free form -> its first (most frequent) spelling in the lexicon
+
+
+def fold_index(choices: tuple[str, ...]) -> FoldIndex:
+    surface: dict[str, str] = {}
+    for word in choices:
+        surface.setdefault(fold(word), word)
+    return FoldIndex(tuple(surface), surface)
+
+
+def is_known(word: str, known: frozenset[str], folded: FoldIndex | None) -> bool:
+    """In the lexicon; with folded, also the preferred spelling of its accent-free form (nao -> não is fixed)."""
+    return word in known and (folded is None or folded.surface.get(fold(word)) == word)
+
+
+def nearest(word: str, choices: tuple[str, ...], folded: FoldIndex | None, cutoff: int, limit: int) -> list[str]:
+    """Lexicon words within cutoff edits, closest first; with folded, distances ignore accents and the
+    accented spelling is returned."""
+    if folded is None:
+        return [c for c, _, _ in process.extract(word, choices, scorer=Levenshtein.distance, score_cutoff=cutoff,
+                                                 limit=limit)]
+    return [folded.surface[k] for k, _, _ in process.extract(fold(word), folded.keys, scorer=Levenshtein.distance,
+                                                             score_cutoff=cutoff, limit=limit)]
+
+
+def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices: tuple[str, ...],
+                  folded: FoldIndex | None = None) -> str:
     match = _TOKEN.match(word)
     if not match:
         return word
     pre, core, post = match.groups()
     lower = core.lower()
-    if len(core) < config.lexicon_min_len or lower in known or not core.isalpha():
+    if len(core) < config.lexicon_min_len or is_known(lower, known, folded) or not core.isalpha():
         return word
     cutoff = max(1, int(len(core) * config.lexicon_max_ratio))
-    best = process.extractOne(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff)
-    if best is None:
-        return word
-    fixed = best[0]
+    if folded is None:
+        best = process.extractOne(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff)
+        if best is None:
+            return word
+        fixed = best[0]
+    else:
+        found = nearest(lower, choices, folded, cutoff, 1)
+        if not found:
+            return word
+        fixed = found[0]
     if core[0].isupper():
         fixed = fixed[0].upper() + fixed[1:]
     return pre + fixed + post
@@ -84,5 +127,6 @@ def correct(lines: list[str], config: PostConfig, domain: tuple[str, ...] = ()) 
     choices = lexicon_choices(config, domain) if config.decoder in ('edit', 'ctc+edit') else ()
     if choices:
         known = frozenset(choices)
-        lines = [' '.join(_correct_word(w, config, known, choices) for w in line.split()) for line in lines]
+        folded = fold_index(choices) if config.fold_accents else None
+        lines = [' '.join(_correct_word(w, config, known, choices, folded) for w in line.split()) for line in lines]
     return lines
