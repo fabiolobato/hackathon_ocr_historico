@@ -70,9 +70,10 @@ def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices:
 
 
 def lexicon_choices(config: PostConfig, domain: tuple[str, ...]) -> tuple[str, ...]:
-    """Domain words first, then generic words; each block ordered by frequency."""
+    """Domain words first, then period words, then generic words; each block ordered by frequency."""
+    period = load_lexicon(config.period_lexicon, 0) if config.period_lexicon else ()
     generic = load_lexicon(config.lexicon, config.lexicon_size) if config.lexicon else ()
-    return tuple(dict.fromkeys(domain + generic))
+    return tuple(dict.fromkeys(domain + period + generic))
 
 
 def correct(lines: list[str], config: PostConfig, domain: tuple[str, ...] = ()) -> list[str]:

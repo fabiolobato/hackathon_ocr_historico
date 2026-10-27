@@ -80,6 +80,10 @@ class Engine:
         return self._cached('seg', key, compute)
 
     def recognize(self, image: Image.Image, segmentation: Any, config: RecConfig, key: str) -> list[str]:
+        logits = self.cache_dir / 'reclog2' / f'{key}.pkl'
+        if logits.is_file():  # same forward pass; the logits run already stores the best path
+            return [line.prediction for line in pickle.loads(logits.read_bytes())]
+
         def compute() -> list[str]:
             if not segmentation.lines:
                 return []

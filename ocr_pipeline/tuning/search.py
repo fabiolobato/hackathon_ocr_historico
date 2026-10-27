@@ -97,6 +97,19 @@ def satisfied(config: PipelineConfig, requires: tuple[dict[str, Any], ...]) -> b
     return not requires or any(all(holds(k, v) for k, v in clause.items()) for clause in requires)
 
 
+def build(base: PipelineConfig, spec: SearchSpec, chosen: list[Candidate]) -> PipelineConfig | None:
+    """Apply the chosen candidates stage by stage; None if two of them set one scalar differently."""
+    config = base
+    for stage, _ in spec.stages:
+        picked = [c for c in chosen if c.stage == stage]
+        if picked:
+            overrides = merge(config, picked)
+            if overrides is None:
+                return None
+            config = with_overrides(config, overrides)
+    return config
+
+
 class Search:
     def __init__(self, engine: Engine, pages: list[Page], pool: list[Page], spec: SearchSpec, base: PipelineConfig,
                  log_path: Path) -> None:
@@ -112,15 +125,7 @@ class Search:
                 self.memo[row['key']] = {'corpus': row['corpus'], 'pages': row['pages']}
 
     def build(self, chosen: list[Candidate]) -> PipelineConfig | None:
-        config = self.base
-        for stage, _ in self.spec.stages:
-            picked = [c for c in chosen if c.stage == stage]
-            if picked:
-                overrides = merge(config, picked)
-                if overrides is None:
-                    return None
-                config = with_overrides(config, overrides)
-        return config
+        return build(self.base, self.spec, chosen)
 
     def score(self, config: PipelineConfig) -> float:
         key = stable_hash(config.to_dict())
