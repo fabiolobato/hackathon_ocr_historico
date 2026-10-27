@@ -71,7 +71,8 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
         return greedy, greedy
     c2l, l2c, n_classes = engine.codec(config.rec.model)
     params = RescoreParams(config.post.ctc_alpha, config.post.lexicon_max_ratio, config.post.ctc_candidates,
-                           config.post.lexicon_min_len)
+                           config.post.lexicon_min_len,
+                           *((config.post.context_min_edits, config.post.context_pool) if config.post.context_lm else ()))
     known = frozenset(choices)
     post = config.post
     if post.context_lm:

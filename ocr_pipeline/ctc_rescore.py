@@ -110,6 +110,8 @@ class RescoreParams:
     max_ratio: float = 0.5
     candidates: int = 10
     min_len: int = 3
+    min_edits: int = 1  # candidates may always differ by at least this many edits, however short the word
+    pool: int = 0  # >0: score this many nearest lexicon words with CTC and keep the best `candidates` of them
 
 
 def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
@@ -122,15 +124,16 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
     lower = original.lower()
     if len(original) < params.min_len or end <= start or (lower in known and not open_known):
         return [(original, 0.0)]
-    cutoff = max(1, int(len(original) * params.max_ratio))
+    cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
     found = process.extract(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff,
-                            limit=params.candidates + 1)
-    cands = [_match_case(c, original) for c, _, _ in found if c != lower][:params.candidates]
+                            limit=max(params.candidates, params.pool) + 1)
+    cands = [_match_case(c, original) for c, _, _ in found if c != lower][:max(params.candidates, params.pool)]
     encoded = [(c, e) for c, e in [(c, _encode(c, c2l)) for c in [original] + cands] if e and len(e) <= end - start]
     if len(encoded) < 2 or encoded[0][0] != original:
         return [(original, 0.0)]
     scores = _ctc_scores(_log_probs(line, n_classes, start, end), [e for _, e in encoded])
-    return [(c, float(s) + (params.alpha if c.lower() in known else 0.0)) for (c, _), s in zip(encoded, scores)]
+    slot = [(c, float(s) + (params.alpha if c.lower() in known else 0.0)) for (c, _), s in zip(encoded, scores)]
+    return slot[:1] + sorted(slot[1:], key=lambda item: -item[1])[:params.candidates] if params.pool else slot
 
 
 def _assemble(runs: list[tuple[str, int, int]], replacements: dict[int, tuple[int, str]]) -> str:

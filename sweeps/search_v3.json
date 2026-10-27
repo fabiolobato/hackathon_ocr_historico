@@ -446,6 +446,30 @@
           "requires": {
             "post.context_lm": "*"
           }
+        },
+        "min_edits_2": {
+          "set": {
+            "post.context_min_edits": 2
+          },
+          "requires": {
+            "post.context_lm": "*"
+          }
+        },
+        "pool_100": {
+          "set": {
+            "post.context_pool": 100
+          },
+          "requires": {
+            "post.context_lm": "*"
+          }
+        },
+        "pool_300": {
+          "set": {
+            "post.context_pool": 300
+          },
+          "requires": {
+            "post.context_lm": "*"
+          }
         }
       }
     }
