@@ -15,7 +15,7 @@ import torch.nn.functional as F
 from rapidfuzz import process
 from rapidfuzz.distance import Levenshtein
 
-from .context_lm import BigramLM, decode_line
+from .context_lm import NgramLM, decode_line
 from .postprocess import FoldIndex, fold, is_known, nearest
 
 FLOOR = 1e-6
@@ -172,11 +172,11 @@ def rescore_line(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str
 
 
 def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
-                         known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: BigramLM,
+                         known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: NgramLM,
                          beta: float, open_known: bool, continues_word: bool = False,
-                         folded: FoldIndex | None = None) -> str:
+                         folded: FoldIndex | None = None, order: int = 2) -> str:
     """The whole line at once: candidates as in rescore_line (plus in-lexicon words when open_known), chosen
-    jointly with a bigram language model weighted by beta (context_lm.decode_line). continues_word: the previous
+    jointly with an n-gram language model of the given order weighted by beta (context_lm.decode_line). continues_word: the previous
     line ends with a hyphen, so the first word is the tail of a split word and is left as read."""
     runs = _greedy_runs(line, l2c)
     spans = _letter_words(runs, line.top_idx.shape[0])
@@ -184,6 +184,6 @@ def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[
              for span in spans]
     if continues_word and slots:
         slots[0] = slots[0][:1]
-    words = decode_line(slots, lm, beta)
+    words = decode_line(slots, lm, beta, order)
     replacements = {span[0]: (span[1], word) for span, slot, word in zip(spans, slots, words) if word != slot[0][0]}
     return _assemble(runs, replacements)

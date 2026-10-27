@@ -4,7 +4,7 @@ Books are selected by a fixed rule on the Gutenberg catalog, never by looking at
 language pt, at least one author born in [--born-min, --born-max] and alive after --alive-after.
 Output: one "word count" per line, most frequent first (the FrequencyWords format read by postprocess.load_lexicon),
 a manifest with the selected book ids and the SHA-256 of every downloaded text, and the bigram counts over the kept
-words (<out>.bigrams.npz: words, unigram counts, sorted pair keys id1 * V + id2, pair counts) for context_lm.
+words (<out>.ngrams.npz: words, unigram counts, sorted bigram and trigram keys and counts) for context_lm.
 
   python tools/build_period_lexicon.py --out models/lexicon/pt_hist_gutenberg.txt
 """
@@ -70,18 +70,24 @@ def count_words(text: str) -> Counter[str]:
     return Counter(_WORD.findall(unicodedata.normalize('NFC', text).lower()))
 
 
-def bigram_counts(texts: list[Path], words: list[str], min_count: int) -> tuple[np.ndarray, np.ndarray]:
-    """Counts of adjacent kept-word pairs; a dropped word breaks the chain. Keys are id1 * len(words) + id2."""
-    index = {w: i for i, w in enumerate(words)}
-    keys = []
+def ngram_counts(texts: list[Path], words: list[str], min_count: int) -> dict[int, tuple[np.ndarray, np.ndarray]]:
+    """Counts of adjacent kept-word pairs and triples; a dropped word breaks the chain.
+    Keys: id1 * V + id2 (order 2) and (id1 * V + id2) * V + id3 (order 3), V = len(words)."""
+    index, size = {w: i for i, w in enumerate(words)}, len(words)
+    keys: dict[int, list[np.ndarray]] = {2: [], 3: []}
     for path in texts:
         ids = np.array([index.get(w, -1) for w in _WORD.findall(unicodedata.normalize(
             'NFC', body(path.read_text(encoding='utf-8', errors='replace'))).lower())], dtype=np.int64)
         valid = (ids[:-1] >= 0) & (ids[1:] >= 0)
-        keys.append(ids[:-1][valid] * len(words) + ids[1:][valid])
-    unique, counts = np.unique(np.concatenate(keys), return_counts=True)
-    kept = counts >= min_count
-    return unique[kept], counts[kept].astype(np.int32)
+        keys[2].append(ids[:-1][valid] * size + ids[1:][valid])
+        valid3 = valid[:-1] & valid[1:]
+        keys[3].append((ids[:-2][valid3] * size + ids[1:-1][valid3]) * size + ids[2:][valid3])
+    out = {}
+    for order, chunks in keys.items():
+        unique, counts = np.unique(np.concatenate(chunks), return_counts=True)
+        kept = counts >= min_count
+        out[order] = (unique[kept], counts[kept].astype(np.int32))
+    return out
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -124,10 +130,11 @@ def main() -> None:
                 'catalog_url': CATALOG_URL, 'tokens': sum(counts.values()), 'words_kept': len(words),
                 'output_sha256': hashlib.sha256(args.out.read_bytes()).hexdigest(), 'books': books}
     texts = [args.sources / f'pg{b["id"]}.txt' for b in books if b['sha256']]
-    keys, pair_counts = bigram_counts(texts, [w for w, _ in words], args.min_count)
-    np.savez_compressed(args.out.with_suffix('.bigrams.npz'), words=np.array([w for w, _ in words]),
-                        unigrams=np.array([n for _, n in words], dtype=np.int64), keys=keys, counts=pair_counts)
-    logger.info('%d bigrams kept', len(keys))
+    ngrams = ngram_counts(texts, [w for w, _ in words], args.min_count)
+    np.savez_compressed(args.out.with_suffix('.ngrams.npz'), words=np.array([w for w, _ in words]),
+                        unigrams=np.array([n for _, n in words], dtype=np.int64), keys=ngrams[2][0],
+                        counts=ngrams[2][1], keys3=ngrams[3][0], counts3=ngrams[3][1])
+    logger.info('%d bigrams, %d trigrams kept', len(ngrams[2][0]), len(ngrams[3][0]))
     args.out.with_suffix('.manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2, default=str),
                                                       encoding='utf-8')
     logger.info('%d tokens, %d words kept -> %s', manifest['tokens'], len(words), args.out)

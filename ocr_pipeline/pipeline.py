@@ -80,7 +80,8 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
         lm = load_lm(post.context_lm)
         split = [False] + [bool(_HYPHEN_END.search(g)) for g in greedy[:-1]]
         return greedy, [rescore_line_context(line, c2l, l2c, n_classes, known, choices, params, lm, post.context_beta,
-                                             post.context_open_known, s, folded) for line, s in zip(logits, split)]
+                                             post.context_open_known, s, folded, post.context_order)
+                        for line, s in zip(logits, split)]
     return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params, folded) for line in logits]
 
 

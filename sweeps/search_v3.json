@@ -420,7 +420,7 @@
       "candidates": {
         "bigram_lm": {
           "set": {
-            "post.context_lm": "models/lexicon/pt_hist_gutenberg.bigrams.npz"
+            "post.context_lm": "models/lexicon/pt_hist_gutenberg.ngrams.npz"
           },
           "requires": [
             {
@@ -479,6 +479,14 @@
         "pool_300": {
           "set": {
             "post.context_pool": 300
+          },
+          "requires": {
+            "post.context_lm": "*"
+          }
+        },
+        "trigram": {
+          "set": {
+            "post.context_order": 3
           },
           "requires": {
             "post.context_lm": "*"

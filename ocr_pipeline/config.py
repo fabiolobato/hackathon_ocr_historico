@@ -64,7 +64,8 @@ class PostConfig:
     decoder: str = 'edit'  # 'edit' | 'ctc' (rescore with CTC posteriors) | 'ctc+edit' (then edit pass)
     ctc_alpha: float = 4.0  # log-likelihood bonus for in-lexicon candidates
     ctc_candidates: int = 10
-    context_lm: str | None = None  # bigram LM (.bigrams.npz) to choose a line's words jointly; ctc decoders only
+    context_lm: str | None = None  # n-gram LM (.ngrams.npz) to choose a line's words jointly; ctc decoders only
+    context_order: int = 2  # 2 = bigrams, 3 = trigrams (backing off to bigrams)
     context_beta: float = 1.0  # weight of the LM log-probability against the CTC score
     context_open_known: bool = False  # also offer lexicon alternatives for in-lexicon words (real-word errors)
     context_min_edits: int = 1  # with context_lm: candidates within at least this many edits, even for short words
