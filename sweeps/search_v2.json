@@ -26,8 +26,25 @@
         "contrast": {
           "seg_ops": "contrast"
         },
+        "gamma_07": {
+          "seg_ops": "gamma",
+          "params.gamma": 0.7
+        },
+        "gamma_15": {
+          "seg_ops": "gamma",
+          "params.gamma": 1.5
+        },
         "grayscale": {
           "seg_ops": "grayscale"
+        },
+        "sharpen": {
+          "seg_ops": "sharpen"
+        },
+        "denoise": {
+          "seg_ops": "denoise"
+        },
+        "remove_rules": {
+          "seg_ops": "remove_rules"
         },
         "otsu": {
           "seg_ops": "otsu"
@@ -259,6 +276,26 @@
           "requires": [
             {
               "post.lexicon": "*"
+            }
+          ]
+        },
+        "period_20k": {
+          "set": {
+            "post.period_lexicon_size": 20000
+          },
+          "requires": [
+            {
+              "post.period_lexicon": "*"
+            }
+          ]
+        },
+        "period_50k": {
+          "set": {
+            "post.period_lexicon_size": 50000
+          },
+          "requires": [
+            {
+              "post.period_lexicon": "*"
             }
           ]
         }
