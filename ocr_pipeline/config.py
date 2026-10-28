@@ -52,6 +52,7 @@ class RecConfig:
 @dataclass(frozen=True)
 class PostConfig:
     conventions: bool = False  # map model notation (n^o, ⁋) to GT notation (nº, §)
+    ordinals: bool = False  # digit + o/a read as a letter -> ordinal sign (2o -> 2º, 1a -> 1ª)
     dehyphenate: bool = False  # join word split by a line-final hyphen
     lexicon: str | None = None  # path to a generic wordlist (most frequent first); None disables it
     lexicon_size: int = 20000  # keep the N most frequent generic words (0 = all)
@@ -70,6 +71,8 @@ class PostConfig:
     context_open_known: bool = False  # also offer lexicon alternatives for in-lexicon words (real-word errors)
     context_min_edits: int = 1  # with context_lm: candidates within at least this many edits, even for short words
     context_pool: int = 0  # with context_lm: CTC-score this many nearest words, keep the best ctc_candidates
+    context_short: int = 0  # with context_lm: words shorter than lexicon_min_len get candidates (1 edit) from
+    #                         the N most frequent short lexicon words (o -> os, du -> da); 0 = left as read
 
 
 @dataclass(frozen=True)

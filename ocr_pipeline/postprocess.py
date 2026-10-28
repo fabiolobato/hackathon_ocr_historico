@@ -18,12 +18,18 @@ _WORD = re.compile(r'[^\W\d_]+')
 
 _SUPERSCRIPT = re.compile(r'\^(\w)')
 _ORDINALS = {'o': 'º', 'a': 'ª'}
+_DIGIT_ORDINAL = re.compile(r'\b(\d+)([oa])\b')
 
 
 def map_conventions(line: str) -> str:
     """Map PP-OCR transcription conventions (n^o, D^r, ⁋) to the GT's (nº, Dr, §)."""
     line = _SUPERSCRIPT.sub(lambda m: _ORDINALS.get(m[1], m[1]), line)
     return line.replace('⁋', '§')
+
+
+def map_ordinals(line: str) -> str:
+    """A raised o/a after a number is read as a plain letter: 2o -> 2º, 1a -> 1ª."""
+    return _DIGIT_ORDINAL.sub(lambda m: m[1] + _ORDINALS[m[2]], line)
 
 
 def dehyphenate(lines: list[str]) -> list[str]:
@@ -87,6 +93,11 @@ def nearest(word: str, choices: tuple[str, ...], folded: FoldIndex | None, cutof
                                                              score_cutoff=cutoff, limit=limit)]
 
 
+def short_words(choices: tuple[str, ...], min_len: int, size: int) -> tuple[str, ...]:
+    """The size most frequent lexicon words shorter than min_len; lone consonants (abbreviations) are dropped."""
+    return tuple(w for w in choices if len(w) < min_len and (len(w) > 1 or fold(w) in 'aeiou'))[:size]
+
+
 def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices: tuple[str, ...],
                   folded: FoldIndex | None = None) -> str:
     match = _TOKEN.match(word)
@@ -122,6 +133,8 @@ def lexicon_choices(config: PostConfig, domain: tuple[str, ...]) -> tuple[str, .
 def correct(lines: list[str], config: PostConfig, domain: tuple[str, ...] = ()) -> list[str]:
     if config.conventions:
         lines = [map_conventions(line) for line in lines]
+    if config.ordinals:
+        lines = [map_ordinals(line) for line in lines]
     if config.dehyphenate:
         lines = dehyphenate(lines)
     choices = lexicon_choices(config, domain) if config.decoder in ('edit', 'ctc+edit') else ()

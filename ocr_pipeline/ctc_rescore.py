@@ -117,20 +117,26 @@ class RescoreParams:
 
 def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
                c2l: dict[str, list[int]], n_classes: int, known: frozenset[str], choices: tuple[str, ...],
-               params: RescoreParams, open_known: bool,
-               folded: FoldIndex | None = None) -> list[tuple[str, float]]:
+               params: RescoreParams, open_known: bool, folded: FoldIndex | None = None,
+               short: tuple[str, ...] = ()) -> list[tuple[str, float]]:
     """(candidate, CTC log-likelihood + alpha if in lexicon) for one word; the read word first.
     A single entry means the word is left as read (too short, in the lexicon and not opened, or no candidate).
     With folded, candidates are found ignoring accents and each one scores as the better of its accented and
-    accent-free spellings, so não can win over a read 'nao'/'nar' when the image shows no tilde."""
+    accent-free spellings, so não can win over a read 'nao'/'nar' when the image shows no tilde.
+    Words shorter than min_len are left as read unless short is given: then its words within one edit compete."""
     first, last, start, end = span
     original = unicodedata.normalize('NFC', ''.join(r[0] for r in runs[first:last + 1]))
     lower = original.lower()
-    if len(original) < params.min_len or end <= start or (is_known(lower, known, folded) and not open_known):
+    if (len(original) < params.min_len and not short) or end <= start or (
+            is_known(lower, known, folded) and not open_known):
         return [(original, 0.0)]
-    cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
-    found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1)
-    cands = [_match_case(c, original) for c in found if c != lower][:max(params.candidates, params.pool)]
+    if len(original) < params.min_len:
+        cands = [_match_case(c, original) for c in short
+                 if c != lower and Levenshtein.distance(fold(c), fold(lower)) <= 1]
+    else:
+        cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
+        found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1)
+        cands = [_match_case(c, original) for c in found if c != lower][:max(params.candidates, params.pool)]
     encoded = [(c, e) for c, e in [(c, _encode(c, c2l)) for c in [original] + cands] if e and len(e) <= end - start]
     if len(encoded) < 2 or encoded[0][0] != original:
         return [(original, 0.0)]
@@ -174,13 +180,14 @@ def rescore_line(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str
 def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
                          known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: NgramLM,
                          beta: float, open_known: bool, continues_word: bool = False,
-                         folded: FoldIndex | None = None, order: int = 2) -> str:
-    """The whole line at once: candidates as in rescore_line (plus in-lexicon words when open_known), chosen
-    jointly with an n-gram language model of the given order weighted by beta (context_lm.decode_line). continues_word: the previous
-    line ends with a hyphen, so the first word is the tail of a split word and is left as read."""
+                         folded: FoldIndex | None = None, order: int = 2, short: tuple[str, ...] = ()) -> str:
+    """The whole line at once: candidates as in rescore_line (plus in-lexicon words when open_known, and short
+    words when short is given), chosen jointly with an n-gram language model of the given order weighted by beta
+    (context_lm.decode_line). continues_word: the previous line ends with a hyphen, so the first word is the tail
+    of a split word and is left as read."""
     runs = _greedy_runs(line, l2c)
     spans = _letter_words(runs, line.top_idx.shape[0])
-    slots = [_word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known, folded)
+    slots = [_word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known, folded, short)
              for span in spans]
     if continues_word and slots:
         slots[0] = slots[0][:1]
