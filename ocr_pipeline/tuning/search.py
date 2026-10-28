@@ -25,7 +25,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from ..config import PipelineConfig, stable_hash, with_overrides
+from ..config import PipelineConfig, from_dict, stable_hash, with_overrides
 from ..data import Page, discover, select, split
 from ..engine import Engine
 from ..pipeline import evaluate
@@ -112,7 +112,7 @@ def build(base: PipelineConfig, spec: SearchSpec, chosen: list[Candidate]) -> Pi
 
 class Search:
     def __init__(self, engine: Engine, pages: list[Page], pool: list[Page], spec: SearchSpec, base: PipelineConfig,
-                 log_path: Path) -> None:
+                 log_path: Path, earlier: tuple[Path, ...] = ()) -> None:
         self.engine, self.pages, self.pool, self.spec, self.base = engine, pages, pool, spec, base
         self.log_path = log_path
         self.memo: dict[str, dict[str, Any]] = {}
@@ -123,6 +123,11 @@ class Search:
             for line in log_path.read_text(encoding='utf-8').splitlines():
                 row = json.loads(line)
                 self.memo[row['key']] = {'corpus': row['corpus'], 'pages': row['pages']}
+        for path in earlier:  # other searches' evaluations, re-keyed with today's config defaults
+            for line in path.read_text(encoding='utf-8').splitlines():
+                row = json.loads(line)
+                key = stable_hash(from_dict(row['config']).to_dict())
+                self.memo.setdefault(key, {'corpus': row['corpus'], 'pages': row['pages']})
 
     def build(self, chosen: list[Candidate]) -> PipelineConfig | None:
         return build(self.base, self.spec, chosen)
@@ -240,6 +245,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--no-report', action='store_true')
     parser.add_argument('--init', type=Path, help='warm start: decisions.json of an earlier search (its final choices '
                                                    'that exist in this spec are the starting point)')
+    parser.add_argument('--reuse', type=Path, nargs='*', default=[],
+                        help='evaluations.jsonl of earlier searches on the same pages: configurations scored there '
+                             'are not recomputed (valid while options left at their defaults give the same result)')
     return parser
 
 
@@ -276,7 +284,7 @@ def main() -> None:
     pool = split(all_pages)[0]
     engine = Engine(args.cache, args.device, args.seed)
     search = Search(engine, select(all_pages, args.pages), pool, spec, with_overrides(PipelineConfig(), spec.base),
-                    out / 'evaluations.jsonl')
+                    out / 'evaluations.jsonl', tuple(args.reuse))
     final = search.run(args.passes, initial_choices(spec, args.init))
     write_outputs(out, search, final)
     logger.info('final:   %s -> %s %.2f', [f'{c.stage}:{c.name}' for c in final], spec.metric,
