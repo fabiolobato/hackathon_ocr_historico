@@ -117,6 +117,16 @@ class RescoreParams:
     min_edits: int = 1  # candidates may always differ by at least this many edits, however short the word
     pool: int = 0  # >0: score this many nearest lexicon words with CTC and keep the best `candidates` of them
     nbest: int = 0  # >0: also take lexicon neighbours of the word's nbest most likely readings (prefix beam search)
+    protect: float = 0.0  # >0: an in-lexicon word whose every letter has at least this posterior stays as read
+
+
+def _confident(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
+               threshold: float) -> bool:
+    """Every letter of the read word peaks at a posterior of at least threshold (0 = never)."""
+    if threshold <= 0:
+        return False
+    first, last = span[0], span[1]
+    return all(float(line.top_val[a:b + 1, 0].max()) >= threshold for _, a, b in runs[first:last + 1])
 
 
 def _nbest_readings(line: LineLogits, start: int, end: int, l2c: dict[int, str], n: int,
@@ -159,7 +169,7 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
     original = unicodedata.normalize('NFC', ''.join(r[0] for r in runs[first:last + 1]))
     lower = original.lower()
     if (len(original) < params.min_len and not short) or end <= start or (
-            is_known(lower, known, folded) and not open_known):
+            is_known(lower, known, folded) and (not open_known or _confident(line, runs, span, params.protect))):
         return [(original, 0.0)]
     if len(original) < params.min_len:
         cands = [_match_case(c, original) for c in dict.fromkeys([*short, *extra])

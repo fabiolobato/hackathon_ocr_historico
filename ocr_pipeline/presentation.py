@@ -63,7 +63,13 @@ def image_steps(page: Page, config: PipelineConfig) -> dict[str, list[tuple[str,
 
 
 def text_steps(page: Page, trace: PageTrace, config: PipelineConfig, domain: tuple[str, ...]) -> list[TextStep]:
-    """Each step adds one text operation; the last one equals the pipeline's final output."""
+    """Each step adds one text operation, scored against the GT; the last one equals the pipeline's final output."""
+    reference = page.reference_text()
+    return [TextStep(label, text, score(reference, text)) for label, text in text_versions(trace, config, domain)]
+
+
+def text_versions(trace: PageTrace, config: PipelineConfig, domain: tuple[str, ...]) -> list[tuple[str, str]]:
+    """(label, text) after each text operation, cumulatively."""
     post = config.post
     texts = [('reconhecedor (guloso)', '\n'.join(trace.greedy))]
     if post.decoder in ('ctc', 'ctc+edit'):
@@ -76,8 +82,7 @@ def text_steps(page: Page, trace: PageTrace, config: PipelineConfig, domain: tup
     if post.decoder in ('edit', 'ctc+edit'):
         texts.append((f'+ correção léxica ({post.lexicon_max_ratio})',
                       '\n'.join(correct(trace.lines, post, domain))))
-    reference = page.reference_text()
-    return [TextStep(label, text, score(reference, text)) for label, text in texts]
+    return texts
 
 
 def images_html(page: Page, trace: PageTrace, config: PipelineConfig) -> str:

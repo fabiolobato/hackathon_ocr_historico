@@ -78,6 +78,8 @@ class PostConfig:
     beam_oov: float = -6.0  # beam search: log penalty per word not in the lexicon
     beam_bonus: float = 4.0  # beam search: log bonus per lexicon word
     beam_mode: str = 'candidates'  # 'candidates': beam words join the rescoring candidates | 'replace'
+    beam_boundary_min: float = 0.0  # beam search: spaces/punctuation only where their posterior reaches this
+    context_protect: float = 0.0  # with context_lm: in-lexicon words read with every letter >= this stay as read
 
 
 @dataclass(frozen=True)

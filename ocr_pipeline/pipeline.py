@@ -73,7 +73,8 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
     c2l, l2c, n_classes = engine.codec(config.rec.model)
     params = RescoreParams(config.post.ctc_alpha, config.post.lexicon_max_ratio, config.post.ctc_candidates,
                            config.post.lexicon_min_len,
-                           *((config.post.context_min_edits, config.post.context_pool, config.post.context_nbest)
+                           *((config.post.context_min_edits, config.post.context_pool, config.post.context_nbest,
+                                config.post.context_protect)
                              if config.post.context_lm else ()))
     known = frozenset(choices)
     post = config.post
@@ -85,7 +86,7 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
         if post.beam:
             lexicon = build_lexicon(folded or fold_index(choices))
             beam = BeamParams(post.beam, post.context_beta, post.beam_oov, post.beam_bonus,
-                              post.context_order)
+                              post.context_order, boundary_min=post.beam_boundary_min)
             beamed = [beam_line(line, l2c, lexicon, lm, beam, s) for line, s in zip(logits, split)]
             if post.beam_mode == 'replace':
                 return greedy, beamed

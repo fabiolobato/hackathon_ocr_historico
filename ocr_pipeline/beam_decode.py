@@ -27,6 +27,8 @@ class BeamParams:
     bonus: float = 4.0  # log bonus per lexicon word; without it merging words into one unknown word is cheaper
     order: int = 2
     min_prob: float = 1e-3  # classes below this posterior are not expanded
+    boundary_min: float = 0.0  # a space or punctuation mark is only expanded where the model gives it this much
+    #                            posterior, so the LM cannot split a word the image shows as one ('e leitos')
 
 
 @dataclass(frozen=True)
@@ -111,7 +113,9 @@ def beam_line(line: LineLogits, l2c: dict[int, str], lexicon: Lexicon, lm: Ngram
     start = _Hyp(0.0, NEG, 0.0, (), '', True, continues_word)
     beams: dict[tuple[int, ...], _Hyp] = {(): start}
     for t in range(line.top_idx.shape[0]):
-        frame = [(int(c), float(p)) for c, p in zip(line.top_idx[t], line.top_val[t]) if float(p) >= params.min_prob]
+        frame = [(int(c), float(p)) for c, p in zip(line.top_idx[t], line.top_val[t])
+                 if float(p) >= max(params.min_prob, 0.0 if int(c) == 0 or _is_letter(l2c.get(int(c), ''))
+                                    else params.boundary_min)]
         nxt: dict[tuple[int, ...], _Hyp] = {}
         for prefix, hyp in beams.items():
             for label, p in frame:
