@@ -7,6 +7,7 @@ The greedy word competes with alpha = 0. Posteriors are stored as the top-k clas
 (remaining mass floored), which keeps caches small and makes the loss an approximation.
 """
 import unicodedata
+from collections import defaultdict
 from dataclasses import dataclass
 
 import numpy as np
@@ -113,12 +114,38 @@ class RescoreParams:
     min_len: int = 3
     min_edits: int = 1  # candidates may always differ by at least this many edits, however short the word
     pool: int = 0  # >0: score this many nearest lexicon words with CTC and keep the best `candidates` of them
+    nbest: int = 0  # >0: also take lexicon neighbours of the word's nbest most likely readings (prefix beam search)
+
+
+def _nbest_readings(line: LineLogits, start: int, end: int, l2c: dict[int, str], n: int,
+                    beam: int = 16, min_prob: float = 1e-3) -> list[str]:
+    """The n most likely label sequences over frames [start, end), by CTC prefix beam search on the stored top-k
+    posteriors (probabilities renormalized over the beam at every frame)."""
+    beams: dict[tuple[int, ...], tuple[float, float]] = {(): (1.0, 0.0)}  # prefix -> (p ends in blank, p not)
+    for t in range(start, end):
+        nxt: dict[tuple[int, ...], list[float]] = defaultdict(lambda: [0.0, 0.0])
+        for prefix, (p_blank, p_label) in beams.items():
+            for label, p in zip(line.top_idx[t].tolist(), line.top_val[t].astype(float).tolist()):
+                if p < min_prob:
+                    continue
+                if label == 0:
+                    nxt[prefix][0] += (p_blank + p_label) * p
+                elif prefix and label == prefix[-1]:
+                    nxt[prefix + (label,)][1] += p_blank * p
+                    nxt[prefix][1] += p_label * p
+                else:
+                    nxt[prefix + (label,)][1] += (p_blank + p_label) * p
+        ranked = sorted(nxt.items(), key=lambda item: -sum(item[1]))[:beam]
+        total = sum(sum(v) for _, v in ranked) or 1.0
+        beams = {k: (v[0] / total, v[1] / total) for k, v in ranked}
+    best = sorted(beams, key=lambda k: -sum(beams[k]))[:n]
+    return [unicodedata.normalize('NFC', ''.join(l2c.get(label, '') for label in prefix)) for prefix in best]
 
 
 def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
                c2l: dict[str, list[int]], n_classes: int, known: frozenset[str], choices: tuple[str, ...],
                params: RescoreParams, open_known: bool, folded: FoldIndex | None = None,
-               short: tuple[str, ...] = ()) -> list[tuple[str, float]]:
+               short: tuple[str, ...] = (), l2c: dict[int, str] | None = None) -> list[tuple[str, float]]:
     """(candidate, CTC log-likelihood + alpha if in lexicon) for one word; the read word first.
     A single entry means the word is left as read (too short, in the lexicon and not opened, or no candidate).
     With folded, candidates are found ignoring accents and each one scores as the better of its accented and
@@ -136,7 +163,14 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
     else:
         cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
         found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1)
-        cands = [_match_case(c, original) for c in found if c != lower][:max(params.candidates, params.pool)]
+        found = [c for c in found if c != lower][:max(params.candidates, params.pool)]
+        if params.nbest and l2c:
+            for reading in _nbest_readings(line, start, end, l2c, params.nbest):
+                reading = reading.lower()
+                if reading != lower and reading.isalpha():
+                    found += nearest(reading, choices, folded, max(params.min_edits, int(len(reading) * params.max_ratio)),
+                                     params.candidates)
+        cands = [_match_case(c, original) for c in dict.fromkeys(found) if c != lower]
     encoded = [(c, e) for c, e in [(c, _encode(c, c2l)) for c in [original] + cands] if e and len(e) <= end - start]
     if len(encoded) < 2 or encoded[0][0] != original:
         return [(original, 0.0)]
@@ -187,8 +221,8 @@ def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[
     of a split word and is left as read."""
     runs = _greedy_runs(line, l2c)
     spans = _letter_words(runs, line.top_idx.shape[0])
-    slots = [_word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known, folded, short)
-             for span in spans]
+    slots = [_word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known, folded, short,
+                        l2c) for span in spans]
     if continues_word and slots:
         slots[0] = slots[0][:1]
     words = decode_line(slots, lm, beta, order)

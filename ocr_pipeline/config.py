@@ -73,6 +73,7 @@ class PostConfig:
     context_pool: int = 0  # with context_lm: CTC-score this many nearest words, keep the best ctc_candidates
     context_short: int = 0  # with context_lm: words shorter than lexicon_min_len get candidates (1 edit) from
     #                         the N most frequent short lexicon words (o -> os, du -> da); 0 = left as read
+    context_nbest: int = 0  # with context_lm: also candidates near the word's N most likely readings (beam search)
 
 
 @dataclass(frozen=True)
