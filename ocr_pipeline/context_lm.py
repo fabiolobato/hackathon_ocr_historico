@@ -46,6 +46,11 @@ class NgramLM:
         pair = _count(self.keys, self.counts, i * len(self.index) + j)
         return (1 - LAMBDA) * pair / int(self.unigrams[i]) + LAMBDA * p_uni
 
+    def seen(self, previous: str, word: str) -> bool:
+        """The pair 'previous word' occurs in the corpus."""
+        i, j = self.index.get(previous), self.index.get(word)
+        return i is not None and j is not None and _count(self.keys, self.counts, i * len(self.index) + j) > 0
+
     def logp(self, word: str, previous: str | None, before: str | None = None) -> float:
         p_bi = self.bigram(word, previous)
         ids = [self.index.get(w) if w else None for w in (before, previous, word)]

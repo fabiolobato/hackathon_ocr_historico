@@ -74,7 +74,7 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
     params = RescoreParams(config.post.ctc_alpha, config.post.lexicon_max_ratio, config.post.ctc_candidates,
                            config.post.lexicon_min_len,
                            *((config.post.context_min_edits, config.post.context_pool, config.post.context_nbest,
-                                config.post.context_protect)
+                                config.post.context_protect, config.post.context_coherent)
                              if config.post.context_lm else ()))
     known = frozenset(choices)
     post = config.post

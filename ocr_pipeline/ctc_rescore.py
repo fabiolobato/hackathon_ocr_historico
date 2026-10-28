@@ -118,6 +118,7 @@ class RescoreParams:
     pool: int = 0  # >0: score this many nearest lexicon words with CTC and keep the best `candidates` of them
     nbest: int = 0  # >0: also take lexicon neighbours of the word's nbest most likely readings (prefix beam search)
     protect: float = 0.0  # >0: an in-lexicon word whose every letter has at least this posterior stays as read
+    coherent: bool = False  # an in-lexicon word whose pairs with both read neighbours occur in the LM corpus stays
 
 
 def _confident(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
@@ -240,6 +241,15 @@ def _aligned_words(read: list[str], alternative: str, known: frozenset[str]) -> 
     return extras
 
 
+def _coherent(read: list[str], i: int, known: frozenset[str], lm: NgramLM) -> bool:
+    """read[i] is in the lexicon and forms corpus-attested pairs with the read words around it."""
+    word = read[i].lower()
+    if word not in known:
+        return False
+    before = i == 0 or lm.seen(read[i - 1].lower(), word)
+    return before and (i == len(read) - 1 or lm.seen(word, read[i + 1].lower()))
+
+
 def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
                          known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: NgramLM,
                          beta: float, open_known: bool, continues_word: bool = False,
@@ -258,6 +268,8 @@ def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[
                         l2c, extra) for span, extra in zip(spans, extras)]
     if continues_word and slots:
         slots[0] = slots[0][:1]
+    if params.coherent:
+        slots = [slot[:1] if _coherent(read, i, known, lm) else slot for i, slot in enumerate(slots)]
     words = decode_line(slots, lm, beta, order)
     replacements = {span[0]: (span[1], word) for span, slot, word in zip(spans, slots, words) if word != slot[0][0]}
     return _assemble(runs, replacements)

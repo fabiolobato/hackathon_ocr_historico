@@ -80,6 +80,7 @@ class PostConfig:
     beam_mode: str = 'candidates'  # 'candidates': beam words join the rescoring candidates | 'replace'
     beam_boundary_min: float = 0.0  # beam search: spaces/punctuation only where their posterior reaches this
     context_protect: float = 0.0  # with context_lm: in-lexicon words read with every letter >= this stay as read
+    context_coherent: bool = False  # with context_lm: in-lexicon words attested next to both read neighbours stay
 
 
 @dataclass(frozen=True)
