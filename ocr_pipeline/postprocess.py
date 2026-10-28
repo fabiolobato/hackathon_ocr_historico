@@ -10,7 +10,7 @@ from rapidfuzz import process
 from rapidfuzz.distance import Levenshtein
 
 from .config import PostConfig
-from .edit_costs import EditCosts
+from .edit_costs import EditCosts, variants
 
 _HYPHEN_END = re.compile(r'[-=¬]\s*$')
 _TOKEN = re.compile(r'^(\W*)(\w+)(\W*)$')
@@ -85,18 +85,19 @@ def is_known(word: str, known: frozenset[str], folded: FoldIndex | None) -> bool
 
 
 def nearest(word: str, choices: tuple[str, ...], folded: FoldIndex | None, cutoff: int, limit: int,
-            costs: 'EditCosts | None' = None, extra: int = 0, wide: int = 0) -> list[str]:
+            costs: 'EditCosts | None' = None, max_cost: float = 0.0) -> list[str]:
     """Lexicon words within cutoff edits, closest first; with folded, distances ignore accents and the
-    accented spelling is returned. With costs: also up to `wide` words up to cutoff + extra plain edits whose
-    learned-cost distance is within cutoff (rn -> m, ss -> s count less than two edits)."""
+    accented spelling is returned. With costs: first the lexicon words reached by undoing the recognizer's learned
+    confusions (rn -> m, v -> d) at total cost <= max_cost, cheapest first; plain edit distance ranks a large
+    lexicon's many words at 3-5 edits arbitrarily, so these would often miss the limit."""
     query, keys = (word, choices) if folded is None else (fold(word), folded.keys)
-    found = [k for k, _, _ in process.extract(query, keys, scorer=Levenshtein.distance, score_cutoff=cutoff,
-                                              limit=limit)]
-    if costs is not None and extra and wide:
-        band = [k for k, d, _ in process.extract(query, keys, scorer=Levenshtein.distance,
-                                                 score_cutoff=cutoff + extra, limit=wide + len(found)) if d > cutoff]
-        near = sorted((costs.distance(query, k), k) for k in band)
-        found += [k for d, k in near if d <= cutoff][:limit]
+    found = []
+    if costs is not None and max_cost > 0:
+        index = frozenset(keys) if folded is None else folded.surface
+        found = [k for k, _ in sorted(variants(costs, query, max_cost).items(), key=lambda kv: kv[1])
+                 if k in index][:limit]
+    found += [k for k, _, _ in process.extract(query, keys, scorer=Levenshtein.distance, score_cutoff=cutoff,
+                                               limit=limit) if k not in found]
     return found if folded is None else [folded.surface[k] for k in found]
 
 

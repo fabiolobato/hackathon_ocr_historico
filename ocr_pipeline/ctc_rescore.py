@@ -120,9 +120,8 @@ class RescoreParams:
     nbest: int = 0  # >0: also take lexicon neighbours of the word's nbest most likely readings (prefix beam search)
     protect: float = 0.0  # >0: an in-lexicon word whose every letter has at least this posterior stays as read
     coherent: bool = False  # an in-lexicon word whose pairs with both read neighbours occur in the LM corpus stays
-    costs: EditCosts | None = None  # learned edit costs: also candidates up to cost_extra plain edits further
-    cost_extra: int = 2
-    cost_wide: int = 0  # how many of those further words are checked with the learned costs
+    costs: EditCosts | None = None  # learned edit costs: also lexicon words reached by undoing learned confusions
+    cost_max: float = 0.0  # ... at this total cost at most
 
 
 def _confident(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
@@ -182,7 +181,7 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
     else:
         cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
         found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1, params.costs,
-                        params.cost_extra, params.cost_wide)
+                        params.cost_max)
         found = [c for c in found if c != lower][:max(params.candidates, params.pool)]
         if params.nbest and l2c:
             for reading in _nbest_readings(line, start, end, l2c, params.nbest):

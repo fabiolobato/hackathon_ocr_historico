@@ -86,7 +86,7 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
                              if config.post.context_lm else ()))
     if config.post.edit_costs:
         params = replace(params, costs=edit_costs(config.post.edit_costs, config.post.edit_costs_weight),
-                         cost_extra=config.post.edit_costs_extra, cost_wide=config.post.edit_costs_wide)
+                         cost_max=config.post.edit_costs_max)
     known = frozenset(choices)
     post = config.post
     folded = fold_index(choices) if post.fold_accents else None

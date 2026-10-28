@@ -88,8 +88,7 @@ class PostConfig:
     context_coherent: bool = False  # with context_lm: in-lexicon words attested next to both read neighbours stay
     edit_costs: str | None = None  # learned edit costs (.json, tools/learn_edit_costs.py) for candidate generation
     edit_costs_weight: float = 1.0  # 0 = plain edits, 1 = the learned costs
-    edit_costs_extra: int = 2  # candidates may be this many plain edits beyond the cutoff if cheap under the costs
-    edit_costs_wide: int = 100  # how many such further words are checked per word
+    edit_costs_max: float = 1.0  # lexicon words reached by undoing learned confusions at most this costly
 
 
 @dataclass(frozen=True)

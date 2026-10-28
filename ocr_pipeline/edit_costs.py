@@ -51,6 +51,30 @@ class EditCosts:
         return rows[len(a)][len(b)]
 
 
+def variants(costs: EditCosts, word: str, max_cost: float, limit: int = 20000) -> dict[str, float]:
+    """Spellings reachable from word by learned operations (any number, total cost <= max_cost), cheapest cost
+    each: the recognizer's likely misreadings undone, to be looked up in the lexicon."""
+    best = {word: 0.0}
+    frontier = [word]
+    while frontier and len(best) < limit:
+        nxt = []
+        for current in frontier:
+            base = best[current]
+            for i in range(len(current) + 1):
+                for ls in range(MAX_UNIT + 1):
+                    if i + ls > len(current):
+                        break
+                    for unit, cost in costs.rules.get(current[i:i + ls], {}).items():
+                        total = base + cost
+                        new = current[:i] + unit + current[i + ls:]
+                        if total <= max_cost and total < best.get(new, max_cost + 1):
+                            best[new] = total
+                            nxt.append(new)
+        frontier = nxt
+    del best[word]
+    return best
+
+
 def _units(source: str, target: str) -> list[tuple[str, str]]:
     """Non-matching aligned blocks (adjacent edits merged, so rn -> m is one block) of at most MAX_UNIT
     characters on each side; longer equal-length blocks count letter by letter, other long blocks not at all."""
