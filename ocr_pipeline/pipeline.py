@@ -10,6 +10,7 @@ from .data import Page
 from .engine import Engine, filter_lines
 from .metrics import corpus, score
 from .context_lm import load_lm
+from .beam_decode import BeamParams, beam_line, build_lexicon
 from .ctc_rescore import RescoreParams, rescore_line, rescore_line_context
 from .postprocess import _HYPHEN_END, correct, domain_vocabulary, fold_index, lexicon_choices, short_words
 from .preprocessing import apply_chain
@@ -80,10 +81,18 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
     if post.context_lm:
         lm = load_lm(post.context_lm)
         split = [False] + [bool(_HYPHEN_END.search(g)) for g in greedy[:-1]]
+        beamed = [None] * len(logits)
+        if post.beam:
+            lexicon = build_lexicon(folded or fold_index(choices))
+            beam = BeamParams(post.beam, post.context_beta, post.beam_oov, post.beam_bonus,
+                              post.context_order)
+            beamed = [beam_line(line, l2c, lexicon, lm, beam, s) for line, s in zip(logits, split)]
+            if post.beam_mode == 'replace':
+                return greedy, beamed
         short = short_words(choices, params.min_len, post.context_short) if post.context_short else ()
         return greedy, [rescore_line_context(line, c2l, l2c, n_classes, known, choices, params, lm, post.context_beta,
-                                             post.context_open_known, s, folded, post.context_order, short)
-                        for line, s in zip(logits, split)]
+                                             post.context_open_known, s, folded, post.context_order, short, alt)
+                        for line, s, alt in zip(logits, split, beamed)]
     return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params, folded) for line in logits]
 
 

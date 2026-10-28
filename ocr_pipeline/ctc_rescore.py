@@ -6,6 +6,7 @@ scored by their CTC log-likelihood over the frames between the run's neighbourin
 The greedy word competes with alpha = 0. Posteriors are stored as the top-k classes per frame
 (remaining mass floored), which keeps caches small and makes the loss an approximation.
 """
+import re
 import unicodedata
 from collections import defaultdict
 from dataclasses import dataclass
@@ -20,6 +21,7 @@ from .context_lm import NgramLM, decode_line
 from .postprocess import FoldIndex, fold, is_known, nearest
 
 FLOOR = 1e-6
+_WORDS = re.compile(r'[^\W\d_]+')
 
 
 @dataclass(frozen=True)
@@ -145,12 +147,14 @@ def _nbest_readings(line: LineLogits, start: int, end: int, l2c: dict[int, str],
 def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
                c2l: dict[str, list[int]], n_classes: int, known: frozenset[str], choices: tuple[str, ...],
                params: RescoreParams, open_known: bool, folded: FoldIndex | None = None,
-               short: tuple[str, ...] = (), l2c: dict[int, str] | None = None) -> list[tuple[str, float]]:
+               short: tuple[str, ...] = (), l2c: dict[int, str] | None = None,
+               extra: tuple[str, ...] = ()) -> list[tuple[str, float]]:
     """(candidate, CTC log-likelihood + alpha if in lexicon) for one word; the read word first.
     A single entry means the word is left as read (too short, in the lexicon and not opened, or no candidate).
     With folded, candidates are found ignoring accents and each one scores as the better of its accented and
     accent-free spellings, so não can win over a read 'nao'/'nar' when the image shows no tilde.
-    Words shorter than min_len are left as read unless short is given: then its words within one edit compete."""
+    Words shorter than min_len are left as read unless short is given: then its words within one edit compete.
+    extra: further lexicon words to score (the beam search's reading of this word)."""
     first, last, start, end = span
     original = unicodedata.normalize('NFC', ''.join(r[0] for r in runs[first:last + 1]))
     lower = original.lower()
@@ -158,8 +162,8 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
             is_known(lower, known, folded) and not open_known):
         return [(original, 0.0)]
     if len(original) < params.min_len:
-        cands = [_match_case(c, original) for c in short
-                 if c != lower and Levenshtein.distance(fold(c), fold(lower)) <= 1]
+        cands = [_match_case(c, original) for c in dict.fromkeys([*short, *extra])
+                 if c != lower and (c in extra or Levenshtein.distance(fold(c), fold(lower)) <= 1)]
     else:
         cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
         found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1)
@@ -170,7 +174,7 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
                 if reading != lower and reading.isalpha():
                     found += nearest(reading, choices, folded, max(params.min_edits, int(len(reading) * params.max_ratio)),
                                      params.candidates)
-        cands = [_match_case(c, original) for c in dict.fromkeys(found) if c != lower]
+        cands = [_match_case(c, original) for c in dict.fromkeys(found + list(extra)) if c != lower]
     encoded = [(c, e) for c, e in [(c, _encode(c, c2l)) for c in [original] + cands] if e and len(e) <= end - start]
     if len(encoded) < 2 or encoded[0][0] != original:
         return [(original, 0.0)]
@@ -211,18 +215,37 @@ def rescore_line(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str
     return _assemble(runs, replacements)
 
 
+def _aligned_words(read: list[str], alternative: str, known: frozenset[str]) -> list[tuple[str, ...]]:
+    """Per read word, the alternative reading's word replacing it one-to-one (if in the lexicon)."""
+    other = [w.lower() for w in _WORDS.findall(alternative)]
+    vocab: dict[str, int] = {}
+    a = [vocab.setdefault(w.lower(), len(vocab)) for w in read]
+    b = [vocab.setdefault(w, len(vocab)) for w in other]
+    extras: list[tuple[str, ...]] = [()] * len(read)
+    for op in Levenshtein.opcodes(a, b):
+        if op.tag == 'replace' and op.src_end - op.src_start == op.dest_end - op.dest_start:
+            for i, j in zip(range(op.src_start, op.src_end), range(op.dest_start, op.dest_end)):
+                if other[j] in known:
+                    extras[i] = (other[j],)
+    return extras
+
+
 def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
                          known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: NgramLM,
                          beta: float, open_known: bool, continues_word: bool = False,
-                         folded: FoldIndex | None = None, order: int = 2, short: tuple[str, ...] = ()) -> str:
+                         folded: FoldIndex | None = None, order: int = 2, short: tuple[str, ...] = (),
+                         alternative: str | None = None) -> str:
     """The whole line at once: candidates as in rescore_line (plus in-lexicon words when open_known, and short
     words when short is given), chosen jointly with an n-gram language model of the given order weighted by beta
     (context_lm.decode_line). continues_word: the previous line ends with a hyphen, so the first word is the tail
-    of a split word and is left as read."""
+    of a split word and is left as read. alternative: another reading of the line (beam search); its lexicon
+    words aligned one-to-one with read words join those words' candidates."""
     runs = _greedy_runs(line, l2c)
     spans = _letter_words(runs, line.top_idx.shape[0])
+    read = [''.join(r[0] for r in runs[span[0]:span[1] + 1]) for span in spans]
+    extras = _aligned_words(read, alternative, known) if alternative else [()] * len(spans)
     slots = [_word_slot(line, runs, span, c2l, n_classes, known, choices, params, open_known, folded, short,
-                        l2c) for span in spans]
+                        l2c, extra) for span, extra in zip(spans, extras)]
     if continues_word and slots:
         slots[0] = slots[0][:1]
     words = decode_line(slots, lm, beta, order)

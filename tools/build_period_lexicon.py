@@ -7,6 +7,8 @@ a manifest with the selected book ids and the SHA-256 of every downloaded text, 
 words (<out>.ngrams.npz: words, unigram counts, sorted bigram and trigram keys and counts) for context_lm.
 
   python tools/build_period_lexicon.py --out models/lexicon/pt_hist_gutenberg.txt
+  python tools/build_period_lexicon.py --out models/lexicon/pt_hist_legal.txt \
+      --extra-texts models/lexicon/sources/alesp/text --extra-weight 4   # + São Paulo laws (fetch_alesp_acts.py)
 """
 import argparse
 import csv
@@ -101,6 +103,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--alive-after', type=int, default=1850)
     parser.add_argument('--min-count', type=int, default=2, help='drop words seen fewer times (typos, OCR noise)')
     parser.add_argument('--delay', type=float, default=1.0, help='seconds between downloads')
+    parser.add_argument('--extra-texts', type=Path, help='folder of plain-text files added to the corpus')
+    parser.add_argument('--extra-weight', type=int, default=1, help='count every extra text this many times')
     return parser
 
 
@@ -123,13 +127,19 @@ def main() -> None:
         counts.update(count_words(body(raw.decode('utf-8', errors='replace'))))
         if i % 50 == 0:
             logger.info('%d/%d books, %d distinct words', i, len(books), len(counts))
+    extra = sorted(args.extra_texts.glob('*.txt')) if args.extra_texts else []
+    for path in extra:
+        for word, n in count_words(path.read_text(encoding='utf-8')).items():
+            counts[word] += n * args.extra_weight
+    logger.info('%d extra texts (weight %d)', len(extra), args.extra_weight)
     words = [(w, n) for w, n in counts.most_common() if n >= args.min_count]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(''.join(f'{w} {n}\n' for w, n in words), encoding='utf-8')
-    manifest = {'rule': {k: v for k, v in vars(args).items() if k not in ('out', 'sources')},
+    manifest = {'rule': {k: v for k, v in vars(args).items() if k not in ('out', 'sources', 'extra_texts')},
                 'catalog_url': CATALOG_URL, 'tokens': sum(counts.values()), 'words_kept': len(words),
                 'output_sha256': hashlib.sha256(args.out.read_bytes()).hexdigest(), 'books': books}
-    texts = [args.sources / f'pg{b["id"]}.txt' for b in books if b['sha256']]
+    texts = [args.sources / f'pg{b["id"]}.txt' for b in books if b['sha256']] + extra * args.extra_weight
+    manifest['extra_texts'] = {'folder': str(args.extra_texts), 'files': len(extra), 'weight': args.extra_weight}
     ngrams = ngram_counts(texts, [w for w, _ in words], args.min_count)
     np.savez_compressed(args.out.with_suffix('.ngrams.npz'), words=np.array([w for w, _ in words]),
                         unigrams=np.array([n for _, n in words], dtype=np.int64), keys=ngrams[2][0],

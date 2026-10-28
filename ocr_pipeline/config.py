@@ -74,6 +74,10 @@ class PostConfig:
     context_short: int = 0  # with context_lm: words shorter than lexicon_min_len get candidates (1 edit) from
     #                         the N most frequent short lexicon words (o -> os, du -> da); 0 = left as read
     context_nbest: int = 0  # with context_lm: also candidates near the word's N most likely readings (beam search)
+    beam: int = 0  # with context_lm: decode each line by CTC prefix beam search of this width (beam_decode)
+    beam_oov: float = -6.0  # beam search: log penalty per word not in the lexicon
+    beam_bonus: float = 4.0  # beam search: log bonus per lexicon word
+    beam_mode: str = 'candidates'  # 'candidates': beam words join the rescoring candidates | 'replace'
 
 
 @dataclass(frozen=True)
