@@ -211,8 +211,8 @@ class Search:
             chosen = [c for c in chosen if c is not weakest]
         return chosen
 
-    def run(self, passes: int) -> list[Candidate]:
-        chosen: list[Candidate] = []
+    def run(self, passes: int, initial: list[Candidate] | None = None) -> list[Candidate]:
+        chosen: list[Candidate] = list(initial or [])
         for self.pass_no in range(1, passes + 1):
             before = {(c.stage, c.name) for c in chosen}
             for stage, candidates in self.spec.stages:
@@ -238,7 +238,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--passes', type=int, default=3, help='max forward+backward passes; stops when stable')
     parser.add_argument('--no-report', action='store_true')
+    parser.add_argument('--init', type=Path, help='warm start: decisions.json of an earlier search (its final choices '
+                                                   'that exist in this spec are the starting point)')
     return parser
+
+
+def initial_choices(spec: SearchSpec, decisions: Path | None) -> list[Candidate]:
+    if decisions is None:
+        return []
+    names = json.loads(decisions.read_text(encoding='utf-8'))['final']
+    by_name = {f'{c.stage}:{c.name}': c for _, candidates in spec.stages for c in candidates}
+    return [by_name[n] for n in names if n in by_name]
 
 
 def write_outputs(out: Path, search: Search, final: list[Candidate]) -> None:
@@ -267,7 +277,7 @@ def main() -> None:
     engine = Engine(args.cache, args.device, args.seed)
     search = Search(engine, select(all_pages, args.pages), pool, spec, with_overrides(PipelineConfig(), spec.base),
                     out / 'evaluations.jsonl')
-    final = search.run(args.passes)
+    final = search.run(args.passes, initial_choices(spec, args.init))
     write_outputs(out, search, final)
     logger.info('final:   %s -> %s %.2f', [f'{c.stage}:{c.name}' for c in final], spec.metric,
                 100 * search.score(search.build(final)))
