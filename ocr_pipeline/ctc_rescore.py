@@ -18,6 +18,7 @@ from rapidfuzz import process
 from rapidfuzz.distance import Levenshtein
 
 from .context_lm import NgramLM, decode_line
+from .edit_costs import EditCosts
 from .postprocess import FoldIndex, fold, is_known, nearest
 
 FLOOR = 1e-6
@@ -119,6 +120,9 @@ class RescoreParams:
     nbest: int = 0  # >0: also take lexicon neighbours of the word's nbest most likely readings (prefix beam search)
     protect: float = 0.0  # >0: an in-lexicon word whose every letter has at least this posterior stays as read
     coherent: bool = False  # an in-lexicon word whose pairs with both read neighbours occur in the LM corpus stays
+    costs: EditCosts | None = None  # learned edit costs: also candidates up to cost_extra plain edits further
+    cost_extra: int = 2
+    cost_wide: int = 0  # how many of those further words are checked with the learned costs
 
 
 def _confident(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[int, int, int, int],
@@ -177,7 +181,8 @@ def _word_slot(line: LineLogits, runs: list[tuple[str, int, int]], span: tuple[i
                  if c != lower and (c in extra or Levenshtein.distance(fold(c), fold(lower)) <= 1)]
     else:
         cutoff = max(params.min_edits, int(len(original) * params.max_ratio))
-        found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1)
+        found = nearest(lower, choices, folded, cutoff, max(params.candidates, params.pool) + 1, params.costs,
+                        params.cost_extra, params.cost_wide)
         found = [c for c in found if c != lower][:max(params.candidates, params.pool)]
         if params.nbest and l2c:
             for reading in _nbest_readings(line, start, end, l2c, params.nbest):
@@ -250,11 +255,87 @@ def _coherent(read: list[str], i: int, known: frozenset[str], lm: NgramLM) -> bo
     return before and (i == len(read) - 1 or lm.seen(word, read[i + 1].lower()))
 
 
+def _gaps(runs: list[tuple[str, int, int]], spans: list[tuple[int, int, int, int]]) -> list[str]:
+    """Text of the runs before the first word, between consecutive words and after the last (len(spans) + 1)."""
+    bounds = [-1] + [b for span in spans for b in (span[0], span[1])] + [len(runs)]
+    return [''.join(r[0] for r in runs[bounds[k] + 1:bounds[k + 1]]) for k in range(0, len(bounds), 2)]
+
+
+def _context_lm(words: list[str], lm: NgramLM) -> float:
+    return sum(lm.logp(w.lower(), p.lower() if p else None) for p, w in zip([None] + words[:-1], words) if w)
+
+
+@dataclass(frozen=True)
+class RegionParams:
+    margin: float = 0.0  # the alternative must beat the rescored text by this much (CTC log-lik + beta * LM)
+    max_words: int = 3  # regions with more words on either side are left alone
+
+
+def _region_score(line: LineLogits, c2l: dict[str, list[int]], n_classes: int, frames: tuple[int, int],
+                  texts: list[str]) -> list[float] | None:
+    encoded = [_encode(t, c2l) for t in texts]
+    start, end = frames
+    if any(e is None or len(e) > end - start for e in encoded) or end <= start:
+        return None
+    return [float(x) for x in _ctc_scores(_log_probs(line, n_classes, start, end), encoded)]
+
+
+def arbitrate_regions(line: LineLogits, runs: list[tuple[str, int, int]], spans: list[tuple[int, int, int, int]],
+                      words: list[str], alternative: str, known: frozenset[str], folded: FoldIndex | None,
+                      lm: NgramLM, beta: float, c2l: dict[str, list[int]], n_classes: int,
+                      params: RegionParams) -> str:
+    """The rescored line, except where the alternative reading (beam search) disagrees on a short stretch,
+    including stretches with a different number of words (inserted, split or merged words; Granell et al. 2015,
+    Lund et al. 2011): there both versions are scored by CTC over the stretch's frames plus beta * LM with the
+    neighbouring words, and the alternative is taken if every one of its words is in the lexicon and it wins by
+    params.margin."""
+    gaps = _gaps(runs, spans)
+    other = _WORDS.findall(alternative)
+    vocab: dict[str, int] = {}
+    a = [vocab.setdefault(w.lower(), len(vocab)) for w in words]
+    b = [vocab.setdefault(w.lower(), len(vocab)) for w in other]
+    out_words, out_gaps = list(words), list(gaps)
+    for op in Levenshtein.opcodes(a, b):
+        i1, i2, mine, theirs = op.src_start, op.src_end, words[op.src_start:op.src_end], other[op.dest_start:op.dest_end]
+        if op.tag == 'equal' or len(mine) > params.max_words or len(theirs) > params.max_words:
+            continue
+        if not all(is_known(w.lower(), known, folded) or w.lower() in known for w in theirs) or any(
+                len(w) == 1 and fold(w.lower()) not in 'aeiou' for w in theirs):  # lone consonants: abbreviations
+            continue
+        if folded is not None:  # the lexicon's accented spelling (the beam matches words without accents)
+            theirs = [_match_case(folded.surface.get(fold(w.lower()), w), w) for w in theirs]
+        if i1 < i2:
+            frames = (spans[i1][2], spans[i2 - 1][3])
+            ours = ''.join(w + g for w, g in zip(mine, gaps[i1 + 1:i2])) + mine[-1]
+            texts = [ours, ' '.join(theirs)]
+        elif 0 < i1 < len(words) and not gaps[i1].strip():
+            frames = (spans[i1 - 1][3], spans[i1][2])
+            texts = [gaps[i1], f"{gaps[i1]}{' '.join(theirs)} "]
+        else:
+            continue
+        scores = _region_score(line, c2l, n_classes, frames, texts)
+        if scores is None:
+            continue
+        before, after = words[i1 - 1:i1], words[i2:i2 + 1]
+        lm_ours = _context_lm(before + mine + after, lm) - _context_lm(before, lm)
+        lm_theirs = _context_lm(before + theirs + after, lm) - _context_lm(before, lm)
+        if scores[1] + beta * lm_theirs - scores[0] - beta * lm_ours <= params.margin:
+            continue
+        if i1 < i2:
+            out_words[i1] = ' '.join(_match_case(w, mine[0]) if k == 0 else w for k, w in enumerate(theirs))
+            for k in range(i1 + 1, i2):
+                out_words[k], out_gaps[k] = '', ''
+        else:
+            out_gaps[i1] = texts[1]
+    text = out_gaps[0] + ''.join(w + g for w, g in zip(out_words, out_gaps[1:]))
+    return unicodedata.normalize('NFC', re.sub(r' {2,}', ' ', text))
+
+
 def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[int, str], n_classes: int,
                          known: frozenset[str], choices: tuple[str, ...], params: RescoreParams, lm: NgramLM,
                          beta: float, open_known: bool, continues_word: bool = False,
                          folded: FoldIndex | None = None, order: int = 2, short: tuple[str, ...] = (),
-                         alternative: str | None = None) -> str:
+                         alternative: str | None = None, regions: RegionParams | None = None) -> str:
     """The whole line at once: candidates as in rescore_line (plus in-lexicon words when open_known, and short
     words when short is given), chosen jointly with an n-gram language model of the given order weighted by beta
     (context_lm.decode_line). continues_word: the previous line ends with a hyphen, so the first word is the tail
@@ -271,5 +352,8 @@ def rescore_line_context(line: LineLogits, c2l: dict[str, list[int]], l2c: dict[
     if params.coherent:
         slots = [slot[:1] if _coherent(read, i, known, lm) else slot for i, slot in enumerate(slots)]
     words = decode_line(slots, lm, beta, order)
+    if regions is not None and alternative is not None:
+        return arbitrate_regions(line, runs, spans, words, alternative, known, folded, lm, beta, c2l, n_classes,
+                                 regions)
     replacements = {span[0]: (span[1], word) for span, slot, word in zip(spans, slots, words) if word != slot[0][0]}
     return _assemble(runs, replacements)

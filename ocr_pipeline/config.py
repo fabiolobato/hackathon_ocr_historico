@@ -77,10 +77,19 @@ class PostConfig:
     beam: int = 0  # with context_lm: decode each line by CTC prefix beam search of this width (beam_decode)
     beam_oov: float = -6.0  # beam search: log penalty per word not in the lexicon
     beam_bonus: float = 4.0  # beam search: log bonus per lexicon word
-    beam_mode: str = 'candidates'  # 'candidates': beam words join the rescoring candidates | 'replace'
+    beam_mode: str = 'candidates'  # 'candidates': beam words join the rescoring candidates | 'replace' |
+    #                                'regions': beam stretches replace rescored ones where they score better
+    beam_region_margin: float = 0.0  # beam_mode regions: how much better (CTC log-lik + beta * LM) the beam must be
+    beam_beta: float = -1.0  # LM weight inside the beam search; < 0 = context_beta
+    beam_free_digits: bool = False  # beam search: digits and ordinal marks pass without OOV penalty or gating
+    beam_length_norm: bool = False  # beam search: LM score divided by the number of words
     beam_boundary_min: float = 0.0  # beam search: spaces/punctuation only where their posterior reaches this
     context_protect: float = 0.0  # with context_lm: in-lexicon words read with every letter >= this stay as read
     context_coherent: bool = False  # with context_lm: in-lexicon words attested next to both read neighbours stay
+    edit_costs: str | None = None  # learned edit costs (.json, tools/learn_edit_costs.py) for candidate generation
+    edit_costs_weight: float = 1.0  # 0 = plain edits, 1 = the learned costs
+    edit_costs_extra: int = 2  # candidates may be this many plain edits beyond the cutoff if cheap under the costs
+    edit_costs_wide: int = 100  # how many such further words are checked per word
 
 
 @dataclass(frozen=True)

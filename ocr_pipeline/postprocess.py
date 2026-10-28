@@ -10,6 +10,7 @@ from rapidfuzz import process
 from rapidfuzz.distance import Levenshtein
 
 from .config import PostConfig
+from .edit_costs import EditCosts
 
 _HYPHEN_END = re.compile(r'[-=¬]\s*$')
 _TOKEN = re.compile(r'^(\W*)(\w+)(\W*)$')
@@ -83,14 +84,20 @@ def is_known(word: str, known: frozenset[str], folded: FoldIndex | None) -> bool
     return word in known and (folded is None or folded.surface.get(fold(word)) == word)
 
 
-def nearest(word: str, choices: tuple[str, ...], folded: FoldIndex | None, cutoff: int, limit: int) -> list[str]:
+def nearest(word: str, choices: tuple[str, ...], folded: FoldIndex | None, cutoff: int, limit: int,
+            costs: 'EditCosts | None' = None, extra: int = 0, wide: int = 0) -> list[str]:
     """Lexicon words within cutoff edits, closest first; with folded, distances ignore accents and the
-    accented spelling is returned."""
-    if folded is None:
-        return [c for c, _, _ in process.extract(word, choices, scorer=Levenshtein.distance, score_cutoff=cutoff,
-                                                 limit=limit)]
-    return [folded.surface[k] for k, _, _ in process.extract(fold(word), folded.keys, scorer=Levenshtein.distance,
-                                                             score_cutoff=cutoff, limit=limit)]
+    accented spelling is returned. With costs: also up to `wide` words up to cutoff + extra plain edits whose
+    learned-cost distance is within cutoff (rn -> m, ss -> s count less than two edits)."""
+    query, keys = (word, choices) if folded is None else (fold(word), folded.keys)
+    found = [k for k, _, _ in process.extract(query, keys, scorer=Levenshtein.distance, score_cutoff=cutoff,
+                                              limit=limit)]
+    if costs is not None and extra and wide:
+        band = [k for k, d, _ in process.extract(query, keys, scorer=Levenshtein.distance,
+                                                 score_cutoff=cutoff + extra, limit=wide + len(found)) if d > cutoff]
+        near = sorted((costs.distance(query, k), k) for k in band)
+        found += [k for d, k in near if d <= cutoff][:limit]
+    return found if folded is None else [folded.surface[k] for k in found]
 
 
 def short_words(choices: tuple[str, ...], min_len: int, size: int) -> tuple[str, ...]:

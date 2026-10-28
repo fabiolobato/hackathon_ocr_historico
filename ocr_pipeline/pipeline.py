@@ -1,17 +1,19 @@
 """Page-level pipeline: base geometry -> segmentation image -> line filter -> recognition image -> text -> scores."""
 import logging
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
+from functools import lru_cache
 from typing import Any
 
 from PIL import Image
 
 from .config import OpParams, PipelineConfig, stable_hash
 from .data import Page
+from .edit_costs import EditCosts, load_rules, scaled
 from .engine import Engine, filter_lines
 from .metrics import corpus, score
 from .context_lm import load_lm
 from .beam_decode import BeamParams, beam_line, build_lexicon
-from .ctc_rescore import RescoreParams, rescore_line, rescore_line_context
+from .ctc_rescore import RegionParams, RescoreParams, rescore_line, rescore_line_context
 from .postprocess import _HYPHEN_END, correct, domain_vocabulary, fold_index, lexicon_choices, short_words
 from .preprocessing import apply_chain
 
@@ -62,6 +64,12 @@ def trace_page(engine: Engine, page: Page, config: PipelineConfig, domain: tuple
     return PageTrace(base, seg_image, rec_image, segmentation, greedy, lines)
 
 
+@lru_cache(maxsize=4)
+def edit_costs(path: str, weight: float) -> EditCosts:
+    """Cached per file and weight, so the distance memo is shared by all pages and configs."""
+    return scaled(load_rules(path), weight)
+
+
 def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: PipelineConfig, key: str,
                  domain: tuple[str, ...]) -> tuple[list[str], list[str]]:
     """(greedy, rescored) per line."""
@@ -76,6 +84,9 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
                            *((config.post.context_min_edits, config.post.context_pool, config.post.context_nbest,
                                 config.post.context_protect, config.post.context_coherent)
                              if config.post.context_lm else ()))
+    if config.post.edit_costs:
+        params = replace(params, costs=edit_costs(config.post.edit_costs, config.post.edit_costs_weight),
+                         cost_extra=config.post.edit_costs_extra, cost_wide=config.post.edit_costs_wide)
     known = frozenset(choices)
     post = config.post
     folded = fold_index(choices) if post.fold_accents else None
@@ -85,14 +96,17 @@ def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: 
         beamed = [None] * len(logits)
         if post.beam:
             lexicon = build_lexicon(folded or fold_index(choices))
-            beam = BeamParams(post.beam, post.context_beta, post.beam_oov, post.beam_bonus,
-                              post.context_order, boundary_min=post.beam_boundary_min)
+            beam = BeamParams(post.beam, post.beam_beta if post.beam_beta >= 0 else post.context_beta, post.beam_oov,
+                              post.beam_bonus, post.context_order, boundary_min=post.beam_boundary_min,
+                              free_digits=post.beam_free_digits, length_norm=post.beam_length_norm)
             beamed = [beam_line(line, l2c, lexicon, lm, beam, s) for line, s in zip(logits, split)]
             if post.beam_mode == 'replace':
                 return greedy, beamed
         short = short_words(choices, params.min_len, post.context_short) if post.context_short else ()
+        regions = RegionParams(post.beam_region_margin) if post.beam_mode == 'regions' else None
         return greedy, [rescore_line_context(line, c2l, l2c, n_classes, known, choices, params, lm, post.context_beta,
-                                             post.context_open_known, s, folded, post.context_order, short, alt)
+                                             post.context_open_known, s, folded, post.context_order, short,
+                                             None if regions and alt is None else alt, regions)
                         for line, s, alt in zip(logits, split, beamed)]
     return greedy, [rescore_line(line, c2l, l2c, n_classes, known, choices, params, folded) for line in logits]
 
