@@ -26,8 +26,7 @@ SELECT = ['--min-chars', '10', '--min-mean-prob', '0.85', '--max-change', '1.0',
 EPOCHS = 20
 EFFECTIVE = 16  # lines per optimizer step (E07: 4 x 4)
 BATCHES = (32, 16, 8, 4)
-TRAIN = ['-r', '1e-4', '--augment', '-q', 'fixed', '-N', str(EPOCHS), '-p', '0.9', '-u', 'NFD', '--resize', 'union',
-         '--precision', 'bf16-mixed']
+TRAIN = ['-r', '1e-4', '--augment', '-q', 'fixed', '-N', str(EPOCHS), '-p', '0.9', '-u', 'NFD', '--resize', 'union']
 HOLD_HOURS = 6
 KRAKEN = 'kraken @ git+https://github.com/mittagessen/kraken.git@bb487219e7d8289274443d1ad0989efb4924dc2a'
 PACKAGES = [KRAKEN, 'transformers==4.57.1', 'rapidfuzz==3.14.1', 'opencv-python-headless==4.12.0.88', 'tensorboard']
@@ -68,11 +67,12 @@ def run(cmd: list[str], name: str) -> int:
 def pseudo_labels() -> Path:
     labels = OUT / 'labels'
     py = [sys.executable, '-m', 'ocr_pipeline.tuning.pseudo_labels']
-    assert run([*py, 'label', '--config', CONFIG, '--images', IMAGES, '--out', str(labels), '--device', 'cuda:0',
-                '--workers', str(CORES)], 'label') == 0
+    if not (labels / 'label_config.json').exists():  # labelling finished in an earlier run of this job
+        assert run([*py, 'label', '--config', CONFIG, '--images', IMAGES, '--out', str(labels), '--device', 'cuda:0',
+                    '--workers', str(CORES)], 'label') == 0
     assert run([*py, 'select', str(labels), *SELECT], 'select') == 0
     arrow = OUT / 'train.arrow'
-    assert run(['ketos', 'compile', '-f', 'page', '--workers', str(CORES), '-o', str(arrow),
+    assert run(['ketos', '--workers', str(CORES), 'compile', '-f', 'page', '-o', str(arrow),
                 *sorted(str(p) for p in (labels / 'train').glob('*.xml'))], 'compile') == 0
     return arrow
 
@@ -83,7 +83,7 @@ def train(weights: Path, arrow: Path) -> int:
         tb = OUT / f'tb_b{batch}'
         tb.mkdir(parents=True, exist_ok=True)  # ketos requires an existing --log-dir
         cmd = ['ketos', '-d', 'cuda:0', '-s', '42', '--workers', str(min(CORES, 8)), '--threads', str(CORES),
-               'train', '-f', 'binary', '-i', str(weights), '-o', str(model), '--logger', 'tensorboard',
+               '--precision', 'bf16-mixed', 'train', '-f', 'binary', '-i', str(weights), '-o', str(model), '--logger', 'tensorboard',
                '--log-dir', str(tb), '-B', str(batch), '--accumulate-grad-batches', str(max(1, EFFECTIVE // batch)),
                *TRAIN, str(arrow)]
         code = run(cmd, f'train_b{batch}')
@@ -121,9 +121,9 @@ def pack() -> None:
 
 
 def main() -> None:
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    OUT.mkdir(parents=True)
+    OUT.mkdir(parents=True, exist_ok=True)  # labels from an earlier run are reused
+    for stale in ('READY', 'FETCHED', 'result.zip'):
+        (OUT / stale).unlink(missing_ok=True)
     log(f'cores {CORES}')
     code = 1
     try:

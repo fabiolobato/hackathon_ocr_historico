@@ -23,6 +23,8 @@ MODELS = {
     'ft_v1': Path('models/finetuned/ft_v1.safetensors'),
     # TraPrInq fine-tuned on the same tuning lines as ft_v1 (E08); same held-out-only rule
     'ft_traprinq_v1': Path('models/finetuned/ft_traprinq_v1.safetensors'),
+    # medium self-trained on pipeline labels of the book's other 91 pages (E14); no evaluation page in training
+    'st_v1': Path('models/finetuned/st_v1.safetensors'),
 }
 
 
