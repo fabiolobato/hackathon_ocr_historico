@@ -18,11 +18,12 @@ import time
 import urllib.request
 from pathlib import Path
 
-RUN = 'st_v1'
+RUN = 'st_v2'
 BUNDLE = Path('/content/selftrain.zip')
-CONFIG = 'configs/v4_pass1.json'
+CONFIG = 'configs/v4_pass1_st_v1.json'  # labels from the pipeline with st_v1; training still starts from medium
 IMAGES = 'imagens_extra/ldl1_crop'
-SELECT = ['--min-chars', '10', '--min-mean-prob', '0.85', '--max-change', '1.0', '--min-known', '0.9']  # tuning-page calibration: label CER ~9 vs greedy ~21, 40% of lines
+# recalibrated for st_v1 (more confident than medium): label CER ~8.9 on 47% of tuning lines (0.85 would give 12.3)
+SELECT = ['--min-chars', '10', '--min-mean-prob', '0.92', '--max-change', '1.0', '--min-known', '0.9']
 EPOCHS = 20
 EFFECTIVE = 16  # lines per optimizer step (E07: 4 x 4)
 BATCHES = (32, 16, 8, 4)
