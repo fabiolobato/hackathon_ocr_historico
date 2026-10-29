@@ -13,7 +13,7 @@ from .engine import Engine, filter_lines
 from .metrics import corpus, score
 from .context_lm import load_lm
 from .beam_decode import BeamParams, beam_line, build_lexicon
-from .ctc_rescore import RegionParams, RescoreParams, rescore_line, rescore_line_context
+from .ctc_rescore import RegionParams, RescoreParams, merge_lines, rescore_line, rescore_line_context
 from .postprocess import _HYPHEN_END, correct, domain_vocabulary, fold_index, lexicon_choices, short_words
 from .preprocessing import apply_chain
 
@@ -24,6 +24,8 @@ OP_PARAMS = {
     'contrast': ('contrast_factor',), 'clahe': ('clahe_clip', 'clahe_grid'), 'denoise': ('denoise_strength',),
     'illumination': ('background_sigma',), 'kraken_nlbin': ('nlbin_threshold', 'nlbin_zoom'),
     'sharpen': ('sharpen_amount',), 'gamma': ('gamma',), 'remove_rules': ('rule_kernel_frac',),
+    'deslant': ('slant_limit', 'slant_gain'), 'channel': ('channel',), 'thicken': ('stroke_size',),
+    'thin': ('stroke_size',),
 }
 
 
@@ -58,7 +60,7 @@ def trace_page(engine: Engine, page: Page, config: PipelineConfig, domain: tuple
     segmentation = filter_lines(engine.segment(seg_image, config.seg, seg_key), config.seg, *base.size)
     rec_image = apply_chain(base, config.rec_ops, config.params, geometric=False)
     if config.post.decoder in ('ctc', 'ctc+edit'):
-        greedy, lines = rescore_page(engine, rec_image, segmentation, config, rec_key, domain)
+        greedy, lines = rescore_page(engine, rec_image, segmentation, config, rec_key, domain, base)
     else:
         greedy = lines = engine.recognize(rec_image, segmentation, config.rec, rec_key)
     return PageTrace(base, seg_image, rec_image, segmentation, greedy, lines)
@@ -70,10 +72,26 @@ def edit_costs(path: str, weight: float) -> EditCosts:
     return scaled(load_rules(path), weight)
 
 
-def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: PipelineConfig, key: str,
-                 domain: tuple[str, ...]) -> tuple[list[str], list[str]]:
-    """(greedy, rescored) per line."""
+def page_logits(engine: Engine, base: Image.Image, image: Image.Image, segmentation: Any, config: PipelineConfig,
+                key: str) -> list[Any]:
+    """Per-line posteriors; with rec_tta, averaged over the rec image and each extra version of it."""
     logits = engine.recognize_logits(image, segmentation, config.rec, key)
+    if not config.rec_tta:
+        return logits
+    _, l2c, n_classes = engine.codec(config.rec.model)
+    versions = [logits]
+    for chain in config.rec_tta:
+        ops = tuple(op for op in chain.split('+') if op and op != 'raw')
+        extra = apply_chain(base, ops, config.params, geometric=False)
+        versions.append(engine.recognize_logits(extra, segmentation, config.rec,
+                                                stable_hash([key, 'tta', _ops_key(ops, config.params)])))
+    return [merge_lines(list(lines), n_classes, l2c) for lines in zip(*versions)]
+
+
+def rescore_page(engine: Engine, image: Image.Image, segmentation: Any, config: PipelineConfig, key: str,
+                 domain: tuple[str, ...], base: Image.Image | None = None) -> tuple[list[str], list[str]]:
+    """(greedy, rescored) per line."""
+    logits = page_logits(engine, base if base is not None else image, image, segmentation, config, key)
     greedy = [line.prediction for line in logits]
     choices = lexicon_choices(config.post, domain)
     if not choices:

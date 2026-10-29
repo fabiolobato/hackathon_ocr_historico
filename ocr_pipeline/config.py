@@ -12,8 +12,8 @@ from dataclasses import asdict, dataclass, field, fields, replace
 from pathlib import Path
 from typing import Any
 
-GEOMETRIC_OPS = frozenset({'upscale', 'deskew'})
-PHOTOMETRIC_OPS = frozenset({'grayscale', 'contrast', 'clahe', 'denoise', 'illumination',
+GEOMETRIC_OPS = frozenset({'upscale', 'deskew', 'deslant'})
+PHOTOMETRIC_OPS = frozenset({'channel', 'thicken', 'thin', 'grayscale', 'contrast', 'clahe', 'denoise', 'illumination',
                              'otsu', 'kraken_nlbin', 'sharpen', 'remove_rules', 'gamma'})
 
 
@@ -32,6 +32,10 @@ class OpParams:
     sharpen_amount: float = 1.0
     gamma: float = 1.0
     rule_kernel_frac: float = 0.08
+    slant_limit: float = 15.0  # deslant: largest stroke tilt corrected, in degrees
+    slant_gain: float = 1.0  # deslant: shear = gain * estimated tilt
+    channel: str = 'b'  # channel: which RGB channel ('r', 'g', 'b') or 'min' (darkest of the three)
+    stroke_size: int = 3  # thicken / thin: min / max filter size in pixels
 
 
 @dataclass(frozen=True)
@@ -96,6 +100,7 @@ class PipelineConfig:
     geometric_ops: tuple[str, ...] = ()
     seg_ops: tuple[str, ...] = ('kraken_nlbin',)
     rec_ops: tuple[str, ...] = ()
+    rec_tta: tuple[str, ...] = ()  # extra rec images ('op+op' chains, 'raw' = no op): CTC posteriors are averaged
     params: OpParams = field(default_factory=OpParams)
     seg: SegConfig = field(default_factory=SegConfig)
     rec: RecConfig = field(default_factory=RecConfig)
@@ -103,7 +108,8 @@ class PipelineConfig:
 
     def __post_init__(self) -> None:
         bad_geo = set(self.geometric_ops) - GEOMETRIC_OPS
-        bad_photo = (set(self.seg_ops) | set(self.rec_ops)) - PHOTOMETRIC_OPS
+        tta = {op for chain in self.rec_tta for op in chain.split('+') if op and op != 'raw'}
+        bad_photo = (set(self.seg_ops) | set(self.rec_ops) | tta) - PHOTOMETRIC_OPS
         if bad_geo or bad_photo:
             raise ValueError(f'Unknown or misplaced ops: geometric={bad_geo}, photometric={bad_photo}')
 

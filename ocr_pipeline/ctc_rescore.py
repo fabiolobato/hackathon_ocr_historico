@@ -41,6 +41,26 @@ def compress(probs: torch.Tensor, k: int = 20) -> tuple[np.ndarray, np.ndarray]:
     return indices.T.numpy().astype(np.int16), values.T.numpy().astype(np.float16)
 
 
+def merge_lines(lines: list[LineLogits], n_classes: int, l2c: dict[int, str], k: int = 20) -> LineLogits:
+    """Average the posteriors of one line read from several versions of the image (test-time augmentation);
+    the versions share the polygons, so frames line up. Lines whose frame count differs are left out."""
+    usable = [line for line in lines if line.top_idx.shape == lines[0].top_idx.shape]
+    if len(usable) < 2 or not usable[0].top_idx.shape[0]:
+        return lines[0]
+    total = torch.zeros((usable[0].top_idx.shape[0], n_classes))
+    for line in usable:
+        dense = torch.zeros_like(total)
+        dense.scatter_(1, torch.from_numpy(line.top_idx.astype(np.int64)), torch.from_numpy(line.top_val.astype(np.float32)))
+        total += dense
+    idx, val = compress((total / len(usable)).T, k)
+    best, prev, out = idx[:, 0].astype(int), 0, []
+    for label in best:
+        if label != prev and label != 0:
+            out.append(l2c.get(label, ''))
+        prev = label
+    return LineLogits(unicodedata.normalize('NFC', ''.join(out)), idx, val)
+
+
 def _log_probs(line: LineLogits, n_classes: int, start: int, end: int) -> torch.Tensor:
     idx = torch.from_numpy(line.top_idx[start:end].astype(np.int64))
     val = torch.from_numpy(line.top_val[start:end].astype(np.float32))
