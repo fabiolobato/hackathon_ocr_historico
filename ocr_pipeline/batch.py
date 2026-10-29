@@ -12,6 +12,7 @@ import html
 import json
 import logging
 import unicodedata
+from concurrent.futures import Executor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -19,7 +20,7 @@ from typing import Any
 from .config import PipelineConfig, load_config
 from .engine import Engine
 from .metrics import corpus, score
-from .pipeline import PageTrace, trace_page
+from .pipeline import PageTrace, page_executor, trace_page, worker_engine
 from .postprocess import correct
 from .presentation import images_html, steps_table, text_steps, text_versions
 from .visualize import line_table, word_diff
@@ -60,13 +61,19 @@ def transcribe(engine: Engine, page: BatchPage, config: PipelineConfig) -> tuple
     return trace, '\n'.join(correct(trace.lines, config.post))
 
 
-def run_batch(engine: Engine, pages: list[BatchPage], config: PipelineConfig,
-              out: Path) -> tuple[list[dict[str, Any]], dict[int, PageTrace]]:
-    """Writes out/texts/<image stem>.txt per page and out/summary.json; returns the rows and the traces."""
+def _transcribe_worker(args: tuple[BatchPage, PipelineConfig]) -> tuple[PageTrace, str]:
+    return transcribe(worker_engine(), *args)
+
+
+def run_batch(engine: Engine, pages: list[BatchPage], config: PipelineConfig, out: Path,
+              executor: Executor | None = None) -> tuple[list[dict[str, Any]], dict[int, PageTrace]]:
+    """Writes out/texts/<image stem>.txt per page and out/summary.json; returns the rows and the traces.
+    executor: pipeline.page_executor, to transcribe pages in parallel."""
     (out / 'texts').mkdir(parents=True, exist_ok=True)
     rows, traces = [], {}
-    for page in pages:
-        trace, text = transcribe(engine, page, config)
+    results = (executor.map(_transcribe_worker, [(page, config) for page in pages]) if executor
+               else (transcribe(engine, page, config) for page in pages))
+    for page, (trace, text) in zip(pages, results):
         target = out / 'texts' / f'{page.image.stem}.txt'
         target.write_text(text + '\n', encoding='utf-8')
         row = {'image': page.image.name, 'text_file': str(target), 'lines': len(trace.segmentation.lines),
@@ -113,6 +120,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--cache', type=Path, help='default: <out>/cache')
     parser.add_argument('--device', default='cpu')
     parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--workers', type=int, default=1, help='processes transcribing pages in parallel')
     return parser
 
 
@@ -125,7 +133,12 @@ def main() -> None:
     (args.out / 'run_config.json').write_text(json.dumps({'args': {k: str(v) for k, v in vars(args).items()},
                                                          'config': config.to_dict()}, indent=2), encoding='utf-8')
     engine = Engine(args.cache or args.out / 'cache', args.device, args.seed)
-    rows, _ = run_batch(engine, discover_batch(args.images, args.references), config, args.out)
+    pages = discover_batch(args.images, args.references)
+    if args.workers > 1:
+        with page_executor(engine, args.workers) as executor:
+            rows, _ = run_batch(engine, pages, config, args.out, executor)
+    else:
+        rows, _ = run_batch(engine, pages, config, args.out)
     scored = [r for r in rows if 'wer_norm' in r]
     if scored:
         total = corpus(scored)

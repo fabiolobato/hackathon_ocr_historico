@@ -1,5 +1,6 @@
 """Kraken wrapper: one segmenter, lazily loaded recognizers, disk caches keyed by config hashes."""
 import logging
+import os
 import pickle
 import random
 from dataclasses import replace
@@ -34,15 +35,16 @@ def seed_everything(seed: int) -> None:
 
 
 class Engine:
-    def __init__(self, cache_dir: Path, device: str = 'cpu', seed: int = 42) -> None:
+    def __init__(self, cache_dir: Path, device: str = 'cpu', seed: int = 42, threads: int = 4) -> None:
         from kraken.configs import RecognitionInferenceConfig, SegmentationInferenceConfig
         from kraken.ketos.util import to_ptl_device
 
         seed_everything(seed)
         self.seed = seed
+        self.device = device
         self.cache_dir = cache_dir
         accelerator, devices = to_ptl_device(device)
-        self._common = dict(accelerator=accelerator, device=devices, precision='32-true', num_threads=4)
+        self._common = dict(accelerator=accelerator, device=devices, precision='32-true', num_threads=threads)
         self._seg_config_cls, self._rec_config_cls = SegmentationInferenceConfig, RecognitionInferenceConfig
         self._segmenters: dict[str | None, Any] = {}
         self._recognizers: dict[str, Any] = {}
@@ -70,7 +72,9 @@ class Engine:
             return pickle.loads(path.read_bytes())
         value = compute()
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(pickle.dumps(value))
+        tmp = path.with_name(f'{path.name}.{os.getpid()}.tmp')  # parallel workers may compute the same key
+        tmp.write_bytes(pickle.dumps(value))
+        tmp.replace(path)
         return value
 
     def segment(self, image: Image.Image, config: SegConfig, key: str) -> Any:

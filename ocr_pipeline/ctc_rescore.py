@@ -38,7 +38,7 @@ def empty_line(k: int = 20) -> LineLogits:
 
 def compress(probs: torch.Tensor, k: int = 20) -> tuple[np.ndarray, np.ndarray]:
     values, indices = probs.float().topk(k, dim=0)  # probs: (C, T)
-    return indices.T.numpy().astype(np.int16), values.T.numpy().astype(np.float16)
+    return indices.T.cpu().numpy().astype(np.int16), values.T.cpu().numpy().astype(np.float16)  # cuda/mps -> host
 
 
 def merge_lines(lines: list[LineLogits], n_classes: int, l2c: dict[int, str], k: int = 20) -> LineLogits:

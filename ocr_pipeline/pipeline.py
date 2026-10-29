@@ -1,7 +1,10 @@
 """Page-level pipeline: base geometry -> segmentation image -> line filter -> recognition image -> text -> scores."""
 import logging
+import multiprocessing
+from concurrent.futures import Executor, ProcessPoolExecutor
 from dataclasses import asdict, dataclass, replace
 from functools import lru_cache
+from pathlib import Path
 from typing import Any
 
 from PIL import Image
@@ -144,10 +147,38 @@ def domain_for(page: Page, pool: list[Page]) -> tuple[str, ...]:
     return domain_vocabulary([p.reference_text() for p in pool if p.number != page.number])
 
 
+_WORKER_ENGINE: Engine | None = None
+
+
+def _init_worker(cache_dir: Path, device: str, seed: int) -> None:
+    global _WORKER_ENGINE
+    for noisy in ('kraken', 'lightning', 'lightning.pytorch', 'shapely'):
+        logging.getLogger(noisy).setLevel(logging.ERROR)
+    _WORKER_ENGINE = Engine(cache_dir, device, seed, threads=1)
+
+
+def worker_engine() -> Engine:
+    """The engine of the current page_executor process."""
+    assert _WORKER_ENGINE is not None, 'only inside a page_executor process'
+    return _WORKER_ENGINE
+
+
+def _run_page_worker(args: tuple[Page, PipelineConfig, tuple[str, ...]]) -> dict[str, Any]:
+    return run_page(worker_engine(), *args)
+
+
+def page_executor(engine: Engine, workers: int) -> Executor:
+    """Processes that each run whole pages with their own engine (one torch thread each), sharing the disk cache.
+    Spawned, not forked: a forked child cannot use CUDA once the parent has."""
+    return ProcessPoolExecutor(workers, mp_context=multiprocessing.get_context('spawn'), initializer=_init_worker,
+                               initargs=(engine.cache_dir, engine.device, engine.seed))
+
+
 def evaluate(engine: Engine, pages: list[Page], config: PipelineConfig,
-             lexicon_pool: list[Page] | None = None) -> dict[str, Any]:
-    """lexicon_pool: pages whose GT may feed the domain lexicon (the tuning split, never held-out pages)."""
+             lexicon_pool: list[Page] | None = None, executor: Executor | None = None) -> dict[str, Any]:
+    """lexicon_pool: pages whose GT may feed the domain lexicon (the tuning split, never held-out pages).
+    executor: from page_executor, to run the pages in parallel (same rows, in page order)."""
     pool = lexicon_pool if lexicon_pool is not None else []
-    rows = [run_page(engine, page, config, domain_for(page, pool) if config.post.domain_lexicon else ())
-            for page in pages]
+    jobs = [(page, config, domain_for(page, pool) if config.post.domain_lexicon else ()) for page in pages]
+    rows = list(executor.map(_run_page_worker, jobs)) if executor else [run_page(engine, *job) for job in jobs]
     return {'corpus': corpus(rows), 'pages': rows}

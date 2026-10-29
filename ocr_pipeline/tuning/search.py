@@ -21,6 +21,7 @@ for "*"; a list of such dicts means any of them.
 import argparse
 import json
 import logging
+from concurrent.futures import Executor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -28,7 +29,7 @@ from typing import Any
 from ..config import PipelineConfig, from_dict, stable_hash, with_overrides
 from ..data import Page, discover, select, split
 from ..engine import Engine
-from ..pipeline import evaluate
+from ..pipeline import evaluate, page_executor
 
 logger = logging.getLogger(__name__)
 
@@ -114,6 +115,7 @@ class Search:
     def __init__(self, engine: Engine, pages: list[Page], pool: list[Page], spec: SearchSpec, base: PipelineConfig,
                  log_path: Path, earlier: tuple[Path, ...] = ()) -> None:
         self.engine, self.pages, self.pool, self.spec, self.base = engine, pages, pool, spec, base
+        self.executor: Executor | None = None  # page_executor, to evaluate the pages in parallel
         self.log_path = log_path
         self.memo: dict[str, dict[str, Any]] = {}
         self.pass_no = 0
@@ -135,7 +137,7 @@ class Search:
     def score(self, config: PipelineConfig) -> float:
         key = stable_hash(config.to_dict())
         if key not in self.memo:
-            self.memo[key] = evaluate(self.engine, self.pages, config, self.pool)
+            self.memo[key] = evaluate(self.engine, self.pages, config, self.pool, self.executor)
             with self.log_path.open('a', encoding='utf-8') as stream:
                 stream.write(json.dumps({'key': key, 'config': config.to_dict(), **self.memo[key]},
                                         ensure_ascii=False) + '\n')
@@ -241,6 +243,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--cache', type=Path, default=Path('outputs/cache'))
     parser.add_argument('--device', default='cpu')
     parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--workers', type=int, default=1, help='processes evaluating pages in parallel')
     parser.add_argument('--passes', type=int, default=3, help='max forward+backward passes; stops when stable')
     parser.add_argument('--no-report', action='store_true')
     parser.add_argument('--init', type=Path, help='warm start: decisions.json of an earlier search (its final choices '
@@ -285,6 +288,8 @@ def main() -> None:
     engine = Engine(args.cache, args.device, args.seed)
     search = Search(engine, select(all_pages, args.pages), pool, spec, with_overrides(PipelineConfig(), spec.base),
                     out / 'evaluations.jsonl', tuple(args.reuse))
+    if args.workers > 1:
+        search.executor = page_executor(engine, args.workers)
     final = search.run(args.passes, initial_choices(spec, args.init))
     write_outputs(out, search, final)
     logger.info('final:   %s -> %s %.2f', [f'{c.stage}:{c.name}' for c in final], spec.metric,
