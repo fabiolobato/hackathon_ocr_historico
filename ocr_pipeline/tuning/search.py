@@ -123,8 +123,9 @@ class Search:
         self.records: list[dict[str, Any]] = []
         if log_path.is_file():  # resume: configurations already evaluated by an interrupted run
             for line in log_path.read_text(encoding='utf-8').splitlines():
-                row = json.loads(line)
-                self.memo[row['key']] = {'corpus': row['corpus'], 'pages': row['pages']}
+                row = json.loads(line)  # re-keyed: config fields added since then must not hide the row
+                self.memo[stable_hash(from_dict(row['config']).to_dict())] = {'corpus': row['corpus'],
+                                                                             'pages': row['pages']}
         for path in earlier:  # other searches' evaluations, re-keyed with today's config defaults
             for line in path.read_text(encoding='utf-8').splitlines():
                 row = json.loads(line)
