@@ -1,34 +1,36 @@
 """Assemble the self-contained delivery folder (runtime code, final config, data, weights, notebook, docs).
 
   python tools/build_entrega.py --out entrega_ocr --execute
-The folder is committed (model and lexicon included) so it can be browsed and run from a clone; only cache/ is
-gitignored. Sources live in
-docs/entrega/ and the repository; weights and reports that are missing (e.g. in a fresh clone) are skipped, and
-the folder's setup_pipeline.py downloads the weights.
+The folder is committed (recognizer, lexicons and LM included) so it can be browsed and run from a clone; only
+cache/ is gitignored. Sources live in docs/entrega/ and the repository. The recognizer and lexicon/LM files are the
+ones FINAL_CONFIG names; reports that are missing (e.g. in a fresh clone) are skipped.
 --execute runs the notebook inside the folder so it opens with every output already rendered.
 """
 import argparse
+import json
 import logging
 import shutil
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
 SOURCE_NOTEBOOK = Path('docs/entrega/apresentacao.ipynb')
-RUNTIME = ['__init__.py', 'config.py', 'ctc_rescore.py', 'data.py', 'engine.py', 'metrics.py', 'pipeline.py',
-           'postprocess.py', 'preprocessing.py', 'presentation.py', 'run.py', 'visualize.py']
+FINAL_CONFIG = Path('configs/final_v4.json')
+RUNTIME = ['__init__.py', 'batch.py', 'beam_decode.py', 'config.py', 'context_lm.py', 'ctc_rescore.py', 'data.py',
+           'edit_costs.py', 'engine.py', 'metrics.py', 'page_crop.py', 'pipeline.py', 'postprocess.py',
+           'preprocessing.py', 'presentation.py', 'run.py', 'visualize.py']
 FILES = {  # destination (inside the folder) -> source (repository)
     'README.md': 'docs/entrega/README.md',
     'PROCESSO.md': 'docs/entrega/PROCESSO.md',
     'apresentacao.ipynb': str(SOURCE_NOTEBOOK),
+    'novas_imagens.ipynb': 'docs/entrega/novas_imagens.ipynb',
     'requirements.txt': 'requirements.txt',
     'setup_pipeline.py': 'docs/entrega/setup_pipeline.py',
-    'configs/final.json': 'configs/final.json',
+    'configs/final.json': str(FINAL_CONFIG),
 }
-OPTIONAL = {  # not in git: copied when present, otherwise skipped (setup_pipeline.py downloads the weights)
-    'models/10.5281_zenodo.21788410/medium.safetensors': 'models/10.5281_zenodo.21788410/medium.safetensors',
-    'models/lexicon/pt_br_50k.txt': 'models/lexicon/pt_br_50k.txt',
-    'relatorios/busca_gulosa.html': 'outputs/search/search_v1__tuning/report.html',
+OPTIONAL = {  # copied when present, otherwise skipped
+    'relatorios/busca_gulosa.html': 'outputs/search/search_st__tuning/report.html',
 }
+RESOURCE_KEYS = ('lexicon', 'period_lexicon', 'context_lm', 'edit_costs')  # post.* paths the pipeline loads
 TREES = {'imagens': ('imagens', '*.jpg'), 'ground_truth': ('test_kraken/ground_truth', '*.txt')}
 
 
@@ -39,17 +41,34 @@ def copy(source: Path, target: Path) -> None:
     shutil.copy2(source, target)
 
 
-def without_finetuned(text: str) -> str:
-    """The delivery ships no fine-tuned recognizer: drop those registry lines from the engine copy."""
-    return ''.join(line for line in text.splitlines(keepends=True)
-                   if 'finetuned' not in line and 'fine-tuned' not in line)
+def resources(config: Path) -> list[Path]:
+    """Recognizer weights and lexicon/LM files the final configuration names (not in git outside the folder)."""
+    from ocr_pipeline.engine import MODELS
+
+    data = json.loads(config.read_text(encoding='utf-8'))
+    post = data['post']
+    return [MODELS[data['rec']['model']], *(Path(post[k]) for k in RESOURCE_KEYS if post.get(k))]
+
+
+def only_shipped_models(text: str, shipped: str) -> str:
+    """Keep the published models and the shipped fine-tuned one; drop the other fine-tuned entries and their
+    comments (the shipped one is self-trained, E14)."""
+    def dropped(line: str) -> bool:
+        if 'finetuned/' in line:
+            return f"'{shipped}'" not in line
+        return line.lstrip().startswith('#') and 'fine-tuned' in line
+
+    return ''.join(line for line in text.splitlines(keepends=True) if not dropped(line))
 
 
 def assemble(out: Path) -> None:
     for name in RUNTIME:
         copy(Path('ocr_pipeline') / name, out / 'ocr_pipeline' / name)
     engine = out / 'ocr_pipeline' / 'engine.py'
-    engine.write_text(without_finetuned(engine.read_text(encoding='utf-8')), encoding='utf-8')
+    model = json.loads(FINAL_CONFIG.read_text(encoding='utf-8'))['rec']['model']
+    engine.write_text(only_shipped_models(engine.read_text(encoding='utf-8'), model), encoding='utf-8')
+    for path in resources(FINAL_CONFIG):
+        copy(path, out / path)
     for destination, source in FILES.items():
         copy(Path(source), out / destination)
     for destination, source in OPTIONAL.items():
