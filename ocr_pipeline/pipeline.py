@@ -178,7 +178,16 @@ def evaluate(engine: Engine, pages: list[Page], config: PipelineConfig,
              lexicon_pool: list[Page] | None = None, executor: Executor | None = None) -> dict[str, Any]:
     """lexicon_pool: pages whose GT may feed the domain lexicon (the tuning split, never held-out pages).
     executor: from page_executor, to run the pages in parallel (same rows, in page order)."""
+    return evaluate_many(engine, pages, [config], lexicon_pool, executor)[0]
+
+
+def evaluate_many(engine: Engine, pages: list[Page], configs: list[PipelineConfig],
+                  lexicon_pool: list[Page] | None = None, executor: Executor | None = None) -> list[dict[str, Any]]:
+    """evaluate() for several configurations at once: every (configuration, page) pair goes into one queue, so the
+    workers stay busy instead of waiting for the slowest page of each configuration."""
     pool = lexicon_pool if lexicon_pool is not None else []
-    jobs = [(page, config, domain_for(page, pool) if config.post.domain_lexicon else ()) for page in pages]
+    jobs = [(page, config, domain_for(page, pool) if config.post.domain_lexicon else ())
+            for config in configs for page in pages]
     rows = list(executor.map(_run_page_worker, jobs)) if executor else [run_page(engine, *job) for job in jobs]
-    return {'corpus': corpus(rows), 'pages': rows}
+    per = [rows[i:i + len(pages)] for i in range(0, len(rows), len(pages))]
+    return [{'corpus': corpus(r), 'pages': r} for r in per]

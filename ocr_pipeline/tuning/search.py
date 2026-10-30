@@ -29,7 +29,7 @@ from typing import Any
 from ..config import PipelineConfig, from_dict, stable_hash, with_overrides
 from ..data import Page, discover, select, split
 from ..engine import Engine
-from ..pipeline import evaluate, page_executor
+from ..pipeline import evaluate_many, page_executor
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +49,7 @@ class SearchSpec:
     metric: str
     min_gain: float
     stages: tuple[tuple[str, tuple[Candidate, ...]], ...]
+    frozen: frozenset[str] = frozenset()  # stages kept at their initial choices (built, never re-decided)
 
 
 def parse_spec(payload: dict[str, Any]) -> SearchSpec:
@@ -62,7 +63,7 @@ def parse_spec(payload: dict[str, Any]) -> SearchSpec:
             candidates.append(Candidate(stage['name'], name, order, overrides, requires))
         stages.append((stage['name'], tuple(candidates)))
     return SearchSpec(payload.get('base', {}), payload.get('metric', 'wer_norm'), payload.get('min_gain', 0.0),
-                      tuple(stages))
+                      tuple(stages), frozenset(s['name'] for s in payload['stages'] if s.get('frozen')))
 
 
 def field_value(config: PipelineConfig, key: str) -> Any:
@@ -135,14 +136,21 @@ class Search:
     def build(self, chosen: list[Candidate]) -> PipelineConfig | None:
         return build(self.base, self.spec, chosen)
 
+    def prefetch(self, configs: list[PipelineConfig | None]) -> None:
+        """Evaluate every not-yet-scored configuration of a step in one batch (all their pages share the workers)."""
+        todo = {stable_hash(c.to_dict()): c for c in configs if c is not None}
+        todo = {k: c for k, c in todo.items() if k not in self.memo}
+        if not todo:
+            return
+        results = evaluate_many(self.engine, self.pages, list(todo.values()), self.pool, self.executor)
+        with self.log_path.open('a', encoding='utf-8') as stream:
+            for (key, config), result in zip(todo.items(), results):
+                self.memo[key] = result
+                stream.write(json.dumps({'key': key, 'config': config.to_dict(), **result}, ensure_ascii=False) + '\n')
+
     def score(self, config: PipelineConfig) -> float:
-        key = stable_hash(config.to_dict())
-        if key not in self.memo:
-            self.memo[key] = evaluate(self.engine, self.pages, config, self.pool, self.executor)
-            with self.log_path.open('a', encoding='utf-8') as stream:
-                stream.write(json.dumps({'key': key, 'config': config.to_dict(), **self.memo[key]},
-                                        ensure_ascii=False) + '\n')
-        return self.memo[key]['corpus'][self.spec.metric]
+        self.prefetch([config])
+        return self.memo[stable_hash(config.to_dict())]['corpus'][self.spec.metric]
 
     def record(self, stage: str, kind: str, names: list[str], config: PipelineConfig, ref: float) -> float:
         value = self.score(config)
@@ -156,6 +164,7 @@ class Search:
                 ref: float) -> list[tuple[float, Candidate]]:
         """Every applicable candidate alone on top of the incumbent, best first."""
         incumbent = self.build(chosen)
+        self.prefetch([self.build(chosen + [c]) for c in candidates if satisfied(incumbent, c.requires)])
         tested = []
         for candidate in candidates:
             config = self.build(chosen + [candidate])
@@ -172,8 +181,10 @@ class Search:
         best, picked = tested[0][0], [tested[0][1]]
         rest = [c for _, c in tested[1:]]
         while rest:
+            configs = [(x, self.build(kept + picked + [x])) for x in rest]
+            self.prefetch([cfg for _, cfg in configs])
             trials = [(self.record(stage, 'combo', [c.name for c in picked + [x]], cfg, ref), x)
-                      for x in rest if (cfg := self.build(kept + picked + [x])) is not None]
+                      for x, cfg in configs if cfg is not None]
             if not trials or min(t[0] for t in trials) >= best - self.spec.min_gain:
                 break
             best, winner = min(trials, key=lambda t: t[0])
@@ -184,6 +195,7 @@ class Search:
     def run_stage(self, stage: str, candidates: tuple[Candidate, ...], chosen: list[Candidate]) -> list[Candidate]:
         """Re-decide one stage from scratch in the context of every other current choice."""
         kept = [c for c in chosen if c.stage != stage]
+        self.prefetch([self.build(chosen), self.build(kept)])
         current = self.score(self.build(chosen))
         ref = self.record(stage, 'incumbent', [], self.build(kept), self.score(self.build(kept)))
         tested = self.singles(stage, candidates, kept, ref)
@@ -208,8 +220,13 @@ class Search:
     def backward(self, chosen: list[Candidate]) -> list[Candidate]:
         while chosen:
             ref = self.score(self.build(chosen))
+            configs = [(c, self.build([x for x in chosen if x is not c])) for c in chosen
+                       if c.stage not in self.spec.frozen]
+            self.prefetch([cfg for _, cfg in configs])
             trials = [(self.record('backward', 'backward', [f'-{c.stage}:{c.name}'], cfg, ref), c)
-                      for c in chosen if (cfg := self.build([x for x in chosen if x is not c])) is not None]
+                      for c, cfg in configs if cfg is not None]
+            if not trials:  # only frozen choices left
+                break
             value, weakest = min(trials, key=lambda t: t[0])
             if value > ref + self.spec.min_gain:
                 break
@@ -224,7 +241,8 @@ class Search:
         for self.pass_no in range(1, passes + 1):
             before = {(c.stage, c.name) for c in chosen}
             for stage, candidates in self.spec.stages:
-                chosen = self.run_stage(stage, candidates, chosen)
+                if stage not in self.spec.frozen:
+                    chosen = self.run_stage(stage, candidates, chosen)
             chosen = self.backward(chosen)
             logger.info('pass %d: %s -> %s %.2f', self.pass_no, [f'{c.stage}:{c.name}' for c in chosen],
                         self.spec.metric, 100 * self.score(self.build(chosen)))
