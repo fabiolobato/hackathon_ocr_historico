@@ -26,6 +26,7 @@ MODELS = {
     # medium self-trained on pipeline labels of the book's other 91 pages (E14); no evaluation page in training
     'st_v1': Path('models/finetuned/st_v1.safetensors'),
     'st_v2': Path('models/finetuned/st_v2.safetensors'),
+    'st_v3': Path('models/finetuned/st_v3.safetensors'),
 }
 
 
