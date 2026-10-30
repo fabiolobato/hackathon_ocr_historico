@@ -19,12 +19,14 @@ BUNDLE = Path('/content/search.zip')
 SPEC = 'sweeps/search_st.json'
 INIT = 'outputs/search/init_v4_pass2.json'  # greedy v4 pass 2 (medium); pass 3 only revisited frozen stages
 PASSES = 10
+REUSE = ['outputs/search/search_st_partial.jsonl']  # evaluations of an interrupted run (bundled)
 HOLD_HOURS = 6
 KRAKEN = 'kraken @ git+https://github.com/mittagessen/kraken.git@bb487219e7d8289274443d1ad0989efb4924dc2a'
 PACKAGES = [KRAKEN, 'transformers==4.57.1', 'rapidfuzz==3.14.1', 'opencv-python-headless==4.12.0.88']
 REPO = Path('/content/repo')
 OUT = Path('/content') / RUN
 CORES = os.cpu_count() or 2
+WORKERS = min(CORES, 8)  # each worker holds ~2 GB on the GPU: 12 ran the 22 GB L4 out of memory
 
 
 def log(message: str) -> None:
@@ -42,11 +44,12 @@ def setup() -> None:
 
 def search() -> int:
     cmd = [sys.executable, '-m', 'ocr_pipeline.tuning.search', SPEC, '--pages', 'tuning', '--passes', str(PASSES),
-           '--workers', str(CORES), '--device', 'cuda:0', '--init', INIT, '--out', str(OUT / 'search'),
-           '--cache', str(OUT / 'cache')]
+           '--workers', str(WORKERS), '--device', 'cuda:0', '--init', INIT, '--out', str(OUT / 'search'),
+           '--cache', str(OUT / 'cache'), '--reuse', *[r for r in REUSE if (REPO / r).is_file()]]
     log(f'search: {" ".join(cmd)}')
     with open(OUT / 'search.log', 'w') as stream:
-        code = subprocess.run(cmd, cwd=REPO, stdout=stream, stderr=subprocess.STDOUT).returncode
+        env = {**os.environ, 'PYTORCH_CUDA_ALLOC_CONF': 'expandable_segments:True'}
+        code = subprocess.run(cmd, cwd=REPO, stdout=stream, stderr=subprocess.STDOUT, env=env).returncode
     log(f'search: exit {code}')
     return code
 
@@ -68,7 +71,7 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)  # an interrupted search resumes from its evaluations.jsonl
     for stale in ('READY', 'FETCHED', 'result.zip'):
         (OUT / stale).unlink(missing_ok=True)
-    log(f'cores {CORES}')
+    log(f'cores {CORES}, workers {WORKERS}')
     code = 1
     try:
         setup()
