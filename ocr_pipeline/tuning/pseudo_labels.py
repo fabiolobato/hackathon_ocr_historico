@@ -102,9 +102,31 @@ def passes(row: dict, args: argparse.Namespace) -> bool:
             and row['known'] >= args.min_known)
 
 
+def transcribed(row: dict, args: argparse.Namespace) -> dict | None:
+    """Row relabelled with its aligned transcript (see transcripts.py), or None when the line is not kept."""
+    if row['transcript'] is None or row['transcript_cer'] > args.max_transcript_cer or row['chars'] < args.min_chars:
+        return None
+    return {**row, 'label': row['transcript']}
+
+
+def keep(rows: list[dict], args: argparse.Namespace) -> list[dict]:
+    """Transcribed pages train on their transcripts; the others on the confident pipeline labels."""
+    if args.max_transcript_cer is None:
+        return [row for row in rows if passes(row, args)]
+    kept = []
+    for row in rows:
+        if 'transcript' in row:
+            relabelled = transcribed(row, args)
+            if relabelled:
+                kept.append(relabelled)
+        elif not args.transcripts_only and passes(row, args):
+            kept.append(row)
+    return kept
+
+
 def select(args: argparse.Namespace) -> None:
     rows = [json.loads(line) for line in (args.run / 'lines.jsonl').read_text(encoding='utf-8').splitlines()]
-    kept = [row for row in rows if passes(row, args)]
+    kept = keep(rows, args)
     target = args.run / 'train'
     target.mkdir(exist_ok=True)
     for old in target.glob('*.xml'):
@@ -140,6 +162,9 @@ def build_parser() -> argparse.ArgumentParser:
     sel.add_argument('--min-min-prob', type=float, default=0.0)
     sel.add_argument('--max-change', type=float, default=0.1, help='normalized edit distance greedy -> label')
     sel.add_argument('--min-known', type=float, default=0.0, help='share of label words in the lexicon')
+    sel.add_argument('--max-transcript-cer', type=float,
+                     help='train transcribed pages on their transcripts, keeping lines within this distance')
+    sel.add_argument('--transcripts-only', action='store_true', help='drop the pages without a transcript')
     return parser
 
 

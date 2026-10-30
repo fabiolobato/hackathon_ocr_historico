@@ -18,12 +18,17 @@ import time
 import urllib.request
 from pathlib import Path
 
-RUN = 'st_v4'
+RUN = 'st_g1'
 BUNDLE = Path('/content/selftrain.zip')
 CONFIG = 'configs/v4_pass1_st_v3.json'  # labels from the pipeline with st_v3; training still starts from medium
 IMAGES = 'imagens_extra/ldl1_crop'
 # recalibrated for st_v3: 0.92 keeps 64% of tuning lines at label CER 9.6 (same noise as round 3; 0.90 would be 10.3)
 SELECT = ['--min-chars', '10', '--min-mean-prob', '0.92', '--max-change', '1.0', '--min-known', '0.9']
+# Gemini transcriptions of pages 57-104 (never evaluation pages): those pages train on the aligned transcript lines
+# within 0.4 normalized edit distance of the reading (beyond that: table columns split by the segmenter, misalignment)
+TRANSCRIPTS = 'imagens_extra/transcriptions_txt'
+SELECT += ['--max-transcript-cer', '0.4']
+INITS = {'medium': 'models/10.5281_zenodo.21788410/medium.safetensors', 'st_v3': 'models/finetuned/st_v3.safetensors'}
 EPOCHS = 20
 EFFECTIVE = 16  # lines per optimizer step (E07: 4 x 4)
 BATCHES = (32, 16, 8, 4)
@@ -71,6 +76,8 @@ def pseudo_labels() -> Path:
     if not (labels / 'label_config.json').exists():  # labelling finished in an earlier run of this job
         assert run([*py, 'label', '--config', CONFIG, '--images', IMAGES, '--out', str(labels), '--device', 'cuda:0',
                     '--workers', str(CORES)], 'label') == 0
+    assert run([sys.executable, '-m', 'ocr_pipeline.tuning.transcripts', str(labels), '--transcripts', TRANSCRIPTS],
+               'transcripts') == 0
     assert run([*py, 'select', str(labels), *SELECT], 'select') == 0
     arrow = OUT / 'train.arrow'
     assert run(['ketos', '--workers', str(CORES), 'compile', '-f', 'page', '-o', str(arrow),
@@ -78,18 +85,18 @@ def pseudo_labels() -> Path:
     return arrow
 
 
-def train(weights: Path, arrow: Path) -> int:
+def train(weights: Path, arrow: Path, tag: str) -> int:
     for batch in BATCHES:
-        model = OUT / f'model_b{batch}'
-        tb = OUT / f'tb_b{batch}'
+        model = OUT / f'model_{tag}_b{batch}'
+        tb = OUT / f'tb_{tag}_b{batch}'
         tb.mkdir(parents=True, exist_ok=True)  # ketos requires an existing --log-dir
         cmd = ['ketos', '-d', 'cuda:0', '-s', '42', '--workers', str(min(CORES, 8)), '--threads', str(CORES),
                '--precision', 'bf16-mixed', 'train', '-f', 'binary', '-i', str(weights), '-o', str(model), '--logger', 'tensorboard',
                '--log-dir', str(tb), '-B', str(batch), '--accumulate-grad-batches', str(max(1, EFFECTIVE // batch)),
                *TRAIN, str(arrow)]
-        code = run(cmd, f'train_b{batch}')
-        if code == 0 or 'out of memory' not in (OUT / f'train_b{batch}.log').read_text(errors='ignore'):
-            (OUT / 'batch.txt').write_text(str(batch))
+        code = run(cmd, f'train_{tag}_b{batch}')
+        if code == 0 or 'out of memory' not in (OUT / f'train_{tag}_b{batch}.log').read_text(errors='ignore'):
+            (OUT / f'batch_{tag}.txt').write_text(str(batch))
             return code
         shutil.rmtree(model, ignore_errors=True)
     return 1
@@ -99,11 +106,12 @@ def export_metrics() -> None:
     from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
     metrics = {}
-    for events in OUT.glob('tb_b*/**/events.out.tfevents.*'):
+    for events in OUT.glob('tb_*/**/events.out.tfevents.*'):
         acc = EventAccumulator(str(events))
         acc.Reload()
+        init = events.relative_to(OUT).parts[0].split('_b')[0].removeprefix('tb_')
         for tag in acc.Tags().get('scalars', []):
-            metrics[tag] = [(e.step, e.value) for e in acc.Scalars(tag)]
+            metrics[f'{init}/{tag}'] = [(e.step, e.value) for e in acc.Scalars(tag)]
     (OUT / 'metrics.json').write_text(json.dumps(metrics, indent=1))
 
 
@@ -113,7 +121,7 @@ def pack() -> None:
     shutil.rmtree(stage, ignore_errors=True)
     stage.mkdir(parents=True)
     keep = [*OUT.glob('*.log'), *OUT.glob('*.json'), *OUT.glob('*.txt'), *OUT.glob('labels/*.json*'),
-            *OUT.glob('model_b*/*best*')]
+            *OUT.glob('model_*/*best*')]
     for path in keep:
         target = stage / path.relative_to(OUT)
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -128,8 +136,10 @@ def main() -> None:
     log(f'cores {CORES}')
     code = 1
     try:
-        weights = setup()
-        code = train(weights, pseudo_labels())
+        setup()
+        arrow = pseudo_labels()
+        codes = [train(REPO / path, arrow, tag) for tag, path in INITS.items()]  # same data, two starting points
+        code = max(codes)
         export_metrics()
     finally:
         pack()
