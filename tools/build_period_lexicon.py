@@ -9,6 +9,9 @@ words (<out>.ngrams.npz: words, unigram counts, sorted bigram and trigram keys a
   python tools/build_period_lexicon.py --out models/lexicon/pt_hist_gutenberg.txt
   python tools/build_period_lexicon.py --out models/lexicon/pt_hist_legal.txt \
       --extra-texts models/lexicon/sources/alesp/text --extra-weight 4   # + São Paulo laws (fetch_alesp_acts.py)
+  ... --book-texts imagens_extra/transcriptions_txt --book-weight 8   # + transcribed pages of the book (E15)
+--book-texts are page transcriptions (one text line per manuscript line) of pages outside the evaluation set; words
+split across lines are joined and lines with editorial notes ([...]) dropped.
 """
 import argparse
 import csv
@@ -92,6 +95,14 @@ def ngram_counts(texts: list[Path], words: list[str], min_count: int) -> dict[in
     return out
 
 
+def book_text(folder: Path) -> str:
+    pages = []
+    for path in sorted(folder.glob('*.txt')):
+        lines = [line.strip() for line in path.read_text(encoding='utf-8').splitlines() if line.strip() and '[' not in line]
+        pages.append(re.sub(r'[-=¬]\s*\n\s*', '', '\n'.join(lines)))
+    return '\n'.join(pages) + '\n'
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--out', type=Path, default=Path('models/lexicon/pt_hist_gutenberg.txt'))
@@ -105,6 +116,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument('--delay', type=float, default=1.0, help='seconds between downloads')
     parser.add_argument('--extra-texts', type=Path, help='folder of plain-text files added to the corpus')
     parser.add_argument('--extra-weight', type=int, default=1, help='count every extra text this many times')
+    parser.add_argument('--book-texts', type=Path, help='folder of page transcriptions of the book (not evaluated pages)')
+    parser.add_argument('--book-weight', type=int, default=1, help='count the book text this many times')
     return parser
 
 
@@ -132,14 +145,24 @@ def main() -> None:
         for word, n in count_words(path.read_text(encoding='utf-8')).items():
             counts[word] += n * args.extra_weight
     logger.info('%d extra texts (weight %d)', len(extra), args.extra_weight)
+    book = []
+    if args.book_texts:
+        book = [args.out.with_suffix('.book.txt')]
+        book[0].parent.mkdir(parents=True, exist_ok=True)
+        book[0].write_text(book_text(args.book_texts), encoding='utf-8')
+        for word, n in count_words(book[0].read_text(encoding='utf-8')).items():
+            counts[word] += n * args.book_weight
     words = [(w, n) for w, n in counts.most_common() if n >= args.min_count]
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(''.join(f'{w} {n}\n' for w, n in words), encoding='utf-8')
-    manifest = {'rule': {k: v for k, v in vars(args).items() if k not in ('out', 'sources', 'extra_texts')},
+    manifest = {'rule': {k: v for k, v in vars(args).items() if k not in ('out', 'sources', 'extra_texts', 'book_texts')},
                 'catalog_url': CATALOG_URL, 'tokens': sum(counts.values()), 'words_kept': len(words),
                 'output_sha256': hashlib.sha256(args.out.read_bytes()).hexdigest(), 'books': books}
-    texts = [args.sources / f'pg{b["id"]}.txt' for b in books if b['sha256']] + extra * args.extra_weight
+    texts = [args.sources / f'pg{b["id"]}.txt' for b in books if b['sha256']] + extra * args.extra_weight + book * args.book_weight
     manifest['extra_texts'] = {'folder': str(args.extra_texts), 'files': len(extra), 'weight': args.extra_weight}
+    if book:
+        manifest['book_texts'] = {'folder': str(args.book_texts), 'pages': len(list(args.book_texts.glob('*.txt'))),
+                                  'weight': args.book_weight, 'sha256': hashlib.sha256(book[0].read_bytes()).hexdigest()}
     ngrams = ngram_counts(texts, [w for w, _ in words], args.min_count)
     np.savez_compressed(args.out.with_suffix('.ngrams.npz'), words=np.array([w for w, _ in words]),
                         unigrams=np.array([n for _, n in words], dtype=np.int64), keys=ngrams[2][0],
