@@ -111,6 +111,14 @@ def steps_table(steps: list[TextStep]) -> str:
     return f'<table>{head}{"".join(rows)}</table>'
 
 
+def predicted_html(text: str, reference: str, label: str) -> str:
+    """The final text exactly as the pipeline outputs it (errors included, no markup) next to the reference."""
+    def block(caption: str, body: str) -> str:
+        return f'<div><div class="cap">{caption}</div><div class="text">{html.escape(body).replace(chr(10), "<br>")}</div></div>'
+    return (f'<h4>texto final previsto, sem marcações (como sai do pipeline)</h4>'
+            f'<div class="pair">{block("previsto", text)}{block(label, reference)}</div>')
+
+
 def page_html(engine: Engine, page: Page, config: PipelineConfig, pool: list[Page],
               title: str, note: str = '') -> tuple[str, list[TextStep]]:
     domain = domain_for(page, pool) if config.post.domain_lexicon else ()
@@ -126,6 +134,7 @@ def page_html(engine: Engine, page: Page, config: PipelineConfig, pool: list[Pag
             + f'<div class="pair"><div>{word_diff(reference, final.text)}</div>'
               f'<div><div class="cap">GT</div><div class="text">{html.escape(reference).replace(chr(10), "<br>")}'
               '</div></div></div>'
+            + predicted_html(final.text, reference, 'GT')
             + f'<details><summary>linha a linha: recorte da imagem ↔ texto lido</summary>'
               f'{line_table(trace, config.post.decoder != "edit")}</details></div>')
     return body, steps

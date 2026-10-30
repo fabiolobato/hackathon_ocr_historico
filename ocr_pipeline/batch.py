@@ -22,7 +22,7 @@ from .engine import Engine
 from .metrics import corpus, score
 from .pipeline import PageTrace, page_executor, trace_page, worker_engine
 from .postprocess import correct
-from .presentation import images_html, steps_table, text_steps, text_versions
+from .presentation import images_html, predicted_html, steps_table, text_steps, text_versions
 from .visualize import line_table, word_diff
 
 IMAGE_SUFFIXES = ('.jpg', '.jpeg', '.png', '.tif', '.tiff')
@@ -101,7 +101,7 @@ def card_html(page: BatchPage, trace: PageTrace, config: PipelineConfig) -> str:
                   '<h4>texto final contra a referência</h4>',
                   f'<div class="pair"><div>{word_diff(reference, steps[-1].text)}</div><div><div class="cap">'
                   f'referência</div><div class="text">{html.escape(reference).replace(chr(10), "<br>")}</div></div>'
-                  '</div>']
+                  '</div>', predicted_html(steps[-1].text, reference, 'referência')]
     else:
         for label, text in text_versions(trace, config, ()):
             parts.append(f'<h4>{html.escape(label)}</h4>'
