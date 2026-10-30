@@ -1,7 +1,7 @@
 """Reduced search spec for a new recognizer: same stages and candidates as a full spec (so --init from that search
 works), recognizer fixed in the base, recognizer-independent stages frozen at the initial choices, and the stages
-that depend on what the recognizer reads re-decided (recognition image, line extraction, rescoring, lexicon and LM
-parameters), with a few extra candidates around the earlier optimum.
+that depend on what the recognizer reads re-decided (line filter, recognition image, line extraction, rescoring,
+lexicon and LM choice and parameters), with a few extra candidates around the earlier optimum.
 
   python -m ocr_pipeline.tuning.make_reduced_spec sweeps/search_v4.json st_v3 sweeps/search_st_v3.json
 """
@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-FROZEN = ('recognizer', 'seg_image', 'seg_params', 'line_filter', 'text', 'lexicon', 'decoder', 'context')
+FROZEN = ('recognizer', 'seg_image', 'seg_params', 'text', 'decoder')  # stable across the v4 passes
 EXTRA: dict[str, dict[str, Any]] = {
     'rec_image': {'channel_b': {'rec_ops': 'channel', 'params.channel': 'b'}},  # E13: best image variant for medium
     'geometry': {'upscale_25': {'geometric_ops': 'upscale', 'params.upscale_factor': 2.5}},
