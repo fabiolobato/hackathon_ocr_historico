@@ -27,6 +27,7 @@ MODELS = {
     'st_v1': Path('models/finetuned/st_v1.safetensors'),
     'st_v2': Path('models/finetuned/st_v2.safetensors'),
     'st_v3': Path('models/finetuned/st_v3.safetensors'),
+    'st_v4': Path('models/finetuned/st_v4.safetensors'),
 }
 
 

@@ -17,7 +17,7 @@ from pathlib import Path
 RUN = 'search_st'
 BUNDLE = Path('/content/search.zip')
 SPEC = 'sweeps/search_st.json'
-INIT = 'outputs/search/search_v4__tuning/decisions.json'
+INIT = 'outputs/search/init_v4_pass2.json'  # greedy v4 pass 2 (medium); pass 3 only revisited frozen stages
 PASSES = 10
 HOLD_HOURS = 6
 KRAKEN = 'kraken @ git+https://github.com/mittagessen/kraken.git@bb487219e7d8289274443d1ad0989efb4924dc2a'
