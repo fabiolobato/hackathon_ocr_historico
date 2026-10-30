@@ -1,6 +1,8 @@
 """Text post-processing applied to recognized lines. Lexicons must never be built from evaluation GT."""
 import re
+import unicodedata
 from collections import Counter
+from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 
@@ -8,6 +10,7 @@ from rapidfuzz import process
 from rapidfuzz.distance import Levenshtein
 
 from .config import PostConfig
+from .edit_costs import EditCosts, variants
 
 _HYPHEN_END = re.compile(r'[-=¬]\s*$')
 _TOKEN = re.compile(r'^(\W*)(\w+)(\W*)$')
@@ -16,12 +19,18 @@ _WORD = re.compile(r'[^\W\d_]+')
 
 _SUPERSCRIPT = re.compile(r'\^(\w)')
 _ORDINALS = {'o': 'º', 'a': 'ª'}
+_DIGIT_ORDINAL = re.compile(r'\b(\d+)([oa])\b')
 
 
 def map_conventions(line: str) -> str:
     """Map PP-OCR transcription conventions (n^o, D^r, ⁋) to the GT's (nº, Dr, §)."""
     line = _SUPERSCRIPT.sub(lambda m: _ORDINALS.get(m[1], m[1]), line)
     return line.replace('⁋', '§')
+
+
+def map_ordinals(line: str) -> str:
+    """A raised o/a after a number is read as a plain letter: 2o -> 2º, 1a -> 1ª."""
+    return _DIGIT_ORDINAL.sub(lambda m: m[1] + _ORDINALS[m[2]], line)
 
 
 def dehyphenate(lines: list[str]) -> list[str]:
@@ -51,37 +60,94 @@ def domain_vocabulary(texts: list[str]) -> tuple[str, ...]:
     return tuple(w for w, _ in counts.most_common())
 
 
-def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices: tuple[str, ...]) -> str:
+def fold(word: str) -> str:
+    """Drop accents and cedillas (não -> nao, ç -> c): the recognizer often misses faint diacritics."""
+    return unicodedata.normalize('NFC', ''.join(c for c in unicodedata.normalize('NFD', word)
+                                                if unicodedata.category(c) != 'Mn'))
+
+
+@dataclass(frozen=True)
+class FoldIndex:
+    keys: tuple[str, ...]  # accent-free forms, in lexicon order
+    surface: dict[str, str]  # accent-free form -> its first (most frequent) spelling in the lexicon
+
+
+def fold_index(choices: tuple[str, ...]) -> FoldIndex:
+    surface: dict[str, str] = {}
+    for word in choices:
+        surface.setdefault(fold(word), word)
+    return FoldIndex(tuple(surface), surface)
+
+
+def is_known(word: str, known: frozenset[str], folded: FoldIndex | None) -> bool:
+    """In the lexicon; with folded, also the preferred spelling of its accent-free form (nao -> não is fixed)."""
+    return word in known and (folded is None or folded.surface.get(fold(word)) == word)
+
+
+def nearest(word: str, choices: tuple[str, ...], folded: FoldIndex | None, cutoff: int, limit: int,
+            costs: 'EditCosts | None' = None, max_cost: float = 0.0) -> list[str]:
+    """Lexicon words within cutoff edits, closest first; with folded, distances ignore accents and the
+    accented spelling is returned. With costs: first the lexicon words reached by undoing the recognizer's learned
+    confusions (rn -> m, v -> d) at total cost <= max_cost, cheapest first; plain edit distance ranks a large
+    lexicon's many words at 3-5 edits arbitrarily, so these would often miss the limit."""
+    query, keys = (word, choices) if folded is None else (fold(word), folded.keys)
+    found = []
+    if costs is not None and max_cost > 0:
+        index = frozenset(keys) if folded is None else folded.surface
+        found = [k for k, _ in sorted(variants(costs, query, max_cost).items(), key=lambda kv: kv[1])
+                 if k in index][:limit]
+    found += [k for k, _, _ in process.extract(query, keys, scorer=Levenshtein.distance, score_cutoff=cutoff,
+                                               limit=limit) if k not in found]
+    return found if folded is None else [folded.surface[k] for k in found]
+
+
+def short_words(choices: tuple[str, ...], min_len: int, size: int) -> tuple[str, ...]:
+    """The size most frequent lexicon words shorter than min_len; lone consonants (abbreviations) are dropped."""
+    return tuple(w for w in choices if len(w) < min_len and (len(w) > 1 or fold(w) in 'aeiou'))[:size]
+
+
+def _correct_word(word: str, config: PostConfig, known: frozenset[str], choices: tuple[str, ...],
+                  folded: FoldIndex | None = None) -> str:
     match = _TOKEN.match(word)
     if not match:
         return word
     pre, core, post = match.groups()
     lower = core.lower()
-    if len(core) < config.lexicon_min_len or lower in known or not core.isalpha():
+    if len(core) < config.lexicon_min_len or is_known(lower, known, folded) or not core.isalpha():
         return word
     cutoff = max(1, int(len(core) * config.lexicon_max_ratio))
-    best = process.extractOne(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff)
-    if best is None:
-        return word
-    fixed = best[0]
+    if folded is None:
+        best = process.extractOne(lower, choices, scorer=Levenshtein.distance, score_cutoff=cutoff)
+        if best is None:
+            return word
+        fixed = best[0]
+    else:
+        found = nearest(lower, choices, folded, cutoff, 1)
+        if not found:
+            return word
+        fixed = found[0]
     if core[0].isupper():
         fixed = fixed[0].upper() + fixed[1:]
     return pre + fixed + post
 
 
 def lexicon_choices(config: PostConfig, domain: tuple[str, ...]) -> tuple[str, ...]:
-    """Domain words first, then generic words; each block ordered by frequency."""
+    """Domain words first, then period words, then generic words; each block ordered by frequency."""
+    period = load_lexicon(config.period_lexicon, config.period_lexicon_size) if config.period_lexicon else ()
     generic = load_lexicon(config.lexicon, config.lexicon_size) if config.lexicon else ()
-    return tuple(dict.fromkeys(domain + generic))
+    return tuple(dict.fromkeys(domain + period + generic))
 
 
 def correct(lines: list[str], config: PostConfig, domain: tuple[str, ...] = ()) -> list[str]:
     if config.conventions:
         lines = [map_conventions(line) for line in lines]
+    if config.ordinals:
+        lines = [map_ordinals(line) for line in lines]
     if config.dehyphenate:
         lines = dehyphenate(lines)
     choices = lexicon_choices(config, domain) if config.decoder in ('edit', 'ctc+edit') else ()
     if choices:
         known = frozenset(choices)
-        lines = [' '.join(_correct_word(w, config, known, choices) for w in line.split()) for line in lines]
+        folded = fold_index(choices) if config.fold_accents else None
+        lines = [' '.join(_correct_word(w, config, known, choices, folded) for w in line.split()) for line in lines]
     return lines

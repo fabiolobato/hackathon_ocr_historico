@@ -1,5 +1,6 @@
 """Kraken wrapper: one segmenter, lazily loaded recognizers, disk caches keyed by config hashes."""
 import logging
+import os
 import pickle
 import random
 from dataclasses import replace
@@ -18,6 +19,8 @@ MODELS = {
     'small': Path('models/10.5281_zenodo.21788405/small.safetensors'),
     'traprinq': Path('models/10.5281_zenodo.14543904/traprinq.mlmodel'),  # Portuguese Inquisition, 16th-19th c.
     'mccatmus': Path('models/10.5281_zenodo.13788177/mccatmus.mlmodel'),  # multilingual hand/print, 16th-21st c.
+    # medium self-trained on pipeline labels of the book's other 91 pages (E14); no evaluation page in training
+    'st_v3': Path('models/finetuned/st_v3.safetensors'),
 }
 
 
@@ -30,15 +33,16 @@ def seed_everything(seed: int) -> None:
 
 
 class Engine:
-    def __init__(self, cache_dir: Path, device: str = 'cpu', seed: int = 42) -> None:
+    def __init__(self, cache_dir: Path, device: str = 'cpu', seed: int = 42, threads: int = 4) -> None:
         from kraken.configs import RecognitionInferenceConfig, SegmentationInferenceConfig
         from kraken.ketos.util import to_ptl_device
 
         seed_everything(seed)
         self.seed = seed
+        self.device = device
         self.cache_dir = cache_dir
         accelerator, devices = to_ptl_device(device)
-        self._common = dict(accelerator=accelerator, device=devices, precision='32-true', num_threads=4)
+        self._common = dict(accelerator=accelerator, device=devices, precision='32-true', num_threads=threads)
         self._seg_config_cls, self._rec_config_cls = SegmentationInferenceConfig, RecognitionInferenceConfig
         self._segmenters: dict[str | None, Any] = {}
         self._recognizers: dict[str, Any] = {}
@@ -66,7 +70,9 @@ class Engine:
             return pickle.loads(path.read_bytes())
         value = compute()
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(pickle.dumps(value))
+        tmp = path.with_name(f'{path.name}.{os.getpid()}.tmp')  # parallel workers may compute the same key
+        tmp.write_bytes(pickle.dumps(value))
+        tmp.replace(path)
         return value
 
     def segment(self, image: Image.Image, config: SegConfig, key: str) -> Any:
@@ -76,6 +82,10 @@ class Engine:
         return self._cached('seg', key, compute)
 
     def recognize(self, image: Image.Image, segmentation: Any, config: RecConfig, key: str) -> list[str]:
+        logits = self.cache_dir / 'reclog2' / f'{key}.pkl'
+        if logits.is_file():  # same forward pass; the logits run already stores the best path
+            return [line.prediction for line in pickle.loads(logits.read_bytes())]
+
         def compute() -> list[str]:
             if not segmentation.lines:
                 return []

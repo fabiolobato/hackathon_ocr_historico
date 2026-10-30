@@ -28,6 +28,46 @@ def deskew(image: Image.Image, params: OpParams) -> Image.Image:
     return image.convert('RGB').rotate(angle, Image.Resampling.BICUBIC, expand=False, fillcolor=fill)
 
 
+def slant_angle(image: Image.Image, params: OpParams) -> float:
+    """Stroke tilt from vertical (degrees, clipped to slant_limit): the magnitude-weighted median orientation of
+    strong, mostly-vertical edges in the page centre (margins and the binding are left out). A projection-profile
+    criterion was tried first: at these resolutions it was dominated by page borders and returned 0."""
+    gray = np.asarray(image.convert('L')).astype(np.float32)
+    height, width = gray.shape
+    centre = gray[height // 8:height - height // 8, width // 8:width - width // 8]
+    gx = cv2.Sobel(centre, cv2.CV_32F, 1, 0, ksize=3)
+    gy = cv2.Sobel(centre, cv2.CV_32F, 0, 1, ksize=3)
+    magnitude = np.hypot(gx, gy)
+    edges = (magnitude > np.percentile(magnitude, 90)) & (np.abs(gx) > 2 * np.abs(gy))
+    if not edges.any():
+        return 0.0
+    tilt = np.degrees(np.arctan(gy[edges] / gx[edges]))
+    order = np.argsort(tilt)
+    weights = np.cumsum(magnitude[edges][order])
+    median = float(tilt[order][np.searchsorted(weights, weights[-1] / 2)])
+    return float(np.clip(median, -params.slant_limit, params.slant_limit))
+
+
+def shear(image: Image.Image, angle: float) -> Image.Image:
+    """x' = x + tan(angle) * y; lines stay horizontal, so segmentation still works on the result."""
+    if angle == 0:
+        return image.copy()
+    rgb = np.asarray(image.convert('RGB'))
+    height, width = rgb.shape[:2]
+    shift = np.tan(np.radians(angle)) * height
+    matrix = np.float32([[1, np.tan(np.radians(angle)), max(0.0, -shift)], [0, 1, 0]])
+    fill = tuple(int(v) for v in np.median(rgb.reshape(-1, 3), axis=0))
+    sheared = cv2.warpAffine(rgb, matrix, (width + int(abs(shift)) + 1, height), flags=cv2.INTER_CUBIC,
+                             borderMode=cv2.BORDER_CONSTANT, borderValue=fill)
+    return Image.fromarray(sheared)
+
+
+def deslant(image: Image.Image, params: OpParams) -> Image.Image:
+    """Shear the page by the estimated stroke tilt times slant_gain (1 = upright, the sign is checked
+    empirically through the gain: -1 doubles the slant)."""
+    return shear(image, params.slant_gain * slant_angle(image, params))
+
+
 def remove_rules(image: Image.Image, params: OpParams) -> Image.Image:
     """Suppress long, thin horizontal ruling lines by painting them with the local background."""
     gray = np.asarray(image.convert('L'))
@@ -48,6 +88,8 @@ def apply_geometric(image: Image.Image, operation: str, params: OpParams) -> Ima
         return image.resize(size, Image.Resampling.LANCZOS)
     if operation == 'deskew':
         return deskew(image, params)
+    if operation == 'deslant':
+        return deslant(image, params)
     raise ValueError(f'Unknown geometric op: {operation}')
 
 
@@ -64,6 +106,12 @@ def apply_photometric(image: Image.Image, operation: str, params: OpParams) -> I
         return image.filter(ImageFilter.UnsharpMask(radius=2, percent=int(100 * params.sharpen_amount), threshold=2))
     if operation == 'remove_rules':
         return remove_rules(image, params)
+    if operation == 'channel':  # iron-gall ink on yellowed paper often contrasts best in one channel
+        rgb = np.asarray(image.convert('RGB'))
+        return Image.fromarray(rgb.min(axis=2) if params.channel == 'min' else rgb[:, :, 'rgb'.index(params.channel)])
+    if operation in ('thicken', 'thin'):  # dark ink on light paper: a min filter thickens strokes, max thins
+        size = params.stroke_size
+        return image.filter(ImageFilter.MinFilter(size) if operation == 'thicken' else ImageFilter.MaxFilter(size))
     gray = np.asarray(image.convert('L'))
     if operation == 'gamma':
         lut = (255 * (np.arange(256) / 255) ** params.gamma).astype('uint8')
