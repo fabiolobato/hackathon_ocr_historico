@@ -10,7 +10,10 @@ import argparse
 import json
 import logging
 import shutil
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # ocr_pipeline.engine.MODELS
 
 logger = logging.getLogger(__name__)
 SOURCE_NOTEBOOK = Path('docs/entrega/apresentacao.ipynb')
