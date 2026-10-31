@@ -14,12 +14,12 @@ import sys
 import time
 from pathlib import Path
 
-RUN = 'search_st'
+RUN = 'search_g1'
 BUNDLE = Path('/content/search.zip')
-SPEC = 'sweeps/search_st.json'
-INIT = 'outputs/search/init_v4_pass2.json'  # greedy v4 pass 2 (medium); pass 3 only revisited frozen stages
+SPEC = 'sweeps/search_g1.json'
+INIT = 'outputs/search/init_st_final.json'  # search_st winner, context LM switched to the book-text one (E15)
 PASSES = 10
-REUSE = ['outputs/search/search_st_partial.jsonl']  # evaluations of an interrupted run (bundled)
+REUSE: list[str] = []  # evaluations of an interrupted run (bundled)
 HOLD_HOURS = 6
 KRAKEN = 'kraken @ git+https://github.com/mittagessen/kraken.git@bb487219e7d8289274443d1ad0989efb4924dc2a'
 PACKAGES = [KRAKEN, 'transformers==4.57.1', 'rapidfuzz==3.14.1', 'opencv-python-headless==4.12.0.88']

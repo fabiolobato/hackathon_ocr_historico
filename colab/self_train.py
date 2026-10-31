@@ -18,9 +18,9 @@ import time
 import urllib.request
 from pathlib import Path
 
-RUN = 'st_g1'
+RUN = 'st_g2'
 BUNDLE = Path('/content/selftrain.zip')
-CONFIG = 'configs/v4_pass1_st_v3.json'  # labels from the pipeline with st_v3; training still starts from medium
+CONFIG = 'configs/v4_pass1_st_g1s.json'  # pseudo-labels from the pipeline with st_g1s (E15)
 IMAGES = 'imagens_extra/ldl1_crop'
 # recalibrated for st_v3: 0.92 keeps 64% of tuning lines at label CER 9.6 (same noise as round 3; 0.90 would be 10.3)
 SELECT = ['--min-chars', '10', '--min-mean-prob', '0.92', '--max-change', '1.0', '--min-known', '0.9']
@@ -29,6 +29,10 @@ SELECT = ['--min-chars', '10', '--min-mean-prob', '0.92', '--max-change', '1.0',
 TRANSCRIPTS = 'imagens_extra/transcriptions_txt'
 SELECT += ['--max-transcript-cer', '0.4']
 INITS = {'medium': 'models/10.5281_zenodo.21788410/medium.safetensors', 'st_v3': 'models/finetuned/st_v3.safetensors'}
+# tag -> (init, lines): 'all' = transcripts + confident pseudo-labels, 'transcribed' = the transcribed pages only
+VARIANTS = {'mix': ('st_v3', 'all'), 'gem': ('st_v3', 'transcribed')}
+# after training: final_v4 x context LMs on the tuning pages (colab/eval_job.py; needs /content/eval_bundle.zip)
+EVAL = {'st_g2mix': 'mix', 'st_g2gem': 'gem'}
 EPOCHS = 20
 EFFECTIVE = 16  # lines per optimizer step (E07: 4 x 4)
 BATCHES = (32, 16, 8, 4)
@@ -79,10 +83,23 @@ def pseudo_labels() -> Path:
     assert run([sys.executable, '-m', 'ocr_pipeline.tuning.transcripts', str(labels), '--transcripts', TRANSCRIPTS],
                'transcripts') == 0
     assert run([*py, 'select', str(labels), *SELECT], 'select') == 0
-    arrow = OUT / 'train.arrow'
-    assert run(['ketos', '--workers', str(CORES), 'compile', '-f', 'page', '-o', str(arrow),
-                *sorted(str(p) for p in (labels / 'train').glob('*.xml'))], 'compile') == 0
+    return labels
+
+
+def compile_lines(labels: Path, lines: str) -> Path:
+    arrow = OUT / f'train_{lines}.arrow'
+    pages = sorted((labels / 'train').glob('*.xml'))
+    if lines == 'transcribed':
+        pages = [p for p in pages if (REPO / TRANSCRIPTS / f'{p.stem}.txt').is_file()]
+    if not arrow.exists():
+        assert run(['ketos', '--workers', str(CORES), 'compile', '-f', 'page', '-o', str(arrow),
+                    *map(str, pages)], f'compile_{lines}') == 0
     return arrow
+
+
+def evaluate_trained() -> int:
+    subprocess.run(['unzip', '-oq', '/content/eval_bundle.zip', '-d', str(REPO)], check=True)
+    return run([sys.executable, 'colab/eval_job.py', RUN, json.dumps(EVAL), json.dumps(['st_g1s', *EVAL])], 'eval')
 
 
 def train(weights: Path, arrow: Path, tag: str) -> int:
@@ -137,9 +154,11 @@ def main() -> None:
     code = 1
     try:
         setup()
-        arrow = pseudo_labels()
-        codes = [train(REPO / path, arrow, tag) for tag, path in INITS.items()]  # same data, two starting points
+        labels = pseudo_labels()
+        codes = [train(REPO / INITS[init], compile_lines(labels, lines), tag) for tag, (init, lines) in VARIANTS.items()]
         code = max(codes)
+        if code == 0:
+            code = evaluate_trained()
         export_metrics()
     finally:
         pack()
