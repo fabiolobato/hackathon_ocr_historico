@@ -2,6 +2,8 @@
 
 Pipeline de OCR para manuscritos do século XIX (Kraken + PP-OCRv6), avaliado em 12 páginas transcritas do _Livro de Registro de Leis nº 1_.
 
+**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,57 / 5,32.
+
 ## Resumo visual: comece por aqui
 
 **[`entrega_ocr/apresentacao.ipynb`](entrega_ocr/apresentacao.ipynb)**: o caderno de apresentação, já executado, com todas as saídas. É a forma mais fácil de ver o pipeline funcionando.
@@ -35,6 +37,8 @@ WER normalizado (minúsculas, sem pontuação; quanto menor, melhor):
 | **final** ([`configs/final_v5.json`](configs/final_v5.json)) |      19,98 |                  **18,43** |  **19,57** |
 
 CER normalizado nas reservadas: 21,71 → 8,16 (v4) → **4,13** (v5).
+
+Teste ampliado, **10 páginas novas do livro (gt=gemini)**: WER **3,45** / CER 1,45. A referência delas é a transcrição do Gemini, não um GT humano, e o número não é comparável à tabela acima: contra a mesma referência do Gemini, as reservadas dão 6,02 / 2,13.
 
 As páginas foram divididas como treino e teste, com semente 42:
 

@@ -34,7 +34,9 @@ OPTIONAL = {  # copied when present, otherwise skipped
     'relatorios/busca_gulosa.html': 'outputs/search/search_st__tuning/report.html',
 }
 RESOURCE_KEYS = ('lexicon', 'period_lexicon', 'context_lm', 'edit_costs')  # post.* paths the pipeline loads
-TREES = {'imagens': ('imagens', '*.jpg'), 'ground_truth': ('test_kraken/ground_truth', '*.txt')}
+TREES = {'imagens': ('imagens', '*.jpg'), 'ground_truth': ('test_kraken/ground_truth', '*.txt'),
+         'teste_gemini/imagens': ('imagens_extra/teste/imagens', '*.jpg'),  # 10 new pages, reference = Gemini
+         'teste_gemini/referencias': ('imagens_extra/teste/referencias', '*.txt')}
 
 
 def copy(source: Path, target: Path) -> None:

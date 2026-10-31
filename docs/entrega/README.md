@@ -12,6 +12,8 @@ Esta pasta tem tudo o que é preciso para rodar o pipeline de OCR final e aprese
 
 O processo completo, com experimentos, decisões e números, está em [`PROCESSO.md`](PROCESSO.md).
 
+**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,57 / 5,32.
+
 ## Resultado
 
 WER normalizado (minúsculas, sem pontuação; quanto menor, melhor):
@@ -25,6 +27,7 @@ WER normalizado (minúsculas, sem pontuação; quanto menor, melhor):
 | **final** (`configs/final.json`, v5) | 19,98 | **18,43** | **19,57** |
 
 - CER normalizado nas reservadas: 21,71 → 8,16 (v4) → **4,13** (v5).
+- Teste ampliado, 10 páginas novas do livro (**gt=gemini**): WER 3,45 / CER 1,45. A referência é a transcrição do Gemini, não comparável ao GT oficial. Contra a mesma referência, as reservadas dão 6,02 / 2,13.
 - A meta era WER ≤ 50%.
 
 ## Sem vazamento de dados
@@ -51,6 +54,7 @@ requirements.txt      dependências fixadas (Python 3.12)
 ocr_pipeline/         código do pipeline
 configs/final.json    configuração final
 imagens/              12 páginas (JPEG)
+teste_gemini/         10 páginas de teste (imagens + transcrição do Gemini como referência)
 ground_truth/         transcrição de referência de cada página (.txt), usada só para medir o erro
 models/               reconhecedor st_g3m, dicionário de época e modelo de contexto
 relatorios/           relatório HTML da busca final nas páginas de ajuste

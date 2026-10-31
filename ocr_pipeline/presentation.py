@@ -150,18 +150,21 @@ def stage_corpus(results: dict[int, list[TextStep]], pages: list[int]) -> list[t
     return [(label, corpus([results[p][i].scores for p in pages])) for i, label in enumerate(labels)]
 
 
-def summary_html(results: dict[str, dict[int, list[TextStep]]], heldout: set[int]) -> str:
-    """Final WER per page and corpus totals (all / tuning / held-out) for each configuration."""
+def summary_html(results: dict[str, dict[int, list[TextStep]]], heldout: set[int],
+                 heldout_names: tuple[str, str] = ('reservada', 'reservadas')) -> str:
+    """Final WER per page and corpus totals (all / tuning / held-out, empty groups skipped) for each configuration."""
     pages = sorted(next(iter(results.values())))
     head = '<tr><th>página</th>' + ''.join(f'<th class="num">{html.escape(n)}</th>' for n in results) + '</tr>'
     rows = []
     for p in pages:
-        kind = 'reservada' if p in heldout else 'ajuste'
+        kind = heldout_names[0] if p in heldout else 'ajuste'
         cells = ''.join(f'<td class="num">{pct(results[n][p][-1].scores["wer_norm"])}</td>' for n in results)
         rows.append(f'<tr><td>{p} <span class="cap">({kind})</span></td>{cells}</tr>')
     groups = (('todas', pages), ('ajuste', [p for p in pages if p not in heldout]),
-              ('reservadas', [p for p in pages if p in heldout]))
+              (heldout_names[1], [p for p in pages if p in heldout]))
     for name, group in groups:
+        if not group:
+            continue
         cells = ''.join(f'<td class="num"><b>{pct(corpus([results[n][p][-1].scores for p in group])["wer_norm"])}'
                         f'</b></td>' for n in results)
         rows.append(f'<tr><td><b>corpus: {name}</b></td>{cells}</tr>')

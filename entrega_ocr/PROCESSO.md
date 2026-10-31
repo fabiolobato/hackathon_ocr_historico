@@ -4,6 +4,8 @@ Documentação de tudo o que levou ao pipeline final: dados, protocolo, cada exp
 
 **Resultado final** (`configs/final.json`, v5, WER normalizado nas reservadas 7, 10, 12): **18,43%** (CER 4,13%); nas 12 páginas, 19,57%. A versão anterior (v4) dava 22,05%. O modelo como publicado, sobre a imagem crua, dava 64,57%.
 
+**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,57 / 5,32.
+
 ## 1. Dados e protocolo
 
 - **Páginas:** 12 páginas manuscritas (5 a 16) do _Livro de Registro de Leis nº 1_, todas com transcrição de referência (GT). O GT não foi verificado e tem erros prováveis, por exemplo `com causa` onde o manuscrito parece dizer `sem causa`.
@@ -285,6 +287,16 @@ Os pseudo-rótulos atrapalham quando há transcrições: treinar só com transcr
 | **st_g3m** (do medium) | 19,98 | **3,45** |
 
 O WER do teste é baixo porque a referência tem o mesmo estilo dos rótulos: serve para ordenar, não como número absoluto. No ajuste, a diferença entre os três é de até ~9 palavras, ou seja, ruído. Ficou o **st_g3m**: ganha 1,4 ponto em páginas novas e é a única linhagem que parte do medium sem ter visto nenhuma imagem avaliada ou de teste.
+
+**Mesma referência para as duas avaliações** (só medição; as transcrições do Gemini das 12 páginas nunca entram em nada). Final_v5 nas 12 páginas:
+
+| páginas | GT oficial | ref. Gemini |
+|---|---:|---:|
+| ajuste (9) | 19,98 / 5,74 | 10,17 / 3,95 |
+| **reservadas (7, 10, 12)** | 18,43 / 4,13 | **6,02 / 2,13** |
+| teste (10 novas) | — | **3,45 / 1,45** |
+
+Contra a referência do Gemini, o erro cai para cerca de um terço. A maior parte do erro “oficial” é diferença de convenção entre os dois gabaritos (modernização, abreviaturas), não leitura errada. As 10 páginas de teste contam como teste, com a tag gt=gemini: nem as imagens nem as transcrições delas entraram em treino, dicionário ou contexto.
 
 **Nova busca (descartada).** A busca gulosa com st_g2gem baixou o ajuste de 20,03 para 19,47, mas nas páginas de teste piorou (4,82 → 5,17). Testando uma mudança de cada vez, quase todo o ganho vinha da página 5 e das mudanças de geometria. As de contexto, padding, candidatas e grayscale ficaram em ±0,2, ruído. Ficou só o **deskew**: corrige a inclinação da página, leva a página 5 de 42,2 para 33,3 e não piora as outras.
 
