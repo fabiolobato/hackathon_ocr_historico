@@ -2,7 +2,8 @@
 CPU stays free. Runs in the self-training VM after its job (repo unpacked in /content/repo, trained models in
 /content/<RUN>/model_<init>_b*/best_*.safetensors). Uploaded beforehand into /content/repo: the updated
 ocr_pipeline/engine.py, configs/final_v4.json, the lexicon/LM it names plus the LM variants, imagens/ and
-test_kraken/ground_truth/. Held-out pages are never scored here.
+test_kraken/ground_truth/, and the Gemini test pages (imagens_extra/teste/, configs/gemini_split.json; reference =
+the Gemini transcription, so it ranks models but is no absolute WER). Held-out pages are never scored here.
 Run as a script; optional arguments override RUN, TRAINED and MODELS: eval_job.py RUN '{"name": "tag"}' '["model", ...]'.
 """
 import json
@@ -17,7 +18,10 @@ REPO = Path('/content/repo')
 OUT = Path('/content') / RUN / 'eval_tuning.json'
 TRAINED = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {'st_g1m': 'medium', 'st_g1s': 'st_v3'}  # name -> run tag
 MODELS = json.loads(sys.argv[3]) if len(sys.argv) > 3 else ['st_v3', 'st_g1m', 'st_g1s']
-LMS = {'w4': 'models/lexicon/pt_hist_legal_w4.ngrams.npz', 'livro8': 'models/lexicon/pt_hist_legal_w4_livro8.ngrams.npz'}
+LMS = {'livro8': 'models/lexicon/pt_hist_legal_w4_livro8.ngrams.npz',  # pages 57-104
+       'livro78': 'models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz'}  # the 78 training pages
+SETS = {'tuning': ('imagens', 'test_kraken/ground_truth'), 'teste': ('imagens_extra/teste/imagens',
+                                                                      'imagens_extra/teste/referencias')}
 WORKERS = min(os.cpu_count() or 2, 8)  # ~2 GB of GPU each (E14: 12 ran out of memory on the L4)
 
 
@@ -43,20 +47,22 @@ def main() -> None:
     from ocr_pipeline.pipeline import evaluate, page_executor
 
     pages_all = discover(Path('imagens'), Path('test_kraken/ground_truth'))
-    pages, pool = select(pages_all, 'tuning'), split(pages_all)[0]
+    pool = split(pages_all)[0]  # the tuning pages: what the configuration may adapt to
+    sets = {'tuning': select(pages_all, 'tuning'), 'teste': discover(*map(Path, SETS['teste']))}
     final = load_config(Path('configs/final_v4.json'))
     engine = Engine(Path('/content/evalcache'), 'cuda:0', 42)
     out = {}
     with page_executor(engine, WORKERS) as executor:
         for model in MODELS:
             for lm, path in LMS.items():
-                result = evaluate(engine, pages, with_overrides(final, {'rec.model': model, 'post.context_lm': path}),
-                                  pool, executor)
-                c = result['corpus']
-                out[f'{model}/{lm}'] = {'wer': round(100 * c['wer_norm'], 2), 'cer': round(100 * c['cer_norm'], 2),
-                                        'pages': [round(100 * p['wer_norm'], 1) for p in result['pages']]}
-                print(model, lm, out[f'{model}/{lm}'], flush=True)
-                OUT.write_text(json.dumps(out, indent=1))
+                for name, pages in sets.items():
+                    config = with_overrides(final, {'rec.model': model, 'post.context_lm': path})
+                    c = (result := evaluate(engine, pages, config, pool, executor))['corpus']
+                    out[f'{model}/{lm}/{name}'] = {'wer': round(100 * c['wer_norm'], 2),
+                                                   'cer': round(100 * c['cer_norm'], 2),
+                                                   'pages': [round(100 * p['wer_norm'], 1) for p in result['pages']]}
+                    print(model, lm, name, out[f'{model}/{lm}/{name}'], flush=True)
+                    OUT.write_text(json.dumps(out, indent=1))
 
 
 if __name__ == '__main__':

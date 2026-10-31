@@ -32,6 +32,9 @@ MODELS = {
     'st_g1s': Path('models/finetuned/st_g1s.safetensors'),  # E15: same data, from st_v3
     'st_g2mix': Path('models/finetuned/st_g2mix.safetensors'),  # E15: st_g1s pseudo-labels + transcripts, from st_v3
     'st_g2gem': Path('models/finetuned/st_g2gem.safetensors'),  # E15: transcribed pages only, from st_v3
+    # E15: the 78 Gemini training pages of configs/gemini_split.json only, from medium / from st_v3
+    'st_g3m': Path('models/finetuned/st_g3m.safetensors'),
+    'st_g3s': Path('models/finetuned/st_g3s.safetensors'),
 }
 
 
