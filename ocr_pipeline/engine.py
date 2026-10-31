@@ -28,6 +28,8 @@ MODELS = {
     'st_v2': Path('models/finetuned/st_v2.safetensors'),
     'st_v3': Path('models/finetuned/st_v3.safetensors'),
     'st_v4': Path('models/finetuned/st_v4.safetensors'),
+    'st_g1m': Path('models/finetuned/st_g1m.safetensors'),  # E15: Gemini transcripts, from medium
+    'st_g1s': Path('models/finetuned/st_g1s.safetensors'),  # E15: same data, from st_v3
 }
 
 
