@@ -20,7 +20,8 @@ MODELS = {
     'traprinq': Path('models/10.5281_zenodo.14543904/traprinq.mlmodel'),  # Portuguese Inquisition, 16th-19th c.
     'mccatmus': Path('models/10.5281_zenodo.13788177/mccatmus.mlmodel'),  # multilingual hand/print, 16th-21st c.
     # medium self-trained on pipeline labels of the book's other 91 pages (E14); no evaluation page in training
-    'st_v3': Path('models/finetuned/st_v3.safetensors'),
+    # E15: the 78 Gemini training pages of configs/gemini_split.json only, from medium / from st_v3
+    'st_g3m': Path('models/finetuned/st_g3m.safetensors'),
 }
 
 

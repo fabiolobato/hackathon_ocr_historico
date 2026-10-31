@@ -1,6 +1,7 @@
 {
   "geometric_ops": [
-    "upscale"
+    "upscale",
+    "deskew"
   ],
   "seg_ops": [
     "contrast",
@@ -34,7 +35,7 @@
     "drop_top_frac": 0.0
   },
   "rec": {
-    "model": "st_v3",
+    "model": "st_g3m",
     "padding": 24,
     "no_legacy_polygons": false
   },
@@ -53,7 +54,7 @@
     "decoder": "ctc+edit",
     "ctc_alpha": 16,
     "ctc_candidates": 30,
-    "context_lm": "models/lexicon/pt_hist_legal_w4.ngrams.npz",
+    "context_lm": "models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz",
     "context_order": 3,
     "context_beta": 1.0,
     "context_open_known": true,
