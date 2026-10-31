@@ -31,29 +31,32 @@ WER normalizado (minúsculas, sem pontuação; quanto menor, melhor):
 | modelo como publicado, imagem crua                           |      63,15 |                      64,57 |      63,52 |
 | primeira entrega (v1)                                        |      46,95 |                      48,66 |      47,40 |
 | pipeline completo com o modelo publicado                     |      29,63 |                      28,50 |      29,33 |
-| **final** ([`configs/final_v4.json`](configs/final_v4.json)) |      24,77 |                  **22,05** |      24,05 |
+| final anterior (v4: auto-treino com rótulos do próprio pipeline) |      24,77 |                      22,05 |      24,05 |
+| **final** ([`configs/final_v5.json`](configs/final_v5.json)) |      19,98 |                  **18,43** |  **19,57** |
 
-CER normalizado nas reservadas: 21,71 → **8,16**.
+CER normalizado nas reservadas: 21,71 → 8,16 (v4) → **4,13** (v5).
 
 As páginas foram divididas como treino e teste, com semente 42:
 
 - **ajuste** (5, 6, 8, 9, 11, 13, 14, 15, 16): usadas para escolher os parâmetros;
-- **reservadas** (7, 10, 12): não participam de nenhuma escolha. Foram avaliadas uma única vez, no fim, e dão a estimativa honesta.
+- **reservadas** (7, 10, 12): não participam de nenhuma escolha. Foram avaliadas uma vez para a v4 e uma segunda vez para a v5, já congelada, e dão a estimativa honesta.
+
+Para escolher o reconhecedor, também foram usadas 10 páginas novas do livro (18, 22, 23, 24, 25, 31, 32, 34, 44, 55), sorteadas com semente 42. Elas nunca entraram em treino, dicionário ou contexto, e a referência delas é a transcrição do Gemini ([`configs/gemini_split.json`](configs/gemini_split.json)).
 
 Uma única configuração é aplicada igualmente a todas as páginas.
 
 **Sem vazamento de dados:**
 
-- Nenhuma das 12 páginas entrou no treino de pesos. O reconhecedor final é o PP-OCRv6 medium **auto-treinado com as outras 91 páginas do mesmo livro**, com rótulos gerados pelo próprio pipeline, sem nenhuma transcrição humana.
-- O dicionário e o modelo de contexto vêm de textos externos da época: Projeto Gutenberg e leis de São Paulo de 1889 a 1910, sem os atos que citam São Carlos.
+- Nenhuma das 12 páginas entrou no treino de pesos. O reconhecedor final é o PP-OCRv6 medium **ajustado com 78 outras páginas do mesmo livro**, rotuladas por **transcrições diplomáticas do Gemini (LLM)** alinhadas às linhas. Nenhuma transcrição humana do livro foi usada. O pipeline não usa LLM para ler.
+- O dicionário e o modelo de contexto vêm de textos externos da época: Projeto Gutenberg e leis de São Paulo de 1889 a 1910, sem os atos que citam São Carlos. O modelo de contexto também recebe o texto das 78 páginas de treino; nenhuma página avaliada ou de teste entra nele.
 - O GT só é usado para medir o erro e, nas páginas de ajuste, para escolher parâmetros.
 
 ## O pipeline, etapa por etapa
 
 ```
-original ─► ampliação ─► base
+original ─► ampliação + correção de inclinação ─► base
              base ─► contraste + remoção da pauta ─► segmentador blla ─► linhas (polígonos)
-             base ─► PP-OCRv6 auto-treinado, linha a linha ─► probabilidades por caractere
+             base ─► PP-OCRv6 ajustado ao livro, linha a linha ─► probabilidades por caractere
 probabilidades ─► reescore com dicionário de época + contexto ─► convenções, ordinais, hifenização ─► texto final
 ```
 
@@ -64,6 +67,7 @@ A segmentação e o reconhecimento usam **imagens diferentes** da mesma base. As
 | etapa            | o que faz                                                         | valor final |
 | ---------------- | ----------------------------------------------------------------- | ----------- |
 | ampliação        | aumenta a página; o traço fino ganha pixels                       | ×2          |
+| deskew           | endireita a página inclinada                                      | —           |
 | contraste        | realça a tinta, só na imagem de segmentação                       | ×1,8        |
 | remoção da pauta | apaga as linhas horizontais do papel, só na imagem de segmentação | —           |
 
@@ -77,14 +81,14 @@ O segmentador neural **blla** (padrão do Kraken) encontra cada linha de texto c
 
 O ponto de partida é o **PP-OCRv6 medium** ([Zenodo 10.5281/zenodo.21788410](https://doi.org/10.5281/zenodo.21788410)). Ele lê cada linha e dá, para cada fatia da imagem, a probabilidade de cada caractere.
 
-O modelo final, **st_v3**, é esse medium ajustado em 3 rodadas de **auto-treino** com as 91 páginas do livro que não foram transcritas:
+O modelo final, **st_g3m**, é esse medium ajustado com 78 páginas do livro (17–104, menos as 10 de teste):
 
-1. o pipeline lê as páginas;
-2. as linhas lidas com confiança viram rótulos;
-3. o modelo é ajustado com elas;
-4. o modelo novo gera rótulos melhores para a rodada seguinte.
+1. o Gemini transcreveu cada página de forma diplomática, como um historiador: grafia original, `=` nas quebras de palavra;
+2. o pipeline segmenta a página e a transcrição é alinhada às linhas, por programação dinâmica sobre a distância de edição;
+3. linhas cuja transcrição se afasta mais de 0,4 da leitura do modelo ficam de fora;
+4. o modelo é ajustado só com essas linhas.
 
-O auto-treino reduziu o WER das reservadas de 28,50 para 22,05. A 4ª rodada já não melhorou e ficou de fora.
+A versão anterior (st_v3) usava 3 rodadas de auto-treino, com rótulos gerados pelo próprio pipeline, e chegava a 22,05 nas reservadas. As transcrições levaram a 18,43. Medido contra o GT humano nas 12 páginas, o Gemini tem WER 17,8 e CER 4,5, ou seja, nosso pipeline lê quase tão bem quanto os próprios rótulos.
 
 ### 4. Texto
 
@@ -107,7 +111,7 @@ Uma **busca gulosa condicional** ([`ocr_pipeline/tuning/search.py`](ocr_pipeline
 3. Um passe para trás remove qualquer escolha que não ajude.
 4. Os passes se repetem até nada mudar.
 
-Com o reconhecedor final, a busca convergiu no 3º passe. O caderno mostra quanto cada escolha vale.
+A configuração v4 saiu dessa busca, que convergiu no 3º passe. A v5 mantém esses valores e só acrescenta o deskew e o reconhecedor novo. Uma nova busca com o reconhecedor novo baixou o WER das páginas de ajuste para 19,47, mas piorou nas 10 páginas de teste: era sobreajuste às 9 páginas. Das mudanças dela, só ficou o deskew, que corrige a inclinação da página. O caderno mostra quanto cada escolha vale.
 
 ## Como rodar
 
@@ -133,13 +137,13 @@ A GPU é opcional. A primeira execução leva de 20 a 60 s por página em CPU.
 - os dois cadernos (o de apresentação já executado);
 - o código do pipeline e `configs/final.json`;
 - imagens e GT;
-- o reconhecedor st_v3, o dicionário de época e o modelo de contexto;
+- o reconhecedor st_g3m, o dicionário de época e o modelo de contexto;
 - README e PROCESSO.
 
 Ela é gerada automaticamente a partir deste repositório:
 
 - o código vem de `ocr_pipeline/`;
-- a configuração vem de `configs/final_v4.json`;
+- a configuração vem de `configs/final_v5.json`;
 - os arquivos de modelo são os que a configuração cita;
 - os cadernos, o README e o PROCESSO vêm de `docs/entrega/`.
 
@@ -181,11 +185,11 @@ docs/entrega/           fontes dos cadernos, README, PROCESSO e setup da pasta d
 ocr_pipeline/           código do pipeline: imagem, segmentação, reconhecimento, pós-processamento, métricas, relatórios
 ocr_pipeline/tuning/    busca de parâmetros, pseudo-rótulos para o auto-treino e utilitários de experimentos
 colab/                  jobs do Colab: auto-treino (self_train.py) e busca (search_job.py)
-configs/                configurações (final_v4.json é a final; greedy_v4_medium.json, a mesma busca com o modelo publicado)
+configs/                configurações (final_v5.json é a final; greedy_v4_medium.json, a mesma busca com o modelo publicado)
 sweeps/                 especificações das buscas
 tools/                  build_entrega.py (gera entrega_ocr/), score_final.py (avaliação final), dicionário de época
 imagens/                as 12 páginas
 test_kraken/            experimentos anteriores e transcrições de referência (ground_truth/)
 ```
 
-Na raiz, os pesos, o dicionário e o modelo de contexto ficam em `models/`, fora do Git. As cópias em `entrega_ocr/models/` estão no Git. O reconhecedor st_v3 tem SHA-256 `d92f40f5…fb08f501`.
+Na raiz, os pesos, o dicionário e o modelo de contexto ficam em `models/`, fora do Git. As cópias em `entrega_ocr/models/` estão no Git. O reconhecedor st_g3m tem SHA-256 `d41ac347…11fd1eee4d`. As transcrições do Gemini ficam em `imagens_extra/`, fora do Git.

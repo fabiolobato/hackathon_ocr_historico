@@ -21,23 +21,24 @@ WER normalizado (minúsculas, sem pontuação; quanto menor, melhor):
 | modelo como publicado, imagem crua, sem pós-processamento | 63,15 | 64,57 | 63,52 |
 | primeira entrega (v1) | 46,95 | 48,66 | 47,40 |
 | mesmo pipeline final com o modelo publicado (medium) | 29,63 | 28,50 | 29,33 |
-| **final** (`configs/final.json`) | 24,77 | **22,05** | 24,05 |
+| final anterior (v4: auto-treino com rótulos do próprio pipeline) | 24,77 | 22,05 | 24,05 |
+| **final** (`configs/final.json`, v5) | 19,98 | **18,43** | **19,57** |
 
-- CER normalizado nas reservadas: 21,71 → **8,16**.
+- CER normalizado nas reservadas: 21,71 → 8,16 (v4) → **4,13** (v5).
 - A meta era WER ≤ 50%.
 
 ## Sem vazamento de dados
 
 - **Nenhuma das 12 páginas entrou no treino de pesos.**
-  - O reconhecedor final (st_v3) é o PP-OCRv6 medium ajustado com as **outras 91 páginas do mesmo livro**.
-  - Os rótulos dessas páginas foram gerados pelo próprio pipeline, sem nenhuma transcrição humana.
-- **Dicionário e contexto** vêm de textos externos da época:
+  - O reconhecedor final (st_g3m) é o PP-OCRv6 medium ajustado com **78 outras páginas do mesmo livro** (17–104, menos as 10 de teste abaixo).
+  - Os rótulos dessas páginas são **transcrições diplomáticas feitas pelo Gemini** (LLM), alinhadas às linhas do segmentador. Linhas cuja transcrição se afasta mais de 0,4 da leitura do modelo ficam de fora. Nenhuma transcrição humana do livro foi usada.
+  - O pipeline em si não usa LLM: na hora de ler uma página, roda só segmentador, reconhecedor, dicionário e modelo de contexto.
+- **Dicionário e contexto:**
   - livros do Projeto Gutenberg de autores nascidos entre 1790 e 1875;
-  - leis de São Paulo de 1889 a 1910, sem os atos que citam São Carlos.
-
-  Nenhuma transcrição deste livro entra neles.
-- **Todos os parâmetros foram escolhidos só nas 9 páginas de ajuste**, inclusive o filtro de confiança do auto-treino.
-- **As páginas 7, 10 e 12 não participaram de nenhuma escolha** e foram avaliadas uma única vez, no fim. O número delas é a estimativa honesta.
+  - leis de São Paulo de 1889 a 1910, sem os atos que citam São Carlos;
+  - o modelo de contexto também recebe o texto das 78 páginas de treino transcritas pelo Gemini (peso 8). Nenhuma das 12 páginas avaliadas nem das 10 de teste entra nele.
+- **Todos os parâmetros foram escolhidos nas 9 páginas de ajuste.** A escolha do reconhecedor também olhou 10 páginas novas do livro (18, 22, 23, 24, 25, 31, 32, 34, 44, 55), sorteadas com semente 42 e nunca usadas em treino, dicionário ou contexto. A referência delas é a transcrição do Gemini.
+- **As páginas 7, 10 e 12 não participaram de nenhuma escolha.** Foram avaliadas uma vez para a v4 e uma segunda vez para a v5, já congelada. Nada dessa avaliação voltou para as escolhas.
 
 ## Conteúdo
 
@@ -51,7 +52,7 @@ ocr_pipeline/         código do pipeline
 configs/final.json    configuração final
 imagens/              12 páginas (JPEG)
 ground_truth/         transcrição de referência de cada página (.txt), usada só para medir o erro
-models/               reconhecedor st_v3, dicionário de época e modelo de contexto
+models/               reconhecedor st_g3m, dicionário de época e modelo de contexto
 relatorios/           relatório HTML da busca final nas páginas de ajuste
 resultados/textos/    texto final de cada página
 ```
@@ -120,7 +121,7 @@ Para fotos inteiras do acervo da FPMSC, use `RECORTAR = True`: aplica o recorte 
 
 ## Observações
 
-- **Reconhecedor:** `models/finetuned/st_v3.safetensors` (64 MB, SHA-256 `d92f40f5…fb08f501`). Foi treinado a partir do PP-OCRv6 medium (Zenodo 10.5281/zenodo.21788410).
-- **Dicionário:** `models/lexicon/pt_hist_legal_w1.txt`. **Modelo de contexto:** `models/lexicon/pt_hist_legal_w4.ngrams.npz`. Os dois foram gerados pelas ferramentas do repositório (`tools/build_period_lexicon.py`, `tools/fetch_alesp_acts.py`).
+- **Reconhecedor:** `models/finetuned/st_g3m.safetensors` (64 MB, SHA-256 `d41ac347…11fd1eee4d`). Foi treinado a partir do PP-OCRv6 medium (Zenodo 10.5281/zenodo.21788410).
+- **Dicionário:** `models/lexicon/pt_hist_legal_w1.txt`. **Modelo de contexto:** `models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz`. Os dois foram gerados pelas ferramentas do repositório (`tools/build_period_lexicon.py` com `--book-texts`, `tools/fetch_alesp_acts.py`).
 - Semente 42 e divisão ajuste/reservadas fixas.
-- Em CPU, os números das páginas de ajuste diferem até ~0,2 ponto dos obtidos em GPU (24,77 contra 24,60), por arredondamento numérico.
+- Em CPU, os números das páginas de ajuste diferem até ~0,2 ponto dos obtidos em GPU (v4: 24,77 contra 24,60), por arredondamento numérico.
