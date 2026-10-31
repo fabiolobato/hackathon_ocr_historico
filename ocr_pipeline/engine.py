@@ -35,6 +35,11 @@ MODELS = {
     # E15: the 78 Gemini training pages of configs/gemini_split.json only, from medium / from st_v3
     'st_g3m': Path('models/finetuned/st_g3m.safetensors'),
     'st_g3s': Path('models/finetuned/st_g3s.safetensors'),
+    # E16 clean chain: no evaluation or Gemini-test image in labelling, training or selection; medium-based labeller
+    'st_c0': Path('models/finetuned/st_c0.safetensors'),  # self-training on the 81 clean pages, from medium
+    'st_c1s': Path('models/finetuned/st_c1s.safetensors'),  # 78 Gemini training pages, from st_c0
+    'st_c1m': Path('models/finetuned/st_c1m.safetensors'),  # 78 Gemini training pages, from medium
+    'st_c2m': Path('models/finetuned/st_c2m.safetensors'),  # same, realigned with the st_c1m pipeline, from medium
 }
 
 
