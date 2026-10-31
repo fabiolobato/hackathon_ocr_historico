@@ -14,9 +14,9 @@ import sys
 import time
 from pathlib import Path
 
-RUN = 'search_g1'
+RUN = 'search_g2'
 BUNDLE = Path('/content/search.zip')
-SPEC = 'sweeps/search_g1.json'
+SPEC = 'sweeps/search_g2.json'
 INIT = 'outputs/search/init_st_final.json'  # search_st winner, context LM switched to the book-text one (E15)
 PASSES = 10
 REUSE: list[str] = []  # evaluations of an interrupted run (bundled)
