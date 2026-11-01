@@ -8,8 +8,8 @@ Pipeline de OCR para manuscritos do século XIX (Kraken + PP-OCRv6), avaliado em
 
 **[`entrega_ocr/apresentacao.ipynb`](entrega_ocr/apresentacao.ipynb)**: o caderno de apresentação, já executado, com todas as saídas. É a forma mais fácil de ver o pipeline funcionando.
 
-- [Ver no nbviewer](https://nbviewer.org/github/fabiolobato/hackathon_ocr_historico/blob/feat/random_search_period_lexicon/entrega_ocr/apresentacao.ipynb): mostra as imagens e tabelas completas.
-- [Abrir no Colab](https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/feat/random_search_period_lexicon/entrega_ocr/apresentacao.ipynb): mostra as saídas salvas; "Executar tudo" roda de novo, sem instalar nada no seu computador.
+- [Ver no nbviewer](https://nbviewer.org/github/fabiolobato/hackathon_ocr_historico/blob/feat/clean_chain/entrega_ocr/apresentacao.ipynb): mostra as imagens e tabelas completas.
+- [Abrir no Colab](https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/feat/clean_chain/entrega_ocr/apresentacao.ipynb): mostra as saídas salvas; "Executar tudo" roda de novo, sem instalar nada no seu computador.
 
 Para cada uma das 12 páginas, o caderno mostra:
 
@@ -162,7 +162,7 @@ Ela é gerada automaticamente a partir deste repositório:
 Para rodar localmente (Python 3.12):
 
 ```bash
-git clone -b feat/random_search_period_lexicon https://github.com/fabiolobato/hackathon_ocr_historico.git
+git clone -b feat/clean_chain https://github.com/fabiolobato/hackathon_ocr_historico.git
 cd hackathon_ocr_historico/entrega_ocr
 python3.12 -m venv .venv
 .venv/bin/pip install -r requirements.txt jupyter
