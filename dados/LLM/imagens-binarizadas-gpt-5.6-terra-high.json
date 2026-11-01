@@ -1,0 +1,86 @@
+{
+  "modelo": "openai/gpt-5.6-terra",
+  "esforco_raciocinio": "high",
+  "max_tokens": 128000,
+  "parametro_limite_tokens": "max_completion_tokens",
+  "entrada": {
+    "pasta": "Imagens Binarizadas",
+    "link_drive": "https://drive.google.com/drive/folders/1DqNaK7l7Hdu4gd87a5gqicgj7IHJ6ao-?usp=sharing",
+    "quantidade_imagens": 12
+  },
+  "status": "concluido",
+  "imagens": [
+    {
+      "arquivo": "5.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1894.jpg",
+      "caminho_relativo": "5.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1894.jpg",
+      "texto_transcrito": "Termo de abertura Servirá este livro para o registro dos Srs. alumnos approvados, cujas folhas pelo Director serão rubricadas e numeradas [ilegível] Collegio Baptista [ilegível] O Director do Collegio Baptista [ilegível] Rio de Janeiro em 1911. [ilegível]",
+      "custo": 0.08842
+    },
+    {
+      "arquivo": "6.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "6.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "Tit.º N.º 1. Regimento interno da Camara Municipal d’Alcobaça do Concelho, organizado de accordo com o artigo 97.º da Lei de 8 de Agosto que baixou com o Decreto n.º 56 de 23 de Setembro de 1892 e approvado em sessão de 30 de Setembro de 1892. Capitulo 1.º Da forma de funcionamento das Vereações Artigo 1.º Tendo o cidadão eleito Vereador, em sua primeira sessão prestado o juramento de membro da Camara Municipal, de accordo com o artigo [ilegível] da presente lei. § 1.º São os membros eleitos, os Vereadores, a cuja eleição se tiver havido recurso, e forem publicadas as decisões do Tribunal competente, para procederem ao reconhecimento do mandato de vereação da Camara Municipal, que terá lugar na sessão seguinte. Capitulo 2.º Da eleição do Presidente e Vice-Presidente Artigo 2.º Feito o reconhecimento a que se refere o artigo 1.º se procederá à eleição do Presidente, Vice-Presidente da Camara, por escrutinio secreto, e maioria de votos presentes em cedulas diversas. § 1.º Ao Vereador mais velho compete a presidencia da sessão. § 2.º O Presidente e Vice-Presidente serão empossados nos seus cargos, prestando juramento de bem cumprir os deveres de seus cargos, defendendo a Constituição do Reino e as leis Municipaes.",
+      "custo": 0.117194
+    },
+    {
+      "arquivo": "7.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "7.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "§ 3.º O Vice-Presidente é o substituto do Presidente. § 4.º Substituem ao Vice-Presidente o Secretário e o Tesoureiro, na ordem em que são eleitos. Em caso de empate decidirá o mais velho. Capitulo 3.º Da ordem dos trabalhos Artigo 3.º O [ilegível] que tem o direito de [ilegível] a [ilegível] por uma [ilegível] principal, [ilegível] igual [ilegível] no seu [ilegível] da reunião; e durante [ilegível], o presidente assumirá o seu logar, que é o da direcção de todos os trabalhos, sem prejuízo dos seus [ilegível], podendo elle [ilegível] a [ilegível]. Artigo 4.º Os [ilegível] deverão [ilegível] mandar as contas [ilegível] nas [ilegível] a [ilegível], e juntamente enviar ao Relatório pelo [ilegível] [ilegível] a [ilegível]. Artigo 5.º Todo o [ilegível] presente [ilegível] a multa em [ilegível], quanto a [ilegível] durante a [ilegível] dos [ilegível] ao seu posto [ilegível], ficará [ilegível] e [ilegível] todos os [ilegível] que [ilegível]. § 1.º [ilegível] ao trabalho é [ilegível] o [ilegível] a pessoa que mais pertence a [ilegível] mesmo [ilegível]. § 2.º Os [ilegível] não poderão [ilegível] os trabalhos por qualquer forma, e nem dos negocios a [ilegível] por [ilegível], não [ilegível] a [ilegível] observando e cumprindo as [ilegível], em caso de necessidade. Artigo 6.º Da [ilegível] [ilegível]. § 1.º Caberá [ilegível] o recurso que",
+      "custo": 0.074786
+    },
+    {
+      "arquivo": "8.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "8.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "que não se [ilegível] com a devida decencia e civilidade da Commissão o Vereador será convidado a retirar palavras improprias que tiver proferido e suspender o curso que se houver [ilegível]. Artigo 7º. § 1º [ilegível] em caso extremo, para recurso a [ilegível] onde o requerimento tenha se dirigido ao Conselho, durante se [ilegível]. A qualquer Vereador é licito fazer-se acompanhar de Consultor, o qual lhe prestará esclarecimentos, podendo fazer os seus [ilegível] e [ilegível]. § 2º Nenhum [ilegível] poderá [ilegível] [ilegível] a escripto, [ilegível] e [ilegível], e no caso de serem rejeitados os [ilegível] de uma [ilegível] em que caso [ilegível]. § 3º [ilegível] a proposta ou emenda será lida [ilegível], feita em Discussão e a [ilegível] esta em votação. § 4º No caso de empate será a votação adiada para a sessão seguinte [ilegível], no caso de [ilegível] empate, ao Presidente compete o voto de qualidade. § 5º O Vereador que desejar juntar a emenda do [ilegível], durante a sessão tomará a necessária [ilegível] nos [ilegível] para [ilegível]. Art. 8º. A votação em trabalhos municipaes será secreta em regra, mas poderá ser nominal a requerimento de algum Vereador e com approvação do Conselho. Artigo 9º. A votação do trabalho será sempre [ilegível] separada, e exigindo-se [ilegível] [ilegível].",
+      "custo": 0.10079
+    },
+    {
+      "arquivo": "9.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "9.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "Copia da lei que [ilegível] e assignada no mesmo sentido. Artigo 10.º As actas terão a denominação das sessões ordinarias ou extraordinarias. Artigo 11.º Os trabalhos do Conselho se dividirão em Expediente e Ordem do Dia. O expediente comprehende: negocios dos officios, despachos de petições e em geral objectos que dependem de sua decisão; a Ordem do Dia: correspondencia, requerimentos e indicações de propostas e pareceres das commissões, questões que não exigirem muito [ilegível] e para o methodo e conveniencia [ilegível] os mais assumptos [ilegível]. § 1.º As petições serão despachadas depois da sessão e começarão [ilegível] [ilegível] que houver necessario [ilegível] declarar o [ilegível]. Artigo 12.º A Camara terá as seguintes sessões permanentes publicas sendo estas as que forem necessarias para seus negocios. Começará a sessão, às [ilegível] horas da tarde e acabará, às [ilegível] horas. § 2.º Cada sessão terá pelo menos [ilegível]. Artigo 13.º Ao Vereador é licito pedir licença à Camara para ausentar-se por tempo determinado, fundamentando-se, porém, a sua falta. Concedida a licença será communicada ao supplente que tiver de servir no impedimento do effectivo Vereador. Artigo 14.º Em caso de suspensão ou de interrupção de sessão",
+      "custo": 0.102626
+    },
+    {
+      "arquivo": "10.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "10.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "Sendo, portanto, que o plano, [ilegível] achando somente o necessario, [ilegível] nenhum pormenor, e tratando-se que a presente informação não [ilegível]. Artigo N.º Os Vereadores que em suas [ilegível] [ilegível] pertencem a essa [ilegível] [ilegível] a casa em [ilegível] [ilegível] que não comparecendo, será assignado pelo Presidente da mesma que [ilegível] 10:000$ [ilegível] 8½% [ilegível] que [ilegível] [ilegível] geralmente [ilegível] a [ilegível] e [ilegível] mil e [ilegível], para a execução e [ilegível] conservação. Capitulo 2.º O orçamento das obras. Artigo 5.º A Camara municipal fará em cada anno um orçamento ordinario, de seis em seis mezes, dos fornecimentos não todos de [ilegível]. Devendo o [ilegível] [ilegível] a [ilegível] que [ilegível] e [ilegível] mesmo em [ilegível]. Artigo 6.º Havendo um saldo [ilegível] nesta verba, [ilegível] para [ilegível] bem municipal. §1º As obras extraordinarias serão começadas pelo Presidente e sempre por ordem superior, incorrendo na propria responsabilidade que [ilegível]. Em qualquer caso [ilegível] [ilegível] do [ilegível]. Dispensado [ilegível]",
+      "custo": 0.097424
+    },
+    {
+      "arquivo": "11.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "11.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "Acta 18º. Aos quinze de Setembro de mil oitocentos e noventa, pelo disposto em Lei de 15 de Janeiro de 1890, em Lei nº 9016 de 13 de Novembro de 1891, no Reg. de 29 de Julho de 1893, [ilegível] nº 888 e mais Legislação em vigor — [ilegível] [ilegível] [ilegível] e o cidadão [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] Conselho das Freguezias [ilegível] [ilegível]. [ilegível] [ilegível] [ilegível] [ilegível] [ilegível]. Leitura Nº. É tambem [ilegível] ao Fiscal neste districto [ilegível] Municipal perante a [ilegível] [ilegível] a mesma [ilegível] [ilegível] em que [ilegível] [ilegível] [ilegível] [ilegível] aos interesses [ilegível] e [ilegível] [ilegível]. Foi o mesmo apresentado [ilegível] [ilegível] como [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível]. [ilegível] [ilegível] para o effeito de [ilegível] a entrar [ilegível] em 22 de Abril de 1912. Fica a [ilegível] [ilegível] [ilegível] [ilegível]. Fica [ilegível] a [ilegível] e assina [ilegível].",
+      "custo": 0.057914
+    },
+    {
+      "arquivo": "12.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "12.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "Cumpridas quanto a Fazenda o exigir, passando a dar á referida sua administração todos os antecedentes, assim [ilegível] que se refere a [ilegível] das exigencias, será essa a expedição a favor do [ilegível], assim em que se exige a [ilegível] de seu nome, avaliados com [ilegível] dos productos do fundo [ilegível] da [ilegível] e do direito a [ilegível] constante da presente escriptura. § 2º A clausula 18ª do contrato fica assim substituida: Clausula 18ª — Os fornecimentos que occorrerem [ilegível] serão prestados pelos fornecedores ou contractantes, salvo casos de força maior, que serão justificados por actos [ilegível] mandados pela forma de direito. § 3º Clausula 46ª fica assim: A suspensão será feita nos seguintes casos: o excesso de [ilegível] para satisfação minima, [ilegível] que o governo se obrigue a fornecer, e que usem no prazo definido, e prestado a [ilegível] em prazo menor por [ilegível] que [ilegível] das notas concorrentes, [ilegível] maior o preço do fiscal profissional do [ilegível]. § 4º Clausula 47ª fica assim: [ilegível] será obrigado a manter [ilegível] os seus [ilegível], ficando [ilegível] com igual numero [ilegível], de acordo com a mesma [ilegível]. § 5º Clausula [ilegível] fica assim: [ilegível] em vigencia o contrato e enquanto houverem [ilegível], só até desta será o prazo dos [ilegível].",
+      "custo": 0.054218
+    },
+    {
+      "arquivo": "13.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "13.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "aos mesmos, não forem de pagar por cada [ilegível] que receber de praça, duzentos mil reis de multa sobre cada — a pessoa mais qualificada. Artigo 3º Os [ilegível] empregados e [ilegível] [ilegível], ficam sujeitos ao conhecimento e cumprimento do Artigo no acto que se relacionar com a [ilegível] que deve ser [ilegível]. Artigo 4º Nada mais se [ilegível] se comprehenderem [ilegível] que [ilegível] de emprego de forças exteriores sendo punidos na mesma [ilegível]. Artigo 5º [ilegível] em conformidade da Lei Nº 1 de Novembro de 1892, [ilegível] Braga. [ilegível] LEI Nº 3 A Camara Municipal [ilegível]. Artigo 1º Fica declarada [ilegível] e [ilegível] [ilegível] para o abastecimento geral e um gasto a citada [ilegível]. Artigo 2º [ilegível] a ser [ilegível] em [ilegível]. [ilegível], 21 de Janeiro de 1893. [ilegível] Braga. Approvada em sessão 24 de Janeiro de 1893 — [ilegível] Braga. Registe-se.",
+      "custo": 0.069986
+    },
+    {
+      "arquivo": "14.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "14.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "e conforme do Capitulo 3º fica pertencendo a escravos, gozando cada qual do respectivo salario, [ilegível] ao qual me sujeito e de que [ilegível]. Lei N. 4. O Governo mencionado estabelece o titulo seguinte: Artigo 1º. Os [ilegível] mencionados a [ilegível] caução, feita a [ilegível] da familia para [ilegível] pelos [ilegível] dos anos [ilegível] e em uma mensal [ilegível] à [ilegível]. Paragrapho Unico - A [ilegível] e [ilegível] de [ilegível] uma [ilegível], e enquanto não [ilegível] o [ilegível], os homens [ilegível] obrigados [ilegível] em [ilegível] de [ilegível] mensal [ilegível] e [ilegível] na [ilegível] da [ilegível]. [ilegível] não [ilegível], e [ilegível] [ilegível] que [ilegível]; do [ilegível] aos [ilegível] e [ilegível] cada [ilegível] lei; e [ilegível] [ilegível] [ilegível] aos [ilegível] e [ilegível] [ilegível] a fim de que a [ilegível] [ilegível] liberdade, sem [ilegível], possa [ilegível] o [ilegível] a quem em os [ilegível] [ilegível] na [ilegível] [ilegível]. Paragrapho Unico. A mudança [ilegível] quando [ilegível] por falta pela qual [ilegível] [ilegível] por parte do [ilegível] com [ilegível] a [ilegível] [ilegível] [ilegível] lei.",
+      "custo": 0.068132
+    },
+    {
+      "arquivo": "15.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "15.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "[ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] Doc. Nº 5 Corpo de Policia [ilegível] nº [ilegível] 5 de 1905. Exmo. Snr. Capitão 1º Remetto [ilegível] [ilegível] [ilegível] [ilegível] Artigo 1º - [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível] [ilegível]",
+      "custo": 0.036926
+    },
+    {
+      "arquivo": "16.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "caminho_relativo": "16.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg",
+      "texto_transcrito": "Na rua ou praça os materiaes necessarios em, quanto o pagamento de dous mil reis por [ilegível] devida a quarenta mil reis no primeiro e vinte mil reis no segundo caso com hypotheca em favor deste o [ilegível]. — Paragrapho unico. Esta multa será paga em [ilegível] presente, e depois de [ilegível] e conhecimento [ilegível] e [ilegível] sendo, [ilegível] e [ilegível]. — Artigo 3º. As casas que se construirem no seu alinhamento, em sitios ou suburbanos [ilegível] pelo menos, terão [ilegível] [ilegível] cinco metros de altura na frente, até a beira do telhado, em um só andar, não [ilegível] e [ilegível] conservados na frente, nos fundos e espaços, sem [ilegível] se [ilegível] as [ilegível] quarenta centimetros. [ilegível] [ilegível] de [ilegível] a fixar para todos os [ilegível] até a construcções ou reconstrucções e não afastamento [ilegível] a espaço de quatro metros e quarenta centimetros, pelo menos, desde os [ilegível] novos em [ilegível] em alinhamento da rua, salvo no [ilegível] onde forem permitidas as casas com [ilegível] [ilegível] pelos os respectivos [ilegível] e por [ilegível] prohibido de serem em praças [ilegível] pela [ilegível] [ilegível] e um mil reis por cada metro, alem da [ilegível] do [ilegível] de se [ilegível] o [ilegível] da [ilegível] que [ilegível] [ilegível] em se continuar as construcções na cidade, [ilegível] em [ilegível] em lugares [ilegível] menores; o [ilegível] [ilegível] metros e [ilegível] [ilegível] os [ilegível] [ilegível]",
+      "custo": 0.112298
+    }
+  ]
+}
