@@ -4,7 +4,7 @@ Documentação de tudo o que levou ao pipeline final: dados, protocolo, cada exp
 
 **Resultado final** (`configs/final.json`, v6, cadeia limpa, WER normalizado nas reservadas 7, 10, 12): **18,74%** (CER 4,43%); nas 12 páginas, 19,40%. Contra a transcrição diplomática do Gemini, nas 13 páginas nunca vistas nem usadas para escolher (reservadas + 10 de teste): **4,10% de WER e 1,68% de CER**. A v4 dava 22,05%. O modelo como publicado, sobre a imagem crua, dava 64,57%.
 
-**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,57 / 5,32.
+**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,40 / 5,27.
 
 ## 1. Dados e protocolo
 

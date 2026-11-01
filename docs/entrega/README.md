@@ -12,7 +12,7 @@ Esta pasta tem tudo o que é preciso para rodar o pipeline de OCR final e aprese
 
 O processo completo, com experimentos, decisões e números, está em [`PROCESSO.md`](PROCESSO.md).
 
-**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,57 / 5,32.
+**Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,40 / 5,27.
 
 ## Resultado
 
