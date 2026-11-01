@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # ocr_pipeline.eng
 
 logger = logging.getLogger(__name__)
 SOURCE_NOTEBOOK = Path('docs/entrega/apresentacao.ipynb')
-FINAL_CONFIG = Path('configs/final_v5.json')
+FINAL_CONFIG = Path('configs/final_v6.json')
 RUNTIME = ['__init__.py', 'batch.py', 'beam_decode.py', 'config.py', 'context_lm.py', 'ctc_rescore.py', 'data.py',
            'edit_costs.py', 'engine.py', 'metrics.py', 'page_crop.py', 'pipeline.py', 'postprocess.py',
            'preprocessing.py', 'presentation.py', 'run.py', 'visualize.py']
