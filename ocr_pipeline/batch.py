@@ -3,8 +3,8 @@
 Nothing is tuned here. The cache lives inside --out by default: cache keys use the image file name, so a new
 image named like one of the 12 project pages must not reuse that page's cached segmentation.
 
-  python -m ocr_pipeline.batch --config configs/final_v5.json --images novas_imagens --out outputs/batch
-  python -m ocr_pipeline.batch --config configs/final_v5.json --images novas_imagens --references novas_gt \\
+  python -m ocr_pipeline.batch --config configs/final_v6.json --images novas_imagens --out outputs/batch
+  python -m ocr_pipeline.batch --config configs/final_v6.json --images novas_imagens --references novas_gt \\
       --out outputs/batch
 """
 import argparse

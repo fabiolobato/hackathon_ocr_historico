@@ -10,5 +10,5 @@ if k in ('lexicon', 'period_lexicon', 'context_lm', 'edit_costs') and v]))")
 rm -f "$ZIP"; mkdir -p "$(dirname "$ZIP")"
 git ls-files -z | grep -zv '^entrega_ocr/' | xargs -0 zip -q "$ZIP"
 zip -q "$ZIP" $NAMED
-zip -qr "$ZIP" imagens_extra/teste
+zip -qr "$ZIP" imagens_extra/teste test_kraken/ground_truth  # both outside git (test_kraken/.gitignore)
 ls -la "$ZIP"; unzip -l "$ZIP" | tail -1

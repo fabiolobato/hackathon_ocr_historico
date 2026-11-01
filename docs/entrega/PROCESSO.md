@@ -2,7 +2,7 @@
 
 Documentação de tudo o que levou ao pipeline final: dados, protocolo, cada experimento com seus números, o que ficou, o que não funcionou e os limites.
 
-**Resultado final** (`configs/final.json`, v5, WER normalizado nas reservadas 7, 10, 12): **18,43%** (CER 4,13%); nas 12 páginas, 19,57%. A versão anterior (v4) dava 22,05%. O modelo como publicado, sobre a imagem crua, dava 64,57%.
+**Resultado final** (`configs/final.json`, v6, cadeia limpa, WER normalizado nas reservadas 7, 10, 12): **18,74%** (CER 4,43%); nas 12 páginas, 19,40%. Contra a transcrição diplomática do Gemini, nas 13 páginas nunca vistas nem usadas para escolher (reservadas + 10 de teste): **4,10% de WER e 1,68% de CER**. A v4 dava 22,05%. O modelo como publicado, sobre a imagem crua, dava 64,57%.
 
 **Contexto.** Este trabalho é uma atividade de disciplina para auxiliar a Fundação Pró-Memória de São Carlos na transcrição do acervo. É também um pequeno trabalho de pesquisa, que compara dois caminhos: transcrever só com um LLM (Gemini) e este pipeline de OCR, que roda localmente sem LLM. Medidos contra o GT oficial nas 12 páginas, o Gemini tem WER 17,78 / CER 4,49 e o pipeline final, 19,57 / 5,32.
 
@@ -300,6 +300,56 @@ Contra a referência do Gemini, o erro cai para cerca de um terço. A maior part
 
 **Nova busca (descartada).** A busca gulosa com st_g2gem baixou o ajuste de 20,03 para 19,47, mas nas páginas de teste piorou (4,82 → 5,17). Testando uma mudança de cada vez, quase todo o ganho vinha da página 5 e das mudanças de geometria. As de contexto, padding, candidatas e grayscale ficaram em ±0,2, ruído. Ficou só o **deskew**: corrige a inclinação da página, leva a página 5 de 42,2 para 33,3 e não piora as outras.
 
+### E14: cadeia limpa (v6)
+
+**Por quê.** O auto-treino da v4 (st_v1 a st_v3) rodou sobre 91 páginas do livro, entre elas as 10 de teste: o reconhecedor viu essas imagens, com rótulos gerados por ele mesmo, nunca com o texto do Gemini. O st_g3m da v5 parte do medium, mas o alinhamento das linhas usou a leitura de um modelo dessa linhagem, e a escolha da v5 olhou as páginas de teste. Nada disso é vazamento de resposta, mas, por segurança, a v6 refaz tudo sem que nenhuma das 12 páginas avaliadas nem das 10 de teste apareça em qualquer etapa.
+
+**Como.**
+
+- O rotulador inicial é o medium publicado (`configs/v4_pass1.json`).
+- O conjunto de imagens é limpo: as 78 páginas de treino mais 3 páginas sem transcrição (folhas de rosto e contracapa).
+- O pacote enviado ao Colab leva só as 9 páginas de ajuste para avaliação.
+- A escolha é feita só nas 9 páginas de ajuste, pelo WER contra a transcrição do Gemini, com o GT oficial como conferência.
+
+| modelo (cadeia limpa) | rótulos | ajuste: oficial | ajuste: ref. Gemini |
+|---|---|---:|---:|
+| st_c0 | auto-treino puro (pseudo-rótulos, 1.165 linhas) | 27,60 / 11,06 | 26,00 / 11,01 |
+| st_c1s | st_c0 → transcrições do Gemini (2.425 linhas) | 20,15 / 5,81 | 9,84 / 3,96 |
+| **st_c1m** | medium → transcrições do Gemini (2.425 linhas) | 19,64 / 5,57 | **9,47 / 3,75** |
+| st_c2m | medium → Gemini realinhado pela leitura do st_c1m (2.480 linhas) | 19,41 / 5,53 | 9,79 / 3,79 |
+| st_g3m (v5, referência) | — | 20,03 / 5,78 | 10,22 / 3,96 |
+
+WER / CER normalizados, GPU.
+
+- Fazer auto-treino antes das transcrições não ajuda.
+- Realinhar com o modelo ajustado guarda mais linhas, mas fica dentro do ruído.
+- Ficou o **st_c1m**: o melhor no critério e o mais simples.
+
+**Varredura.** Com o st_c1m, foram testadas 20 mudanças isoladas, só nas páginas de ajuste:
+
+- padding, deskew e modelo de contexto;
+- α, β e razão do léxico;
+- palavras curtas, candidatas, n-best, feixe, tamanho mínimo e dobra de acentos.
+
+O critério foi fixado antes de rodar: −0,3 ponto contra o Gemini, sem piorar o oficial. Nenhuma passou. As mais próximas foram o tamanho mínimo 3 (−0,27) e α = 24 (−0,11). A v6 é a v5 com o reconhecedor trocado (`configs/final_v6.json`).
+
+**Resultado** (olhada única, depois de congelada):
+
+| grupo | GT oficial | ref. Gemini |
+|---|---:|---:|
+| ajuste (9) | 19,64 / 5,57 | 9,47 / 3,75 |
+| **reservadas (7, 10, 12)** | **18,74 / 4,43** | 6,48 / 2,39 |
+| teste (10 novas) | — | 3,41 / 1,47 |
+| **nunca vistas nem usadas para escolher** (reservadas + teste, 13 pág.) | — | **4,10 / 1,68** |
+| todas as 12 | 19,40 / 5,27 | 8,69 / 3,39 |
+| todas as 22 | — | 6,20 / 2,49 |
+
+**Leitura.**
+
+- A pureza não custou nada. No teste, a v6 dá 3,41, contra 3,45 da v5: o resultado da v5 não vinha de ter visto as imagens.
+- Nas reservadas, a diferença é de +0,31 contra o oficial e +0,46 contra o Gemini, cerca de 2 a 3 palavras: ruído.
+- Contra uma referência diplomática, o erro em páginas nunca vistas é de **4,1% de WER e 1,7% de CER**.
+
 ### Outros reconhecedores, como publicados
 
 
@@ -321,7 +371,7 @@ Os modelos históricos portugueses disponíveis leem esta mão pior que o PP-OCR
 | imagem de segmentação | contraste ×1,8 → remoção de pauta |
 | segmentador | blla (padrão do Kraken), sem filtro de linhas |
 | imagem de reconhecimento | a própria base, sem tratamento |
-| reconhecedor | **st_g3m**: PP-OCRv6 medium ajustado com as transcrições do Gemini de 78 outras páginas (E13), padding 24 |
+| reconhecedor | **st_c1m**: PP-OCRv6 medium ajustado com as transcrições do Gemini de 78 outras páginas, cadeia limpa (E14), padding 24 |
 | reescore CTC | ctc+edit, α = 16, 30 candidatas por palavra, buscadas a partir das 5 melhores leituras |
 | contexto | trigramas do corpus de época + legislativo (peso 4) + texto das 78 páginas de treino (peso 8), β = 1; feixe de 64 como fonte extra de candidatas |
 | texto | convenções, ordinais, hifenização |
@@ -329,17 +379,17 @@ Os modelos históricos portugueses disponíveis leem esta mão pior que o PP-OCR
 
 | páginas | WER norm. | CER norm. |
 |---|---:|---:|
-| ajuste (9) | 19,98 | 5,74 |
-| **reservadas (7, 10, 12)** | **18,43** | **4,13** |
-| todas (12) | 19,57 | 5,32 |
+| ajuste (9) | 19,64 | 5,57 |
+| **reservadas (7, 10, 12)** | **18,74** | **4,43** |
+| todas (12) | 19,40 | 5,27 |
 
-Por página, nas reservadas: 7: 19,1 · 10: 15,5 · 12: 20,1. A pior página continua sendo a 5, com 35,6.
+Por página, nas reservadas: 7: 18,6 · 10: 16,6 · 12: 20,5. A pior página continua sendo a 5, com 33,3.
 
-Valores em CPU. Com GPU, as diferenças numéricas entre CPU e CUDA mudam alguns empates do reescore (até ~0,2 ponto).
+Valores em GPU (L4). Com GPU, as diferenças numéricas entre CPU e CUDA mudam alguns empates do reescore (até ~0,2 ponto).
 
 ### Progressão nas reservadas
 
-Cada linha foi avaliada uma única vez nas reservadas, depois de decidida. A v5 é uma segunda olhada: as reservadas já tinham sido pontuadas para a v4, e a v5 foi congelada antes de olhá-las de novo.
+Cada linha foi avaliada uma única vez nas reservadas, depois de decidida. A v5 e a v6 são uma segunda e uma terceira olhada: as reservadas já tinham sido pontuadas antes, e cada versão foi congelada antes de olhá-las de novo.
 
 | versão | o que entrou | reservadas WER / CER |
 |---|---|---:|
@@ -348,7 +398,8 @@ Cada linha foi avaliada uma única vez nas reservadas, depois de decidida. A v5 
 | v3 | dicionário de época, contexto n-grama | 36,85 / 14,00 |
 | v4, medium | ordinais, curtas, n-best, corpus legislativo; todas as etapas redecididas | 28,50 / 10,64 |
 | v4 | reconhecedor auto-treinado (st_v3) + busca final | 22,05 / 8,16 |
-| **v5 (final)** | reconhecedor ajustado com transcrições do Gemini (st_g3m), texto do livro no contexto, deskew | **18,43 / 4,13** |
+| v5 | reconhecedor ajustado com transcrições do Gemini (st_g3m), texto do livro no contexto, deskew | 18,43 / 4,13 |
+| **v6 (final)** | mesma configuração, reconhecedor refeito numa cadeia limpa (st_c1m) | **18,74 / 4,43** |
 
 O ganho nas reservadas acompanha o do ajuste, e no fim é até maior. Não há sinal de sobreajuste dos parâmetros às páginas de ajuste.
 
@@ -372,7 +423,7 @@ O ganho nas reservadas acompanha o do ajuste, e no fim é até maior. Não há s
 - O reconhecedor foi adaptado a este livro e a este escrivão. Em outro livro, o ponto de partida é o medium publicado (`configs/greedy_v4_medium.json`, 28,50 nas reservadas), ou uma nova rodada de auto-treino com as páginas daquele livro.
 - Os rótulos do auto-treino vêm de um pipeline cujos parâmetros foram escolhidos nas páginas de ajuste. Por isso o número honesto é o das reservadas.
 - O GT não foi verificado, e parte do erro restante é da referência.
-- A página 5 (521×543 px, outro recorte) continua sendo a pior: 35,6% de WER (era 57,8% na v4).
+- A página 5 (521×543 px, outro recorte) continua sendo a pior: 33,3% de WER (era 57,8% na v4).
 
 Próximos passos:
 
@@ -387,10 +438,10 @@ Próximos passos:
 
 | arquivo | tamanho | SHA-256 |
 |---|---:|---|
-| `models/finetuned/st_g3m.safetensors` | 64 MB | `d41ac347…11fd1eee4d` |
+| `models/finetuned/st_c1m.safetensors` | 64 MB | `8b1488d6…fb25c717a75ad15a` |
 | `models/lexicon/pt_hist_legal_w1.txt` | 2,4 MB | `207246e6…dde3ef51` |
 | `models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz` | 15 MB | `53f2fc6b…6acc2f0e` |
 
 - O medium publicado (Zenodo 10.5281/zenodo.21788410, MD5 `e3411a45…`) e o léxico pt-BR 50k são baixados e conferidos por `setup_pipeline.py` quando uma configuração os usa.
 - A busca, o auto-treino e os scripts do Colab (`ocr_pipeline/tuning/`, `colab/`, `tools/`) ficam no repositório do projeto, não nesta pasta. O relatório da busca final está em `relatorios/busca_gulosa.html`.
-- A avaliação final está em `outputs/search/final_scores_v5.json` (v4 em `final_scores_v4.json`) no repositório, gerada por `tools/score_final.py`.
+- A avaliação final está em `outputs/search/final_scores_v6.json` (v5 e v4 em `final_scores_v5.json` e `final_scores_v4.json`) no repositório, gerada por `tools/score_final.py` no Colab (`colab/final_job.py`). A cadeia limpa: `colab/clean_train.py`, `colab/sweep_clean.py`.
