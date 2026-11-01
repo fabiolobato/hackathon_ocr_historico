@@ -169,3 +169,16 @@ def summary_html(results: dict[str, dict[int, list[TextStep]]], heldout: set[int
                         f'</b></td>' for n in results)
         rows.append(f'<tr><td><b>corpus: {name}</b></td>{cells}</tr>')
     return f'<table>{head}{"".join(rows)}</table>'
+
+
+def groups_html(rows: dict[int, dict[str, Any]], groups: dict[str, list[int]]) -> str:
+    """WER/CER (normalized) per page and corpus per group and overall, from evaluate() page rows keyed by page."""
+    head = '<tr><th>página</th><th>grupo</th><th class="num">WER</th><th class="num">CER</th></tr>'
+    kind = {p: name for name, pages in groups.items() for p in pages}
+    body = [f'<tr><td>{p}</td><td>{html.escape(kind[p])}</td><td class="num">{pct(rows[p]["wer_norm"])}</td>'
+            f'<td class="num">{pct(rows[p]["cer_norm"])}</td></tr>' for p in sorted(kind)]
+    for name, pages in (*groups.items(), ('todas', sorted(kind))):
+        c = corpus([rows[p] for p in pages])
+        body.append(f'<tr><td colspan="2"><b>corpus: {html.escape(name)} ({len(pages)} pág.)</b></td>'
+                    f'<td class="num"><b>{pct(c["wer_norm"])}</b></td><td class="num"><b>{pct(c["cer_norm"])}</b></td></tr>')
+    return f'<table>{head}{"".join(body)}</table>'

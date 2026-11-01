@@ -21,7 +21,8 @@ MODELS = {
     'mccatmus': Path('models/10.5281_zenodo.13788177/mccatmus.mlmodel'),  # multilingual hand/print, 16th-21st c.
     # medium self-trained on pipeline labels of the book's other 91 pages (E14); no evaluation page in training
     # E15: the 78 Gemini training pages of configs/gemini_split.json only, from medium / from st_v3
-    'st_g3m': Path('models/finetuned/st_g3m.safetensors'),
+    # E16 clean chain: no evaluation or Gemini-test image in labelling, training or selection; medium-based labeller
+    'st_c1m': Path('models/finetuned/st_c1m.safetensors'),  # 78 Gemini training pages, from medium
 }
 
 

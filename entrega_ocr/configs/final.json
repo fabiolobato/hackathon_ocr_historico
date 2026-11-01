@@ -35,7 +35,7 @@
     "drop_top_frac": 0.0
   },
   "rec": {
-    "model": "st_g3m",
+    "model": "st_c1m",
     "padding": 24,
     "no_legacy_polygons": false
   },
