@@ -1,0 +1,2680 @@
+{
+  "rule": {
+    "language": "pt",
+    "born_min": 1790,
+    "born_max": 1875,
+    "alive_after": 1850,
+    "min_count": 2,
+    "delay": 1.0,
+    "extra_weight": 4
+  },
+  "catalog_url": "https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv",
+  "tokens": 24535456,
+  "words_kept": 249718,
+  "output_sha256": "97944c635f55f2d92800645024406b766208328ae14fdbc68cc276d7427e8ad1",
+  "books": [
+    {
+      "id": "2837",
+      "title": "Lendas do sul",
+      "authors": "Lopes Neto, J. Simões (João Simões), 1865-1916",
+      "sha256": "da676ec5b2ebc28a99be31316b68d98770f2441303d11a2427f98be7efcbc976"
+    },
+    {
+      "id": "8698",
+      "title": "O Livro de Cesario Verde",
+      "authors": "Verde, Cesário, 1855-1886; Silva Pinto, Antonio da, 1848-1911 [Compiler]",
+      "sha256": "1116750ca797d78e162a379372e50c4fa5ee955997ce7dd1aa6375396768fff8"
+    },
+    {
+      "id": "9654",
+      "title": "Lendas e Narrativas (Tomo I)",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "463e4ea15a7cec7f2bf977c99c80980ce5224bd94669c7deda41a93f62d2a59e"
+    },
+    {
+      "id": "11299",
+      "title": "O cancioneiro portuguez da Vaticana",
+      "authors": "Braga, Teófilo, 1843-1924",
+      "sha256": "cbea775eb90020bcef9bae28eb32af8f56b1a8df9d95651aa333a2d53aa3434b"
+    },
+    {
+      "id": "12579",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1883-06)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "0dd4e12604c1303906b0f16169233b522fbb7cf1504ca13ac2f691aff6e4e7a7"
+    },
+    {
+      "id": "13092",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1878-01)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "7396a274777a3fe0f39468929d7b8206ceaedb983cbdceabb2bae2c0446158df"
+    },
+    {
+      "id": "13093",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1878-02/05)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "253f07c26b8d5af4f2fe314bfa8cf9be2dae705a1afc59441b5c696e02fd9ab6"
+    },
+    {
+      "id": "13630",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1882-06/07)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "811012ed06c3433a9578e7fb5143be74bc8b6ded5221f8036acf4503466be9ba"
+    },
+    {
+      "id": "14296",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1882-11/12)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "9558caa7c0a09aaddebf61d45a2547d90987278034a1082bf8dfcd41cd12924b"
+    },
+    {
+      "id": "14503",
+      "title": "A Paranoia",
+      "authors": "Matos, Júlio de, 1856-1922",
+      "sha256": "feda23676a1193b6dd38bac578955fc7c5d01a29b2c329cf201c405d60253b7e"
+    },
+    {
+      "id": "14620",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1873-01/02)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "7b1b545bcc9bcaf5c319447bb3bf08ca929bd5d03f230361b14b66065942b342"
+    },
+    {
+      "id": "14621",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1873-03/04)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "01b0f75447193e323ff41ae13e8d4a0b913852dac38ac4a0ed2d6d931fae5829"
+    },
+    {
+      "id": "14622",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1873-10/11)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "265813540d3c4245a2c6272f3b954b59855db432672a0c39b8509f4c7769574e"
+    },
+    {
+      "id": "15047",
+      "title": "Bases da ortografia portuguesa",
+      "authors": "Gonçalves Viana, A. R. (Aniceto Reis), 1840-1914; Abreu, G. de Vasconcellos (Guilherme), 1842-1907",
+      "sha256": "6bcac0d54109e3b2e77a47c17d1f9a5de9b6952bc04d45e9e2a1541a8d0887ea"
+    },
+    {
+      "id": "16111",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 01",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "3673d3b24320a3ca9c4b66d287393c780c5f554802ec5e0a9a0497b73a6418dc"
+    },
+    {
+      "id": "16214",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes, (1877-08/09)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "95be60bc9238b9a3a4cb4770f5c435132e96171f15c5d2f4c5c9c03e4be41635"
+    },
+    {
+      "id": "16218",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1877-01/02)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "c06f457ca8b4060def7405bf90917d04397bbb1bcce60527f039a504aa3ef7af"
+    },
+    {
+      "id": "16219",
+      "title": "As Farpas: Chronica Mensal da Politica, das Letras e dos Costumes (1877-05/06)",
+      "authors": "Queirós, Eça de, 1845-1900 [Editor]; Ortigão, Ramalho, 1836-1915 [Editor]",
+      "sha256": "4054827abb7bd50386374667c57a6f62792d21ffc1924d0e2ee103ea480a2500"
+    },
+    {
+      "id": "16384",
+      "title": "O Mandarim",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "664c93596e0768e09869b841ab9a597ea646996e40deb268ffb12ca9c9e5419b"
+    },
+    {
+      "id": "16425",
+      "title": "Amor de Perdição: Memorias d'uma familia",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "48776f415c93aa94e88ee84878a769e07052e8c80c670d74d690aefeb87e8f4c"
+    },
+    {
+      "id": "16428",
+      "title": "Os fidalgos da Casa Mourisca\nChronica da aldeia",
+      "authors": "Dinis, Júlio, 1839-1871",
+      "sha256": "2cc3d4a21403ecaae9a9fc059d525be09c8a8c010adcaa91b85c8ff0edccea11"
+    },
+    {
+      "id": "16429",
+      "title": "Contos para a infância\nEscolhidos dos melhores auctores por Guerra Junqueiro",
+      "authors": "Junqueiro, Abílio Manuel Guerra, 1850-1923",
+      "sha256": "7f7717c66f1054595512f52e96226f98c81c9803d693ca9e84a62da7bc5cc899"
+    },
+    {
+      "id": "16443",
+      "title": "Uma família ingleza: Scenas da vida do Porto",
+      "authors": "Dinis, Júlio, 1839-1871",
+      "sha256": "fd5b0fccaf20df61056253186b9064ce453d5d338b2dc5de17e217cf5c780a88"
+    },
+    {
+      "id": "16922",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 02",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "3d8b7542b8c5019f9d95845638b1bacb172e778353e5c91459ba3c49ae9868cd"
+    },
+    {
+      "id": "17005",
+      "title": "Lendas e Narrativas (Tomo II)",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "19106e9e6abf846a8c5b5c1ee5999e62e6da72e1f5363bdf19cc611fd6e7a557"
+    },
+    {
+      "id": "17036",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 07",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "d500760647aaf519726166cd4679f4b69cdb49d83d62b4967849b88d4cf5f513"
+    },
+    {
+      "id": "17177",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 04",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "52cae5026ece6e60f29123c60e98c4d1a52ae72114d917bc94abefa59005737b"
+    },
+    {
+      "id": "17186",
+      "title": "Noções elementares de archeologia",
+      "authors": "Silva, Joaquim Possidónio Narciso da, 1806-1896; Barbosa, Inácio de Vilhena, 1811-1890 [Commentator]",
+      "sha256": "8d1aca23ef9cb4d2b82914041ea380e560c4c141c106727a48ab690ebf84fdd1"
+    },
+    {
+      "id": "17193",
+      "title": "Só",
+      "authors": "Nobre, António Pereira, 1867-1900",
+      "sha256": "c51a4fab09e162b87876ac70fa861cdb3505bd16699cc6a7cc3bdcf862dc55ee"
+    },
+    {
+      "id": "17503",
+      "title": "Os meus amores: contos e balladas",
+      "authors": "Coelho, Trindade, 1861-1908",
+      "sha256": "a2edb740b4b9d7c43f88d0b36adb43f508a6d877a36fe9a57f224656d6859b67"
+    },
+    {
+      "id": "17515",
+      "title": "A Relíquia",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "c98cbf26aedd3f42d600b61822210f68c2d392711dcd35b5c7b85ef51fc8a7e0"
+    },
+    {
+      "id": "17534",
+      "title": "Os Simples",
+      "authors": "Junqueiro, Abílio Manuel Guerra, 1850-1923",
+      "sha256": "4cde17e3aefbb33de40721706599a63d31550bd4950a4ec337b3eb5780de635d"
+    },
+    {
+      "id": "17591",
+      "title": "Frei Luiz de Sousa",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "2ad9392bb4c5c43c3cb3998f9f6cb5e36e64434b3aedd519f58e2ba625baad56"
+    },
+    {
+      "id": "17639",
+      "title": "A Alma Nova",
+      "authors": "Azevedo, Guilherme Avelino Chave de, 1846-1882",
+      "sha256": "c1904b5a62a45f0b628350fc56d2b55815dbc8a79a4df76c26383adc5b95ae62"
+    },
+    {
+      "id": "17895",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 05",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "ee2f2f0ecb79282db69d47d2531741a45abd9967fe7fd54927696f457bfe91b0"
+    },
+    {
+      "id": "17927",
+      "title": "A Queda d'um Anjo: Romance",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "b794dbfa037662c61931e2c7f265bfd2403c643a2aaf5dbdb41a302f7934dc6e"
+    },
+    {
+      "id": "17962",
+      "title": "Luar de Janeiro",
+      "authors": "Gil, Augusto, 1873-1929",
+      "sha256": "f0bbf8dde3435487b456c97192da64e76b8651d206d5b888c826b3bb918df22c"
+    },
+    {
+      "id": "18220",
+      "title": "A Cidade e as Serras",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "b7cd088eadbe70c1ff89ce42317a4f7cb7b3f3c5b9ffe74cef0d89d5e0bdb33c"
+    },
+    {
+      "id": "18330",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 09",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "d2dfea8a4fb8c0d6749efb4fae51227bfc899207963a78f0f0b1b5181ee3c067"
+    },
+    {
+      "id": "18628",
+      "title": "Oração funebre recitada nas exequias do Illm.^o e Exm.^o Sr. Pedro Alexandrino da Cunha",
+      "authors": "Vasconcelos, António Augusto Teixeira de, 1816-1878",
+      "sha256": "5048aac940d70c9da9303d0d07f7aa809d723833a6910a36398395ad3010c06d"
+    },
+    {
+      "id": "18982",
+      "title": "Manuel da Maya e os engenheiros militares portugueses no Terramoto de 1755",
+      "authors": "Sepúlveda, Christóvam Ayres de Magalhães, 1857-1930",
+      "sha256": "728289015b3a18e1a97da0489c68166c3df8a9ec9f68657e0bb109ed4f45d1f0"
+    },
+    {
+      "id": "19046",
+      "title": "Sonetos",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "03ef865775f1c2d858c8cfccf6ee52f1ab309d448037936315ea4aa01e10c620"
+    },
+    {
+      "id": "19062",
+      "title": "Eco da Voz Portugueza por Terras de Santa Cruz",
+      "authors": "Castilho, Antonio Feliciano de, 1800-1875",
+      "sha256": "1a6d3ba413fc1cf1787389c3505c0062310e64cc66114b271a1fd6003c9fb053"
+    },
+    {
+      "id": "19375",
+      "title": "A senhora Rattazzi",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "5d4d738df5458b856b35130655238827fff4bfebaa8a3a10e38336169698d134"
+    },
+    {
+      "id": "19532",
+      "title": "Sol de Inverno\nultimos versos : 1915",
+      "authors": "Feijó, António Joaquim de Castro, 1859-1917",
+      "sha256": "eda159ae5f83a79b633384b2d019aaa11e4769b798f6d2dbb5bef0761d5180e7"
+    },
+    {
+      "id": "19974",
+      "title": "Verdades amargas\nestudo politico dedicado às classes que pensam, que possuem\ne que trabalham",
+      "authors": "Nunes, Cláudio José, 1831-1875",
+      "sha256": "93905ea1088fa24e38861a3987401d376ab1fcbb819290c61f0b2a179aa3ff32"
+    },
+    {
+      "id": "20103",
+      "title": "A princeza na berlinda\nRattazzi a vol d'oiseau, com a biographia de sua Alteza",
+      "authors": "Castro, Urbano de, 1850-1902",
+      "sha256": "1f82ad3fbe9e006b69a7d327b707f69380ad7cd533c5eebc027034f57a7873cd"
+    },
+    {
+      "id": "20142",
+      "title": "Os sonetos completos de Anthero de Quental",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "d28ae50a0f7090bd516fe62968d6045248ffc7004a978b3e4570767cddc0f6b4"
+    },
+    {
+      "id": "20482",
+      "title": "A José Estevão",
+      "authors": "Pato, Raimundo António de Bulhão, 1829-1912",
+      "sha256": "b82446805d83d25ecad64efcc844a83c70356ceaf2826d07f55527c435433a62"
+    },
+    {
+      "id": "20508",
+      "title": "Como eu atravessei Àfrica do Atlantico ao mar Indico, volume primeiro",
+      "authors": "Pinto, Alexandre Alberto da Rocha de Serpa, 1846-1900",
+      "sha256": "fe9e33761ab5ed5358adf80c624fd10802dacb01d81dd1fcf18ba773e511e112"
+    },
+    {
+      "id": "20570",
+      "title": "A penalidade na India segundo o Código de Manu",
+      "authors": "Figueiredo, Cândido de, 1846-1925",
+      "sha256": "bd74e4e4839b6b6d1ef8ad75abf1d988fe97b3162cd0fad4e34dfc1fe7bc0045"
+    },
+    {
+      "id": "20574",
+      "title": "O Mysterio da Estrada de Cintra. Cartas ao Diário de Noticias",
+      "authors": "Queirós, Eça de, 1845-1900; Ortigão, Ramalho, 1836-1915",
+      "sha256": "d76e670a2de7083c30639150a8ca8f7319233bbe03a65beaf755deeba88f10b1"
+    },
+    {
+      "id": "20582",
+      "title": "Garatujas",
+      "authors": "Freitas, Joaquim de Melo, 1852-1923",
+      "sha256": "ed2e55cfce38af8f8f868ade97e2d465890dd1d8185b0362dc18804b8e85eb1b"
+    },
+    {
+      "id": "20725",
+      "title": "Os Primeiros Amores de Bocage\nComedia em Cinco Actos",
+      "authors": "Leal, José da Silva Mendes, 1818-1886",
+      "sha256": "bc890f476ec4edc340a8f99f3720aae1f0aa948709f61bd43da84966d2636823"
+    },
+    {
+      "id": "20783",
+      "title": "Como eu atravessei Àfrica do Atlantico ao mar Indico, volume segundo",
+      "authors": "Pinto, Alexandre Alberto da Rocha de Serpa, 1846-1900",
+      "sha256": "9f3b488874ca36a1ab8615b3033177f3f8c19ba5cf256f782f30bc62930720ef"
+    },
+    {
+      "id": "20841",
+      "title": "Os Pobres\nPrecedido de uma Carta-Prefacio de Guerra Junqueiro",
+      "authors": "Brandão, Raul, 1867-1930; Junqueiro, Abílio Manuel Guerra, 1850-1923 [Contributor]",
+      "sha256": "b37a759ecfb9c46782b36ad1254262bc9826a932880f775aa3e79bd4f89d7f57"
+    },
+    {
+      "id": "20874",
+      "title": "Raios de extincta luz\npoesias ineditas (1859-1863)",
+      "authors": "Quental, Antero de, 1842-1891; Braga, Teófilo, 1843-1924 [Contributor]",
+      "sha256": "e64d1c3c8a1e683116b18caa692da638dd867bd6e25f3cedad63b71d3ebeefee"
+    },
+    {
+      "id": "20940",
+      "title": "Claridades do sul",
+      "authors": "Leal, António Duarte Gomes, 1848-1921",
+      "sha256": "5cdffea9fcc0324f79c7d006fcd606b063896c16ecc36289e2973d73462e812b"
+    },
+    {
+      "id": "20998",
+      "title": "A fundação da monarchia portugueza\nnarração anti-iberica",
+      "authors": "Vasconcelos, António Augusto Teixeira de, 1816-1878",
+      "sha256": "e54c28bf866920e44dacb56f890aaf6bcf6947eef41604c5f4bb7790f3afe912"
+    },
+    {
+      "id": "21082",
+      "title": "Salmos do prisioneiro",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "f0178313977027ab344ca156dd70435d0b37ee9e7bbb510f765433c93e0d23f1"
+    },
+    {
+      "id": "21209",
+      "title": "Pátria",
+      "authors": "Junqueiro, Abílio Manuel Guerra, 1850-1923",
+      "sha256": "5de6f894fa32b7faf968c17df8dab12769487527e1da0857f33f117d1ad03b29"
+    },
+    {
+      "id": "21290",
+      "title": "Os Bravos do Mindello\nRomance Historico",
+      "authors": "Fonseca, Faustino da, 1871-1918",
+      "sha256": "d87a1590992b703284d7b1f2325733180d5d182d4dbfbe3e616483a4a0a6b7a3"
+    },
+    {
+      "id": "21406",
+      "title": "Novelas do Minho",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "e47bf75854bb066718cde42fd51de8a315b268629e659a9ce2930ea43721718d"
+    },
+    {
+      "id": "21429",
+      "title": "Portugal e Ilhas Adjacentes: Exposição Ethnografica Portugueza",
+      "authors": "Coelho, Adolfo, 1847-1919",
+      "sha256": "cef4948126e301818e95c2faf41ce229001ae828d02f04b11c8d8f260ea620fd"
+    },
+    {
+      "id": "21433",
+      "title": "O congresso de Roma\n(Conferência realisada pelo delegado portuguez do congresso do livre-pensamento)",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "c3645744f690ff68b9230c15e1b00e582cfa54f5d4f3901024e6722384198317"
+    },
+    {
+      "id": "21567",
+      "title": "Miniaturas Romanticas",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "62dd7a6708adae5b88a386201c16e3496dee2f2186e98617956c8c9f06c0864d"
+    },
+    {
+      "id": "21581",
+      "title": "Contos d'Aldeia",
+      "authors": "Braga, Alberto Leal Barradas Monteiro, 1851-1911",
+      "sha256": "739b49b7986a05b059783ac750e255bf076add85978479b9fea5a18317d1f7a3"
+    },
+    {
+      "id": "21684",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 08",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "e02ffe6a96e8a5b0aa1c5be0e1311a549bf79fd86e5aa96a1706b21e915ad34b"
+    },
+    {
+      "id": "21779",
+      "title": "Luiz de Camões marinheiro",
+      "authors": "Eça, Vicente de Almeida de, 1852-1929",
+      "sha256": "e5e3d1c4c9efe426b8796629e1a7b00b434a55d1e2937f1ff0c2fd00868ba1f5"
+    },
+    {
+      "id": "21855",
+      "title": "A Fome de Camões",
+      "authors": "Leal, António Duarte Gomes, 1848-1921",
+      "sha256": "2355fcfaf0a0becd458374b40cf390b06287cf8f176f0b2acab5d98591f3a112"
+    },
+    {
+      "id": "21950",
+      "title": "Panegyrico de Luiz de Camões",
+      "authors": "Coelho, J. M. Latino (José Maria Latino), 1825-1891",
+      "sha256": "e48e32e7fe996cca907988066ddb343bfb2f75eb1e9fc78f7f8180cf9de9bed4"
+    },
+    {
+      "id": "21961",
+      "title": "A Filha do Cabinda",
+      "authors": "Campos, Alfredo, 1847-1906",
+      "sha256": "bbe4fa55c9dd89912bbb17155da386222279d9383ac6489e708bac72e5b487e2"
+    },
+    {
+      "id": "22015",
+      "title": "As Minas de Salomão",
+      "authors": "Haggard, H. Rider (Henry Rider), 1856-1925; Queirós, Eça de, 1845-1900 [Translator]",
+      "sha256": "0f49a5cba092c558ec55e0c66eba1c7a12a10dc33a5a4343680cda14edce0883"
+    },
+    {
+      "id": "22044",
+      "title": "Indice chronologico dos factos mais notaveis da Historia do Brasil\ndesde seu descobrimento em 1500 até 1849",
+      "authors": "Malheiro, Agostinho Marques Perdigão, 1824-1881",
+      "sha256": "68e111b7354e76827154a41cfcc93f3cb93f040774ea88e0fbe091ea469fe574"
+    },
+    {
+      "id": "22299",
+      "title": "Cantos Sagrados",
+      "authors": "Arriaga, Manuel de, 1840-1917",
+      "sha256": "9e8633a7b3a9d70e2fdbf61056b17195cc20a67aad2f615904afc263c84d0d91"
+    },
+    {
+      "id": "22330",
+      "title": "Clepsydra\nPoêmas de Camillo Pessanha",
+      "authors": "Pessanha, Camilo Almeida, 1867-1926",
+      "sha256": "33811624fb4738d32db985790813953a228df7e51ef362695d03e34cc2dab512"
+    },
+    {
+      "id": "22395",
+      "title": "O Melro\n(Fragmento)",
+      "authors": "Junqueiro, Abílio Manuel Guerra, 1850-1923",
+      "sha256": "82ac8e7642b53c42d92053f41279ed11a800dc193077d5e5a399f56b57542277"
+    },
+    {
+      "id": "22412",
+      "title": "Duas Paginas Dos Quatorze Annos\nPoesias Por Abilio Guerra Junqueiro",
+      "authors": "Junqueiro, Abílio Manuel Guerra, 1850-1923",
+      "sha256": "cb198e79dc3d14119ccfc64c092c18b24b623ad96fe8991234717f001e35a8c5"
+    },
+    {
+      "id": "22469",
+      "title": "A morte do athleta",
+      "authors": "Leal, António Duarte Gomes, 1848-1921",
+      "sha256": "bb75448e8035ff5f1f7ad53943259ffd8df07ee02b1bdcbc0c379d8882f19c88"
+    },
+    {
+      "id": "22509",
+      "title": "O poeta Chiado\n(Novas investigações sobre a sua vida e escriptos)",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "391396d16f3f86f1c1f1625a32239c28d9da13792fc6927349cd80974bc27a7c"
+    },
+    {
+      "id": "22616",
+      "title": "Salve, Rei!\nPoesia de Camillo Castello Branco",
+      "authors": "Castelo Branco, Camilo, 1825-1890; Vasconcellos, Frazão de [Unknown role]",
+      "sha256": "d29b13a632d266bd35f87269d4cf0c52b35c63660deb6471891fc70922d6a1a0"
+    },
+    {
+      "id": "22622",
+      "title": "Aves Migradoras",
+      "authors": "Almeida, Fialho de, 1857-1911",
+      "sha256": "ba0be9e23aa691e5b3689f0526f1a2f75b92284690594b2fd2cdcdda08e8bf83"
+    },
+    {
+      "id": "22742",
+      "title": "A Harpa do Crente\nTentativas poeticas pelo auctor da Voz do Propheta",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "9e013ec603df80d9b5cdd740c99b3a4f33e31f956a869e9276be75c7fa90819b"
+    },
+    {
+      "id": "22772",
+      "title": "Camões e o amor\nno aniversario 304 da morte do poeta",
+      "authors": "Pires, Ernesto, 1857-1884",
+      "sha256": "902f86192e477676e754933c66e99b412d6736b41c0cdf0bf9c0ddea39c5c94e"
+    },
+    {
+      "id": "22977",
+      "title": "Lagrimas Abençoadas",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "92514ae6b03faa3381e528d10ba46791af7b8799a7d67156ecfd1867f032d455"
+    },
+    {
+      "id": "23145",
+      "title": "A Illustre Casa de Ramires",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "c7fdbd09109b60f424744bbbc564d8bf1848e70f891dbdaabb0cc6fd27ba49c8"
+    },
+    {
+      "id": "23156",
+      "title": "Trovas: Canções de Amor",
+      "authors": "Ferreira, António Florêncio, 1848-1914",
+      "sha256": "08e2337e6a7d729d2e72ba332bd21baf6748b219afd8d35771bc3ed62d7054c0"
+    },
+    {
+      "id": "23201",
+      "title": "Apontamentos sobre a via de communicação do rio Madeira",
+      "authors": "Rebouças, Antonio Pereira, 1798-1880",
+      "sha256": "090e764a9d09b2541fe48d4b3d49d8538d41d10d086d420bcff27abeb0841d0a"
+    },
+    {
+      "id": "23203",
+      "title": "Scenas Contemporaneas",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "7214552721b56094ff7f891bf0be6fe84a97e4197df5a8188c86d06bbd15cd35"
+    },
+    {
+      "id": "23345",
+      "title": "A Gratidão",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "4513f601376c882f3e72aec8f32110a6b870a49b7fbc9ed1dc577255179e5ca4"
+    },
+    {
+      "id": "23346",
+      "title": "O Arrependimento",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "e69d17f08d41467824f092e78ee98e6d0c6ed2804776869a62be7eda9b207c6b"
+    },
+    {
+      "id": "23400",
+      "title": "A Lenda da Meia-Noite",
+      "authors": "Chagas, Manuel Pinheiro, 1842-1895",
+      "sha256": "7c6f57e37d8a475e4073517835ce20a0fc8da07c72e992401e3bdc5eb17a25b2"
+    },
+    {
+      "id": "23486",
+      "title": "Folhas cahidas, apanhadas na lama por um antigo juiz das almas de Campanhan",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "b78ec76a484906a24a8f44c92c2a7273770cf99cb4740eb2042578ebbffcf853"
+    },
+    {
+      "id": "23526",
+      "title": "A Velhice do Padre Eterno",
+      "authors": "Junqueiro, Abílio Manuel Guerra, 1850-1923",
+      "sha256": "b40022949b1a23093295ae5528e4e795c8178cf3378c0d675d5ddec3007f7384"
+    },
+    {
+      "id": "23590",
+      "title": "Alexandre Herculano",
+      "authors": "Cordeiro, Manoel Caldas, 1869-1914",
+      "sha256": "99fa09b4848b897e8268cbad174685df81c4af6e9a78f400c89b73c20030db6d"
+    },
+    {
+      "id": "23621",
+      "title": "Orpheu Nº2\nRevista Trimestral de Literatura",
+      "authors": "Ferro, António Joaquim Tavares, 1895-1956 [Editor]; Campos, Alvaro de, 1888-1935; Cisneiros, Violante, 1891-1971; Guimarães, Eduardo, 1892-1928; Leal, Raul de Oliveira Sousa, 1886-1964; Lima, Ângelo Vaz Pinto Azevedo Coutinho de, 1872-1921; Montalvor, Luís de, 1891-1947; Pessoa, Fernando, 1888-1935; Sá-Carneiro, Mário de, 1890-1916; Santa-Rita, Guilherme Augusto Cau da Costa, 1889-1918 [Illustrator]",
+      "sha256": "b84185f96d96bfa92fc302f5b1bd4b0b07369ad25a142da638f3f68914d45420"
+    },
+    {
+      "id": "23687",
+      "title": "A Morte Vence",
+      "authors": "Grave, João José, 1872-1934",
+      "sha256": "86e79bab7949665333fa81eb2ef3207fdc7f6a166bc1baa8b5098e85756eb8bd"
+    },
+    {
+      "id": "23851",
+      "title": "A gravura em Portugal: breves apontamentos para a sua história",
+      "authors": "Viterbo, Francisco Marques Sousa, 1843-1910",
+      "sha256": "eae73a4cc9aac51cdc0d746493f17cfaa5f98f61177e472db7673c3b64024092"
+    },
+    {
+      "id": "24164",
+      "title": "Viagens na Minha Terra (Volume I)",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "8c308ef6a071ee6dddf01e86c2a0dc12d47273a28a824cdc273bfa8faec5e5c8"
+    },
+    {
+      "id": "24190",
+      "title": "No Paiz dos Yankees",
+      "authors": "Caminha, Adolfo Ferreira, 1867-1897",
+      "sha256": "8048e02fad5fb3b2092ec593d23dcaaf8b334069a561a1f095d00e9da229c085"
+    },
+    {
+      "id": "24245",
+      "title": "A viagem da Índia: poemeto em dois cantos",
+      "authors": "Costa, Fernandes, 1848-1920",
+      "sha256": "a5f08f0a71b310ce2ce60e32d15d976db5cc4e34b93b7ee1a1b1bc34a61a911c"
+    },
+    {
+      "id": "24319",
+      "title": "Viagens na Minha Terra (Volume II)",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "743fdbae4b67355804066bc0138d14eb24f6ee84d2b846c8d94c0ce06bf3a33d"
+    },
+    {
+      "id": "24338",
+      "title": "O Vegetarismo e a Moralidade das raças",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "14b1c6939a0f0c35a597f72409822dead9ddd24fb46c751361f6b8eaf351b34a"
+    },
+    {
+      "id": "24339",
+      "title": "Suicida",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "e6c9af920d67354bcac08cbd8e9a6727f7fc9f48cc765951ebd74d0cdafef2cb"
+    },
+    {
+      "id": "24344",
+      "title": "O Descobrimento do Brazil\nPrioridade dos Portugueses no Descobrimento da America",
+      "authors": "Redondo, Manuel Ferreira Garcia, 1854-1916",
+      "sha256": "bda158a7274da395eb32d5cf845590cb0548216dfec86fdd979ce96e605daf75"
+    },
+    {
+      "id": "24401",
+      "title": "Viagens na Minha Terra (Completo)",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "e51e0d403d02ebc813e0e6d0371be75e45287fba8cc27ffab22cc7212ff810b6"
+    },
+    {
+      "id": "24411",
+      "title": "Miragaia: Romance Popular",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "0afdaba1f660da33f7fc17e2f780255568dd315e018c0ab85915f81500c5e1f0"
+    },
+    {
+      "id": "24412",
+      "title": "O credito agricola em Portugal",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "f0925f5a119ca41e9807893a3eea5c1f1d7e907262b47bc241fef79b45a9d778"
+    },
+    {
+      "id": "24455",
+      "title": "Resumo elementar de archeologia christã",
+      "authors": "Silva, Joaquim Possidónio Narciso da, 1806-1896",
+      "sha256": "8dc91303e6b5a96f8fb228f6ccdcdb8f3b4df75d3449e3623bb27e6c54ea86ee"
+    },
+    {
+      "id": "24462",
+      "title": "O desastre de Lisboa em 1755: poesia",
+      "authors": "Fonseca, Augusto de Oliveira Cardoso, 1842-1917",
+      "sha256": "d4839861ddd27bfa1b6d83002f1c694c6fdfe7ca6d26fce5487696c2f677f5f1"
+    },
+    {
+      "id": "24463",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 01 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "1c9fea2cd2cf55de17467cb11c43ca70714ff8bfdac7f60f79d4fed18bfdcde2"
+    },
+    {
+      "id": "24464",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 02 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "c9274c599f557ec29a014bb43735c0854cbc33de8fd781de3cba820891398386"
+    },
+    {
+      "id": "24514",
+      "title": "Luiz de Camões: notas biograficas\nPrefacio da setima edição do Camões de Garrett",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "7b47b607ba5be5dbba900b4c38cde567223039f303c2e38cdb9d9efdeef2a687"
+    },
+    {
+      "id": "24533",
+      "title": "O Infante D. Henrique e a arte de navegar dos portuguezes",
+      "authors": "Eça, Vicente de Almeida de, 1852-1929",
+      "sha256": "8ec213794acd3630bc61aab410bd4f4d587befe918e597a79666cca0e5ae3ef8"
+    },
+    {
+      "id": "24625",
+      "title": "Os Filhos do Padre Anselmo",
+      "authors": "Albergaria, António José da Costa Couto Sá de, 1850-1921",
+      "sha256": "00a0cc3cf8db3166481eca6a20b5f89cd55c7f0b4e06297fae5b8b5f2982e074"
+    },
+    {
+      "id": "24646",
+      "title": "O Livro de Elysa\nFragmentos",
+      "authors": "Lemos, João de, 1819-1890",
+      "sha256": "a3f6edc064883aebf8403ade2e1edece64c9fd434c9aa42247c6345bef0d9017"
+    },
+    {
+      "id": "24657",
+      "title": "Noticia de livreiros e impressores de Lisbôa na 2ª metade do seculo XVI",
+      "authors": "Brito, Gomes de, 1843-1923",
+      "sha256": "b180fd012f0e540b3814c7ef9b45e6477f424f3471bd1634d551cb8297fa377c"
+    },
+    {
+      "id": "24661",
+      "title": "Camilleana\nCollecção das obras de Camillo Castello Branco",
+      "authors": "Mota, João Xavier da, 1850-1895",
+      "sha256": "51e64a735abd901286e0a565e3035f334ddfdaac8aecb6b9642c5fd8f806ad74"
+    },
+    {
+      "id": "24691",
+      "title": "O vinho do Porto: processo de uma bestialidade ingleza\nexposição a Thomaz Ribeiro",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "29cee3f17192b94449f13e94d85e0d1cb4c0de1d96cfeff90d0aa6e74576d862"
+    },
+    {
+      "id": "24701",
+      "title": "A dissolução do regimen capitalista",
+      "authors": "Bastos, Teixeira, 1857-1902",
+      "sha256": "efd28f0c12d3a0a2dfb1d84fcd23ec7e979a3a8d2f70b5517d9a8d43c62e71f8"
+    },
+    {
+      "id": "24710",
+      "title": "A Senhora Viscondessa",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "fca34355c14636714e0e1a45db7805824e799e35ddea4d3e96015d47331bebf4"
+    },
+    {
+      "id": "24748",
+      "title": "A Democracia\nEstudo sobre o governo representativo",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "0b0c9ab805f6dc43091b4d6636302625f492a0f9e899779e2ef2f7e0cf1c7a85"
+    },
+    {
+      "id": "24774",
+      "title": "Cidades e Paisagens",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "f52066af6f52a801c99f2eb2abe1e761cb5f0ea727e9ef1017616b30271cf3e1"
+    },
+    {
+      "id": "24824",
+      "title": "Os deputados brasileiros nas Côrtes Geraes de 1821",
+      "authors": "Carvalho, Manuel Emílio Gomes de, 1859-1919",
+      "sha256": "67c76605d093ecefc32891fd85b178b18393d0784d826d916f44f749f8d47dfb"
+    },
+    {
+      "id": "24843",
+      "title": "As ratices da Rattazzi: O pello nacional",
+      "authors": "Monteiro, Ramalho, 1862-1949",
+      "sha256": "1c61c3fb1f01bd211483bdfa853d6b06b2fc8060faf106de4ffbe8534efc7706"
+    },
+    {
+      "id": "24844",
+      "title": "O Ensino da Historia da Arte nos Lyceus e as excursões escolares",
+      "authors": "Vasconcellos, Joaquim de, 1849-1936",
+      "sha256": "b4f7fa1d092346322088c8f0e4f40cd2197858de20b6f84d7b5515c89b913dc8"
+    },
+    {
+      "id": "24845",
+      "title": "A estatua do poeta\nOde nacional",
+      "authors": "Araújo, Joaquim de, 1858-1917",
+      "sha256": "86e18e4a2d25e985bd7e1af9389122638d8f2510b36152b8281dde80fd34ff8a"
+    },
+    {
+      "id": "24847",
+      "title": "Ramo de Flores\nacompanhado de varias criticas das Flores do Campo",
+      "authors": "Deus, João de, 1830-1896; Conceição, Alexandre da, 1842-1889 [Commentator]; Cordeiro, Luciano, 1844-1900 [Commentator]; Figueiredo, Cândido de, 1846-1925 [Commentator]; Torrezão, Guiomar D. [Commentator]",
+      "sha256": "b0e8453e4f1a2202adca1e55e41daab004b5874396b00ad5a6f956a09a14a74e"
+    },
+    {
+      "id": "24853",
+      "title": "Habitações Operarias",
+      "authors": "Bastos, Teixeira, 1857-1902",
+      "sha256": "cdb8ce3a485909ccc9ca64110b5ccd2b956b62920a8b1801d378f1d82b9d680b"
+    },
+    {
+      "id": "24919",
+      "title": "Amor Crioulo\nvida argentina",
+      "authors": "Botelho, Abel Acácio de Almeida, 1856-1917; Grave, João José, 1872-1934 [Editor]",
+      "sha256": "26dc529e3a5500a5bab15ab3501e451d6d7f2bf01bfffa26d0b1fab67fc701ee"
+    },
+    {
+      "id": "24957",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 03 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "a808bb461e59a62249fb82835e93cdaf56760666d5dc9b1f086cde6e5baae3a4"
+    },
+    {
+      "id": "25113",
+      "title": "Centenario do Revolução de 1820\nIntegração de Aveiro nesse glorioso movimento",
+      "authors": "Gomes, Marques, 1853-1931",
+      "sha256": "f02121fda1ae8a0d6a4218cc5c3c153eab39f80eeac455b00af386f51d96988b"
+    },
+    {
+      "id": "25114",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 04 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "c8df118215b1658560ae6087c6989f8dcbe8eebf4adfbcfb490c81fe1552fe90"
+    },
+    {
+      "id": "25238",
+      "title": "A batalha de Toro",
+      "authors": "Barata, António Francisco, 1836-1910",
+      "sha256": "c05086f054524d94813c2963d06536eab553d395defd2fd8f23caa2b772c4512"
+    },
+    {
+      "id": "25239",
+      "title": "Homenagem ao Marquez De Pombal 1782-1882",
+      "authors": "Azevedo, Maximiliano de, 1850-1911",
+      "sha256": "ac489ad67bb52bdb24e3e8a46812be82bf36c42e10fa571e262ac848c03fe6bc"
+    },
+    {
+      "id": "25240",
+      "title": "As theocracias litterarias\nRelance sobre o estado actual da litteratura portugueza",
+      "authors": "Braga, Teófilo, 1843-1924",
+      "sha256": "3259fa9822f1ce235c1813b283d8592a696222edda283350473bb127df9db9dc"
+    },
+    {
+      "id": "25330",
+      "title": "A Casa dos Fantasmas - Volume I\nEpisodio do Tempo dos Francezes",
+      "authors": "Silva, Luiz Augusto Rebello da, 1822-1871",
+      "sha256": "0d158a1a69fb2e310a27d546a4574addcf4a3bd6afcda71a3dc542a9c84307db"
+    },
+    {
+      "id": "25437",
+      "title": "D. Joanna de Portugal (A Princesa Santa)\nEsboço Biographico",
+      "authors": "Gomes, Marques, 1853-1931",
+      "sha256": "3a0fb50c219833e766be5fdbe2d3fd1f54af263417ebbb83766c57d127827e43"
+    },
+    {
+      "id": "25479",
+      "title": "Theóphilo Braga e a lenda do Crisfal",
+      "authors": "Guimarães, Delfim de Brito, 1872-1933",
+      "sha256": "1f71615df4fb7b9ded2627062939f22e4d8dca99436472aaa0522004583cd56a"
+    },
+    {
+      "id": "25537",
+      "title": "Paisagens da China e do Japão",
+      "authors": "Moraes, Wenceslau de, 1854-1929",
+      "sha256": "e1720d448d97e8761aee7b70f55954d4f988133f099ff2f1f9ad01703403b04a"
+    },
+    {
+      "id": "25593",
+      "title": "Contos escolhidos de D. Antonio de Trueba",
+      "authors": "Trueba, Antonio de, 1819-1889; Barbosa, Inácio de Vilhena, 1811-1890 [Commentator]; Monteiro, F. de Castro [Translator]",
+      "sha256": "2d2f5202f6e780cb6498177b2a9bd0db8b88c0d693a2b688926637bec25a2bee"
+    },
+    {
+      "id": "25594",
+      "title": "O Engeitado",
+      "authors": "Braga, Alberto Leal Barradas Monteiro, 1851-1911",
+      "sha256": "bdcb703f318d16469d113b17a43c1b6c7ba16874d0fe1222cc5b5294a8448267"
+    },
+    {
+      "id": "25635",
+      "title": "A Influencia Europea na Africa perante a Civilisação e as Relações Internacionaes\nConsiderações ácerca do tratado de 30 de maio de 1879\ndenominado de «Lourenço Marques»",
+      "authors": "Testa, Carlos, 1823-1891",
+      "sha256": "e144f260f76a70b6a16ccc2783f5d2d9052429cf2bbda7ff0b2cb9aa251a6e16"
+    },
+    {
+      "id": "25641",
+      "title": "Cartas de Inglaterra",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "c2b76e7cca9c47747fd0cc30526a5fd8712dfb57d576c5c34de7f6528fea341a"
+    },
+    {
+      "id": "25667",
+      "title": "Hamlet: Drama em cinco Actos",
+      "authors": "Shakespeare, William, 1564-1616; Luís I, Rei de Portugal, 1838-1889 [Translator]",
+      "sha256": "847f07a6c93a7af3e091f0a0f5aa63a335893eae9de66b888c53691351a318b3"
+    },
+    {
+      "id": "25690",
+      "title": "O Federalismo",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "05528b0f3ddabb00587b1d23f27b742eda15aade0816eb4c407ca33b3072db11"
+    },
+    {
+      "id": "25697",
+      "title": "Lord Palmerston: a opinião e os factos\num brado a pró da verdade",
+      "authors": "Testa, Carlos, 1823-1891",
+      "sha256": "52f5a041a44b1c06a69e51ee7fa181998196cce71e64469904e4bd91ec5986ee"
+    },
+    {
+      "id": "25840",
+      "title": "Versos de Bulhão Pato",
+      "authors": "Pato, Raimundo António de Bulhão, 1829-1912",
+      "sha256": "20e395e284b6d48e811710eb4c626ea9b12dc37fff061f4e907a3029d416c31d"
+    },
+    {
+      "id": "25844",
+      "title": "Voltareis ó Christo?",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "eb3727c40f1a39025da6fd6a5f21e4a5c6720717bef06539e90829b15ac670e0"
+    },
+    {
+      "id": "25845",
+      "title": "Sá de Miranda\nCom uma carta ácerca da \"Bibliographia Camilliana\" de Henrique Marques",
+      "authors": "Quental, Antero de, 1842-1891; Araújo, Joaquim de, 1858-1917; Castelo Branco, Camilo, 1825-1890",
+      "sha256": "e957e3f2ad5dbef9726ec5fc5363d63ed60a9015da55ed57c8c618ce195f7d95"
+    },
+    {
+      "id": "25846",
+      "title": "O General Carlos Ribeiro\nRecordações da Mocidade",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "4961f6d42202a28faafff0978268dc356ac622eb732d631fdf3ff9d02db589f9"
+    },
+    {
+      "id": "25898",
+      "title": "A politica intercolonial e internacional e o tratado de Lourenço Marques\nAdditamento á influencia europea na Africa",
+      "authors": "Testa, Carlos, 1823-1891",
+      "sha256": "ed8fc32102e1fd34f91f23094bd0ae45c8e748fb7d7e58f4123ac2dc300700ea"
+    },
+    {
+      "id": "25925",
+      "title": "Poesias",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "4af3acc2b9d25cf7145f362eb6961d4182c1d370bb1bc48cebc46f56c030c8b8"
+    },
+    {
+      "id": "25934",
+      "title": "Portugal e Marrocos perante a historia e a politica europea",
+      "authors": "Testa, Carlos, 1823-1891",
+      "sha256": "2487b62ddc19ecac0afe601a77a83a5f7e1f08d5e956f73787e58928a12674d7"
+    },
+    {
+      "id": "25945",
+      "title": "Transviado",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "c81997f1c6b1e97704eca954535d74a72c12c873cea2b2e261242362aeb338e8"
+    },
+    {
+      "id": "25987",
+      "title": "Chronica de El-Rei D. Affonso V (Vol. I)",
+      "authors": "Pina, Rui de, 1440-1521; Pereira, Gabriel, 1847-1911 [Editor]",
+      "sha256": "bdd1fb34be8ef6f5bc07c500364f1ceabafb10babfce81483710148eee0993be"
+    },
+    {
+      "id": "26017",
+      "title": "O Regicida",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "f6b552b08cb8f3a2c4fcf72956a56389207adcf0c45b7e99b182f7edc52771e3"
+    },
+    {
+      "id": "26025",
+      "title": "Carlota Angela",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "a80539880e976261c37f276b7f02ae9ca768fe3d234ee9c205a8f59d7ec9853e"
+    },
+    {
+      "id": "26103",
+      "title": "Annos de Prosa; A Gratido; O Arrependimento",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "7918bae75a003d6a0fae34df735ce4861d4785e9eae87669d91f3c1ce8404aca"
+    },
+    {
+      "id": "26110",
+      "title": "O Olho de Vidro",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "32f792d1c83d50290a3fa8a315029039a7e68875a42e1a2c03ec921dbf33d7e1"
+    },
+    {
+      "id": "26325",
+      "title": "A Mulher Portugueza",
+      "authors": "Lucci, Eduardo Shwalbach, 1860-1946",
+      "sha256": "d8a49910dfd049e6cd7e1b1364d11c65d7a8d748ac7620239d275a659f98c8e1"
+    },
+    {
+      "id": "26326",
+      "title": "Sonetos de Anthero",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "a64d6b628345d14a010d49eabc1579985ed5be49fcbccc1d484d264f7b8864dc"
+    },
+    {
+      "id": "26338",
+      "title": "Alguns homens do meu tempo: impressões litterarias",
+      "authors": "Carvalho, Maria Amalia Vaz de, 1847-1921",
+      "sha256": "9d584f34006fd7099eab5149f400fcaef9e97a46ecdf8dc494e58d9e9d0ba585"
+    },
+    {
+      "id": "26411",
+      "title": "Villa Nova de Gaia",
+      "authors": "Vaz, João; Braga, Teófilo, 1843-1924 [Editor]",
+      "sha256": "52450015a83114a4c2c480480d68bf94ea0d7f6b8458cc1a27ec9922349fb543"
+    },
+    {
+      "id": "26605",
+      "title": "A Casa dos Fantasmas - Volume II\nEpisodio do Tempo dos Francezes",
+      "authors": "Silva, Luiz Augusto Rebello da, 1822-1871",
+      "sha256": "c4672033795dd20bb89ad8abc3f74ae72595252d91c57929714453f6847d23a2"
+    },
+    {
+      "id": "26776",
+      "title": "A philosophia da natureza dos naturalistas",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "22e31930ac2064665aa0b75488fba4fa79707613a9a710afa68edeb6f31548da"
+    },
+    {
+      "id": "26850",
+      "title": "Viriatho: Narrativa epo-historica",
+      "authors": "Braga, Teófilo, 1843-1924",
+      "sha256": "83097698a72571a5b4199e48af95f7a870588ff3001fb56ea7625c599dfb16c6"
+    },
+    {
+      "id": "26913",
+      "title": "O Assassino de Macario: Comedia em tres actos",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "a26540b70bc8afb03d4239ea455650e10585f898c70f38af1207bb867067fb26"
+    },
+    {
+      "id": "26914",
+      "title": "Do que o fogo não queima",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "8a71ff25f70ff231d2fc21cd0eda00cd53ed957b0418a83c213e7cdfbed4598f"
+    },
+    {
+      "id": "26915",
+      "title": "A Guerra: Depoimentos de Herejes",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "fe90f9846ea082bd0edd96aacbd22472475bb1d811319273d0b96b66d6fa476a"
+    },
+    {
+      "id": "26988",
+      "title": "Amor de Salvação",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "dc23c674449f13156220371c1b31b7103de22e608d1d6cf41ec19783be16a020"
+    },
+    {
+      "id": "27084",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 05 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "d9b24288863d7fa1ae0be321d84588a516cf6d0a599dc86b87a6443111aa8fdc"
+    },
+    {
+      "id": "27155",
+      "title": "Infelizes: Historias Vividas",
+      "authors": "Osório, Ana de Castro, 1872-1935",
+      "sha256": "db99d63dd1d27a2e5c7d3f61a153eb52b4131a89aa8395f44a075860ebdffe99"
+    },
+    {
+      "id": "27255",
+      "title": "O Marquez de Pombal á luz da Philosophia",
+      "authors": "Vidal, Angelina, 1853-1917",
+      "sha256": "db7c1cdc525592599ce847ed66dcb5f7e491abe6d5934248d22a8bf3af2b2881"
+    },
+    {
+      "id": "27276",
+      "title": "Judas: Romance lirico em quatro jornadas",
+      "authors": "Lacerda, Augusto de, 1864-1926",
+      "sha256": "ddae5554ee348bc97731305998fc324164f1c4e31efddcb3a12e589b6c125081"
+    },
+    {
+      "id": "27350",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 06 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "a0c3e388d7a283b958f2e3a9e89b696b694e85dd5f59c2ad0aa88f954c7caf01"
+    },
+    {
+      "id": "27364",
+      "title": "A Filha do Arcediago\nTerceira Edição",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "cec7170aa7b3facc5a7d68b8da0a1b7ec12b71b53f3cd8d59751e280b8c6bd48"
+    },
+    {
+      "id": "27387",
+      "title": "Biographia do Padre José Agostinho de Macedo\nSeguida d'um catalogo alfabetico de todas as suas obras",
+      "authors": "Melo, Joaquim Lopes Carreira de, 1816-1885",
+      "sha256": "42ca35ff28b0b0e6dbdf61b3088523ac21f7d6c68342b371eb869fb2c97c758d"
+    },
+    {
+      "id": "27388",
+      "title": "Sociologia Chinesa: Autoplastia",
+      "authors": "Macgowan, Daniel Jerome, 1815-1893; Cinatti, Demétrio [Translator]",
+      "sha256": "bbc991f50dc689b8303d3f17b4e3a3df45069448293cc352a43773532dabdb20"
+    },
+    {
+      "id": "27390",
+      "title": "Apotheose Camoneana",
+      "authors": "Carvalho, Xavier de, 1862-1919",
+      "sha256": "32471e45958eee0a43c85622de8334bd9ae0a61f8cab537fd37b721493f0c7f7"
+    },
+    {
+      "id": "27412",
+      "title": "Lendas dos Vegetaes",
+      "authors": "Sequeira, Eduardo Henrique Vieira Coelho de, 1861-1914",
+      "sha256": "ccdef0f8e4f4844cd6e295d7386476d0cdff503cffbfe135caf0d880a6fedc3b"
+    },
+    {
+      "id": "27413",
+      "title": "Á Ilha da Madeira",
+      "authors": "Coelho, José Ramos, 1832-1914",
+      "sha256": "d057624067c4065f950ddd8207aa33ca6d8f4e2c3ff3fb15fdad8eac44ff319f"
+    },
+    {
+      "id": "27443",
+      "title": "A Lucta Civil Brazileira e o Sebastianismo Portuguez",
+      "authors": "Costa, José Soares da Cunha e, 1868-1928",
+      "sha256": "895e55c03157fca1af8b213349a2fadb4b585d5fe09156f1268a6fe6a39a2b98"
+    },
+    {
+      "id": "27497",
+      "title": "Napoleão no Kremlin",
+      "authors": "Leal, José da Silva Mendes, 1818-1886",
+      "sha256": "14f2d2db974fe53d891fba0bfe4faa32d8cecdf73d05f64263ebca7854813203"
+    },
+    {
+      "id": "27535",
+      "title": "Despedidas: 1895-1899",
+      "authors": "Nobre, António Pereira, 1867-1900",
+      "sha256": "8fb90f3aa7a5808172a4e3f315b06e863d08358a8efee1ea390bfc5f15e74d32"
+    },
+    {
+      "id": "27541",
+      "title": "Agulha em Palheiro\nQuinta edição",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "105529eb5d9f481a6cfc3d534ad510f08b416d08ce01eafe2e7402a1be89d3e7"
+    },
+    {
+      "id": "27542",
+      "title": "O Centenario de José Estevão: Homenagem da Maçonaria Portugueza",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "69ec85b70b65a0a1b5df55d22a0f6b99b215230e2111fe13d0b99e275b87aba2"
+    },
+    {
+      "id": "27599",
+      "title": "Flores do Campo",
+      "authors": "Deus, João de, 1830-1896",
+      "sha256": "276d380fd1ae5b7ccaca994cdcc59a828dceee1e14863fcfe98f59cd72a27324"
+    },
+    {
+      "id": "27637",
+      "title": "A correspondência de Fradique Mendes\nmemórias e notas",
+      "authors": "Queirós, Eça de, 1845-1900; Mendes, Carlos Fradique [Contributor]",
+      "sha256": "8ef5e0acbb0a6a5faa2032b0db30fe6311f5e9f7c08349643f7a86dd238d59f8"
+    },
+    {
+      "id": "27689",
+      "title": "Jaime de Magalhães Lima",
+      "authors": "Agostinho, José, 1866-1938",
+      "sha256": "ae2c2a037c701957563f5bafeb75b030ca159e782456c7033d42f9e864fcb543"
+    },
+    {
+      "id": "27691",
+      "title": "Silva Porto e Livingstone\nmanuscripto de Silva Porto encontrado no seu espólio",
+      "authors": "Porto, António Francisco Ferreira da Silva, 1817-1890",
+      "sha256": "29b50c1af9435118de69afe3266e0916dedd5fa5be8b8864e1ccd3260633f527"
+    },
+    {
+      "id": "27715",
+      "title": "Eucalyptos e Acacias: Vinte annos de experiencias",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "ab9ce6d0a52eee245a89a1c07cdae123482575b29002195f0aed348017c47c26"
+    },
+    {
+      "id": "27725",
+      "title": "Saudades: história de menina e moça",
+      "authors": "Ribeiro, Bernardim, 1482-1552; Guimarães, Delfim de Brito, 1872-1933 [Editor]",
+      "sha256": "29a556e5253bdab57f4aa4f4f971215595605ebc93dd609f5aa06c7e9f28643c"
+    },
+    {
+      "id": "27762",
+      "title": "Sá de Miranda e a sua Obra",
+      "authors": "Carneiro, Décio, 1868-1939",
+      "sha256": "a55e16497ed8becfe050bfe9bab2dfc534a45b447bfba63ddf6467fc6d317523"
+    },
+    {
+      "id": "27820",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 07 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "dce23278cf24e0647375d2fa20792f52b9d65639e07495c532047ffd816ccfdd"
+    },
+    {
+      "id": "27940",
+      "title": "Musa Velha",
+      "authors": "Palha, Francisco, 1826-1890",
+      "sha256": "357b75f73d84d213d03cbb48f4ca2d3fd104b666a5b1480e1c38048e66faabb4"
+    },
+    {
+      "id": "28055",
+      "title": "Memorias sobre a influencia dos descobrimentos portuguezes no conhecimento das plantas\nI. - Memoria sobre a Malagueta",
+      "authors": "Ficalho, Francisco Manuel de Melo, Conde de, 1837-1903",
+      "sha256": "cf217f4c87f608e3d4e5deb44092e1e8586160ed9920a6ffb96d2012c136b44a"
+    },
+    {
+      "id": "28127",
+      "title": "O presbyterio da montanha",
+      "authors": "Castilho, Antonio Feliciano de, 1800-1875",
+      "sha256": "bd967e2410c2ae26795e419c466ced1db578e5d95d830979eeb641cf56a93a52"
+    },
+    {
+      "id": "28128",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 08 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "036969b2d11eefb0067daf165bec06133cb0afe1ad4daf9c0f3751d47d63389f"
+    },
+    {
+      "id": "28154",
+      "title": "Petronio\nPeça livremente extrahida do romance Quo Vadis de Henryk Sienkiewicz",
+      "authors": "Mesquita, Marcelino, 1856-1919",
+      "sha256": "b8e2843f7ba54b803a938b1bae34ec255727e5705fbe0d580cb8d470a963c03e"
+    },
+    {
+      "id": "28155",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 09 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "6ca901505fe677ed853c2cb1d2af1e2b9293585e80d803bbd27d429a0907f654"
+    },
+    {
+      "id": "28201",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 10 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "299f2109fc9209608be37fa7f9d4493eb1b5dd062a8c480c08ef9f16e05ed1f9"
+    },
+    {
+      "id": "28206",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 11 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "ae4042764cb44945bac04caf8c23c482bf9e2c33f9d810f89e79411696aed44f"
+    },
+    {
+      "id": "28207",
+      "title": "Noites de insomnia, offerecidas a quem não póde dormir. Nº 12 (de 12)",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "3aa88332487af546ade3e8025d1c1b27cc4f8b15e48c4b2b44eacb75f20e23a6"
+    },
+    {
+      "id": "28310",
+      "title": "Scenas da Foz",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "efcb48cfdc27ee663ae53887c0849c0ef3f2556d1477efcb965ba23022ba2529"
+    },
+    {
+      "id": "28341",
+      "title": "Da terra à lua, viagem directa em 97 horas e 20 minutos",
+      "authors": "Verne, Jules, 1828-1905; Macedo, Henrique de [Translator]",
+      "sha256": "786f4d5c60b59879fcf0271d9400c66478ea9d6ee33b5260d360914498c7e565"
+    },
+    {
+      "id": "28348",
+      "title": "Inscripções portuguezas",
+      "authors": "Cordeiro, Luciano, 1844-1900",
+      "sha256": "12456d1c89879180b74c1d97d0e8f0044fc149cd7c2e2381393729326b4acf69"
+    },
+    {
+      "id": "28354",
+      "title": "O Renegado a António Rodrigues Sampaio\ncarta ao Velho Pamphletario sobre a perseguição da imprensa",
+      "authors": "Leal, António Duarte Gomes, 1848-1921",
+      "sha256": "2e6bbcecd5fa68df65acf3c967cbc2a5a4df301014b4326e7714dab8cf02ef9e"
+    },
+    {
+      "id": "28414",
+      "title": "Theatro de João d'Andrade Corvo - I\nO Alliciador - O Astrologo",
+      "authors": "Corvo, João de Andrade, 1824-1890",
+      "sha256": "19677b238c81f8d3d75a8c78ee29611042c14242fc4f7d9761d64a3d3242da53"
+    },
+    {
+      "id": "28584",
+      "title": "O Inferno",
+      "authors": "Callet, Auguste, 1812-1883; Castelo Branco, Camilo, 1825-1890 [Translator]",
+      "sha256": "d4c90503612e1504cbd592ba89f72770450b016b6d8f810a775d6cd8b3ad7b66"
+    },
+    {
+      "id": "28691",
+      "title": "Contos do Norte",
+      "authors": "Carvalho, João Marques de, 1866-1910",
+      "sha256": "eef73e2ac0645a8bbd6480a1063337ea7fae9f84312eccd9281ccfdab179a6d7"
+    },
+    {
+      "id": "28707",
+      "title": "Na Guella do Leão",
+      "authors": "Sabugosa, António Maria José de Melo César e Meneses, conde de, 1854-1923",
+      "sha256": "97bee7a0994b76f923428b48ea8858e087a9f06595e08f857c4391941ee7f3f4"
+    },
+    {
+      "id": "28902",
+      "title": "José Estevão",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "1b6829e3e95f01224db166166dd73678b90db7ebd859086c62f2bb0dab0cd19b"
+    },
+    {
+      "id": "28914",
+      "title": "Paz e Arbitragem",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "cb15ca774820e8467d283ba38c0e3b0e0edc9cac6692a19542d0772f3b3a39f0"
+    },
+    {
+      "id": "28928",
+      "title": "O Conde de S. Luiz",
+      "authors": "Mello, Thomaz José de, 1836-1905",
+      "sha256": "23bcbb31df059a0f3831fc2bc076162be099e5f98902f1ffaa05aef40ce622d1"
+    },
+    {
+      "id": "28962",
+      "title": "Tribunaes de Arbitros-Avindores",
+      "authors": "Bastos, Teixeira, 1857-1902",
+      "sha256": "637de95becc70d7ebf804c320d403c07b0853334a7d7f81ac3768bcacbe7b84b"
+    },
+    {
+      "id": "29040",
+      "title": "Como e porque sou romancista",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "8180dcd53f46d77a5079addca85cefc47b2b8440b4f8a8d65d8633f14d348da9"
+    },
+    {
+      "id": "29120",
+      "title": "A Morgadinha dos Cannaviaes\n(Chronica da aldeia)",
+      "authors": "Dinis, Júlio, 1839-1871",
+      "sha256": "492a5f6c0ab041bdab67d52c3297f090efd7a531f868721bff3df89389b09cb5"
+    },
+    {
+      "id": "29161",
+      "title": "Entre as Nymphéas",
+      "authors": "Carvalho, João Marques de, 1866-1910",
+      "sha256": "1b8fa9975f5fcaa85bf94c5c1963d59b83036fe0c0ccf7878fa6940ec9b18a17"
+    },
+    {
+      "id": "29213",
+      "title": "Vamiré: Romance dos tempos primitivos",
+      "authors": "Rosny, J.-H., aîné, 1856-1940; Figueiredo, Cândido de, 1846-1925 [Translator]",
+      "sha256": "8e4af562305e5d25906043a59387aa6bde9660993aaeceb07b48664f770b1601"
+    },
+    {
+      "id": "29243",
+      "title": "Descobrimento das Filippinas pelo navegador portuguez Fernão de Magalhães",
+      "authors": "Alberto da Silva, Caetano, 1843-1924",
+      "sha256": "910f4fb095f3f53092064f89599e7e285894b566f13366ea5c42954254b9e924"
+    },
+    {
+      "id": "29342",
+      "title": "Astucias de Namorada, e Um melodrama em Santo Thyrso",
+      "authors": "Chagas, Manuel Pinheiro, 1842-1895",
+      "sha256": "38fc8c504495fdffaf2974c30e4c54c2beb22bd6bbee9a8aa4edc63e440e043d"
+    },
+    {
+      "id": "29347",
+      "title": "As Noites do Asceta",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "b3a4dcc78d6ac0b7cca6311a9d136b5cb4f3e65cc0e9e676c560fe40a9eb0d3e"
+    },
+    {
+      "id": "29377",
+      "title": "Historia diplomatica do Brazil: O Reconhecimento do Imperio",
+      "authors": "Lima, Oliveira, 1867-1928",
+      "sha256": "77f4490d375564cbf284da6564ff2125f4cd8f2e258c1d7eadae6162f5d331db"
+    },
+    {
+      "id": "29394",
+      "title": "Historia alegre de Portugal: leitura para o povo e para as escolas",
+      "authors": "Chagas, Manuel Pinheiro, 1842-1895",
+      "sha256": "73484f19759a4149919672c58b8acdcdfdc02fb52d2301ec698a2cf3766eefa3"
+    },
+    {
+      "id": "29417",
+      "title": "D. Antonio Alves Martins: bispo de Vizeu: esboço biographico",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "e6a53c472a866000c868fc0c1b7366be00fbb141da934b5951f3d1f6cca8b946"
+    },
+    {
+      "id": "29428",
+      "title": "O descobrimento da Australia pelos portuguezes em 1601",
+      "authors": "Major, Richard Henry, 1818-1891; Lacerda, José Maria Almeida e Araújo de Portugal Correia de, 1802-1877 [Translator]",
+      "sha256": "bd54bef18a06098887f7b57e50fe580027a0b2774588a57ce87e23e288dab5dd"
+    },
+    {
+      "id": "29435",
+      "title": "O que fazem mulheres: Romance philosophico",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "46e06663e14ae486a578b218645d0748fa25557e8047a5e17e94f728c1556351"
+    },
+    {
+      "id": "29550",
+      "title": "Mulheres e creanças: notas sobre educação",
+      "authors": "Carvalho, Maria Amalia Vaz de, 1847-1921",
+      "sha256": "ad3d015a7d18da07ec36cc57aa38fcfd84a470a319de87aaeb1ec02efc6ecf51"
+    },
+    {
+      "id": "29567",
+      "title": "As obras dos Jeronymos\nparecer apresentado à Commissão dos Monumentos Nacionaes\nem sessão de 7 de Novembro de 1895",
+      "authors": "Cordeiro, Luciano, 1844-1900",
+      "sha256": "12a328b6427f6834788ad60f684bdedfb4d412a6d27cddf112534fef60d970df"
+    },
+    {
+      "id": "29740",
+      "title": "A Neta do Arcediago",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "4b8c82168041f57f1465173cb8e98e1bb55c26c30997d495bb060c31b67380db"
+    },
+    {
+      "id": "29804",
+      "title": "O thesouro do rei Fernando\nhistoria anecdotica de um tratado inedito",
+      "authors": "Cordeiro, Luciano, 1844-1900",
+      "sha256": "9b2710a0d72da7c0df1b7bc4a1c5c7e70fb8a446af6428d4e2080e773a53d8ba"
+    },
+    {
+      "id": "29819",
+      "title": "Manuel de Moraes: Chronica do Seculo XVII",
+      "authors": "Silva, J. M. Pereira da (João Manuel Pereira), 1817-1898",
+      "sha256": "e4ae55b09a8050a31620147f66027ff5497239f939fe14d3ee897c4b96367865"
+    },
+    {
+      "id": "29884",
+      "title": "Rogações de Eremita",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "1e53ea92683a48d2943ae0938f9d6b2a844e1d41672e4933d937e527f2164863"
+    },
+    {
+      "id": "29968",
+      "title": "Quatro Novelas",
+      "authors": "Osório, Ana de Castro, 1872-1935",
+      "sha256": "e856a5594e1473cf17a529529a07117b54b24aff8600f88f643e3229578441fb"
+    },
+    {
+      "id": "29979",
+      "title": "Os tripeiros\nromance-chronica do seculo XIV",
+      "authors": "Coelho Louzada, Antonio José, 1828-1859",
+      "sha256": "d67b2f2c333225c5f3a8f083e2333da01b6ea1de571956d0257d0158866bf7d5"
+    },
+    {
+      "id": "29995",
+      "title": "Galleria dos Vice-reis e Governadores da India Portugueza",
+      "authors": "Delorme Colaço, José Maria, 1815-1863",
+      "sha256": "59753ca8c0c25958163422c94acd2cf3303d48febce4fe86dd317bfe9c71e884"
+    },
+    {
+      "id": "29996",
+      "title": "Manifesto dos Estudantes da Universidade de Coimbra á opinião illustrada do paiz",
+      "authors": "Quental, Antero de, 1842-1891; Veloso, Rodrigo [Editor]",
+      "sha256": "e2e0011fcf1ab558acf3643f37a31c753c5bdd7cf1e4bbf4d3e4a79c017708e7"
+    },
+    {
+      "id": "29997",
+      "title": "Soldados da Revolução",
+      "authors": "Quental, Antero de, 1842-1891; Veloso, Rodrigo [Editor]",
+      "sha256": "89d4c19f88dc553bfbc6881901011dab636d529c607f9c77dee2cabb71368912"
+    },
+    {
+      "id": "29998",
+      "title": "Ultimatum de 11 de Janeiro",
+      "authors": "Quental, Antero de, 1842-1891; Veloso, Rodrigo [Editor]",
+      "sha256": "d3afbbcb978a0d0f444d980435b7b587bd22e50e4322f128f34fbb2a98847231"
+    },
+    {
+      "id": "29999",
+      "title": "Costumes Madrilenos\nNotas de um Viajante",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "19b65483dffbb7d19fa0b29079fa25543d0d1a5d0834188f94031e11575bacae"
+    },
+    {
+      "id": "30069",
+      "title": "Bom-senso e bom-gosto\nFolhetim a proposito da carta que o senhor Anthero do Quental dirigiu ao senhor Antonio Feliciano de Castilho",
+      "authors": "Chagas, Manuel Pinheiro, 1842-1895",
+      "sha256": "0870cf0234154071e387b3495c0bf688011ae73edd1241f537f22e890ac02008"
+    },
+    {
+      "id": "30070",
+      "title": "Bom-senso e bom-gosto\ncarta ao excelentissimo senhor Antonio Feliciano de Castilho",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "c75e76058208070aafd99209e37befe90dd1fc626c075fdcc21fed53cd1352b8"
+    },
+    {
+      "id": "30071",
+      "title": "Paginas Archeologicas III - Situação conjectural de Talabriga",
+      "authors": "Pereira, Félix Alves, 1865-1936",
+      "sha256": "853e430b2ba05d8e0675d8d79f0b1b97d1427e31d8a1d57bc8f46101fd7feb8b"
+    },
+    {
+      "id": "30161",
+      "title": "A agua profunda",
+      "authors": "Bourget, Paul, 1852-1935",
+      "sha256": "00b92c5d90e1eb09be15fff60675cde2ae7026f2cd2fb1931e875baa5dc5e959"
+    },
+    {
+      "id": "30176",
+      "title": "O Carrasco de Victor Hugo José Alves",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "eecc0274768c93bfc5c6030a484e8153b4d985e54da239a28fe4b452c3425147"
+    },
+    {
+      "id": "30341",
+      "title": "Contos Paraenses",
+      "authors": "Carvalho, João Marques de, 1866-1910",
+      "sha256": "3f901da61b1a337b6ce91218691db895fa6424a2f4db52e688fd5b9e1c220792"
+    },
+    {
+      "id": "30359",
+      "title": "Contos e Lendas",
+      "authors": "Silva, Luiz Augusto Rebello da, 1822-1871",
+      "sha256": "651add5fc9ce1b6187df3d44c7e162b842344c92f8aad65214678929c8170f81"
+    },
+    {
+      "id": "30404",
+      "title": "Pelo mundo fóra",
+      "authors": "Carvalho, Maria Amalia Vaz de, 1847-1921",
+      "sha256": "d027b93a7f83a34c7782bef16f3860eabe974e339f205298437edad509984c0f"
+    },
+    {
+      "id": "30424",
+      "title": "As relações luso-brasileiras\na immigração e a «desnacionalização» do Brasil",
+      "authors": "Barbosa, José, 1869-1923",
+      "sha256": "afb9895eb6753602399e4b6c06e51a1886d56547e6ef9e5dc89eb266989dea40"
+    },
+    {
+      "id": "30456",
+      "title": "O culto da arte em Portugal",
+      "authors": "Ortigão, Ramalho, 1836-1915",
+      "sha256": "521c1c9334b90a996cc85d30f51c8e916bbfc22c9607932d20deec6cafc091dc"
+    },
+    {
+      "id": "30461",
+      "title": "A Morgadinha de Val-D'Amores/Entre a Flauta e a Viola\nTheatro Comico de Camillo Castello Branco",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "6277d198dae73ea0cdef19903351e0a91e2fc815afd904f379935b7c2ff781d3"
+    },
+    {
+      "id": "30510",
+      "title": "Perolas e Diamantes: Contos Infantis",
+      "authors": "Grimm, Jacob, 1785-1863; Grimm, Wilhelm, 1786-1859; Osório, Ana de Castro, 1872-1935 [Commentator]; Marques Junior, Henrique, 1881- [Translator]",
+      "sha256": "8d32e04ddfbfb4e73c47297bdba5bebfbc8636bad6557c817337639e66ba5e24"
+    },
+    {
+      "id": "30543",
+      "title": "Nas Cinzas",
+      "authors": "Berthoud, Eugène, 1828?-1872; Melo, Augusto Ernesto de Castilho e [Translator]",
+      "sha256": "80655fb81f740644b65207cb674d59e195d4c5579ac97f885fd9cd021a4e0a8e"
+    },
+    {
+      "id": "30566",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 03",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "5e0b5d51e06399d3c8094f1d90b3a72764b544c17e62a468b52f510807f8912f"
+    },
+    {
+      "id": "30571",
+      "title": "Fanny: estudo",
+      "authors": "Feydeau, Ernest, 1821-1873; Castelo Branco, Camilo, 1825-1890 [Translator]",
+      "sha256": "9efa9ee4e7954b2d1c48b6eb4618dc8daec4bb0c60d607f749012660c01f86d3"
+    },
+    {
+      "id": "30699",
+      "title": "Alexandre Herculano",
+      "authors": "Lima, Jaime de Magalhães, 1859-1936",
+      "sha256": "f1aca6438f1702a10cd059ef86c0f2bc47e4c29c234e0199bfc9b585bdcd5315"
+    },
+    {
+      "id": "30777",
+      "title": "A Casa do Saltimbanco",
+      "authors": "Stolz, Mme. de, 1820-1898?; Bayard, Émile Antoine, 1837-1891 [Illustrator]",
+      "sha256": "4dd573d33b066cde152d9eada719934f42314381e86e714a846425f87731ba31"
+    },
+    {
+      "id": "30801",
+      "title": "Opúsculos por Alexandre Herculano - Tomo 06",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "ab84b7211f6ce1f57e355d81b9bc5c1a7d9c0d1f0ded8ca4f61ba0ee6cabdb3a"
+    },
+    {
+      "id": "30859",
+      "title": "Questão do Palheiro: Coimbrões e Lisboetas",
+      "authors": "Loureiro, Urbano, 1845-1880",
+      "sha256": "27a9dd71ee793883cbee0e3b674e47cfbf2c8c489d43180f3b7efb0677b6a895"
+    },
+    {
+      "id": "30920",
+      "title": "Musa Cerula",
+      "authors": "Gil, Augusto, 1873-1929",
+      "sha256": "2e198f13ad4a9844213ad191fe49e96442cb71f4b0c1415e7e976bb70caae899"
+    },
+    {
+      "id": "30921",
+      "title": "Quadros de historia portugueza",
+      "authors": "Silveira da Mota, I. F., 1836-1907",
+      "sha256": "41326cebb6572117ecdeaf7e5ecf920954d4228f53c314f37cdb8b2c16e39521"
+    },
+    {
+      "id": "30926",
+      "title": "Notas d'arte",
+      "authors": "Lemos, António de, 1864-1931",
+      "sha256": "492c1de82365537b7fe47b65dc5512551ac49570b01f83cbf74815def84bd344"
+    },
+    {
+      "id": "30945",
+      "title": "Memoria ácerca dos Portuguezes na Abyssinia",
+      "authors": "Soveral, Luiz Augusto Pinto Soveral, visconde de, 1812-1905",
+      "sha256": "4a008f24f66aaf85fb564ecd84a1f67ed242aae6a5cfd7b6fbadd8854ad7d791"
+    },
+    {
+      "id": "30946",
+      "title": "Amôres d'um deputado",
+      "authors": "Buffenoir, Hippolyte, 1847-1928; Ferreira, A. [Translator]",
+      "sha256": "e1ea1df0f6f6029508ff7d92a8295a26efea729fa288a333bf335f3bb264066f"
+    },
+    {
+      "id": "31166",
+      "title": "A India Portugueza\nConferencia feita em 16 de março de 1908",
+      "authors": "Brion, Hypacio de, 1858-1926",
+      "sha256": "3c9a931f5f86da90f160eabb8d5d1766b13c28f9358f869ac8991738072b32c0"
+    },
+    {
+      "id": "31197",
+      "title": "Os jesuitas e o ensino",
+      "authors": "Calógeras, João Pandiá, 1870-1934",
+      "sha256": "60c61237745f9fdf24c14ff15ccb4074582f8263abdbc9b5e0abea90d3821bc4"
+    },
+    {
+      "id": "31346",
+      "title": "Camillo Castello Branco",
+      "authors": "Silva Pinto, Antonio da, 1848-1911",
+      "sha256": "5902dd730d90bd71115dd953f4a0332b25066302c53f9b92d31bbcf45f861401"
+    },
+    {
+      "id": "31347",
+      "title": "Contos",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "b3ed9823063bad23582befc2662f9897498d37c57265385f5a498cc70ac60f0e"
+    },
+    {
+      "id": "31379",
+      "title": "Oliveira Martins: Estudo de Psychologia",
+      "authors": "Barreto, Moniz, 1865-1894",
+      "sha256": "1d85d913f87b797684cf0766fdeaef8ca044e612ae131dd20eec2190638a45c4"
+    },
+    {
+      "id": "31552",
+      "title": "Novo dicionário da língua portuguesa",
+      "authors": "Figueiredo, Cândido de, 1846-1925",
+      "sha256": "dd573ff7844647e81c21b29cd8824ac7ba60f3e3fca4c3a73f375d7b153ba4b4"
+    },
+    {
+      "id": "31573",
+      "title": "Um novo mundo",
+      "authors": "Cabral, Guilherme Read, 1821-1897",
+      "sha256": "8032e548046c17b9a99d704ccdbc142475a81ecead5c8a725859ee165135bb1c"
+    },
+    {
+      "id": "31576",
+      "title": "Memoria sobre a descoberta das ilhas de Porto Santo e Madeira 1418-1419\n(Fragmento de um livro inedito)",
+      "authors": "Bettencourt, Emiliano Augusto de, 1825-1886",
+      "sha256": "103aa65282fabe9439974d2c8c8945c1902365adb71940a521cca5192d95246a"
+    },
+    {
+      "id": "31654",
+      "title": "Oliveira Martins\nO critico litterario, o economista, o historiador, o publicista, o politico",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "045357ead02ac3f1e8f5545cb0b28a34560cdb2810d898e2eedf7b7e38d150e1"
+    },
+    {
+      "id": "31657",
+      "title": "Um club da Má-Lingua",
+      "authors": "Dostoyevsky, Fyodor, 1821-1881; Macedo, Manuel de [Translator]",
+      "sha256": "bd0fb430447a247c0ac4c3ed3e8caed17643a4a14d3e8f23f2b1b3a68da4d0bd"
+    },
+    {
+      "id": "31694",
+      "title": "Estrellas Funestas",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "403763f8784f0bf2a7b6dd6ad20232a8c854b34723638826ea170b2f443943be"
+    },
+    {
+      "id": "31696",
+      "title": "Morte de Yaginadatta\nEpisodio do poema epico - O Ramayana",
+      "authors": "Valmiki; Figueiredo, Cândido de, 1846-1925",
+      "sha256": "369330fcdd071bdd94403447321ebe29cd9bbdb4af856d1e6e7f0919149bb436"
+    },
+    {
+      "id": "31905",
+      "title": "Contos",
+      "authors": "Câmara, João da, 1852-1908",
+      "sha256": "62d7f0bb7fcb6c64c2c6c5ffeb1dfe85ebf10db233ef2209edd58ee56249f7c2"
+    },
+    {
+      "id": "31906",
+      "title": "Memorias de um pobre diabo",
+      "authors": "Seabra, Bruno, 1837-1876",
+      "sha256": "2e0a9ffd448e6f728ef5dd206804106e74f5b1c770d4b6cdfcec74bbaa203ae6"
+    },
+    {
+      "id": "31971",
+      "title": "O crime do padre Amaro, scenas da vida devota",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "a447e10ccb6a39bd7dde53157c7a81a145b6533afd006a497dce224826bf139d"
+    },
+    {
+      "id": "32002",
+      "title": "A Chave do Enigma",
+      "authors": "Castilho, Antonio Feliciano de, 1800-1875",
+      "sha256": "f257ad008b5dc140783853b743ac9854aa9ad5da0ee8b3ef311953fa08ff2ba8"
+    },
+    {
+      "id": "32003",
+      "title": "A espada de Alexandre\nCorte profundo da questão do Homem-Mulher e Mulher-Homem",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "58f37e5a98c5054b888a2bc813d3d524b4be772e9dbbcadc18f6486688656e23"
+    },
+    {
+      "id": "32156",
+      "title": "Julio Diniz (Joaquim Guilherme Gomes Coelho) Esboço Biographico",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "6e23841aee91d2f307ed22f279b44823b14b8456dfa34efdeb2f3a3c80b4cadb"
+    },
+    {
+      "id": "32174",
+      "title": "Historia da Grecia",
+      "authors": "Costa, Fernandes, 1848-1920",
+      "sha256": "d7bbfa069af774d1306ed1c57408f85587203ca76e0d9b5fb0a1e3698d452935"
+    },
+    {
+      "id": "32296",
+      "title": "Pero da Covilhan: Episodio Romantico do Seculo XV",
+      "authors": "Brandão, Zephyrino, 1842-1910",
+      "sha256": "9130a502d1f6872a04f2549b2e2d9f2173a69d1a12a60492c811a958481d3436"
+    },
+    {
+      "id": "32378",
+      "title": "O Marquez de Pombal\nLance d'olhos sobre a sua sciencia; politica e systema de administração; ideias liberaes que o dominavam; plano e primeiras tentativas democraticas",
+      "authors": "Garcia, Manuel Emídio, 1838-1904",
+      "sha256": "42fd5799dc084ea58b9f87084f6f7c831a99f9c975f43eb39f8939c060f48e3f"
+    },
+    {
+      "id": "32379",
+      "title": "O Primeiro de Maio",
+      "authors": "Lima, S. de Magalhães (Sebastião de Magalhães), 1850-1928",
+      "sha256": "236ed6afe6c9845b3a07c910b6d2d586c7f83b97f93b38d61fcf5bc5c38c8b14"
+    },
+    {
+      "id": "32380",
+      "title": "O Romance d'uma cantora",
+      "authors": "Sirven, Alfred, 1838-1900; Medonça, Salvador de [Translator]",
+      "sha256": "9fbf7b44a9248c0092bb7acaf6bb8997381caa974d3d433c143b4025f09cef52"
+    },
+    {
+      "id": "32381",
+      "title": "Christo não volta (Resposta ao «Voltareis, ó Christo?» de Camillo Castello-Branco)",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "77c4499b595c0ff773f28379861ef70029006a8b0bc120c65806db88d72235d7"
+    },
+    {
+      "id": "32387",
+      "title": "Poetas do Minho I - João Penha",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "3dd76335378d23a716716bdc887503df911f881589766beaf911f45df3e102a2"
+    },
+    {
+      "id": "32519",
+      "title": "Christovam Colombo e o descobrimento da America",
+      "authors": "Silva, J. M. Pereira da (João Manuel Pereira), 1817-1898",
+      "sha256": "670fa4eafa5a2576af93b18d34839530b83786bfe8d799b0992a779337f56dd3"
+    },
+    {
+      "id": "32586",
+      "title": "O condemnado, drama em tres actos e quatro quadros;\nSeguido do drama em um acto, Como os anjos se vingam",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "e012d499c1adf74c94a2c9d00ee25a4b77ccf28cbe78fa82741cfdba796ae48b"
+    },
+    {
+      "id": "32645",
+      "title": "Anthero do Quental, e Ramalho Ortigão",
+      "authors": "Carvalhal, Alvaro do, 1844-1868",
+      "sha256": "87a647695da1903440f575c44a2183776a1166d78eb313e7c612e8acc73a08fc"
+    },
+    {
+      "id": "32646",
+      "title": "Contos Phantasticos\nsegunda edição correcta e ampliada",
+      "authors": "Braga, Teófilo, 1843-1924",
+      "sha256": "0dc224b48ed8aa2e580d1b87f89e2f70b4a2fbab044b8d8246cda7518d561e86"
+    },
+    {
+      "id": "32647",
+      "title": "O Infante Navegador: Poemeto",
+      "authors": "Campos, Alfredo, 1847-1906",
+      "sha256": "65c397118812fab448740cbdc43c7338ff0dc85fb64bcfa49562a4260a764f75"
+    },
+    {
+      "id": "32791",
+      "title": "Considerações sobre a Philosophia da Historia Litteraria Portugueza\n(a proposito d'alguns livros recentes)",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "5acf1144e8c2a3d11d679f236c823f931bf79feb5d4f0608575dfd0994e9cb09"
+    },
+    {
+      "id": "32792",
+      "title": "Um contemporaneo do Infante D. Henrique",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "868e30609a887c83d5ec31bb2228c8ca5e87a6bc5dd264c4be4e8c950595b580"
+    },
+    {
+      "id": "32793",
+      "title": "Historia de um beijo",
+      "authors": "Pérez Escrich, Enrique, 1829-1897; Soutelo, A. J. Lione [Translator]",
+      "sha256": "dd33571d8aeb2e5fd69233ad429e4d06670ba349c45b61081403d4f0f144c0d9"
+    },
+    {
+      "id": "32794",
+      "title": "Necessidade de um Ministerio de Instrucção Publica",
+      "authors": "Macedo, Antonio da Costa de Souza de, 1824-1892",
+      "sha256": "021cdc33664c623fd16df70922b215cf53a29cb3706f1f52e6615809edba2300"
+    },
+    {
+      "id": "32868",
+      "title": "A Biblia da Humanidade",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "4c9c3c0a9f1f2d6e5ebf0b7e1240db8a50e76ba1534e54e4e3b392514088b3c1"
+    },
+    {
+      "id": "32870",
+      "title": "Guelfos e Gibelinos: Tentativa critica sobre a actual polemica litteraria",
+      "authors": "Vidal, Eduardo Augusto, 1841-1907",
+      "sha256": "6b17a27852f52c3c835e847816b85468802f352b87cdffeaba9778448a87eee8"
+    },
+    {
+      "id": "32871",
+      "title": "Leituras Populares",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "0499a63e3c98945f0965690be6bd672545e2b73502e8f89ca735bd6c59a49805"
+    },
+    {
+      "id": "32872",
+      "title": "Liga Patriotica do Norte",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "22c2844e7e09a2dfe74bfaad8d9d980e292ab4a5bc87b18fce9a3fc508699af2"
+    },
+    {
+      "id": "32873",
+      "title": "Portugal perante a revolução de Hespanha\nConsiderações sobre o futuro da politica portugueza no ponto de vista da democracia iberica",
+      "authors": "Quental, Antero de, 1842-1891",
+      "sha256": "0a52ba773f8a66882f7839a6029a32a72dee5825c55d34e3792aedf16983cf00"
+    },
+    {
+      "id": "33056",
+      "title": "Historias Sem Data",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "c1c45b3db3d79049f164e01b5c092679fac532ecf51b38e24893a52f3c5c93d1"
+    },
+    {
+      "id": "33057",
+      "title": "O Marquez de Pombal (folheto para poucos)",
+      "authors": "Cordeiro, Manoel Caldas, 1869-1914",
+      "sha256": "fa20bc34202430ce96bac7b2e7eda83b1c5edfb7cee26cde39e99ae7fe1b6280"
+    },
+    {
+      "id": "33067",
+      "title": "Chronicas de Viagem",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "c97fac39c827cd445c2f0ef5d08f936cf4a01775b02509e13de80bbc5344e12a"
+    },
+    {
+      "id": "33068",
+      "title": "Da importancia da Historia Universal Philosophica na esphera dos conhecimentos humanos",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "c0feeec0308308d840f60f6ba3f2ddf430513f4d3f00313fbe7f2d7391a88927"
+    },
+    {
+      "id": "33159",
+      "title": "Os dialectos romanicos ou neo-latinos na África, Ásia e América",
+      "authors": "Coelho, Adolfo, 1847-1919",
+      "sha256": "9751769b8b341059a075f78efcc6022bdb9bd80cd332811cec677a482e2815d4"
+    },
+    {
+      "id": "33182",
+      "title": "Entre o caffé e o cognac",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "c19f1ef12320cfee57111b3870212aa576233b6a6e5da506bf2567d62cef0430"
+    },
+    {
+      "id": "33238",
+      "title": "Nervosos, Lymphaticos e Sanguineos",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "8c630707d705fc35df11a15b976503f8624a9a5f85ba412e7b8a515c10667660"
+    },
+    {
+      "id": "33377",
+      "title": "A architectura religiosa na Edade Média",
+      "authors": "Fuschini, Augusto, 1843-1911",
+      "sha256": "953f1d779b314c831a9e3e824b0cb93e4e2bcc11e1858f32e701fe930061435b"
+    },
+    {
+      "id": "33581",
+      "title": "Vinte Annos de Vida Litteraria",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "4b2d959790fd746f543aec0e485b76280627e3e2bea6c41123ac7adebad378a7"
+    },
+    {
+      "id": "33588",
+      "title": "Manhãs de Cascaes",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "0ff97aca3c47aa27360fedbe29e31102d2a2fe533743933a707da31f28dec7ec"
+    },
+    {
+      "id": "33611",
+      "title": "Scenas de viagem\nExploração entre os rios Taquary e Aquidauana no districto de Miranda : memoria descriptiva",
+      "authors": "Taunay, Alfredo d'Escragnolle Taunay, Visconde de, 1843-1899",
+      "sha256": "918444829248ceb78abe4a7273f6d6d48a759590f08dcd7ae72b9d3049c3e2d7"
+    },
+    {
+      "id": "33749",
+      "title": "O Annel Mysterioso, Scenas da Guerra Peninsular",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "2b9f371c920f8b65c998827efc840ad145621d9b6cfadfc94815cf99a632c78b"
+    },
+    {
+      "id": "33752",
+      "title": "Os netos de Camillo",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "5c7e0833c34e0c7428543a331f16f3fc150d472607559e78057cdc3eaccf5cc2"
+    },
+    {
+      "id": "33788",
+      "title": "Estrellas Propícias",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "1c409d6c1685e492584284f31d3ea971b681726998828fcf984e3f2be9d04c31"
+    },
+    {
+      "id": "33817",
+      "title": "Ensino intuitivo\nlivro destinado às mães e paes de familia e às professoras e professores de instrucção primária",
+      "authors": "Telles, João José de Sousa, 1826-1903",
+      "sha256": "85ad45608ada60829a3fb28dbef6fdfafaca6800143ebd8d6e77b11603e74364"
+    },
+    {
+      "id": "34040",
+      "title": "Relatorio de uma viagem ás terras do Changamira",
+      "authors": "Paiva de Andrada, Joaquim Carlos, 1846-1928",
+      "sha256": "3bf223a1f693017c920f194ee192e39ae64b050332c2117a7e2e69209694877c"
+    },
+    {
+      "id": "34041",
+      "title": "Relatorio de uma viagem ás terras dos Landins",
+      "authors": "Paiva de Andrada, Joaquim Carlos, 1846-1928",
+      "sha256": "8f0b2fdc0bf8227dc10e5f76ac4d44e1e59622697421e07ce41f4bde80311ac5"
+    },
+    {
+      "id": "34155",
+      "title": "Floresta de varios romances",
+      "authors": "Braga, Teófilo, 1843-1924 [Editor]",
+      "sha256": "1591a2899e02e9a563e4a031daeecadba33704e44f9647f9a627a5e283c0a2b6"
+    },
+    {
+      "id": "34276",
+      "title": "A Vista Alegre: apontamentos para a sua historia",
+      "authors": "Gomes, Marques, 1853-1931",
+      "sha256": "b7bcfe6768ccc7e4c53670f637a17f60c94fe987f142406bd3bfa83880c46739"
+    },
+    {
+      "id": "34288",
+      "title": "Fialho d'Almeida",
+      "authors": "Villa-Moura, Bento de Oliveira Cardoso, Visconde de, 1877-1935; Carneiro, António, 1872-1930 [Illustrator]",
+      "sha256": "cdfc74106f01549d4bb99743c6e88f029319922a864d771e4c7d22d853404e9c"
+    },
+    {
+      "id": "34292",
+      "title": "Ramalho Ortigão",
+      "authors": "Arantes, Hemetério, 1864-1932",
+      "sha256": "0e8f786fe7db27f0ace7470989ff1875dd320539a9a67d8bd96bd63ce833008a"
+    },
+    {
+      "id": "34387",
+      "title": "Historia de Portugal: Tomo I",
+      "authors": "Oliveira Martins, J. P. (Joaquim Pedro), 1845-1894",
+      "sha256": "caf81eb1ab216a896af5e0ca1e1aca18e9e99b2f3a90bcaebe91ce08e0a2eb9b"
+    },
+    {
+      "id": "34388",
+      "title": "Colonisação de Lourenço Marques: Conferencia feita em 13 de março de 1897",
+      "authors": "Freire de Andrade, Alfredo Augusto, 1859-1929",
+      "sha256": "63ae0331e4b3800c5d0ddfac2736d7c42c980a0501de9ae4d6cbdfd75b48e2a0"
+    },
+    {
+      "id": "34622",
+      "title": "A Bibliotheca Nacional de Lisboa\nSuas deficiencias e remedios d'essas deficiencias",
+      "authors": "Cunha, Xavier da, 1840-1920",
+      "sha256": "60e4a1406134d3c50b5e37329d8dc30619879cddbc39b15881e496882202b9f7"
+    },
+    {
+      "id": "34624",
+      "title": "Elogio Historico do Conde de Ficalho",
+      "authors": "Burnay, Eduardo, 1853-1924",
+      "sha256": "17dbe2a4bdbe26bde7821e5873fbb03e78813ef171e45a65d9eb072f03b2debc"
+    },
+    {
+      "id": "34718",
+      "title": "Diccionario de João Fernandes\nLições de lingua portugueza pelos processos novos ao alcance de todas as classes de Portugal e Brazil",
+      "authors": "Amorim, Francisco Gomes de, 1827-1891",
+      "sha256": "eabb164663c36918d9c2ef36d39f82338647ea31b69ce7ef2105cb30c8b7461c"
+    },
+    {
+      "id": "34719",
+      "title": "Noites de Cintra",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "1eb1c0a3668b62c07f6dfaaa3751e5ed43f0c39a1003361abcaffd6eb4924a46"
+    },
+    {
+      "id": "34750",
+      "title": "Mysterio do Natal",
+      "authors": "Coelho Netto, Henrique, 1864-1934",
+      "sha256": "124618cd3f291c8ebe0776e44661ed264121cb013cd926a6325022fc306b6b3e"
+    },
+    {
+      "id": "34755",
+      "title": "O Romance da Rainha Mercedes",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "4cf6c20b6358959a903a69a3d86929131b965a7a090ef76dce108bf935cb04eb"
+    },
+    {
+      "id": "34756",
+      "title": "Livro de Consolação: Romance",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "39b92f130d65519bd43f21616f5a9b595ff483bb42907727570f1e8de988aca8"
+    },
+    {
+      "id": "34952",
+      "title": "Nas trevas: Sonetos sentimentaes e humoristicos",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "692912782e60d40035b66dc74fb17b104daed001ee20d874ed7a731bf8159513"
+    },
+    {
+      "id": "34961",
+      "title": "O Bispo: Nova «Heresia», em verso",
+      "authors": "Braga, Guilherme, 1843-1874; Sampaio Bruno, 1857-1915 [Commentator]",
+      "sha256": "ab6f278693ab227609205b5ea2a2a84e3590cedce0dc19b421cc02267349e3ff"
+    },
+    {
+      "id": "34963",
+      "title": "Ao de Leve",
+      "authors": "Camacho, Brito, 1862-1934",
+      "sha256": "e65128e0539919ab6c7b22abab3767083b2908725cdbf9a689610c56133f9081"
+    },
+    {
+      "id": "35130",
+      "title": "Uma visita ao primeiro romancista portuguez em S. Miguel de Seide",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "6c9a76d97ee501b48f969d158657ad9468538e1bf1a309adba695bebc17de8d1"
+    },
+    {
+      "id": "35131",
+      "title": "O descobrimento do Brasil por Pedro Alvares Cabral",
+      "authors": "Baldaque da Silva, António Arthur, 1852-1915",
+      "sha256": "ad5e1f2d9cd99bb72a39942c29090581668c9b197629d0d140a987ae97211c15"
+    },
+    {
+      "id": "35762",
+      "title": "Memórias",
+      "authors": "Brandão, Raul, 1867-1930",
+      "sha256": "c9da2d94b1546387e366552aa6dbc23bd79782daeacb162c4d20fb80e73a3b8a"
+    },
+    {
+      "id": "35982",
+      "title": "A ultima ceia do Doutor Fausto",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "2ca7bf9b22cf3970ceb42a5e208aa48411bcb237a3b48f9cff415a1e6117cc6b"
+    },
+    {
+      "id": "37879",
+      "title": "O culto do chá",
+      "authors": "Moraes, Wenceslau de, 1854-1929",
+      "sha256": "6692a9cd80eac18e8ad68f3e74b4b8aa286984b89d647eb29df040a2dc9cc098"
+    },
+    {
+      "id": "38496",
+      "title": "Ubirajara: Lenda Tupi",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "89f3f49b1803bf1ee4761bfaa86a5c24ad92c4843b84fde403eb97478acd31bb"
+    },
+    {
+      "id": "39086",
+      "title": "Educação nova: As bases",
+      "authors": "Alves dos Santos, Augusto Joaquim, 1866-1924",
+      "sha256": "3cfc1e9bf41accf81dbfae7d9b19767d4d00429259216bf0f36da22718262e52"
+    },
+    {
+      "id": "39618",
+      "title": "Humus",
+      "authors": "Brandão, Raul, 1867-1930",
+      "sha256": "d7f47529f3a7c1b6b33b744221b13649621b4b92c4185c55f735788945b8a840"
+    },
+    {
+      "id": "39992",
+      "title": "Poesias",
+      "authors": "Passos, A. A. Soares de (Antonio Augusto Soares), 1826-1860",
+      "sha256": "2ac006d740f02ef25768a3d56c9e16dcc558a9f458970ddc56ea36726676fc0f"
+    },
+    {
+      "id": "40409",
+      "title": "Os Maias: episodios da vida romantica",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "843d9f5f2fdf6fb855338ad98dcfec535dd5426c26de9cf83ef9252696f71d72"
+    },
+    {
+      "id": "41293",
+      "title": "Principios e questões de philosophia politica (Vol. 2 of 2)",
+      "authors": "Cândido, António, 1850-1922",
+      "sha256": "9aa1a935bc237e1d6622929af4552158e20b7365c9783a8e39c4de515962744f"
+    },
+    {
+      "id": "42942",
+      "title": "O Primo Bazilio: Episodio Domestico",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "03eed94e60cb9b5fe2323e82ed4e38d8883e9885637422f898408f86d48e2580"
+    },
+    {
+      "id": "44211",
+      "title": "Nocturnos",
+      "authors": "Crespo, Gonçalves, 1846-1883",
+      "sha256": "c861daf4ee2df27a96f0e5ce480ac3dc45600a348c33b5ed020bc43b1f937a59"
+    },
+    {
+      "id": "44540",
+      "title": "Cinco minutos",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "2bdc8282b2e2640dfb6e8c711d717fe4316d905802d8ea20f38d07c08e7c42b5"
+    },
+    {
+      "id": "45840",
+      "title": "Historias de Reis e Principes",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "c9b25db1cc3fcdde6c0e53ab4187e445218dff1e6fe4d972cad60483ece99ef3"
+    },
+    {
+      "id": "45966",
+      "title": "Eurico, o presbytero",
+      "authors": "Herculano, Alexandre, 1810-1877",
+      "sha256": "8bdacbe607ee001c8931a0d425dabb813c0a988bc84edafe40e59e08165fb707"
+    },
+    {
+      "id": "46334",
+      "title": "Cartilha Maternal; ou, Arte de Leitura",
+      "authors": "Deus, João de, 1830-1896",
+      "sha256": "acad89b7540924f0c871a1e195669695967a2383dab7370c5f159de17ba81ee1"
+    },
+    {
+      "id": "46860",
+      "title": "O Napoleão de Notting Hill",
+      "authors": "Chesterton, G. K. (Gilbert Keith), 1874-1936; Robertson, W. Graham (Walford Graham), 1866-1948 [Illustrator]",
+      "sha256": "ff9b1fe30d05f83959e4a5a44a7f17b9b95730a56bdb97f1ef177522c0feca16"
+    },
+    {
+      "id": "49367",
+      "title": "Os Cataventos",
+      "authors": "Rocha Peixoto, 1866-1909",
+      "sha256": "99e0943925279ae54427c8fbf584098d88b6f9fb8241eedb931c5cdf6b5ab374"
+    },
+    {
+      "id": "52170",
+      "title": "Memorias de José Garibaldi, volume 2\nTraduzidas do manuscripto original por Alexandre Dumas",
+      "authors": "Garibaldi, Giuseppe, 1807-1882; Dumas, Alexandre, 1802-1870 [Translator]",
+      "sha256": "f3c4b51846f8b463f2028a136518d90cdc7426aca470d92318fab8b941ebb0bf"
+    },
+    {
+      "id": "52847",
+      "title": "Memorias de José Garibaldi, volume 1\nTraduzidas do manuscripto original por Alexandre Dumas",
+      "authors": "Garibaldi, Giuseppe, 1807-1882; Dumas, Alexandre, 1802-1870 [Translator]",
+      "sha256": "8163966883b3170210e3b6b0e6fb99018387fc1743682f26da670710e047a5d0"
+    },
+    {
+      "id": "53101",
+      "title": "A Mao e A Luva",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "e6d16a57466e1b5abe1f3c4e116128c47664fb3b9d9be9c0409d04149c690b97"
+    },
+    {
+      "id": "54829",
+      "title": "Memorias Posthumas de Braz Cubas",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "edfe4370698ed5716a9692b980a8d6ee77b4ff8116503bb2e08675f1d10d303a"
+    },
+    {
+      "id": "55682",
+      "title": "Quincas Borba",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "d23baeb1a449950e20a3257df0452b860578246eed2f1d5f8a8e62cede6669b9"
+    },
+    {
+      "id": "55752",
+      "title": "Dom Casmurro",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "0fc3dbf384544d81d87e5a731e67b7976ac3a57acb378f0f354d12a3b52bd0c7"
+    },
+    {
+      "id": "55797",
+      "title": "Memorial de Ayres",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "c9831ec71742aa54b92bfdb8632967ede7906c374083fea24afb570698e7526d"
+    },
+    {
+      "id": "56737",
+      "title": "Esau e Jacob",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "a207c4707acb750181ae4bdf88b5df015bd800636a16a338e10f7df9df0558a7"
+    },
+    {
+      "id": "57001",
+      "title": "Papeis Avulsos",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "527841be97c87667db1d1c935c707f7d5295e29f67a023e1e67999e040b95ac8"
+    },
+    {
+      "id": "57895",
+      "title": "Os Trabalhadores do Mar",
+      "authors": "Hugo, Victor, 1802-1885; Machado de Assis, 1839-1908 [Translator]",
+      "sha256": "57bf1c1efcaa85cb397ce2d26b6f044bbd40472041753690a30263dd3f8ea172"
+    },
+    {
+      "id": "59620",
+      "title": "Quéda que as Mulheres Têm para os Tolos",
+      "authors": "Hénaux, Victor; Machado de Assis, 1839-1908 [Translator]",
+      "sha256": "93fcc09e104d322794ef25edfd533a488a5a3c17f71e5f874fe8bc6887208eae"
+    },
+    {
+      "id": "60194",
+      "title": "Echos de Pariz",
+      "authors": "Queirós, Eça de, 1845-1900",
+      "sha256": "1bc1f5e05685f968e258939d4bb79a59360654d5e004c6189ea32717dca51ab8"
+    },
+    {
+      "id": "61653",
+      "title": "Poesias Completas",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "dc462246132e4c3f6e9f8d1afb23377e4f7e9a83a8b15f2a660f6586415f48fc"
+    },
+    {
+      "id": "61665",
+      "title": "A mudança que é possivel na vida",
+      "authors": "Drummond, Henry, 1851-1897",
+      "sha256": "0fa0e0164e9ef43f9a11e64b631969be742e457d6d197acf38029cca953f7f4f"
+    },
+    {
+      "id": "62101",
+      "title": "Robur, o Conquistador",
+      "authors": "Verne, Jules, 1828-1905; Ayres, Christovam, 1853-1930 [Translator]",
+      "sha256": "764e2a031efbeca57a14f006054e18b8db96866bf9bc4709a0c482d4a2b1fbd4"
+    },
+    {
+      "id": "62352",
+      "title": "Julião e a Biblia",
+      "authors": "Martínez, Emilio, 1849-1919; Dias, Guilherme, 1844?- [Translator]",
+      "sha256": "e45e8600c3db7ceb8ef15f3db0ae9164f83270be99bf6f4cefc68a5482bf9726"
+    },
+    {
+      "id": "62461",
+      "title": "A Reforma",
+      "authors": "Lindsay, Thomas M. (Thomas Martin), 1843-1914; Canuto, J. S. [Translator]",
+      "sha256": "d33486d96dbb098bf2ea8ecfaadd28437f25d061d054473aeabd15abb00e9e93"
+    },
+    {
+      "id": "62525",
+      "title": "Historias Brazileiras",
+      "authors": "Taunay, Alfredo d'Escragnolle Taunay, Visconde de, 1843-1899",
+      "sha256": "05e7be8dffe41b371905d5767aecd0b4303571f9315cffebbf8d1f00cbab7a32"
+    },
+    {
+      "id": "62574",
+      "title": "A guerrilha de Frei Simão: romance historico",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "cac3e289b87e4f4f0a128258e166111f2ae6a2deb173dcf8b2cab2452c03e148"
+    },
+    {
+      "id": "62624",
+      "title": "O Bem e o Mal: Romance",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "00cbc99bff301d31d1c33542241af88388ed49292eca9c51779d717bffbcf897"
+    },
+    {
+      "id": "62706",
+      "title": "As Netas do Padre Eterno\nRomance original",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "093b9ab0344c804caa259e28126115554e83358739307fcee37ba05b064f912d"
+    },
+    {
+      "id": "62766",
+      "title": "As donatarias d'Alemquer\nHistoria das Rainhas de Portugal e da sua casa e estado",
+      "authors": "Pereira Franco Monteiro, João; Oliveira Martins, J. P. (Joaquim Pedro), 1845-1894 [Author of introduction, etc.]",
+      "sha256": "1faea075ebef859c5dc3f93ab0d84ed6018f3b3218e1f923b2ef34e5a4a4aec7"
+    },
+    {
+      "id": "62853",
+      "title": "Idyllios á beira d'agua\nRomance original",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "16fc01b1dde2c8c071e5be3fee64b3fe0469f6a5ced827fd1a17d3c1a4dc625d"
+    },
+    {
+      "id": "62896",
+      "title": "Ao Entardecer (Contos Varios)",
+      "authors": "Taunay, Alfredo d'Escragnolle Taunay, Visconde de, 1843-1899",
+      "sha256": "a92b8ddb6680507eec6ba082fa5ab4e80aa71d9ae26e15081fd07cb0074738e6"
+    },
+    {
+      "id": "62954",
+      "title": "Novos contos\n4º volume da Comedia do Campo",
+      "authors": "Moreno, Bento, 1848-1919",
+      "sha256": "0a3e10e5fd730c7973e653eec1855c86e2ea68e72d2e9c412278a223da557308"
+    },
+    {
+      "id": "63034",
+      "title": "Comedia do Campo volume III (Scenas do Minho)",
+      "authors": "Moreno, Bento, 1848-1919",
+      "sha256": "65cbf394ab13d0b36e62520e28eb001e25048e2b5a7fc1973441b6dafc29f09c"
+    },
+    {
+      "id": "63080",
+      "title": "A cidade do vicio",
+      "authors": "Almeida, Fialho de, 1857-1911; Chardron, Ernesto, 1840-1885 [Editor]",
+      "sha256": "4f4ccf4dc1592d6d82cec36a3667037f6493130142de849c07e5165a6faddf2d"
+    },
+    {
+      "id": "63145",
+      "title": "Electra: Drama em cinco actos",
+      "authors": "Pérez Galdós, Benito, 1843-1920; Ortigão, Ramalho, 1836-1915 [Translator]",
+      "sha256": "69b6f2892f9544462ff581e7e3e108871021871a47ab9c10536e0b974053ea48"
+    },
+    {
+      "id": "63195",
+      "title": "A menina Lisa",
+      "authors": "Kock, Paul de, 1793-1871",
+      "sha256": "87b125160ad5d6b65e4395f0aab720aa390435eecfa7b3fbdb8d3220d35d5d2d"
+    },
+    {
+      "id": "63235",
+      "title": "Historia Pitoresca: Palavras e frases celebres",
+      "authors": "Campos, Alfredo, 1847-1906",
+      "sha256": "eb2514547f11a7903f9455c412afc8fd1035d49330c7f52fa76806bb5e369d55"
+    },
+    {
+      "id": "63258",
+      "title": "Viagem ao norte do Brazil feita nos annos 1613 a 1614, pelo Padre Ivo D'Evreux",
+      "authors": "Yves, d'Evreux, 1570-1630?; Denis, Ferdinand, 1798-1890 [Annotator]; Marques, César Augusto, 1826-1900 [Translator]",
+      "sha256": "ec4bea989b75630efe75018477395b4849239abc23de8fc27dcbe62be5eb6e94"
+    },
+    {
+      "id": "63317",
+      "title": "Os contos do tio Joaquim",
+      "authors": "Paganino, Rodrigo, 1835-1863",
+      "sha256": "f8c6652d5d8a1f7d7b8891b076c12984fb07342f696fa5b21ecdfc03172b91b4"
+    },
+    {
+      "id": "63406",
+      "title": "Contos e Phantasias",
+      "authors": "Carvalho, Maria Amalia Vaz de, 1847-1921",
+      "sha256": "9ceee81bfc34922b72fb4e7446d490d293af3448cccb6cefa408a14589c9506f"
+    },
+    {
+      "id": "63434",
+      "title": "Rainha sem reino (Estudo historico do seculo XV)",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "b41ba6a7aaa53822203db11d8f2500eaf32cd984795e06b606db3d791bf1d9fb"
+    },
+    {
+      "id": "63438",
+      "title": "Romanceiro I: Romances da Renascença",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "f3b7da3af013c981b2614445fbe217846f84f13e813231e17424fcdfebfa4436"
+    },
+    {
+      "id": "63439",
+      "title": "Romanceiro III: Romances Cavalherescos Antigos",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "4d2582eb4374b2469ae15f085578bfdef70a510b6b50f8fb995cef2916a1aa19"
+    },
+    {
+      "id": "63461",
+      "title": "O Romance de um Homem Rico",
+      "authors": "Castelo Branco, Camilo, 1825-1890; Ribeiro, Tomás, 1831-1901 [Author of introduction, etc.]",
+      "sha256": "a214b00149213ab5ad1747fe65dda62021e784066b022e86a807e182407d8f3d"
+    },
+    {
+      "id": "63488",
+      "title": "Ambições: Romance",
+      "authors": "Osório, Ana de Castro, 1872-1935",
+      "sha256": "98952b33b9a434e9b680ca1b17c8b048cfdd85e5ec4dd6eee45df43c80753d31"
+    },
+    {
+      "id": "63534",
+      "title": "Os descobrimentos portuguezes e os de Colombo: Tentativa de coordenação historica",
+      "authors": "Chagas, Manuel Pinheiro, 1842-1895",
+      "sha256": "d65fa0f3b8a95d7d4ca101cee9278d2fbdc5c434d370d062934547191e23450d"
+    },
+    {
+      "id": "63606",
+      "title": "Lupe",
+      "authors": "Affonso Celso, Affonso Celso de Assis Figueiredo, conde de, 1860-1938",
+      "sha256": "25d6701bd244a7b5f554e6a2d2d6e4e3930f8652fdf0c30ecb978894d49d0497"
+    },
+    {
+      "id": "63655",
+      "title": "Inicios da Renascença em Portugal: Quinta e Palacio da Bacalhôa em Azeitão, monographia historico-artistica",
+      "authors": "Rasteiro, Joaquim, 1834-1898",
+      "sha256": "0a4d669adcc1d1d1c1c9350aa853a5da1a67e664aa780e1f00bdca7e28536cc7"
+    },
+    {
+      "id": "63943",
+      "title": "Ás Mulheres Portuguêsas",
+      "authors": "Osório, Ana de Castro, 1872-1935",
+      "sha256": "98372bdd520336176c897328a0f188bdfe1fc8424f4f0c4eaece7c9f2ec000e3"
+    },
+    {
+      "id": "65021",
+      "title": "A Primavera",
+      "authors": "Castilho, Antonio Feliciano de, 1800-1875",
+      "sha256": "7bb435cb0c49504cb1658f994cbacdb9544fe637d4fd50574d60b23ff58811ea"
+    },
+    {
+      "id": "67162",
+      "title": "Helena",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "c64a05fa3a269f7036e359048b2ffc27ad0d693d47add748f7c350a94ee8c69a"
+    },
+    {
+      "id": "67561",
+      "title": "A nossa Gente",
+      "authors": "Queiroz, Teixeira de, 1848-1919",
+      "sha256": "137d67f6eb9b0a9dde4f78ed2bd1560ebf4fb7c04c18f4b29fa116ba03b9dd5c"
+    },
+    {
+      "id": "67594",
+      "title": "A Intrusa",
+      "authors": "Almeida, Júlia Lopes de, 1862-1934",
+      "sha256": "4e0a45822e4e468bfe51433582f41809f1d6d5317bf1014212acbe7ce5cfcc53"
+    },
+    {
+      "id": "67724",
+      "title": "O Guarany: romance brazileiro, Vol. 1 (of 2)",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "22713b6e92435496a5f865cf040acbc044c610759cb355c31ec00215dd2c72ab"
+    },
+    {
+      "id": "67725",
+      "title": "O Guarany: romance brazileiro, Vol. 2 (of 2)",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "b03cc5c553b7f5e061fd06cddb1f7bf7011ba3880e962a68b202f1b170aaa9a9"
+    },
+    {
+      "id": "67740",
+      "title": "Iracema\ncom uma noticia biographica do auctor",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "e19bbd57aa2fff7715832b52e1c28562d8bdc4a908515609a6f638799d916bac"
+    },
+    {
+      "id": "67767",
+      "title": "A Mãe",
+      "authors": "Gorky, Maksim, 1868-1936; Lacerda, Augusto de, 1864-1926 [Translator]; Persky, Serge, 1870-1938 [Translator]",
+      "sha256": "b45a00ba3cf234cf29f4e622679a27c70989cea51f14446ea54fb91a574f3d83"
+    },
+    {
+      "id": "67780",
+      "title": "Yayá Garcia",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "5061aaa46be382a57e3f9ea4f7aba47cf64e31d19f719894c5e09abd5dc8e606"
+    },
+    {
+      "id": "67831",
+      "title": "A Pata da Gazella: romance brasileiro.",
+      "authors": "Alencar, José Martiniano de, 1829-1877",
+      "sha256": "0b8b43bcf7fe58d56d6c52faf109337b8ba29e1d62c2e3eed17f5443fd29a581"
+    },
+    {
+      "id": "67935",
+      "title": "Reliquias de Casa Velha",
+      "authors": "Machado de Assis, 1839-1908",
+      "sha256": "a06755c260adbc356a63d95d4c2d0270904e88e80bcf10b40dd13afc255e493e"
+    },
+    {
+      "id": "68121",
+      "title": "Pelos suburbios e visinhanças de Lisboa",
+      "authors": "Pereira, Gabriel, 1847-1911",
+      "sha256": "0985ee036e27f800c9f1baef079b7d3853a68ce3f22482f80dc4bc986b9a6ba2"
+    },
+    {
+      "id": "68541",
+      "title": "O Atheneu (chronica de saudades)",
+      "authors": "Pompéia, Raul, 1863-1895",
+      "sha256": "6823430573966358842c539f23d951dbc55c26eba9c484a6f6713c8dadf5efe1"
+    },
+    {
+      "id": "68635",
+      "title": "Innocencia",
+      "authors": "Taunay, Alfredo d'Escragnolle Taunay, Visconde de, 1843-1899; Norfini, Alfredo, 1867-1944 [Illustrator]",
+      "sha256": "56e2179bc78ad6d6102148720c0b69ac4382a333ac7618eb476fe52bacd6a675"
+    },
+    {
+      "id": "68751",
+      "title": "Estudos sobre criminalidade e educação (philosophia e anthropagogia)",
+      "authors": "Ferreira-Deusdado, Manuel Antonio, 1858-1921",
+      "sha256": "e9018de785cdcda5a2ace0fc47664139fccd485430b097ca9a398fd202b86ccf"
+    },
+    {
+      "id": "68905",
+      "title": "A brazileira de Prazins: scenas do Minho.",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "d383308c6304145806baa7e0285781eccaf9dfb881fb8dfa752e6b422b37a32d"
+    },
+    {
+      "id": "68932",
+      "title": "O esqueleto: Romance",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "4a067d52b88173b51c8ccc05d4001ad667747d8e415cc6b7b16b898c10b50666"
+    },
+    {
+      "id": "68986",
+      "title": "Prosas barbaras\ncom uma introducção por Jayme Batalha Reis.",
+      "authors": "Queirós, Eça de, 1845-1900; Batalha Reis, Jaime, 1847-1935 [Editor]",
+      "sha256": "248de9bd8bbf00d34785c0aa9dbc7b6994499321dde6c6bb1c1567a2b900eae4"
+    },
+    {
+      "id": "69122",
+      "title": "Felicidade pela Agricultura (Vol. I)",
+      "authors": "Castilho, Antonio Feliciano de, 1800-1875",
+      "sha256": "b2a25908a47cceab6b32d06484a47d807f8d0aede71053b39e5dffe1b4a52bbf"
+    },
+    {
+      "id": "69187",
+      "title": "O Cortiço",
+      "authors": "Azevedo, Aluísio, 1857-1913",
+      "sha256": "f17560b8cc8b260e61251090e62c6ed7794d1e1e57c5a573910bcbf726e169e5"
+    },
+    {
+      "id": "69229",
+      "title": "A fallencia",
+      "authors": "Almeida, Júlia Lopes de, 1862-1934",
+      "sha256": "61378dca26a39184a8b2d68b4378bc4fd878f5e577bdc2a8526eaa99614a271c"
+    },
+    {
+      "id": "69239",
+      "title": "Era uma vez...",
+      "authors": "Almeida, Júlia Lopes de, 1862-1934",
+      "sha256": "4c2f33a91acb2f55270804a7c394bc2dafc1833e3f84f4e22a81b15803cc6421"
+    },
+    {
+      "id": "69343",
+      "title": "Neves de antanho",
+      "authors": "Sabugosa, António Maria José de Melo César e Meneses, conde de, 1854-1923",
+      "sha256": "2f62fd96d8b1185dfb08bfdbd660f34914574feb8e5682e37bac3c97170254fe"
+    },
+    {
+      "id": "69353",
+      "title": "A flor secca: romance",
+      "authors": "Chagas, Manuel Pinheiro, 1842-1895",
+      "sha256": "2e13ade839d68918379308781902c33f3cd01df1ffaa8d4361954e2bbd7f7873"
+    },
+    {
+      "id": "69423",
+      "title": "O retrato de Venus e estudos de historia litterária",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "57c4859beee760389784beb5c456702c964c9f7ba55334f8235514e8f685dff1"
+    },
+    {
+      "id": "70121",
+      "title": "A capital federal (impressões de um sertanejo)",
+      "authors": "Coelho Netto, Henrique, 1864-1934",
+      "sha256": "fa9c3415cbf2f71e21d26d15bac17cfc9cd9de68f02e71a7124841e1e3ef1fd9"
+    },
+    {
+      "id": "70576",
+      "title": "Felicidade pela Agricultura (Vol. II)",
+      "authors": "Castilho, Antonio Feliciano de, 1800-1875",
+      "sha256": "d9c338642538bcf17329b8636d341b865c57f1c157a606acd290565f45f6de9b"
+    },
+    {
+      "id": "70664",
+      "title": "O sangue",
+      "authors": "Castelo Branco, Camilo, 1825-1890",
+      "sha256": "f3179493c47b1a0ed5fe692175a54bd93ce8009eb21ad8caac41c6d373469b8f"
+    },
+    {
+      "id": "70672",
+      "title": "Scenas do século XVIII em Portugal",
+      "authors": "Carvalho, Maria Amalia Vaz de, 1847-1921",
+      "sha256": "2141aa37f7e65cdd33b5b48868cd42dee38958020e484f875a579e7d2895ca9e"
+    },
+    {
+      "id": "70764",
+      "title": "Parnaso portuguez moderno",
+      "authors": "Braga, Teófilo, 1843-1924 [Compiler]",
+      "sha256": "af608d5a6f67ed9e8070ef69e377817804f6541cc30b83d9dbc0c98be612a5b1"
+    },
+    {
+      "id": "70819",
+      "title": "Contos",
+      "authors": "Almeida, Fialho de, 1857-1911",
+      "sha256": "4797cb0f287f357cd856f5914effad7007f17e22e3e86af5b6810ffd4e16062f"
+    },
+    {
+      "id": "70886",
+      "title": "Introdução á archeologia da peninsula Iberica",
+      "authors": "Simões, Augusto Filipe, 1835-1884",
+      "sha256": "f910c36a7218719e0a6e175f2636b2c02a99d6fa65fed3a5964b35d77a5a01fb"
+    },
+    {
+      "id": "71031",
+      "title": "Principios e questões de philosophia politica (Vol. 1 of 2)",
+      "authors": "Cândido, António, 1850-1922",
+      "sha256": "e5f07b39775aa18d3c6c6cb07f53c3967853771949b33aff76fea13e2cec5415"
+    },
+    {
+      "id": "71173",
+      "title": "Romanceiro geral",
+      "authors": "Braga, Teófilo, 1843-1924 [Compiler]",
+      "sha256": "cf625e5d6f478d637727dac9689ca11dd2bc234de35c7ab05bfed030f1f7bfe4"
+    },
+    {
+      "id": "71274",
+      "title": "A triste canção do sul (subsidios para a historia do fado)",
+      "authors": "Pimentel, Alberto, 1849-1925",
+      "sha256": "fc724a54ed061f2cdf02c6b02e1a8840803e9b1d9eb427e32cd193cacccb4a71"
+    },
+    {
+      "id": "71330",
+      "title": "Fábulas—folhas cahidas",
+      "authors": "Almeida Garrett, João Batista da Silva Leitão de Almeida Garrett, Visconde de, 1799-1854",
+      "sha256": "a1610659874f84e6835d7efff8f591ad974c33598130773fd491fc2a39b22dee"
+    },
+    {
+      "id": "71871",
+      "title": "Portugal contemporaneo, Vol. 2 (of 2)",
+      "authors": "Oliveira Martins, J. P. (Joaquim Pedro), 1845-1894",
+      "sha256": "aea58127e571b5130d80b98d0d1799713019409c65b6fe36f786f2a4686e83b5"
+    },
+    {
+      "id": "74392",
+      "title": "Historia da litteratura portugueza [Vol. I]",
+      "authors": "Braga, Teófilo, 1843-1924",
+      "sha256": "a8e299c4ef86b9bf25724d991f21297df4dff906870d4a752595c687d152b327"
+    },
+    {
+      "id": "74475",
+      "title": "A escrava Isaura",
+      "authors": "Guimarães, Bernardo, 1825-1884",
+      "sha256": "b6d2b54ed8fed44044d6c0a4c4f4306f38b7b0cb579e927aedfc3a12b1c444fc"
+    },
+    {
+      "id": "74854",
+      "title": "Cantos",
+      "authors": "Dias, Antônio Gonçalves, 1823-1864",
+      "sha256": "968d5cc41a4498893bc375acc26bd20995c6ee4a6c8596aa888798f4185bf5d9"
+    },
+    {
+      "id": "75220",
+      "title": "Historias das Ilhas",
+      "authors": "Azevedo, Maximiliano de, 1850-1911; Herminio, Celso, 1871-1904 [Illustrator]",
+      "sha256": "df8c8b93c806f882b40ee41ce80120d832a5f7a3012d35cd334b78d136abb622"
+    },
+    {
+      "id": "76030",
+      "title": "Minha formação",
+      "authors": "Nabuco, Joaquim, 1849-1910",
+      "sha256": "386e741233a4bf0316d580db93b3003e8dc1813c730fe6f3dcf4bba001a4963f"
+    },
+    {
+      "id": "79326",
+      "title": "Pau brasil",
+      "authors": "Andrade, Oswaldo de, 1890-1954; Prado, Paulo, 1869-1943 [Contributor]; Tarsila, 1886-1973 [Illustrator]",
+      "sha256": "cd8409e99ff5877f2aa11328ed948bbe62cfc86ebc51a9ad625b6720b93aae3d"
+    },
+    {
+      "id": "79528",
+      "title": "Segundo livro de crítica",
+      "authors": "Cordeiro, Luciano, 1844-1900",
+      "sha256": "a5b217078628114f6ebdc7ce8f35b73104f8e894f1e1bba99c716985b4b9a1c7"
+    },
+    {
+      "id": "79776",
+      "title": "A saudade portuguesa",
+      "authors": "Vasconcellos, Carolina Michaëlis de, 1851-1925",
+      "sha256": "f8262f55bf5bf622e82aec6427b6f81ecc78c907921867295f1c6216619b6c7c"
+    }
+  ],
+  "extra_texts": {
+    "folder": "models/lexicon/sources/alesp/text",
+    "files": 3565,
+    "weight": 4
+  }
+}

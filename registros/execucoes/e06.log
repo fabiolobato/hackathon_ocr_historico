@@ -1,0 +1,19 @@
+2026-10-22 13:16:17,580 INFO sanity_alpha_neg: WERs 60.93 WERn 59.20 CERn 23.27
+2026-10-22 13:16:21,384 INFO alpha0: WERs 60.76 WERn 59.03 CERn 23.24
+2026-10-22 13:16:25,168 INFO alpha2: WERs 55.59 WERn 53.50 CERn 22.26
+2026-10-22 13:16:28,939 INFO alpha4: WERs 53.44 WERn 50.85 CERn 21.83
+2026-10-22 13:16:32,901 INFO alpha8: WERs 51.90 WERn 49.10 CERn 21.49
+2026-10-22 13:16:36,622 INFO alpha16: WERs 51.28 WERn 48.25 CERn 21.69
+2026-10-22 13:16:40,397 INFO alpha100: WERs 51.33 WERn 48.31 CERn 21.83
+2026-10-22 13:16:44,291 INFO alpha8_r50: WERs 51.79 WERn 48.98 CERn 21.48
+2026-10-22 13:16:48,111 INFO alpha8_c30: WERs 52.02 WERn 49.21 CERn 21.52
+variant                                     WERs    WERn    CERn
+alpha16                                    51.28   48.25   21.69
+alpha100                                   51.33   48.31   21.83
+alpha8_r50                                 51.79   48.98   21.48
+alpha8                                     51.90   49.10   21.49
+alpha8_c30                                 52.02   49.21   21.52
+alpha4                                     53.44   50.85   21.83
+alpha2                                     55.59   53.50   22.26
+alpha0                                     60.76   59.03   23.24
+sanity_alpha_neg                           60.93   59.20   23.27

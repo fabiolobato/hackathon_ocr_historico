@@ -1,0 +1,111 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "outputs/finetune/runs/ft_v1/best_0.8825.safetensors",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 16,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.3459715639810427,
+    "cer_strict": 0.10516748896390547,
+    "wer_norm": 0.29606299212598425,
+    "cer_norm": 0.09949319818618298
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 38,
+      "pred_words": 217,
+      "text": "§3º O voe Presidenta e o natural substituto do Presidente.\n§4º Substituem ao Vice. Presidente os demais Vereadores\nna ordem de sua estação. Em caso de embate servirá\nmais velo.\nCapitulo 3\nDa ordem dos trabalhos\nA3\nNo dia marcado paras sessões se verão Vereador\nre no salão principal da municipalidade, as onze\nhoras da manha, e havendo eso legal, o presidente\narmin o sen luger, que é a cabeceira da mna dos\ntrabalhos, dará municipio. as sessões pelos palavras:- Esta\naberta a sessão.\nArtigo 4º\nAs sessões durarão o tempo maximo de quatro hora\nnas. Perdoada a sessão, o presidente encerraram\nos trabalhos pelas palavras:- Está encerrado a sessão.\nArtigo 5\nAberta a sessão, o presidente declararam a material em\ndiscussão, manterá a ordem durante os trabalhos, dan\ndo a palavra do que primeira a pedir, fases observar\na decencia e a civilidade entre os vereadores e\nespectadores.\n\n\n\n§1º No reto dos trabalhos e sedado o ingresso\na pessoa que não pertença a corporação mani\npal.\n§2º s espectadores não podendo intervir nos debates,\npor qualquer forma, e nem dor signos de apela\nação ou desagrado, 186 pena de serem errados, e\nexpulsos da sala, em caso de residência.\nArtigo 6.º\nAo Presidente nicole; –\n2\n1 Chamar o ordem, ate tre vezes, o vereador que",
+      "wer_strict": 0.3691588785046729,
+      "cer_strict": 0.11686274509803922,
+      "wer_norm": 0.31627906976744186,
+      "cer_norm": 0.10976594027441484,
+      "strict_we": 79,
+      "strict_rw": 214,
+      "strict_ce": 149,
+      "strict_rc": 1275,
+      "norm_we": 68,
+      "norm_rw": 215,
+      "norm_ce": 136,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 34,
+      "pred_words": 182,
+      "text": "destes, descendentes, sogro e genro, umas e contados\ndurante o cunhado, tio e sobrinho e socos dar\nmesma firma, o vereador a quem a suporte\ninteressar não poderá votar.\nArtigo 15º\nAos vereadores que, sem causa justificada\nfaltaram a duas sessões consecutivas, bem\ncomo dos supplente convocado que não\ncomparecer, sera imposta, pelo Presidente\na multa de dez mil reis (10:000) (Reg. alto 6º\n§4º). O Presidente quando tiver de desertar\nqualquer assumo on apresentar e defender\nmedicação sua, passará a presidencial a se\nimediato.\nCapitulo 4º\nDo numero das sessões\nArtigo 16º\nA Camara municipal fará em cada anno\nseis sessões ordinarias, de dois co dois meses\nnos pinheiros dias estes de Outubro, Dezembro,\nFevereiro Abril, Junho e Agosto que durarão\nos dias necessarios, nunca menos de tre.\n\nArgo 17\nCaberá em cada anno tantas sessões extra\nOrdinarias quantas rem exigida pelo\nbem municipal .\n§/º As sessões extraordinarias serão como\ncada pelo Presidente e sempre por ordem\nsuperior, iniciativa do popo presidente\nom a Requerimento do Intendente. Em qual\nquer Caro o presidente declarar o motivo\nda coração.\nDisposições gerais.",
+      "wer_strict": 0.29213483146067415,
+      "cer_strict": 0.0735930735930736,
+      "wer_norm": 0.2430939226519337,
+      "cer_norm": 0.06690454950936664,
+      "strict_we": 52,
+      "strict_rw": 178,
+      "strict_ce": 85,
+      "strict_rc": 1155,
+      "norm_we": 44,
+      "norm_rw": 181,
+      "norm_ce": 75,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 244,
+      "text": "amadas quando a Camara o exigir, prendendo\nani a mesma cm seis meses, pelo menos,de\nantecedência, sona lee que o numero de tampa\ndas exigido não escada a capacidade e força\ndis levamos, caso em que se obriga a satisfazer\ndentro do praso de dose moses contadas da\ndata do aviso, não podendo elle ter logar antes\nde ser amargurada e acerta a iluminação\nconstante do presente contrato.\n§2º A clausula 18º do contracto fica afim\nintimida: Clausula 18º se o arranjo que\nocasional a interrupção da Su durar mais\nde queira dias, podería Camara resistir\ncontracto, salvo caso de fraca maior que\nserá resolvida por árbitros pessoais\nnomeados pela forma de direito.\n§ 3º A clausula 16º fica assim:- A empresa\ndeverá ter sempre em deposito o numero de\namadas necessario para substituir mime\nexatamente qualquer lâmpada que de queime,\nse muitas en se apague, sob pena de pagar\ndez mil reis de muita abatida nas estao\nmendes por amada que estiver apagada\nduas noites consecutivas, salvo caso de forca\nmaior a juizo do fiscal professional da Camara.\n§4º A clausula 14º ficará deste modo: - Na\nexpressão \"iluminação publica - fica compreendida\na exumação da Casa da Camara com seis lama\npatas e a da Cadela com qual numero, destroi\ntidos de acordo com a mesma Camara.\nS5º A Clausula 20º ficará assim: - A Empresa\nsera obrigada a matar e inaugurar eua\nação da Cidade-da data desta lei a seis meses",
+      "wer_strict": 0.3651452282157676,
+      "cer_strict": 0.1203377902885292,
+      "wer_norm": 0.3179916317991632,
+      "cer_norm": 0.11663066954643629,
+      "strict_we": 88,
+      "strict_rw": 241,
+      "strict_ce": 171,
+      "strict_rc": 1421,
+      "norm_we": 76,
+      "norm_rw": 239,
+      "norm_ce": 162,
+      "norm_rc": 1389
+    }
+  ]
+}

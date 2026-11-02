@@ -1,0 +1,13 @@
+2026-10-22 02:31:04,079 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/coremltools/models/model.py:628: RuntimeWarning: You will not be able to run predict() on this Core ML model. Underlying exception message was: Error compiling model: "compiler error: Error reading protobuf spec. validator error: Input MLMultiArray to neural networks must have dimension 1 (vector) or 3 (image-like arrays).".
+  _warnings.warn(
+
+2026-10-22 02:33:48,138 INFO raw_medium: WERs 64.51 WERn 63.15 CERn 23.23
+2026-10-22 02:37:14,441 INFO nlbin_medium: WERs 71.95 WERn 70.54 CERn 32.50
+2026-10-22 02:39:24,467 INFO nlbin_seg_raw_rec: WERs 62.24 WERn 60.95 CERn 23.53
+2026-10-22 02:40:07,122 INFO raw_small: WERs 68.03 WERn 67.10 CERn 25.89
+variant                                     WERs    WERn    CERn
+nlbin_seg_raw_rec                          62.24   60.95   23.53
+raw_medium                                 64.51   63.15   23.23
+raw_small                                  68.03   67.10   25.89
+nlbin_medium                               71.95   70.54   32.50
+EXIT 0

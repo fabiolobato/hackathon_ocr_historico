@@ -1,0 +1,13 @@
+{
+  "thresholds": {
+    "min_chars": 10,
+    "min_mean_prob": 0.9,
+    "min_min_prob": 0.0,
+    "max_change": 1.0,
+    "min_known": 0.9
+  },
+  "lines": 2865,
+  "kept": 1840,
+  "pages": 88,
+  "kept_chars": 72656
+}

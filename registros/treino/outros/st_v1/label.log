@@ -1,0 +1,199 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.643954    7779 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294055.643952    7786 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294055.643951    7785 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294055.643953    7787 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.646038    7776 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.647300    7783 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.661353    7780 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.663859    7782 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.666703    7781 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.667053    7784 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.670807    7788 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294055.680117    7789 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294055.760511    7786 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.760515    7787 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.760511    7779 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.760535    7785 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.761049    7783 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.767029    7780 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.778864    7782 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.780458    7788 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.782357    7776 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.791834    7789 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.797781    7784 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793294055.816022    7781 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.712174    7780 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.713127    7780 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.759383    7779 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.760237    7779 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.775238    7786 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.775905    7782 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.776042    7786 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1793294059.776644    7782 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.779211    7789 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.779978    7789 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.785490    7784 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.786176    7787 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.786277    7784 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1793294059.786982    7787 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.800229    7788 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.801092    7788 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.809312    7785 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.810136    7785 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.818524    7781 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.819277    7781 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.835535    7776 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.836344    7776 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793294059.961663    7783 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793294059.962466    7783 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-10-29 17:20:13,597 INFO 1/91 pages, 34 lines
+2026-10-29 17:20:13,604 INFO 2/91 pages, 40 lines
+2026-10-29 17:21:06,536 INFO 3/91 pages, 33 lines
+2026-10-29 17:21:06,540 INFO 4/91 pages, 13 lines
+2026-10-29 17:21:06,541 INFO 5/91 pages, 8 lines
+2026-10-29 17:21:06,541 INFO 6/91 pages, 0 lines
+2026-10-29 17:24:53,426 INFO 7/91 pages, 33 lines
+2026-10-29 17:24:57,798 INFO 8/91 pages, 33 lines
+2026-10-29 17:25:57,325 INFO 9/91 pages, 33 lines
+2026-10-29 17:25:57,331 INFO 10/91 pages, 33 lines
+2026-10-29 17:25:57,338 INFO 11/91 pages, 33 lines
+2026-10-29 17:25:57,344 INFO 12/91 pages, 33 lines
+2026-10-29 17:25:57,351 INFO 13/91 pages, 33 lines
+2026-10-29 17:25:57,357 INFO 14/91 pages, 33 lines
+2026-10-29 17:25:57,364 INFO 15/91 pages, 33 lines
+2026-10-29 17:28:24,110 INFO 16/91 pages, 33 lines
+2026-10-29 17:28:24,115 INFO 17/91 pages, 33 lines
+2026-10-29 17:28:24,126 INFO 18/91 pages, 33 lines
+2026-10-29 17:31:15,510 INFO 19/91 pages, 33 lines
+2026-10-29 17:31:15,518 INFO 20/91 pages, 33 lines
+2026-10-29 17:31:15,524 INFO 21/91 pages, 33 lines
+2026-10-29 17:31:46,280 INFO 22/91 pages, 33 lines
+2026-10-29 17:35:40,175 INFO 23/91 pages, 33 lines
+2026-10-29 17:35:40,181 INFO 24/91 pages, 33 lines
+2026-10-29 17:35:40,188 INFO 25/91 pages, 33 lines
+2026-10-29 17:35:40,191 INFO 26/91 pages, 33 lines
+2026-10-29 17:35:40,195 INFO 27/91 pages, 33 lines
+2026-10-29 17:35:40,198 INFO 28/91 pages, 33 lines
+2026-10-29 17:35:43,622 INFO 29/91 pages, 33 lines
+2026-10-29 17:35:43,623 INFO 30/91 pages, 2 lines
+2026-10-29 17:35:43,634 INFO 31/91 pages, 33 lines
+2026-10-29 17:37:41,293 INFO 32/91 pages, 33 lines
+2026-10-29 17:37:41,299 INFO 33/91 pages, 33 lines
+2026-10-29 17:39:06,450 INFO 34/91 pages, 33 lines
+2026-10-29 17:39:24,256 INFO 35/91 pages, 33 lines
+2026-10-29 17:42:35,778 INFO 36/91 pages, 33 lines
+2026-10-29 17:42:35,787 INFO 37/91 pages, 34 lines
+2026-10-29 17:42:35,796 INFO 38/91 pages, 33 lines
+2026-10-29 17:42:35,803 INFO 39/91 pages, 33 lines
+2026-10-29 17:42:35,807 INFO 40/91 pages, 33 lines
+2026-10-29 17:42:35,807 INFO 41/91 pages, 1 lines
+2026-10-29 17:45:54,002 INFO 42/91 pages, 33 lines
+2026-10-29 17:45:54,009 INFO 43/91 pages, 33 lines
+2026-10-29 17:45:54,015 INFO 44/91 pages, 32 lines
+2026-10-29 17:45:54,022 INFO 45/91 pages, 33 lines
+2026-10-29 17:45:54,028 INFO 46/91 pages, 33 lines
+2026-10-29 17:48:23,967 INFO 47/91 pages, 33 lines
+2026-10-29 17:48:38,210 INFO 48/91 pages, 33 lines
+2026-10-29 17:50:53,235 INFO 49/91 pages, 33 lines
+2026-10-29 17:50:53,241 INFO 50/91 pages, 33 lines
+2026-10-29 17:50:53,248 INFO 51/91 pages, 33 lines
+2026-10-29 17:50:53,255 INFO 52/91 pages, 33 lines
+2026-10-29 17:50:53,261 INFO 53/91 pages, 32 lines
+2026-10-29 17:53:09,617 INFO 54/91 pages, 33 lines
+2026-10-29 17:53:09,624 INFO 55/91 pages, 33 lines
+2026-10-29 17:53:09,634 INFO 56/91 pages, 33 lines
+2026-10-29 17:53:09,640 INFO 57/91 pages, 33 lines
+2026-10-29 17:53:45,612 INFO 58/91 pages, 33 lines
+2026-10-29 17:57:05,372 INFO 59/91 pages, 33 lines
+2026-10-29 17:57:16,904 INFO 60/91 pages, 33 lines
+2026-10-29 17:58:10,962 INFO 61/91 pages, 33 lines
+2026-10-29 17:58:10,968 INFO 62/91 pages, 33 lines
+2026-10-29 17:59:38,814 INFO 63/91 pages, 33 lines
+2026-10-29 17:59:38,820 INFO 64/91 pages, 33 lines
+2026-10-29 17:59:38,826 INFO 65/91 pages, 33 lines
+2026-10-29 17:59:38,834 INFO 66/91 pages, 33 lines
+2026-10-29 17:59:38,840 INFO 67/91 pages, 33 lines
+2026-10-29 18:00:22,994 INFO 68/91 pages, 33 lines
+2026-10-29 18:02:03,637 INFO 69/91 pages, 33 lines
+2026-10-29 18:02:03,644 INFO 70/91 pages, 33 lines
+2026-10-29 18:04:54,437 INFO 71/91 pages, 33 lines
+2026-10-29 18:04:54,447 INFO 72/91 pages, 33 lines
+2026-10-29 18:04:54,453 INFO 73/91 pages, 33 lines
+2026-10-29 18:05:07,518 INFO 74/91 pages, 33 lines
+2026-10-29 18:07:58,820 INFO 75/91 pages, 32 lines
+2026-10-29 18:07:58,832 INFO 76/91 pages, 33 lines
+2026-10-29 18:07:58,838 INFO 77/91 pages, 33 lines
+2026-10-29 18:07:58,844 INFO 78/91 pages, 33 lines
+2026-10-29 18:08:52,444 INFO 79/91 pages, 33 lines
+2026-10-29 18:08:52,447 INFO 80/91 pages, 33 lines
+2026-10-29 18:10:39,558 INFO 81/91 pages, 33 lines
+2026-10-29 18:10:43,360 INFO 82/91 pages, 32 lines
+2026-10-29 18:11:25,305 INFO 83/91 pages, 33 lines
+2026-10-29 18:11:25,307 INFO 84/91 pages, 32 lines
+2026-10-29 18:12:03,221 INFO 85/91 pages, 33 lines
+2026-10-29 18:12:03,223 INFO 86/91 pages, 33 lines
+2026-10-29 18:12:13,113 INFO 87/91 pages, 33 lines
+2026-10-29 18:15:31,110 INFO 88/91 pages, 33 lines
+2026-10-29 18:15:31,112 INFO 89/91 pages, 32 lines
+2026-10-29 18:15:31,114 INFO 90/91 pages, 33 lines
+2026-10-29 18:15:31,116 INFO 91/91 pages, 33 lines

@@ -1,0 +1,75 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.4,
+      "lexicon_min_len": 3,
+      "decoder": "ctc",
+      "ctc_alpha": 4.0,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "11",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.5307017543859649,
+    "cer_strict": 0.22788605697151423,
+    "wer_norm": 0.5194805194805194,
+    "cer_norm": 0.2264006139677667
+  },
+  "pages": [
+    {
+      "page": 11,
+      "lines": 32,
+      "pred_words": 224,
+      "text": "Artigo\n180\nes casos omissos n'este rgmicuto seraõ requlado\npelo driporto no Dee de 15 de Jancio de 1890, n\nlei nº 16 ae 13 de Novunbro de 1891, no Reg. de 29\na Junho de 1892 (Dee no 86) e mais lequitocao en\nrigor. Sadbarlo do Pinhal, 30 de Sesuutr de 1892.\nJoagne Joe Goncals Braga. Auge de Saga\nFranco. Dr Joaque Rodrique oSiqun. Elias dCamergo\nPenteado. Joagui Vai do Amaral Cauuch. Ara\nFerra da Sin Cabral. Eugen onoraor Egos.\nEu Jaqui Auymt Ribeir de longe, le eusai\npresente rut fi que vai co~forme o oi~m\nao qual me report e don fe. S. Cd de Proa 30de\ndet d 1892. Joaj suis Rebsing.\nLei eNo 2o\neA Camara deScobart do Pinhal resolve:\nArtigo 12 A Cama Memncipal garante à Empi\n~u~ Electnea a venda liquida amal de 6% sobre\nun capital de cento e sessenta conto de rica\n1160000) que fr effectivamente impeyado na\nnitallaças da isamaçao publica e particular\nPeta eivade.\n§12 A ruiva garantida pela Camara come cara\na rigorar da data du untarlaçao official da shimiacad\npublica e particular.\nArtigo 22 Prevalece para o effeitis de Diccila o contras\nto celebrado pela Municipalidade en 22 d Abril\nde 1890.\n§2eA clausula 10 do referi contrato fica\nassmi ittituda:- Clausula 10e A Empisa\nfica obrigada a augmentor o numero de",
+      "wer_strict": 0.5307017543859649,
+      "cer_strict": 0.22788605697151423,
+      "wer_norm": 0.5194805194805194,
+      "cer_norm": 0.2264006139677667,
+      "strict_we": 121,
+      "strict_rw": 228,
+      "strict_ce": 304,
+      "strict_rc": 1334,
+      "norm_we": 120,
+      "norm_rw": 231,
+      "norm_ce": 295,
+      "norm_rc": 1303
+    }
+  ]
+}

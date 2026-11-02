@@ -1,0 +1,71 @@
+{
+ "final_v6": {
+  "config": "configs/final_v6.json",
+  "tuning": {
+   "wer_norm": 3.62,
+   "cer_norm": 1.51
+  },
+  "heldout": {
+   "wer_norm": 2.91,
+   "cer_norm": 1.39
+  },
+  "all": {
+   "wer_norm": 3.41,
+   "cer_norm": 1.47
+  },
+  "pages": {
+   "18": [
+    2.9,
+    0.8
+   ],
+   "22": [
+    3.9,
+    1.2
+   ],
+   "23": [
+    4.5,
+    2.2
+   ],
+   "24": [
+    2.4,
+    1.2
+   ],
+   "25": [
+    1.8,
+    1.6
+   ],
+   "31": [
+    5.5,
+    2.8
+   ],
+   "32": [
+    3.9,
+    0.9
+   ],
+   "34": [
+    1.4,
+    0.5
+   ],
+   "44": [
+    2.3,
+    0.7
+   ],
+   "55": [
+    4.9,
+    2.4
+   ]
+  },
+  "texts": {
+   "18": "dias contados da intimação que lhes for feita\npelo fiscal, a removerem taes cercas para\no alinhamento, se for verificado pelo arruador\nque ellas se acham fóra delle. No caso de não\nter sido feito no praso marcado a remoção\nde que trata este paragrapho, será a cerca demolida\ná custa do infractor por ordem do Intendente,\nnão se responsabilizando a Camara por\nqualquer prejuizo provindo dessa demolição.\nArtigo 6.º As ruas existentes conservarão no\nseu prolongamento a largura e direcção que\ntiverem e as que de novo se abrirem terão,\npelo menos, quatorze metros de largura,\nem relação umas ás outras, serão paralellas\nou perpendiculares, salvo especial deliberação\nda Camara, em contrario.\nArtigo 7.º Os proprietarios de terrenos dentro do\nquadro da cidade determinado pela Camara\nsão obrigados a, no prazo de noventa dias, custado\ndo dia da intimação que para esse fim\nlhes for feita pelo fiscal, fechar taes terrenos\ncom muros de pedra, tijolos, adobe, taipa\nou parede de mão, que terão nunca menos\nde dois metros e vinte centimetros de altura,\nsob pena de um mil reis por metro de\nfecho a fazer, alem de ser o mesmo fecho\nfeito á custa do infractor.\nArtigo 8.º Os proprietarios de edificios dentro da\nparte da cidade determinada pela Camara, no\nprazo de noventa dias, contados do dia da\nintimação que lhe for feita pelo Fiscal, são\nobrigados :\n§ 1.º A fazer o calçamento denominado=",
+   "22": "e reparar o solo.\n§ 4.º Collocar nas ruas ou praças da cidade\nou suburbios, junto das casas e terrenos, e\nfóra delles, cepos ou degraus. Multa de vinte\nmil reis, alem da obrigação de retirar o\nobjecto da infracção.\n§ §.º Collocar nas frentes para ruas ou praças\nda cidade suburbios portões de bater, conhecidos\npelo nome de- porteiras. Multa de dez\nmil reis, alem da obrigação de retirar a\nporteira.\n§ 6.º Utilizar-se alguem de taipa ou muro á\nface das ruas ou praças, na cidade ou suburbios,\npara servir de parede e n'elle terminar\na coberta de qualquer casa ou dependencia\nvisivel de fóra, sem que este tenha a altura\ndeterminada no artigo terceiro. Multa de vinte\nmil reis alem da obrigação de demolir ou de\nreparar a obra.\n$ 7.º Construir ou reconstruir Latrinas a não serem\naffastadas, pelo menos, quatro metros dos fechos\ndivisorios. Multa de cincoenta mil reis, alem\nde ser a obra demolida á custa do infractor.\nArtigo 16.º Não se comprehendem nas disposições\ndo artigo antecedente:\n§ 1.º Os toldos que os negociantes collocarem nas\nfrente de seus estabelecimentos commerciaes, uma\nves que não embaracem de qualquer modo o\ntransito publico.\n§ 2º Os postes ou moitões de pau ou pedra, consummados\n- frades - que forem collocados nas esquinas\npara resguardarem os cantos das casas ou\nmuros, com sciencia do Intendente.",
+   "23": "§ 3.º Os postes que forem collocados por occasião e por causa\nde qualquer festividade e que forem retirados até vinte\ne quatro horas depois que tiverem prestado os serviços\npara que foram destinados, reparando-se em todo o\ncaso o damno feito no solo. Á falta de observancia\ninfractor pagará a multa de vinte mil reis.\nArtigo 17.º Á Camara compete: - conceder aos particulares\nou associações, terrenos devolutos do patrimonio\nde S. Carlos do Pinhal, em datas de dezesete metros\nde frente e quarenta e quatro de fundo.\nTal concessão imposta para o concessionario\na obrigação de fechar o terreno no praso de esset\ndias sob pena da multa de quinhentos reis por\nmetros de frente para a rua ou praça; salvo impossibilidade\nallegada no referido praso e que\na Camara decidirá como julgar mais acertado.\nArtigo 18.º Aquelle que pretender data de terreno\ndeverá dirigir requerimento á Camara e, obtido\ndeferimento, fará ao fabriqueiro da egreja atrio\nou a quem seu cargo exercer, o pagamento\nda joia de duzentos mil reis e, com documento,\nque prove tal pagamento, irá receber do Secretario\nda Camara a carta de data, que será\nassignada pelo Intendente.\nArt.º 19.º O producto das concessões de datas, pertence\na egreja mais desta cidade e á municipalidade,\nconforme as doações e, pelo titulo\nde concessão o concessionario alem da\nmencionada joia, pagará o que nos termos\ndeste codigo couber ao Secretario.\nArtigo 20.º As disposições dos artigos desoito e\ndezenove serão tambem observadas no caso\nde transferencia de titulo de concessão,",
+   "24": "com a seguinte modificação: o requerimento de\nque falla o artigo dezoito será feito por ambas\nas partes- transferente e adquirente- e alem\ndisso mencionará o valor do contracto. A\njoia de vinte e cinco mil reis será paga\npelo adquirente.\nArtigo 21- A transferencia de titulos de data\nnão interrompe o curso dos prasos de que\nfala o artigo dezesete.\nArtigo 22.º A disposição do artigo dezesete\nquanto ao praso marcado e penas communicadas\ntem inteira applicação\naos terrenos ja concedidos; aquelle praso\ncorrerá da intimação, que por ordem do\nIntendente, for pelo fiscal feita pessoalmente\naos donos ou possuidores de ditos\nterrenos. No caso de ausencia do dono\nou possuidor, ou de incerteza sobre que\nelle seja, a intimação será feita por\nmeio de edital, e pela imprensa local.\nArtigo 23.º Todas as casas, subdivisões de\ncasas e postos de terrenos, serão numerados\npor meio de placas, de accordo\ncom o artigo treze. A Camara fornecerá\na placa assentada com o numero que\ntiver de ser. Ao infractor multa de\ncinco mil reis, alem da obrigação de\nfazer cessar a infracção.\n\n§ Unico- A Camara poderá fornecer e\ncobrar a placa e, neste caso o proprietario\ndo predio pagará o custo da referida\nplaca.\nCapitulo 2.º",
+   "25": "Estradas e Caminhos Municipaes.\nArtigo 24.º A Camara terá inspecção não só sobre\nas estradas que atravessarem o Municipio\ncomo tambem sobre os caminhos chamados\nvicinaes, uma vez que estes sirvam de\ncaminhos de Sacramento para algum municipio.\nArtigo 25.º As estradas municipaes terão\na largura de oito metros e oitenta centimetros,\nsendo quatro metros e quarenta centimetros\nde leito e dois metros e vinte de roçada de\ncada lado; e os caminhos vicinaes terão seis\nmetros e sessenta centimetros de largura,\nsendo quatro metros e quarenta de leito\ne um metro e dez centimetros de roçada\nde cada lado.\nArtigo 26.º As estradas municipaes e Caminhos\nvicinaes serão concertados annualmente\ndurante a estação de secca - de Março a\nJunho, com o concurso de todos os moradores\ndo bairro; para esse fim a Camara nomeará\ninspector para cada estrada, ou caminho,\nou secção de estrada ou de caminho, como\nmais convier ao serviço.\nArtigo 27.º Devem ser chamados para esse\nserviço commum pelos inspectores ou seus\nprepostos:\n§ 1.º Todos os homens de mais de quatorze annos\nde idade, que trabalharem por suas mãos em\nserviço proprio ou alheio, a jornal ou a contracto.\n§ 2.º Não poderão ser chamados para esse\nserviço a maior distancia que de vinte\nkilometros, podendo assim regressaram",
+   "31": "nicipal.\nArtigo 40.º Aos fiscaes, cada um seu districto, incumbe:\n§ 1.º Fazer juntamente com o arruador os alinhamentos\ne nivelamentos, entregando ao secretario a precisa\nnota feita pelo arruador, a fim de ser lavrado o\nrespectivo termo.\n§ 2.º Fazer em cada anno quatro correições ordinarias\ne as extraordinarias que julgar necessarias\nou lhes forem ordenadas, anunciando\naquellas por editaes com antecedencia de oito\ndias, pelo menos.\n§ 3.º Fazer as imposições das penas estabelecidas\nn'este Codigo, quer em acto de correição,\nquer fóra d'ella, fazendo lavrar pelo Secretario\nos precisos autos de infracção, ou lavrando-os\nelle mesmo quando a infracção se der\nem distancia maior de um kilometro a\ncontar- se das divisas do patrimonio, ou em\nqualquer caso, na ausencia do Secretario.\n§ 4.º Reclamar do Intendente os fundos\nprecisos para as despesas com serviços municipaes\ningentes.\n§ 5.º Fiscalisar as obras e serviços municipaes,\nque não tiverem inspecção especial em\nvirtude do presente codigo, ou por força de\ncontracto, ou resolução da Camara.\n§ 6.º Percorrer frequentemente as ruas e\npraças da cidade e suburbios, exercendo\ntoda a vigilancia para execução do presente\ncodigo\n§ 7.º Cumprir e fazer cumprir todas as ordens\ne deliberações da Camara, relativas\nseus deveres, accudindo ao chamado\n\n",
+   "32": "presidente ou do intendente, para dar prompta\nexecução a qualquer providencia que seja\nurgente tomar, conforme lhe fôr ordenado\npelos mesmos.\n§ 8.º Requisitar da autoridade policial\no auxilio de força que se tomar necessario\npara o cumprimento dos deveres de seu\ncargo\n§ 9º Apresentar em cada sessão ordinaria um\nrelatorio acerca das occurrencias havidas,\nexecução dos serviços a seu cargo, multas\nimpostas com indicação dos motivos, e\ndas providencias que devam ser tomadas\na bem dos interesses municipaes.\n§ 18.º Fazer o mais que lhe competir por\nforça do presente codigo.\n§ 11.º Usar em serviço - bonet.- com a inscripção\n- Fiscal- e blusa preta ou de brim.\n§ 12.º Comparecer á Secretaria da Camara\ntodos os dias uteis a fim de saber do Intendente\nou do Secretario se ha alguma ordem ou\ndeliberação da Camara, do Presidente ou\ndo Intendente para dar execução.\nArtigo 41.º Os Fiscaes alem da gratificação\nque lhes for marcada no orçamento\nmunicipal, perceberão das partes, enchia\na Camara: de cada nivelamento.\nou alinhamento a que assistirem, um\nmil reis; de cada auto de infracção lavrado\npor elles, um mil reis.\nArtigo 42.º Ao porteiro incumbe:\n§ 1.º Conservar em asseio o edificio\nmunicipal e a mobilia da casa.",
+   "34": "para os porteiros dos auditorios.\nArtigo 44.º É dever do Arruador comparecer no\ndia, hora e logar a que for chamado pelo\nfiscal, a fim de fazer qualquer alinhamento\nou nivelamento, e será obrigado a fazer as\ndespesas do segundo alinhamento ou nivelamento,\nquando o primeiro tenha sido irregular.\nParagrapho Unico- Dar dentro de vinte e\nquatro horas ao Fiscal a nota do alinhamento\nou nivelamento para o respectivo\nregistro.\nArtigo 45-.º O arruador perceberá das partes\ne tambem da Camara, quando nivelar\nou armar obra a cargo della, os seguintes\nemolumentos:\n§ 1.º Por alinhamento de cada predio, em\numa só frente, qualquer que seja a\nextensão- dois mil reis; e um mil\nreis de cada frente que accessor.\n§ 2.º Por alinhamento, nivelamento, ou\numa e outra cousa, de calçadas, em\numa frente - dois mil reis - e um mil\nreis por cada frente que accrescer, qualquer\nque seja a extensão.\n§ 3.º Por alinhamento de muros ou\ncercas, em uma frente- um mil reis,\ne quinhentos reis por cada frente que\naccrescer.\nArtigo 46.º O administrador ou Zelador dos cemiterios\ne seus serventes terão os deveres\ne direitos que lhes competir, nos termos\ndo Regulamento do cemiterio Municipal\nArtigo 47.º Ao Aferidor incumbe: fazer",
+   "44": "§ 2.º Lavar roupas, tripas de qualquer animal\nou outros objectos nos chafarizes municipaes,\nMulta de dez mil reis e o dobro na reincidencia.\n§ 3.º Amarrar, ou de qualquer forma utilizar\nas torneiras dos chafarizes municipaes.\nMulta de dez mil reis ao infractor alem\nde cinco dias de prisão.\n§ 4.º Deixar correr pelas ruas e praças\nda cidade ou suburbios aguas servidas ou\nquaesquer immundicies. Vinte mil reis\nde multa ao inquilino ou proprietario\ndo predio em que se der a infracção\nalem da obrigação de fazer cessar.\n§ 5.º A construcção de moradas denominadas\n- cortiços. Multa de cincoenta mil\nreis por cada uma ao seu proprietario,\nalem da obrigação de as demolir no praso\nque pelo Fiscal lhe for dado.\n§ 6.º A disposição do paragrapho anterior\nextende-se ás moradas denominados - Cortiços ja\nexistentes, não se responsabilisando\na Camara pelos estragos de demolição\nquando tenha de proceder a ella, alem\nde correr a despesa por conta do proprietario.\n§ 7.º Ter sobre os passeios quaesquer objectos\nque embaracem o transito publico. Multa\nde dez mil reis, alem da obrigação de\nretirar os objectos.\n§ 8.º Ter sobre os passeios animaes amarrados\nou soltos, bem como conduzir pelos\nditos passeios animaes ou qualquer\nvehiculos. Multa de Cinco mil reis.",
+   "55": "Art.º 80.º Nenhum corredor ou saguão de casa dentro\ndo patrimonio poderá estar sem luz desde\no escurecer. Multa de cinco mil reis.\nArtigo 81. Os vehiculos de qualquer especie que\nandarem de aluguel serão numerados a carimbo\nou a tinta, em lugar facilmente visivel e\nmatriculados em livro especial. Na matricula\nse declarará o nome do proprietario, qualidade\ndo vehiculo e o fim a que é destinado.\nQuando os vehiculos forem transferidos, far-se-á\nno livro a competente averbação, ficando esta obrigação\nao adquirente. Multa de 20:000 e obrigação de\nfazer cessar a infracção.\n§ 1.º Os carros terão o numero em suas lanternas\nvermelhas que á noite estarão accesas. Multa\nde 10:000 e obrigação de fazer cessar a infracção.\n§ 2.º Todos os annos, no mez de Julho, os fiscaes\nprocederão a rigorosa correição dos vehiculos.\n§ 3.º Os fiscaes são obrigados, sob pena da multa\nque lhe for imposta pelo Intendente, a enviarem\ncopias a policia da matricula e averbação\nde vehiculos.\nSecção rural\nArtigo 82. Ninguem poderá queimar roçadas\nsem fazer aceiro varridos, de seis metros,\nem redor dos terrenos roçados e sem participarem\nmenos, na vespera da queimada, aos\nvisinhos limitrophes. Multa de 50:0006.\nArtigo 83. É prohibida a queima de Campos\nde criar de uso commum, antes do mez,\nde fasto, salvo o accordo dos interessados.\nMulta de 25:000.\nParagrapho Unico: - Aquelles que, sem ter in="
+  }
+ }
+}

@@ -1,0 +1,3 @@
+06:05:02 cores 12
+06:05:43 search: /usr/bin/python3 -m ocr_pipeline.tuning.search sweeps/search_st.json --pages tuning --passes 10 --workers 12 --device cuda:0 --init outputs/search/init_v4_pass2.json --out /content/search_st/search --cache /content/search_st/cache
+06:37:30 search: exit 1

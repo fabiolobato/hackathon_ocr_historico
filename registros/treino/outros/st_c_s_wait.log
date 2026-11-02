@@ -1,0 +1,20 @@
+fetched st_c_s after 112 min: READY=
+compile_gem_r1.log
+compile_pseudo.log
+eval_tuning.json
+eval.log
+FETCHED
+job.log
+label_labels_r1.log
+labels_r1
+metrics.json
+result.zip
+select_gem_r1.json
+select_gem_r1.log
+select_pseudo.json
+select_pseudo.log
+st_c0.safetensors
+st_c1s.safetensors
+train_st_c0_b16.log
+train_st_c1s_b16.log
+transcripts_gem_r1.log

@@ -20,6 +20,11 @@ em vez de recomeçar. Os pesos do reconhecedor final não estão duplicados aqui
 | `buscas/logs`                                          | logs das buscas e das avaliações finais                                                  |
 | `avaliacao_final`                                      | avaliação congelada de cada versão (v3 a v6) contra as duas referências                  |
 | `treino/st_c1m`                                        | a run do reconhecedor final: log de treino, métricas, seleção das linhas e rótulos       |
+| `treino/outros` | logs e métricas das demais runs de treino e avaliação (ft_v1, st_v1–v4, st_g1–g3, st_c_s…), sem os pesos |
+| `buscas/e01_e06` | varreduras dos experimentos E01 a E06, anteriores à busca gulosa |
+| `corpus/sources.tgz` | corpus de época bruto: livros do Gutenberg, leis da ALESP (1889–1910) e texto das páginas de treino. Para regerar o dicionário e os n-gramas, extraia em `models/lexicon/` e rode `tools/build_period_lexicon.py`; os `manifest.json` registram como cada arquivo foi montado |
+| `execucoes` | logs avulsos, saídas das configurações de cada versão (`runs/`), custos de edição aprendidos (E11) e o teste de combinação de linhas |
+| `gabarito` | conferência inicial do GT oficial contra as imagens |
 
 Cada busca guarda:
 

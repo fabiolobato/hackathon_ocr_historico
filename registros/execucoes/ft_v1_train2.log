@@ -1,0 +1,4 @@
+Usage: ketos train [OPTIONS] [GROUND_TRUTH]...
+Try 'ketos train --help' for help.
+
+Error: Invalid value for '--log-dir': Path '/content/ft_v1/tb' does not exist.

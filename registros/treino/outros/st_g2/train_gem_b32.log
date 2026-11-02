@@ -1,0 +1,654 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793417003.822065   29771 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793417003.898895   29771 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793417006.094398   29771 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793417006.095021   29771 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+Loading from checkpoint /content/repo/models/finetuned/st_v3.safetensors.
+You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+WARNING:py.warnings:/usr/local/lib/python3.13/dist-packages/lightning/pytorch/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+
+WARNING:py.warnings:/usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/fit_loop.py:321: The number of training batches (43) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+
+WARNING:py.warnings:/usr/local/lib/python3.13/dist-packages/lightning/pytorch/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+
+┏━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃    ┃ Name                          ┃ Type           ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0  │ net                           │ PPOCRv6Model   │ 15.9 M │ train │     0 │
+│ 1  │ net.nn                        │ PPOCRv6Recogn… │ 15.9 M │ train │     0 │
+│ 2  │ criterion                     │ CTCLoss        │      0 │ train │     0 │
+│ 3  │ nrtr_criterion                │ CrossEntropyL… │      0 │ train │     0 │
+│ 4  │ val_cer                       │ CharErrorRate  │      0 │ train │     0 │
+│ 5  │ val_wer                       │ WordErrorRate  │      0 │ train │     0 │
+│ 6  │ nrtr_head                     │ NRTRHead       │ 18.9 M │ train │     0 │
+│ 7  │ nrtr_head.input_proj          │ Linear         │  393 K │ train │     0 │
+│ 8  │ nrtr_head.embedding           │ Embeddings     │  832 K │ train │     0 │
+│ 9  │ nrtr_head.positional_encoding │ PositionalEnc… │      0 │ train │     0 │
+│ 10 │ nrtr_head.decoder             │ ModuleList     │ 16.8 M │ train │     0 │
+│ 11 │ nrtr_head.tgt_word_prj        │ Linear         │  832 K │ train │     0 │
+└────┴───────────────────────────────┴────────────────┴────────┴───────┴───────┘
+Trainable params: 34.7 M                                                        
+Non-trainable params: 0                                                         
+Total params: 34.7 M                                                            
+Total estimated model params size (MB): 138.923                                 
+Modules in train mode: 414                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+`weights_only` was not set, defaulting to `False`.
+stage 0/19                                     0/43 0:00:18 • -:--:-- 0.00it/s 
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /usr/local/bin/ketos:6 in <module>                                           │
+│                                                                              │
+│   3 from kraken.ketos import cli                                             │
+│   4 if __name__ == '__main__':                                               │
+│   5 │   sys.argv[0] = sys.argv[0].removesuffix('.exe')                       │
+│ ❱ 6 │   sys.exit(cli())                                                      │
+│   7                                                                          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/click/core.py:1442 in __call__       │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/click/core.py:1363 in main           │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/click/core.py:1830 in invoke         │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/click/core.py:1226 in invoke         │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/click/core.py:794 in invoke          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/click/decorators.py:34 in new_func   │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/kraken/ketos/recognition.py:313 in   │
+│ train                                                                        │
+│                                                                              │
+│   310 │   │   │   if resume:                                                 │
+│   311 │   │   │   │   trainer.fit(model, data_module, ckpt_path=resume)      │
+│   312 │   │   │   else:                                                      │
+│ ❱ 313 │   │   │   │   trainer.fit(model, data_module)                        │
+│   314 │   except ValueError as e:                                            │
+│   315 │   │   if e.args[0].startswith('Training data and model codec alphabe │
+│   316 │   │   │   raise click.BadOptionUsage('resize', 'Mismatched training  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/kraken/train/utils.py:171 in fit     │
+│                                                                              │
+│   168 │   │   with warnings.catch_warnings():                                │
+│   169 │   │   │   warnings.filterwarnings(action='ignore', category=UserWarn │
+│   170 │   │   │   │   │   │   │   │   │   message='The dataloader,')         │
+│ ❱ 171 │   │   │   super().fit(*args, **kwargs)                               │
+│   172                                                                        │
+│   173                                                                        │
+│   174 class KrakenOnExceptionCheckpoint(Callback):                           │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/trainer.py │
+│ :584 in fit                                                                  │
+│                                                                              │
+│    581 │   │   self.state.status = TrainerStatus.RUNNING                     │
+│    582 │   │   self.training = True                                          │
+│    583 │   │   self.should_stop = False                                      │
+│ ❱  584 │   │   call._call_and_handle_interrupt(                              │
+│    585 │   │   │   self,                                                     │
+│    586 │   │   │   self._fit_impl,                                           │
+│    587 │   │   │   model,                                                    │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/call.py:49 │
+│ in _call_and_handle_interrupt                                                │
+│                                                                              │
+│    46 │   try:                                                               │
+│    47 │   │   if trainer.strategy.launcher is not None:                      │
+│    48 │   │   │   return trainer.strategy.launcher.launch(trainer_fn, *args, │
+│ ❱  49 │   │   return trainer_fn(*args, **kwargs)                             │
+│    50 │                                                                      │
+│    51 │   except _TunerExitException:                                        │
+│    52 │   │   _call_teardown_hook(trainer)                                   │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/trainer.py │
+│ :630 in _fit_impl                                                            │
+│                                                                              │
+│    627 │   │   │   model_provided=True,                                      │
+│    628 │   │   │   model_connected=self.lightning_module is not None,        │
+│    629 │   │   )                                                             │
+│ ❱  630 │   │   self._run(model, ckpt_path=ckpt_path, weights_only=weights_on │
+│    631 │   │                                                                 │
+│    632 │   │   assert self.state.stopped                                     │
+│    633 │   │   self.training = False                                         │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/trainer.py │
+│ :1079 in _run                                                                │
+│                                                                              │
+│   1076 │   │   # ----------------------------                                │
+│   1077 │   │   # RUN THE TRAINER                                             │
+│   1078 │   │   # ----------------------------                                │
+│ ❱ 1079 │   │   results = self._run_stage()                                   │
+│   1080 │   │                                                                 │
+│   1081 │   │   # ----------------------------                                │
+│   1082 │   │   # POST-Training CLEAN UP                                      │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/trainer.py │
+│ :1123 in _run_stage                                                          │
+│                                                                              │
+│   1120 │   │   │   with isolate_rng():                                       │
+│   1121 │   │   │   │   self._run_sanity_check()                              │
+│   1122 │   │   │   with torch.autograd.set_detect_anomaly(self._detect_anoma │
+│ ❱ 1123 │   │   │   │   self.fit_loop.run()                                   │
+│   1124 │   │   │   return None                                               │
+│   1125 │   │   raise RuntimeError(f"Unexpected state {self.state}")          │
+│   1126                                                                       │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/fit_loop.py: │
+│ 217 in run                                                                   │
+│                                                                              │
+│   214 │   │   while not self.done:                                           │
+│   215 │   │   │   try:                                                       │
+│   216 │   │   │   │   self.on_advance_start()                                │
+│ ❱ 217 │   │   │   │   self.advance()                                         │
+│   218 │   │   │   │   self.on_advance_end()                                  │
+│   219 │   │   │   except StopIteration:                                      │
+│   220 │   │   │   │   break                                                  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/fit_loop.py: │
+│ 469 in advance                                                               │
+│                                                                              │
+│   466 │   │   │   )                                                          │
+│   467 │   │   with self.trainer.profiler.profile("run_training_epoch"):      │
+│   468 │   │   │   assert self._data_fetcher is not None                      │
+│ ❱ 469 │   │   │   self.epoch_loop.run(self._data_fetcher)                    │
+│   470 │                                                                      │
+│   471 │   def on_advance_end(self) -> None:                                  │
+│   472 │   │   trainer = self.trainer                                         │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/training_epo │
+│ ch_loop.py:153 in run                                                        │
+│                                                                              │
+│   150 │   │   self.on_run_start(data_fetcher)                                │
+│   151 │   │   while not self.done:                                           │
+│   152 │   │   │   try:                                                       │
+│ ❱ 153 │   │   │   │   self.advance(data_fetcher)                             │
+│   154 │   │   │   │   self.on_advance_end(data_fetcher)                      │
+│   155 │   │   │   except StopIteration:                                      │
+│   156 │   │   │   │   break                                                  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/training_epo │
+│ ch_loop.py:352 in advance                                                    │
+│                                                                              │
+│   349 │   │   │   │   with trainer.profiler.profile("run_training_batch"):   │
+│   350 │   │   │   │   │   if trainer.lightning_module.automatic_optimization │
+│   351 │   │   │   │   │   │   # in automatic optimization, there can only be │
+│ ❱ 352 │   │   │   │   │   │   batch_output = self.automatic_optimization.run │
+│   353 │   │   │   │   │   else:                                              │
+│   354 │   │   │   │   │   │   batch_output = self.manual_optimization.run(kw │
+│   355                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/optimization │
+│ /automatic.py:192 in run                                                     │
+│                                                                              │
+│   189 │   │   # ------------------------------                               │
+│   190 │   │   # gradient update with accumulated gradients                   │
+│   191 │   │   else:                                                          │
+│ ❱ 192 │   │   │   self._optimizer_step(batch_idx, closure)                   │
+│   193 │   │                                                                  │
+│   194 │   │   result = closure.consume_result()                              │
+│   195 │   │   if result.loss is None:                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/optimization │
+│ /automatic.py:270 in _optimizer_step                                         │
+│                                                                              │
+│   267 │   │   │   self.optim_progress.optimizer.step.increment_ready()       │
+│   268 │   │                                                                  │
+│   269 │   │   # model hook                                                   │
+│ ❱ 270 │   │   call._call_lightning_module_hook(                              │
+│   271 │   │   │   trainer,                                                   │
+│   272 │   │   │   "optimizer_step",                                          │
+│   273 │   │   │   trainer.current_epoch,                                     │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/call.py:17 │
+│ 7 in _call_lightning_module_hook                                             │
+│                                                                              │
+│   174 │   pl_module._current_fx_name = hook_name                             │
+│   175 │                                                                      │
+│   176 │   with trainer.profiler.profile(f"[LightningModule]{pl_module.__clas │
+│ ❱ 177 │   │   output = fn(*args, **kwargs)                                   │
+│   178 │                                                                      │
+│   179 │   # restore current_fx when nested context                           │
+│   180 │   pl_module._current_fx_name = prev_fx_name                          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/kraken/train/ppocr.py:572 in         │
+│ optimizer_step                                                               │
+│                                                                              │
+│   569 │                                                                      │
+│   570 │   def optimizer_step(self, epoch, batch_idx, optimizer, optimizer_cl │
+│   571 │   │   # update params                                                │
+│ ❱ 572 │   │   optimizer.step(closure=optimizer_closure)                      │
+│   573 │   │                                                                  │
+│   574 │   │   if self._uses_muon:                                            │
+│   575 │   │   │   # warmup is baked into the LambdaLR schedule               │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/core/optimizer.py: │
+│ 154 in step                                                                  │
+│                                                                              │
+│   151 │   │   │   raise MisconfigurationException("When `optimizer.step(clos │
+│   152 │   │                                                                  │
+│   153 │   │   assert self._strategy is not None                              │
+│ ❱ 154 │   │   step_output = self._strategy.optimizer_step(self._optimizer, c │
+│   155 │   │                                                                  │
+│   156 │   │   self._on_after_step()                                          │
+│   157                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/strategies/strateg │
+│ y.py:239 in optimizer_step                                                   │
+│                                                                              │
+│   236 │   │   model = model or self.lightning_module                         │
+│   237 │   │   # TODO(fabric): remove assertion once strategy's optimizer_ste │
+│   238 │   │   assert isinstance(model, pl.LightningModule)                   │
+│ ❱ 239 │   │   return self.precision_plugin.optimizer_step(optimizer, model=m │
+│   240 │                                                                      │
+│   241 │   def _setup_model_and_optimizers(self, model: Module, optimizers: l │
+│   242 │   │   """Setup a model and multiple optimizers together.             │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/plugins/precision/ │
+│ amp.py:76 in optimizer_step                                                  │
+│                                                                              │
+│    73 │   ) -> Any:                                                          │
+│    74 │   │   if self.scaler is None:                                        │
+│    75 │   │   │   # skip scaler logic, as bfloat16 does not require scaler   │
+│ ❱  76 │   │   │   return super().optimizer_step(optimizer, model=model, clos │
+│    77 │   │   if isinstance(optimizer, LBFGS):                               │
+│    78 │   │   │   raise MisconfigurationException("AMP and the LBFGS optimiz │
+│    79 │   │   closure_result = closure()                                     │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/plugins/precision/ │
+│ precision.py:123 in optimizer_step                                           │
+│                                                                              │
+│   120 │   ) -> Any:                                                          │
+│   121 │   │   """Hook to run the optimizer step."""                          │
+│   122 │   │   closure = partial(self._wrap_closure, model, optimizer, closur │
+│ ❱ 123 │   │   return optimizer.step(closure=closure, **kwargs)               │
+│   124 │                                                                      │
+│   125 │   def _clip_gradients(                                               │
+│   126 │   │   self,                                                          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/optim/lr_scheduler.py:166 in   │
+│ wrapper                                                                      │
+│                                                                              │
+│    163 │   │   │   │   def wrapper(*args, **kwargs):                         │
+│    164 │   │   │   │   │   opt = opt_ref()                                   │
+│    165 │   │   │   │   │   opt._opt_called = True  # type: ignore[union-attr │
+│ ❱  166 │   │   │   │   │   return func.__get__(opt, opt.__class__)(*args, ** │
+│    167 │   │   │   │                                                         │
+│    168 │   │   │   │   wrapper._wrapped_by_lr_sched = True  # type: ignore[a │
+│    169 │   │   │   │   return wrapper                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/optim/optimizer.py:533 in      │
+│ wrapper                                                                      │
+│                                                                              │
+│    530 │   │   │   │   │   │   │   )                                         │
+│    531 │   │   │   │                                                         │
+│    532 │   │   │   │   # pyrefly: ignore [invalid-param-spec]                │
+│ ❱  533 │   │   │   │   out = func(*args, **kwargs)                           │
+│    534 │   │   │   │   self._optimizer_step_code()                           │
+│    535 │   │   │   │                                                         │
+│    536 │   │   │   │   # call optimizer step post hooks                      │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py:124 in    │
+│ decorate_context                                                             │
+│                                                                              │
+│   121 │   def decorate_context(*args, **kwargs):                             │
+│   122 │   │   # pyrefly: ignore [bad-context-manager]                        │
+│   123 │   │   with ctx_factory():                                            │
+│ ❱ 124 │   │   │   return func(*args, **kwargs)                               │
+│   125 │                                                                      │
+│   126 │   return decorate_context                                            │
+│   127                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/kraken/train/optim.py:88 in step     │
+│                                                                              │
+│    85 │   def step(self, closure=None):                                      │
+│    86 │   │   loss = None                                                    │
+│    87 │   │   if self._muon_optimizer is not None:                           │
+│ ❱  88 │   │   │   loss = self._muon_optimizer.step(closure=closure)          │
+│    89 │   │   │   closure = None                                             │
+│    90 │   │   if self._adamw_optimizer is not None:                          │
+│    91 │   │   │   adamw_loss = self._adamw_optimizer.step(closure=closure)   │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/optim/optimizer.py:533 in      │
+│ wrapper                                                                      │
+│                                                                              │
+│    530 │   │   │   │   │   │   │   )                                         │
+│    531 │   │   │   │                                                         │
+│    532 │   │   │   │   # pyrefly: ignore [invalid-param-spec]                │
+│ ❱  533 │   │   │   │   out = func(*args, **kwargs)                           │
+│    534 │   │   │   │   self._optimizer_step_code()                           │
+│    535 │   │   │   │                                                         │
+│    536 │   │   │   │   # call optimizer step post hooks                      │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py:124 in    │
+│ decorate_context                                                             │
+│                                                                              │
+│   121 │   def decorate_context(*args, **kwargs):                             │
+│   122 │   │   # pyrefly: ignore [bad-context-manager]                        │
+│   123 │   │   with ctx_factory():                                            │
+│ ❱ 124 │   │   │   return func(*args, **kwargs)                               │
+│   125 │                                                                      │
+│   126 │   return decorate_context                                            │
+│   127                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/optim/_muon.py:170 in step     │
+│                                                                              │
+│   167 │   │   loss = None                                                    │
+│   168 │   │   if closure is not None:                                        │
+│   169 │   │   │   with torch.enable_grad():                                  │
+│ ❱ 170 │   │   │   │   loss = closure()                                       │
+│   171 │   │                                                                  │
+│   172 │   │   for group in self.param_groups:                                │
+│   173 │   │   │   lr = group["lr"]                                           │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/plugins/precision/ │
+│ precision.py:109 in _wrap_closure                                            │
+│                                                                              │
+│   106 │   │   consistent with the ``Precision`` subclasses that cannot pass  │
+│   107 │   │                                                                  │
+│   108 │   │   """                                                            │
+│ ❱ 109 │   │   closure_result = closure()                                     │
+│   110 │   │   self._after_closure(model, optimizer)                          │
+│   111 │   │   return closure_result                                          │
+│   112                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/optimization │
+│ /automatic.py:146 in __call__                                                │
+│                                                                              │
+│   143 │                                                                      │
+│   144 │   @override                                                          │
+│   145 │   def __call__(self, *args: Any, **kwargs: Any) -> Optional[Tensor]: │
+│ ❱ 146 │   │   self._result = self.closure(*args, **kwargs)                   │
+│   147 │   │   return self._result.loss                                       │
+│   148                                                                        │
+│   149                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py:124 in    │
+│ decorate_context                                                             │
+│                                                                              │
+│   121 │   def decorate_context(*args, **kwargs):                             │
+│   122 │   │   # pyrefly: ignore [bad-context-manager]                        │
+│   123 │   │   with ctx_factory():                                            │
+│ ❱ 124 │   │   │   return func(*args, **kwargs)                               │
+│   125 │                                                                      │
+│   126 │   return decorate_context                                            │
+│   127                                                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/optimization │
+│ /automatic.py:131 in closure                                                 │
+│                                                                              │
+│   128 │   @override                                                          │
+│   129 │   @torch.enable_grad()                                               │
+│   130 │   def closure(self, *args: Any, **kwargs: Any) -> ClosureResult:     │
+│ ❱ 131 │   │   step_output = self._step_fn()                                  │
+│   132 │   │                                                                  │
+│   133 │   │   if step_output.closure_loss is None:                           │
+│   134 │   │   │   self.warning_cache.warn("`training_step` returned `None`.  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/loops/optimization │
+│ /automatic.py:319 in _training_step                                          │
+│                                                                              │
+│   316 │   │   """                                                            │
+│   317 │   │   trainer = self.trainer                                         │
+│   318 │   │                                                                  │
+│ ❱ 319 │   │   training_step_output = call._call_strategy_hook(trainer, "trai │
+│   320 │   │   self.trainer.strategy.post_training_step()  # unused hook - ca │
+│   321 │   │                                                                  │
+│   322 │   │   if training_step_output is None and trainer.world_size > 1:    │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/trainer/call.py:32 │
+│ 9 in _call_strategy_hook                                                     │
+│                                                                              │
+│   326 │   │   return None                                                    │
+│   327 │                                                                      │
+│   328 │   with trainer.profiler.profile(f"[Strategy]{trainer.strategy.__clas │
+│ ❱ 329 │   │   output = fn(*args, **kwargs)                                   │
+│   330 │                                                                      │
+│   331 │   # restore current_fx when nested context                           │
+│   332 │   pl_module._current_fx_name = prev_fx_name                          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/lightning/pytorch/strategies/strateg │
+│ y.py:391 in training_step                                                    │
+│                                                                              │
+│   388 │   │   with self.precision_plugin.train_step_context():               │
+│   389 │   │   │   if self.model != self.lightning_module:                    │
+│   390 │   │   │   │   return self._forward_redirection(self.model, self.ligh │
+│ ❱ 391 │   │   │   return self.lightning_module.training_step(*args, **kwargs │
+│   392 │                                                                      │
+│   393 │   def post_training_step(self) -> None:                              │
+│   394 │   │   """This hook is deprecated.                                    │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/kraken/train/ppocr.py:382 in         │
+│ training_step                                                                │
+│                                                                              │
+│   379 │   │   return padded                                                  │
+│   380 │                                                                      │
+│   381 │   def training_step(self, batch, batch_idx):                         │
+│ ❱ 382 │   │   logits, out_lens, feat = self.net.nn.forward_train(batch['imag │
+│   383 │   │   # CTC: logits (N, C, 1, W) -> log-softmax over class dim, drop │
+│   384 │   │   # permute to (W, N, C) as expected by nn.CTCLoss.              │
+│   385 │   │   log_probs = logits.log_softmax(1).squeeze(2).permute(2, 0, 1)  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_dynamo/eval_frame.py:1024 in  │
+│ compile_wrapper                                                              │
+│                                                                              │
+│   1021 │   │   │   │   _maybe_set_eval_frame(_callback_from_stance(callback) │
+│   1022 │   │   │   │                                                         │
+│   1023 │   │   │   │   try:                                                  │
+│ ❱ 1024 │   │   │   │   │   return fn(*args, **kwargs)                        │
+│   1025 │   │   │   │   except (Unsupported, UncapturedHigherOrderOpError) as │
+│   1026 │   │   │   │   │   if config.verbose:                                │
+│   1027 │   │   │   │   │   │   raise                                         │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/kraken/lib/ppocr/network.py:99 in    │
+│ forward_train                                                                │
+│                                                                              │
+│    96 │   │   self.variant = variant                                         │
+│    97 │   │   self.num_classes = num_classes                                 │
+│    98 │                                                                      │
+│ ❱  99 │   def forward_train(self, x: torch.Tensor,                           │
+│   100 │   │   │   │   │     seq_lens: Optional[torch.Tensor] = None):        │
+│   101 │   │   """                                                            │
+│   102 │   │   Like :meth:`forward` but also returns the raw backbone feature │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_dynamo/eval_frame.py:1263 in  │
+│ _fn                                                                          │
+│                                                                              │
+│   1260 │   │   │   │   │   │   │   }                                         │
+│   1261 │   │   │   │   │   │   ):                                            │
+│   1262 │   │   │   │   │   │   │   return fn(*args, **kwargs)                │
+│ ❱ 1263 │   │   │   │   │   return fn(*args, **kwargs)                        │
+│   1264 │   │   │   │   finally:                                              │
+│   1265 │   │   │   │   │   set_eval_frame(None)                              │
+│   1266 │   │   │   finally:                                                  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/aot_autograd.py:120 │
+│ 0 in forward                                                                 │
+│                                                                              │
+│   1197 │   │   │   full_args.extend(runtime_args)                            │
+│   1198 │   │   │   if compiled_fn is None:                                   │
+│   1199 │   │   │   │   raise AssertionError("compiled_fn must not be None")  │
+│ ❱ 1200 │   │   │   return compiled_fn(full_args)                             │
+│   1201 │                                                                     │
+│   1202 │   # Just for convenience                                            │
+│   1203 │   forward.zero_grad = mod.zero_grad  # type: ignore[attr-defined]   │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/runti │
+│ me_wrappers.py:566 in runtime_wrapper                                        │
+│                                                                              │
+│    563 │   │   │   │   │   torch.enable_grad(),                              │
+│    564 │   │   │   │   ):                                                    │
+│    565 │   │   │   │   │   record_runtime_wrapper_prologue_exit(cm)          │
+│ ❱  566 │   │   │   │   │   all_outs = call_func_at_runtime_with_args(        │
+│    567 │   │   │   │   │   │   compiled_fn, args_, disable_amp=disable_amp,  │
+│    568 │   │   │   │   │   )                                                 │
+│    569 │   │   │   else:                                                     │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/utils │
+│ .py:138 in call_func_at_runtime_with_args                                    │
+│                                                                              │
+│   135 │   context = torch._C._DisableAutocast if disable_amp else nullcontex │
+│   136 │   with context():                                                    │
+│   137 │   │   if getattr(f, "_boxed_call", False):                           │
+│ ❱ 138 │   │   │   out = normalize_as_list(f(args))                           │
+│   139 │   │   else:                                                          │
+│   140 │   │   │   # TODO: Please remove soon                                 │
+│   141 │   │   │   # https://github.com/pytorch/pytorch/pull/83137#issuecomme │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/utils │
+│ .py:105 in g                                                                 │
+│                                                                              │
+│   102 def make_boxed_func(f: Callable[..., Any]) -> Callable[[list[Any]], An │
+│   103 │   @simple_wraps(f)                                                   │
+│   104 │   def g(args: list[Any]) -> Any:                                     │
+│ ❱ 105 │   │   return f(*args)                                                │
+│   106 │                                                                      │
+│   107 │   # pyrefly: ignore[missing-attribute]                               │
+│   108 │   g._boxed_call = True                                               │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/autograd/function.py:596 in    │
+│ apply                                                                        │
+│                                                                              │
+│   593 │   │   if not torch._C._are_functorch_transforms_active():            │
+│   594 │   │   │   # See NOTE: [functorch vjp and autograd interaction]       │
+│   595 │   │   │   args = _functorch.utils.unwrap_dead_wrappers(args)         │
+│ ❱ 596 │   │   │   return super().apply(*args, **kwargs)  # type: ignore[misc │
+│   597 │   │                                                                  │
+│   598 │   │   if not is_setup_ctx_defined:                                   │
+│   599 │   │   │   raise RuntimeError(                                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/runti │
+│ me_wrappers.py:2503 in forward                                               │
+│                                                                              │
+│   2500 │   │   │   │   #   of the original view, and not the synthetic base  │
+│   2501 │   │   │   │   # - Note that donated buffer logic requires (*saved_t │
+│   2502 │   │   │   │   #   in the fw output order.                           │
+│ ❱ 2503 │   │   │   │   fw_outs = call_func_at_runtime_with_args(             │
+│   2504 │   │   │   │   │   CompiledFunction.compiled_fw,                     │
+│   2505 │   │   │   │   │   # pyrefly: ignore [bad-argument-type]             │
+│   2506 │   │   │   │   │   args,                                             │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/utils │
+│ .py:138 in call_func_at_runtime_with_args                                    │
+│                                                                              │
+│   135 │   context = torch._C._DisableAutocast if disable_amp else nullcontex │
+│   136 │   with context():                                                    │
+│   137 │   │   if getattr(f, "_boxed_call", False):                           │
+│ ❱ 138 │   │   │   out = normalize_as_list(f(args))                           │
+│   139 │   │   else:                                                          │
+│   140 │   │   │   # TODO: Please remove soon                                 │
+│   141 │   │   │   # https://github.com/pytorch/pytorch/pull/83137#issuecomme │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/runti │
+│ me_wrappers.py:783 in wrapper                                                │
+│                                                                              │
+│    780 │   │   │   │   │   runtime_metadata.num_forward_returns,             │
+│    781 │   │   │   │   )                                                     │
+│    782 │   │   │   │   return out                                            │
+│ ❱  783 │   │   │   return compiled_fn(runtime_args)                          │
+│    784 │   │                                                                 │
+│    785 │   │   return wrapper                                                │
+│    786                                                                       │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/runti │
+│ me_wrappers.py:1011 in inner_fn                                              │
+│                                                                              │
+│   1008 │   │   │   │   args = [*([None] * num_tokens), *args]                │
+│   1009 │   │   │   │   old_args.clear()                                      │
+│   1010 │   │   │                                                             │
+│ ❱ 1011 │   │   │   outs = compiled_fn(args)                                  │
+│   1012 │   │   │                                                             │
+│   1013 │   │   │   # Inductor cache DummyModule can return None              │
+│   1014 │   │   │   if outs is None:                                          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_inductor/output_code.py:656   │
+│ in __call__                                                                  │
+│                                                                              │
+│    653 │   │   │   │   ):                                                    │
+│    654 │   │   │   │   │   return self.current_callable(inputs)              │
+│    655 │   │   │   else:                                                     │
+│ ❱  656 │   │   │   │   return self.current_callable(inputs)                  │
+│    657 │   │   finally:                                                      │
+│    658 │   │   │   get_runtime_metrics_context().finish()                    │
+│    659 │   │   │   AutotuneCacheBundler.end_compile()                        │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_inductor/utils.py:3401 in run │
+│                                                                              │
+│   3398 │   │   old_tensors, new_tensors = copy_misaligned_inputs(            │
+│   3399 │   │   │   new_inputs, inputs_to_check, mutated_input_idxs           │
+│   3400 │   │   )                                                             │
+│ ❱ 3401 │   │   out = model(new_inputs)                                       │
+│   3402 │   │                                                                 │
+│   3403 │   │   # If a mutated tensor was cloned to be aligned, we need to re │
+│   3404 │   │   # original tensor.                                            │
+│                                                                              │
+│ /tmp/torchinductor_root/tk/ctkzfd2hir2ykq53irqt3y7lumdjznps4q2wmsoetthi4uxkg │
+│ yub.py:8148 in call                                                          │
+│                                                                              │
+│   8145 │   │   │   triton_poi_fused__to_copy_56.run(primals_292, buf398, 524 │
+│   8146 │   │   │   del primals_292                                           │
+│   8147 │   │   │   # Topologically Sorted Source Nodes: [conv2d_55], Origina │
+│ ❱ 8148 │   │   │   buf399 = extern_kernels.convolution(buf397, buf398, strid │
+│   8149 │   │   │   assert_size_stride(buf399, (32, 1024, 12, 640), (7864320, │
+│   8150 │   │   │   buf400 = empty_strided_cuda((1, 1024, 1, 1), (1024, 1, 1, │
+│   8151 │   │   │   buf403 = empty_strided_cuda((1, 1024, 1, 1), (1024, 1, 1, │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_compile.py:54 in inner        │
+│                                                                              │
+│   51 │   │   │   │   disable_fn = torch._dynamo.disable(fn, recursive, wrapp │
+│   52 │   │   │   │   fn.__dynamo_disable = disable_fn  # type: ignore[attr-d │
+│   53 │   │   │                                                               │
+│ ❱ 54 │   │   │   return disable_fn(*args, **kwargs)                          │
+│   55 │   │                                                                   │
+│   56 │   │   return inner                                                    │
+│   57 │   else:                                                               │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_dynamo/eval_frame.py:1263 in  │
+│ _fn                                                                          │
+│                                                                              │
+│   1260 │   │   │   │   │   │   │   }                                         │
+│   1261 │   │   │   │   │   │   ):                                            │
+│   1262 │   │   │   │   │   │   │   return fn(*args, **kwargs)                │
+│ ❱ 1263 │   │   │   │   │   return fn(*args, **kwargs)                        │
+│   1264 │   │   │   │   finally:                                              │
+│   1265 │   │   │   │   │   set_eval_frame(None)                              │
+│   1266 │   │   │   finally:                                                  │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_functorch/_aot_autograd/runti │
+│ me_wrappers.py:409 in __torch_dispatch__                                     │
+│                                                                              │
+│    406 │   │   │   if type(underlying_tensor) not in HANDLED_TYPES:          │
+│    407 │   │   │   │   return NotImplemented                                 │
+│    408 │   │                                                                 │
+│ ❱  409 │   │   res = func(*args, **kwargs)                                   │
+│    410 │   │   # Only check aliasing for custom ops (non-aten/prim/prims/_c1 │
+│    411 │   │   # that claim to be functional                                 │
+│    412 │   │   # Skip ops whose schema declares aliasing is allowed          │
+│                                                                              │
+│ /usr/local/lib/python3.13/dist-packages/torch/_ops.py:865 in __call__        │
+│                                                                              │
+│    862 │   # Use positional-only argument to avoid naming collision with ate │
+│    863 │   # that are named "self". This way, all the aten ops can be called │
+│    864 │   def __call__(self, /, *args: _P.args, **kwargs: _P.kwargs) -> _T: │
+│ ❱  865 │   │   return self._op(*args, **kwargs)                              │
+│    866 │                                                                     │
+│    867 │   # Use positional-only argument to avoid naming collision with ate │
+│    868 │   # that are named "self". This way, all the aten ops can be called │
+╰──────────────────────────────────────────────────────────────────────────────╯
+OutOfMemoryError: CUDA out of memory. Tried to allocate 480.00 MiB. GPU 0 has a 
+total capacity of 22.03 GiB of which 455.12 MiB is free. Including non-PyTorch 
+memory, this process has 21.58 GiB memory in use. Of the allocated memory 21.28 
+GiB is allocated by PyTorch, and 74.91 MiB is reserved by PyTorch but 
+unallocated. If reserved but unallocated memory is large try setting 
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See 
+documentation for Memory Management  
+(https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-wi
+th-pytorch-cuda-alloc-conf)

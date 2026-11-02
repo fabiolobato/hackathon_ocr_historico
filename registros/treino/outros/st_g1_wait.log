@@ -1,0 +1,18 @@
+fetched st_g1 after 5 min: READY=
+batch_medium.txt
+batch_st_v3.txt
+compile.log
+FETCHED
+job.log
+label.log
+labels
+metrics.json
+model_medium_b16
+model_st_v3_b16
+result.zip
+select.log
+train_medium_b16.log
+train_medium_b32.log
+train_st_v3_b16.log
+train_st_v3_b32.log
+transcripts.log

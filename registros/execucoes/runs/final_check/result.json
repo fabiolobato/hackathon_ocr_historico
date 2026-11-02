@@ -1,0 +1,118 @@
+{
+  "config": {
+    "geometric_ops": [
+      "upscale",
+      "deskew"
+    ],
+    "seg_ops": [
+      "illumination",
+      "clahe"
+    ],
+    "rec_ops": [
+      "illumination",
+      "gamma"
+    ],
+    "params": {
+      "upscale_factor": 1.5,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 0.7,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": false,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 2,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.5102685624012638,
+    "cer_strict": 0.18203064139184627,
+    "wer_norm": 0.48661417322834644,
+    "cer_norm": 0.17791411042944785
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 34,
+      "pred_words": 220,
+      "text": "§3o Ovos Presente é a natural substituto de Presidente\n§ 4º Subiram ae vice Coerente as demais Vereadores,\nna vem de sua estava. Em caso de empate serie\no mais vee\nCapitulo 3e\nDa oren dos trabalhos\nArtigo 3e\nNo dia marcado para as essas se entrar o Virado\nrei no salas principal da especialidade, as onze\nhoras da manha, e havendo nero legal, a presidente\nsumindo a seu luger, que c'a cabeceira da mera do\ntrabalhou, dava principais as cessar pelos palavras: Esta\naberta a essa.\nchris 4o\nAs sessões duraram a tempo maximo de quatro ho\nmas. Terminada a sessão, o presidente encenar\nos trabalhei pelas palavras:- Esta en cirrose a essa.\nArtigo 52\nAberta a essa, a presidente declarar a material en\ndiscursar, manter a ordem durante o trabalhei, dan\ndo a palmo as que apoiei a pedir, fazendo levar\na decência e a civilidade ente os vereadores e os\nespectadores\n\n§1^° No recite de trabalhos elevado o ingresso\na pessoa que nao pertença a corporação moe\npal.\n§2° Os espectadores nao loren intervir an debates,\npor qualquer forma, e nem dor sinais de rapper\nça on desagrado, vo6 pera de seven observados, e\nexpulsos da sala, eo caro de providencie.\nArtigo 6.o\nto Presidente dembe:\n§ 1e Chamar a ou, ate tre vezes, a vereador que",
+      "wer_strict": 0.5280373831775701,
+      "cer_strict": 0.18588235294117647,
+      "wer_norm": 0.4930232558139535,
+      "cer_norm": 0.1791767554479419,
+      "strict_we": 113,
+      "strict_rw": 214,
+      "strict_ce": 237,
+      "strict_rc": 1275,
+      "norm_we": 106,
+      "norm_rw": 215,
+      "norm_ce": 222,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 35,
+      "pred_words": 174,
+      "text": "dentes, descendentes, sobre genro, union e entradas\ndurante o cunhado, tive sobrinho e soco da\nmesma firma, o vereador a quem a hipoteca\ninteressar nao poder votar.\nArtigo 15º\nAos Vereadores que, sem causa justificada\nafastarem a duas esse consecutivas, ben\ncomo cn serpentes convoca que nao\ncomparecer, sera importa, pelo Presidente\na muita de dez mil reis (10:000) (Reg. arte 60\n4o. O Presidente quando times de discutir\nqualquer sinto on apresentar e defender\nmedicação sua, passava a puder a su\nimediato.\nCapitulo 4°\nDo número das sessões\nArtigo 16º\nA Camara municipal fara un cada ano\nseis esse tomaria, de dois un dois meses,\nnos ponteiros dias úteis de Outubro, Descubro,\nDivertir, Abril, Junho e gosto que durarão\nos dias necessários, nunca menos de tre.\nArtigo\n\nHaverá un cada ano tantas esse extraordinárias\nquantas prem exigida pelo\nbe musical.\n\n§1 As esse extraordinárias sera colocaram\npelo Prudente e sempre por onde\nsuperior, iniciativa do popo presidente\nen a Requerimento do Intendente. Em qual~ue\ncaro o presidente declarar. motivo\nба соннсас̧аи.\nPremonições germes.",
+      "wer_strict": 0.4550561797752809,
+      "cer_strict": 0.15584415584415584,
+      "wer_norm": 0.4530386740331492,
+      "cer_norm": 0.15521855486173058,
+      "strict_we": 81,
+      "strict_rw": 178,
+      "strict_ce": 180,
+      "strict_rc": 1155,
+      "norm_we": 82,
+      "norm_rw": 181,
+      "norm_ce": 174,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 243,
+      "text": "lâmpadas quando a Camara o exigir, pretendo\ncirie à mesma con seis meier, pelo menos, de\nantecedência, anna uu que a nos de lâmpadas\nexigido na emenda a capacidade e força\nde digamos, caso en que se obriga a nisso\ndentro de pras de dose meses contado da\ndata do aviso, and podendo elle ter logan antes\nde ser amargurada e aceita a semana\ncortante de presente contrate.\n§ 2º A cláusula 18e de contrato fica assim\nsubstituída: Cláusula 18e Se a desabando que\nocasional a interromper da Luz durar mais\nde quite dias, podia a camara esconder a\ncontrato, sarro caso de pra maior que\nsera recebida por art brennan\nnomeado pela forma de direito.\n3° 1 cláusula 16e fica assumi:- et empire\ndeverá ter sempre un deposite a numero de\nlâmpadas necessario para substituir imediatamente\nqualquer lâmpada que se queime,\nse muitas on se apague, sob pena de pagar\ndez mil vis de muita abatida nas pedaço\nmentes por lâmpada que ter apagada\nsuas noites come mentiras, sarro caso de força\nmain a juro do fiscal professional da Camara\n§4/ A cláusula 14a ficava lute modo: Na\nexpressa\" maça publica fica compreendo\na graças de case de tamara com seis lam~adas\ne a da nada com ual numero, d~tribnidos\nde acordo com a mesma camara.\n£5º eA Cláusula 20e ficava assine:- et Empire\nsera ada a star e inaugurar a ia\nmas da cidade da data desta lei a seis meses",
+      "wer_strict": 0.5352697095435685,
+      "cer_strict": 0.19985925404644617,
+      "wer_norm": 0.5062761506276151,
+      "cer_norm": 0.1951043916486681,
+      "strict_we": 129,
+      "strict_rw": 241,
+      "strict_ce": 284,
+      "strict_rc": 1421,
+      "norm_we": 121,
+      "norm_rw": 239,
+      "norm_ce": 271,
+      "norm_rc": 1389
+    }
+  ]
+}

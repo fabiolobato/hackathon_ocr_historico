@@ -1,0 +1,108 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": null,
+      "lexicon_size": 0,
+      "domain_lexicon": false,
+      "lexicon_max_ratio": 0.4,
+      "lexicon_min_len": 3
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.6161137440758294,
+    "cer_strict": 0.21423007011165932,
+    "wer_norm": 0.5984251968503937,
+    "cer_norm": 0.2088556948519605
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 38,
+      "pred_words": 215,
+      "text": "§3o O vac Prensente éa natural eubtitute do Presidente.\n§4^° Subibtrum ae Vice Crecseute es demais Vereadores\nna ovem de sua artaçad. En caco de empate serira\no mais vihe.\nCapitulo 3\nDa onem dos trabachos\nArtigo 3.e\nNo aia marcado para as sessais se renirar o Vircadores\nno salar pricipal da municipalidade, as aze\nhorar da manhà, i havinde mnere legal, a peuisiate\naumindo o seu luget, que e'a cabeceiva da mera dos\ntrabarlus, davó picipis as sucior pelos palairas: Esta\nabuta a sesiaõ.\nchtigo 4º\nAs sessan duravao o tempo maximo de quatr horas.\nPermmada a sessao, e pesivente encerará\nor trabathes pelas palairas: Esta encirrase a sesiad.\nArtigo 52\nAbecto a sessao, o pusidcite declarara a materia em\ndiseuirao, mantera a ondun durante os trabathes, dan\ndo a palano as que piieir a peedir, fasent ohevar\na deccucia e a cirvliPade eutu os vireadoe e os\nepectadores.\n\n\n\n§1^° No recute dos trabachos evesado o nigresso\na pessoa que nao pertenca a corporaicad mien\npal.\n§2o s espectadres nao porend intervir un debates,\npor qualquer forma, e nem dor signaen de appençad\non deragrado, 186 perra de cexem oberados, e\nespulaos da sala, un caio de renicidencie.\neArtigo 6.o\nA Pressente memube:\n\n—\n1e Chamar a one, ate tru vises, o viviaour que",
+      "wer_strict": 0.6261682242990654,
+      "cer_strict": 0.2227450980392157,
+      "wer_norm": 0.6093023255813953,
+      "cer_norm": 0.2179176755447942,
+      "strict_we": 134,
+      "strict_rw": 214,
+      "strict_ce": 284,
+      "strict_rc": 1275,
+      "norm_we": 131,
+      "norm_rw": 215,
+      "norm_ce": 270,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 34,
+      "pred_words": 177,
+      "text": "duutes, decendente, sog e geiro, unnan e centradrs\nurante o cunhadio tio e sobinho e soci das\nmesma firma, o vereadir a quem a huportuu\nniteressar nao porera volar.\nArtigo 15º\nAos Nircadores que ~~m caua jutificada\nfastarem a duas sessae comecutivas, be~\ncото n suрtent convocaд que nӑ\ncomparecerend sera importa, pelo Precidente\nar multa de dez mil reis (10000) (Reg. astº 6o\n§4°). O Presivente quando tiues de discnter\nqualquer asimpto on apresentar e defender\nnidicaçad sua, passava a pusiduc a su\nmimediato.\nCapitulo 4°\nDo memero das sessai\nArtigo 16º\nA Camara muncipal fara uu cada anno\nseis sessae nomarias, de dois u dois mises\nnos pomicires dias uteis de Ouletr, Desemebro,\nFevereir Alvil, Junho e sgorto que durara\nos dias ne cessarios, nunea menos de tru.\n\nArtigo 17bavira\nu cada anno tantas sessce extraordniarias\nquantas prim exigidao pelo\nви mисраl§/°\nAs sessa ixtraormanas serao como\ncadas pelo Preente e sempe ~or onem\nsuperior, mciativa do poprio presadente\nin a Requerimeunt 8o Inteudente. Em qual~ur\ncaro o prisideute declarara. motioo\nба Cопсасаб.\nDuponcoe giraes",
+      "wer_strict": 0.6292134831460674,
+      "cer_strict": 0.20952380952380953,
+      "wer_norm": 0.6132596685082873,
+      "cer_norm": 0.20606601248884923,
+      "strict_we": 112,
+      "strict_rw": 178,
+      "strict_ce": 242,
+      "strict_rc": 1155,
+      "norm_we": 111,
+      "norm_rw": 181,
+      "norm_ce": 231,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 244,
+      "text": "tampadas quando a bamara o exigir, precirendo\nani a meima cm seis meser pelo menor de\nantversencia, mnna uu que o ninero de lampa\nlas esigido nao excida a capacisade i forca\ndos cynames, caso em que se obriga a ntisfeui\ndentr de prars de doue meses conlado da\ndata do arico nad podende elle ter logad ants\nle ser manqurada e accuta a sliacad\ncomtante de prisente contraete.\n§2r A clausula 18e do contracto fica apii\niubtituida: blausula 18e Se o desavanjo que\noccasionar a niterropeao da suy durar mais\nde quze dias, povera a camara reseindir o\ncontracto, satro caso a prea maior que\nserà reschida por arbitm purfissionaea\nnomeadi pela forma de direeto.\n3°~ 1 clausula 16e fica asim: t ipira\ndevera ter sempre e deporite o mmmero de\nlampavas ne cesario para suhitituir mimediatamente\nqualquer lampada que se queme,\nse mutitise on se apagne, sob peua de pagar\ndez mil uis de musta abatida nas petaco\nmcnrais por lampada que ectrer apagada\nauas noite come entivas, catro caso a forca\nmairr a juiso de fiscal profesiional da Camora\n£42 A clausulo 14 ficava dute modo:- Na\nexpessa\" ulsmaça publica fica compuhedio\na ulunacas do cas do bamara com seis lampadas\ne a da bade com yual ~~nero, d~tribinidor\nde acendo com a mesa camara.\n£5o A Clausula 20e ficavà assi: - A Empien\nsera ada ~ ~aor e auurar a \nçad da cisade da data deta lei a seis mese",
+      "wer_strict": 0.5975103734439834,
+      "cer_strict": 0.21041520056298382,
+      "wer_norm": 0.5774058577405857,
+      "cer_norm": 0.20302375809935205,
+      "strict_we": 144,
+      "strict_rw": 241,
+      "strict_ce": 299,
+      "strict_rc": 1421,
+      "norm_we": 138,
+      "norm_rw": 239,
+      "norm_ce": 282,
+      "norm_rc": 1389
+    }
+  ]
+}

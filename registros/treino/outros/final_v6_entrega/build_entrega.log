@@ -1,0 +1,29 @@
+2026-11-01 17:23:59,660 INFO assembled entrega_ocr
+/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  _validate(nbdict, ref, version, version_minor, relax_add_props)
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+2026-11-01 17:24:02,605 INFO Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793553847.436081  245721 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793553847.506798  245721 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793553849.771992  245721 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793553849.772500  245721 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Exception ignored in atexit callback <function shutdown at 0x7b010c414a40>:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/logging/__init__.py", line 2255, in shutdown
+    h.close()
+  File "/usr/local/lib/python3.13/dist-packages/absl/logging/__init__.py", line 978, in close
+    self.stream.close()
+  File "/usr/local/lib/python3.13/dist-packages/ipykernel/iostream.py", line 446, in close
+    self.watch_fd_thread.join()
+AttributeError: 'OutStream' object has no attribute 'watch_fd_thread'
+2026-11-01 18:21:58,736 INFO executed /content/repo/entrega_ocr/apresentacao.ipynb

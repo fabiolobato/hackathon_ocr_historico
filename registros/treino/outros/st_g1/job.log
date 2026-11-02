@@ -1,0 +1,17 @@
+22:56:18 cores 12
+22:58:23 label: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels label --config configs/v4_pass1_st_v3.json --images imagens_extra/ldl1_crop --out /content/st_g1/labels --device cuda:0 --workers 12
+23:49:34 label: exit 0
+23:49:34 transcripts: /usr/bin/python3 -m ocr_pipeline.tuning.transcripts /content/st_g1/labels --transcripts imagens_extra/transcriptions_txt
+23:49:35 transcripts: exit 0
+23:49:35 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_g1/labels --min-chars 10 --min-mean-prob 0.92 --max-change 1.0 --min-known 0.9 --max-transcript-cer 0.4
+23:49:37 select: exit 0
+23:49:37 compile: ketos --workers 12 compile -f page -o /content/st_g1/train.arrow /content/st_g1/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_g1/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99-101
+23:49:54 compile: exit 0
+23:49:54 train_medium_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_g1/model_medium_b32 --logger tensorboard --log-dir /content/st_g1/tb_medium_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment 
+23:51:00 train_medium_b32: exit 1
+23:51:00 train_medium_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_g1/model_medium_b16 --logger tensorboard --log-dir /content/st_g1/tb_medium_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment 
+00:35:03 train_medium_b16: exit 0
+00:35:03 train_st_v3_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_v3.safetensors -o /content/st_g1/model_st_v3_b32 --logger tensorboard --log-dir /content/st_g1/tb_st_v3_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p
+00:35:44 train_st_v3_b32: exit 1
+00:35:44 train_st_v3_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_v3.safetensors -o /content/st_g1/model_st_v3_b16 --logger tensorboard --log-dir /content/st_g1/tb_st_v3_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p
+01:16:02 train_st_v3_b16: exit 0

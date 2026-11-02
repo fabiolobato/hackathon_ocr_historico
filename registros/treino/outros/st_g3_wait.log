@@ -1,0 +1,20 @@
+fetched st_g3 after 128 min: READY=
+batch_g3m.txt
+batch_g3s.txt
+compile_all.log
+eval_tuning.json
+eval.log
+FETCHED
+job.log
+label.log
+labels
+metrics.json
+model_g3m_b16
+model_g3s_b16
+result.zip
+select.log
+train_g3m_b16.log
+train_g3m_b32.log
+train_g3s_b16.log
+train_g3s_b32.log
+transcripts.log

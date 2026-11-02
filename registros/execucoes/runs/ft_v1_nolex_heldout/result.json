@@ -1,0 +1,111 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "outputs/finetune/runs/ft_v1/best_0.8825.safetensors",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": null,
+      "lexicon_size": 0,
+      "domain_lexicon": false,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "edit",
+      "ctc_alpha": 16,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.4565560821484992,
+    "cer_strict": 0.12568164113217345,
+    "wer_norm": 0.4141732283464567,
+    "cer_norm": 0.12083222192584689
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 38,
+      "pred_words": 217,
+      "text": "§3º O vae Prendenta e o natuval subakituto do Presidente.\n§4º Subibitum ao Vice. Presidente os demais Vereadores\nna osdem de sua artação. Em caso de embate serivrá\n mais velo.\nCapilulo 3\nDa ordem dos trabalhos\nA3\nNo dia marçado paraas sessãeo se veirãoos Vercadc\nres no salão prricipal da municipalidade, as oze\nhoras da manha, e havendo ueso legal, o prrsidente\narmmino o sen lugen, que é a cabereira da mna dos\ntraballus, dará ponicipi. as sessõs pelos palavras:- Esta\nabesta a sessão.\nArtiqo 4º\nAs sessães derarão o tempo maximo de quabo hor\nras. Permmada a sessão, o presidente encerrará\nos trabalhos pelas palavras:- Está encerrade a sessão.\nArtigo 5\nAbesta a sessão, o presidente declarará a materia em\ndiscussão, manterá a osdem durante os trabalhos, dan\ndo a palarra do que pumeira a pedir, fasesodo obeovar\na decencia e a civiliPade entre os vereadores e \ncipectadores.\n\n\n\n§1º No recmto dos trabarhos e vedado o iigresso\na pessoa que não pertença a corporação manci\npal.\n§2º s elpectadores não podeno intervir eos debates,\npor qualquer forma, e nem dor signães deo appelia\nção ou deragrado, 186 pena de serem obrurados, e\nespulaos da sala, em caso de renicidencia.\nArtigo 6.º\nAo Presidente niciebe; –\n\n2\n1 Chamar o osdem, ate tre veses, o vereadar que",
+      "wer_strict": 0.49065420560747663,
+      "cer_strict": 0.13647058823529412,
+      "wer_norm": 0.4372093023255814,
+      "cer_norm": 0.13075060532687652,
+      "strict_we": 105,
+      "strict_rw": 214,
+      "strict_ce": 174,
+      "strict_rc": 1275,
+      "norm_we": 94,
+      "norm_rw": 215,
+      "norm_ce": 162,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 34,
+      "pred_words": 182,
+      "text": "destes, descendentes, sogro e geno, unmao e cenhadros\ndurante o cunhadio, tio e sobrinho e socios dar\nmesma firma, o vereadir a quem a hupostrec\nniteressar não poderá volar.\nArtigo 15º\nAos vereadores que, sem carsa justificãda\nfaltarem a duas sessões comecutivas, bem\ncomo dos supptentes convoçadr que não\ncompareceremo, sera smposta, pelo Presidente\na multa de dez mil reis (10:000) (Reg. astº 6º\n§4º). O Presidente quando tiver de desenter\nqualquer assummpto on aresentar e defender\nnidiçação susa, passará a presidenera a se\nmmmediato.\nCapitelo 4º\nDo muemero das sessães\nArtigo 16º\nA Camara munnicipal fará em cada anno\nseis sessoes ordinarias, de dois co dois meses\nnos penieiros dias eteis de Oulubro, Desembro,\nFevereir Abril, Junho e Agosto que durarão\nos dias necessarios, nunça memnos de tre.\n\nArtgo 17\nCavera em cada anno tantas sessões extra\nOrdiviarias quantas frem exigidas pelo\nbem munncipal .\n§/º As sessões extraordinarias serão como\ncadas pelo Presidente e sempre por orvem\nsuperior, uiciativa do popno presadente\nom a Requeriento do Intendente. Em qualoio\nqur Caro o presidente declarará o motioo\nda comrcacão.\nDuposicões geraes.",
+      "wer_strict": 0.39325842696629215,
+      "cer_strict": 0.0987012987012987,
+      "wer_norm": 0.35911602209944754,
+      "cer_norm": 0.0927743086529884,
+      "strict_we": 70,
+      "strict_rw": 178,
+      "strict_ce": 114,
+      "strict_rc": 1155,
+      "norm_we": 65,
+      "norm_rw": 181,
+      "norm_ce": 104,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 244,
+      "text": "lampadas quando a Camara o exigir, precedendo\nani a mesma cm seis meses, pelo menos,de\nantecidenaia, sona eee que o numero de lampa\ndas essigido não excida a capacidade e forec\ndis lynamis, caso em que se obrioga a ntisfrier\ndentro do praro de dose moses contadas da\ndata do ariso, não podendo elle ter logad antoes\nde ser mangurada e acceta a velumnjação\ncomtante do prisente contraeto.\n§2º A clausula 18º do contraeto fica afrimo\nintituida: Clansula 18º se o desarranjo que\nocasonãr a iiterrpŗão da Sug durar mais\nde queizza dias, poderaa Camara rescindir \ncontraeto, salro caso de frca maior que\nserá resobida por arbitrus perfssioriães\nnomeados pela forma de direeto.\n§ 3º A clansula 16º fica assim:- A emmprera\ndeverá ter sempre em deposito o mimero de\nlampadas necenario para sunhitituir mime\ndiatammente qualqueer lampada que de queeime,\nse mutitise en se apagne, sob pena de pagar\ndez mil reis de mueta abatida nas pestaco\nmenaes por lampada que estier apagada\nduas noites comecntivas, ealvo caso de forca\nmaior a jeizo do fiscal professeosal da Camora.\n§4º A clausula 14º ficará duste modo: - Na\nexpressão \"iluinação publicá - fica comprehendioam\na ellumação da Casa da Camara com seis lama\npadas e a da Caderá com egual mumero, destri\nbridos de accordo com a mesma Camaral.\nS5º A Clavsula 20º ficará assim: - A Eupren\nsera obrigada a mtalar e iaugurara ielua\nção da Cidade-da data deeta lei a seis mese",
+      "wer_strict": 0.4730290456431535,
+      "cer_strict": 0.13793103448275862,
+      "wer_norm": 0.4351464435146444,
+      "cer_norm": 0.13462922966162708,
+      "strict_we": 114,
+      "strict_rw": 241,
+      "strict_ce": 196,
+      "strict_rc": 1421,
+      "norm_we": 104,
+      "norm_rw": 239,
+      "norm_ce": 187,
+      "norm_rc": 1389
+    }
+  ]
+}

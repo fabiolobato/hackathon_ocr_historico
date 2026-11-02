@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/content/repo/tools/score_final.py", line 69, in <module>
+    main()
+    ~~~~^^
+  File "/content/repo/tools/score_final.py", line 54, in main
+    pages = sorted(discover(args.images, args.references), key=lambda p: p.number)
+                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/repo/ocr_pipeline/data.py", line 28, in discover
+    raise FileNotFoundError(f'No reference for {image.name}')
+FileNotFoundError: No reference for 8.BR FPMSC FUN CAM LDL - Livro de Registro de Leis n° 1, 1892 - 1984.jpg

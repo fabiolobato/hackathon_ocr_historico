@@ -1,0 +1,75 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.4,
+      "lexicon_min_len": 3,
+      "decoder": "edit",
+      "ctc_alpha": 4.0,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "11",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.49122807017543857,
+    "cer_strict": 0.22488755622188905,
+    "wer_norm": 0.47619047619047616,
+    "cer_norm": 0.2210283960092095
+  },
+  "pages": [
+    {
+      "page": 11,
+      "lines": 32,
+      "pred_words": 224,
+      "text": "Artigo\n180\nes casos ossos n'ete minuto serãõ resultado\npelo reporto no De de 15 de Janeiro de 1890, n\nlei nº 16 ae 13 de Novembro de 1891, no Reg. de 29\na Junho de 1892 (De no 86) e mais equivocado em\nrigor. Saberão do Pinhal, 30 de Sesuutr de 1892.\nJoanne Joe Gonzalo Braga. Hunt de Sauna\nFranco. Dr Joaquim Rodrigues psique. Elias camargo\nPenteado. Joaquim Vaz do Amaral Caduco. Arcõ\nFerreira da Sin Cabral. Eugen onoraor Egos.\nEu Aqui Auymt Ribeiro de longe, le essa\npresente ruim foi que vai co~form o oi~m\nao qual me report e don fe. S. Cada de Prova 30de\ndeck d 1892. Joan sutis Redding.\nLei no 2o\neA Camara descobri do Pinhal resolve:\nArtigo 12 A Cama Municipal garante à Emi\n~u~ Electra a venha líquida amal de 6% sobre\nun capital de gente e sessenta conto de rica\n1160000) que fr efetivamente imperador na\nnitallaças da isamaçao publica e particular\nPeta cidade.\n§12 A cuida garantida pela Camara come cará\na ignorar da data du untarlaçao oficial da shimiacad\npublica e particular.\nArtigo 22 Prevalece para o efeitos de Diccila o contra\nto celebrado pela Municipalidade en 22 d Abril\nde 1890.\n§2eA cláusula 10 do referia contracto fica\nassumi intitula:- Cláusula 10e A Empresa\nfica obrigada a aumentar o numero de",
+      "wer_strict": 0.49122807017543857,
+      "cer_strict": 0.22488755622188905,
+      "wer_norm": 0.47619047619047616,
+      "cer_norm": 0.2210283960092095,
+      "strict_we": 112,
+      "strict_rw": 228,
+      "strict_ce": 300,
+      "strict_rc": 1334,
+      "norm_we": 110,
+      "norm_rw": 231,
+      "norm_ce": 288,
+      "norm_rc": 1303
+    }
+  ]
+}

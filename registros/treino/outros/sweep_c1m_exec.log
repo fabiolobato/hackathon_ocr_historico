@@ -1,0 +1,121 @@
+
+[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+23:22:40 base 9.47 / 19.64
+23:27:00 pad16 9.79 / 19.81
+23:31:32 pad32 9.47 / 19.58
+23:37:01 no_deskew 9.9 / 20.15
+23:41:21 lm_w4 9.95 / 20.09
+23:45:32 alpha8 9.47 / 19.64
+23:49:50 alpha24 9.36 / 19.53
+23:54:03 beta05 10.17 / 20.26
+23:58:18 beta15 9.74 / 19.92
+00:01:40 ratio04 9.68 / 19.81
+00:06:05 ratio06 9.47 / 19.64
+00:10:12 short40 9.52 / 19.7
+00:14:40 short80 9.47 / 19.64
+00:16:51 cand20 9.52 / 19.7
+00:30:55 cand50 9.47 / 19.64
+00:33:19 nbest3 9.63 / 19.81
+00:41:00 nbest8 9.47 / 19.64
+00:45:21 beam0 9.79 / 19.86
+00:49:46 beam128 9.42 / 19.58
+00:57:09 minlen3 9.2 / 19.53
+01:01:12 fold 10.33 / 20.26
+01:01:12 READY 0
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1353 in _recv_reply                                 │
+│                                                                              │
+│   1350 │   │   │   │   if channel == "control":                              │
+│   1351 │   │   │   │   │   reply = self.control_channel.get_msg(timeout=time │
+│   1352 │   │   │   │   else:                                                 │
+│ ❱ 1353 │   │   │   │   │   reply = self.shell_channel.get_msg(timeout=timeou │
+│   1354 │   │   │   except queue.Empty as e:                                  │
+│   1355 │   │   │   │   msg = "Timeout waiting for reply"                     │
+│   1356 │   │   │   │   raise TimeoutError(msg) from e                        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:411 in get_msg                                      │
+│                                                                              │
+│    408 │   │   ------                                                        │
+│    409 │   │   Empty exception if no message is received before the timeout. │
+│    410 │   │   """                                                           │
+│ ❱  411 │   │   return self._messages.get(timeout=timeout)                    │
+│    412 │                                                                     │
+│    413 │   def get_msgs(self) -> list[dict[str, t.Any]]:                     │
+│    414 │   │   """Get all available messages.                                │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/queue.py:179 in get     │
+│                                                                              │
+│   176 │   │   │   │   while not self._qsize():                               │
+│   177 │   │   │   │   │   remaining = endtime - time()                       │
+│   178 │   │   │   │   │   if remaining <= 0.0:                               │
+│ ❱ 179 │   │   │   │   │   │   raise Empty                                    │
+│   180 │   │   │   │   │   self.not_empty.wait(remaining)                     │
+│   181 │   │   │   item = self._get()                                         │
+│   182 │   │   │   self.not_full.notify()                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Empty
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/colab_cli │
+│ /commands/execution.py:258 in exec_command                                   │
+│                                                                              │
+│   255 │   │   │   )                                                          │
+│   256 │   │   │   state.store.add(s)                                         │
+│   257 │   │   │                                                              │
+│ ❱ 258 │   │   │   outputs = runtime.execute_code(                            │
+│   259 │   │   │   │   code,                                                  │
+│   260 │   │   │   │   output_hook=lambda o: display_output(o, output_image), │
+│   261 │   │   │   │   timeout=timeout,                                       │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/colab_cli │
+│ /runtime.py:237 in execute_code                                              │
+│                                                                              │
+│   234 │   │   │   │   │   │   if idx < len(outputs):                         │
+│   235 │   │   │   │   │   │   │   output_hook(outputs[idx])                  │
+│   236 │   │   │                                                              │
+│ ❱ 237 │   │   │   reply = self.kernel_client.execute_interactive(            │
+│   238 │   │   │   │   code, output_hook=wrapped_output_hook, **kwargs        │
+│   239 │   │   │   )                                                          │
+│   240 │   │   │   # execute_interactive returns the raw reply message        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/client.py:364 in execute_interactive                            │
+│                                                                              │
+│   361 │   │   │   The reply message for this request                         │
+│   362 │   │   """                                                            │
+│   363 │   │   self._set_variables(variables)                                 │
+│ ❱ 364 │   │   return self._manager.client.execute_interactive(               │
+│   365 │   │   │   code,                                                      │
+│   366 │   │   │   silent=silent,                                             │
+│   367 │   │   │   store_history=store_history,                               │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1112 in execute_interactive                         │
+│                                                                              │
+│   1109 │   │   │   # output is done, get the reply                           │
+│   1110 │   │   │   if timeout is not None:                                   │
+│   1111 │   │   │   │   timeout = max(0, deadline - time.monotonic())         │
+│ ❱ 1112 │   │   │   return self._recv_reply(msg_id, timeout=timeout)          │
+│   1113 │                                                                     │
+│   1114 │   def is_alive(self) -> bool:                                       │
+│   1115 │   │   """Is the kernel process still running?"""                    │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1356 in _recv_reply                                 │
+│                                                                              │
+│   1353 │   │   │   │   │   reply = self.shell_channel.get_msg(timeout=timeou │
+│   1354 │   │   │   except queue.Empty as e:                                  │
+│   1355 │   │   │   │   msg = "Timeout waiting for reply"                     │
+│ ❱ 1356 │   │   │   │   raise TimeoutError(msg) from e                        │
+│   1357 │   │   │   if reply["parent_header"].get("msg_id") != msg_id:        │
+│   1358 │   │   │   │   self.log.debug("Ignoring message not from request: %s │
+│   1359 │   │   │   │   continue                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TimeoutError: Timeout waiting for reply

@@ -1,0 +1,21 @@
+01:57:06 cores 12
+01:58:36 label: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels label --config configs/v4_pass1_st_g1s.json --images imagens_extra/ldl1_crop --out /content/st_g2/labels --device cuda:0 --workers 12
+02:36:54 label: exit 0
+02:36:54 transcripts: /usr/bin/python3 -m ocr_pipeline.tuning.transcripts /content/st_g2/labels --transcripts imagens_extra/transcriptions_txt
+02:36:55 transcripts: exit 0
+02:36:55 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_g2/labels --min-chars 10 --min-mean-prob 0.92 --max-change 1.0 --min-known 0.9 --max-transcript-cer 0.4
+02:36:57 select: exit 0
+02:36:57 compile_all: ketos --workers 12 compile -f page -o /content/st_g2/train_all.arrow /content/st_g2/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_g2/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99
+02:37:14 compile_all: exit 0
+02:37:14 train_mix_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_v3.safetensors -o /content/st_g2/model_mix_b32 --logger tensorboard --log-dir /content/st_g2/tb_mix_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p 0.9
+02:38:20 train_mix_b32: exit 1
+02:38:20 train_mix_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_v3.safetensors -o /content/st_g2/model_mix_b16 --logger tensorboard --log-dir /content/st_g2/tb_mix_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p 0.9
+03:23:03 train_mix_b16: exit 0
+03:23:03 compile_transcribed: ketos --workers 12 compile -f page -o /content/st_g2/train_transcribed.arrow /content/st_g2/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_g2/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-
+03:23:17 compile_transcribed: exit 0
+03:23:17 train_gem_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_v3.safetensors -o /content/st_g2/model_gem_b32 --logger tensorboard --log-dir /content/st_g2/tb_gem_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p 0.9
+03:23:57 train_gem_b32: exit 1
+03:23:57 train_gem_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_v3.safetensors -o /content/st_g2/model_gem_b16 --logger tensorboard --log-dir /content/st_g2/tb_gem_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p 0.9
+03:52:04 train_gem_b16: exit 0
+03:52:04 eval: /usr/bin/python3 colab/eval_job.py st_g2 {"st_g2mix": "mix", "st_g2gem": "gem"} ["st_g1s", "st_g2mix", "st_g2gem"]
+04:05:49 eval: exit 0
