@@ -1,0 +1,118 @@
+
+[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+st_g1m best_0.9479.safetensors
+st_g1s best_0.9555.safetensors
+st_v3 w4 {'wer': 24.6, 'cer': 9.72, 'pages': [57.8, 20.5, 18.6, 22.9, 26.8, 31.3, 23.6, 28.5, 16.8]}
+st_v3 livro8 {'wer': 23.19, 'cer': 9.25, 'pages': [51.1, 20.0, 18.6, 22.9, 25.1, 28.8, 21.1, 25.8, 16.8]}
+st_g1m w4 {'wer': 22.35, 'cer': 6.78, 'pages': [46.7, 17.9, 17.7, 19.9, 27.7, 27.0, 20.6, 26.2, 15.5]}
+st_g1m livro8 {'wer': 21.84, 'cer': 6.61, 'pages': [46.7, 17.9, 17.7, 19.9, 26.4, 25.3, 20.6, 25.3, 15.5]}
+st_g1s w4 {'wer': 22.29, 'cer': 6.68, 'pages': [46.7, 17.9, 17.2, 19.4, 28.1, 28.8, 18.6, 27.1, 14.7]}
+st_g1s livro8 {'wer': 21.5, 'cer': 6.44, 'pages': [46.7, 17.9, 17.2, 19.4, 26.8, 25.8, 18.6, 25.3, 14.7]}
+
+ion
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1353 in _recv_reply                                 │
+│                                                                              │
+│   1350 │   │   │   │   if channel == "control":                              │
+│   1351 │   │   │   │   │   reply = self.control_channel.get_msg(timeout=time │
+│   1352 │   │   │   │   else:                                                 │
+│ ❱ 1353 │   │   │   │   │   reply = self.shell_channel.get_msg(timeout=timeou │
+│   1354 │   │   │   except queue.Empty as e:                                  │
+│   1355 │   │   │   │   msg = "Timeout waiting for reply"                     │
+│   1356 │   │   │   │   raise TimeoutError(msg) from e                        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:411 in get_msg                                      │
+│                                                                              │
+│    408 │   │   ------                                                        │
+│    409 │   │   Empty exception if no message is received before the timeout. │
+│    410 │   │   """                                                           │
+│ ❱  411 │   │   return self._messages.get(timeout=timeout)                    │
+│    412 │                                                                     │
+│    413 │   def get_msgs(self) -> list[dict[str, t.Any]]:                     │
+│    414 │   │   """Get all available messages.                                │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/queue.py:179 in get     │
+│                                                                              │
+│   176 │   │   │   │   while not self._qsize():                               │
+│   177 │   │   │   │   │   remaining = endtime - time()                       │
+│   178 │   │   │   │   │   if remaining <= 0.0:                               │
+│ ❱ 179 │   │   │   │   │   │   raise Empty                                    │
+│   180 │   │   │   │   │   self.not_empty.wait(remaining)                     │
+│   181 │   │   │   item = self._get()                                         │
+│   182 │   │   │   self.not_full.notify()                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Empty
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/colab_cli │
+│ /commands/execution.py:258 in exec_command                                   │
+│                                                                              │
+│   255 │   │   │   )                                                          │
+│   256 │   │   │   state.store.add(s)                                         │
+│   257 │   │   │                                                              │
+│ ❱ 258 │   │   │   outputs = runtime.execute_code(                            │
+│   259 │   │   │   │   code,                                                  │
+│   260 │   │   │   │   output_hook=lambda o: display_output(o, output_image), │
+│   261 │   │   │   │   timeout=timeout,                                       │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/colab_cli │
+│ /runtime.py:237 in execute_code                                              │
+│                                                                              │
+│   234 │   │   │   │   │   │   if idx < len(outputs):                         │
+│   235 │   │   │   │   │   │   │   output_hook(outputs[idx])                  │
+│   236 │   │   │                                                              │
+│ ❱ 237 │   │   │   reply = self.kernel_client.execute_interactive(            │
+│   238 │   │   │   │   code, output_hook=wrapped_output_hook, **kwargs        │
+│   239 │   │   │   )                                                          │
+│   240 │   │   │   # execute_interactive returns the raw reply message        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/client.py:364 in execute_interactive                            │
+│                                                                              │
+│   361 │   │   │   The reply message for this request                         │
+│   362 │   │   """                                                            │
+│   363 │   │   self._set_variables(variables)                                 │
+│ ❱ 364 │   │   return self._manager.client.execute_interactive(               │
+│   365 │   │   │   code,                                                      │
+│   366 │   │   │   silent=silent,                                             │
+│   367 │   │   │   store_history=store_history,                               │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1112 in execute_interactive                         │
+│                                                                              │
+│   1109 │   │   │   # output is done, get the reply                           │
+│   1110 │   │   │   if timeout is not None:                                   │
+│   1111 │   │   │   │   timeout = max(0, deadline - time.monotonic())         │
+│ ❱ 1112 │   │   │   return self._recv_reply(msg_id, timeout=timeout)          │
+│   1113 │                                                                     │
+│   1114 │   def is_alive(self) -> bool:                                       │
+│   1115 │   │   """Is the kernel process still running?"""                    │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1356 in _recv_reply                                 │
+│                                                                              │
+│   1353 │   │   │   │   │   reply = self.shell_channel.get_msg(timeout=timeou │
+│   1354 │   │   │   except queue.Empty as e:                                  │
+│   1355 │   │   │   │   msg = "Timeout waiting for reply"                     │
+│ ❱ 1356 │   │   │   │   raise TimeoutError(msg) from e                        │
+│   1357 │   │   │   if reply["parent_header"].get("msg_id") != msg_id:        │
+│   1358 │   │   │   │   self.log.debug("Ignoring message not from request: %s │
+│   1359 │   │   │   │   continue                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TimeoutError: Timeout waiting for reply

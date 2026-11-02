@@ -1,0 +1,111 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 16,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.5134281200631912,
+    "cer_strict": 0.1994287198130356,
+    "wer_norm": 0.47874015748031495,
+    "cer_norm": 0.1917844758602294
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 38,
+      "pred_words": 215,
+      "text": "§3o O vic Presente éa natural substituto do Presidente.\n§4^° Subirem ae Vice Presente es demais Vereadores\nna ordem de sua atacar. En caco de empate serra\no mais vie.\nCapitulo 3\nDa one dos trabalhos\nArtigo 3.e\nNo dia marcado para as seriais se revirar o Virado\nno salas principal da municipalidade, as age\nhoras da manha, i havendo mere legal, a persiste\narmando o seu luger, que e'a cabeceira da mera dos\ntrabalhos, dava principais as suor pelos palavras: Esta\nabusa a sessão.\nchego 4º\nAs essas durarão o tempo maximo de quatro hora.\nPerda a sessão, e presente encerra\nor trabalhas pelas palavras: Esta encerrado a seria.\nArtigo 52\nAberto a sessão, o presidente declarar a matéria em\ndiscussão, manterá a onde durante os trabalhe, dan\ndo a plano as que pier a pedir, fase hear\na decencia e a civilidade eu os vereador e os\nespectadores.\n\n\n\n§1^° No recite dos trabalhos veado o ingresso\na pessoa que nao pertença a corporais min\npal.\n§2o s espectadores nao porem intervir un debates,\npor qualquer forma, e nem dor signe de pena\non desagrado, 186 porra de levem observados, e\nexpulsos da sala, un caio de reincidente.\nartigo 6.o\nA Presente meme:\n—\n1e Chamar a one, ate tru vice, o vivia que",
+      "wer_strict": 0.5186915887850467,
+      "cer_strict": 0.19607843137254902,
+      "wer_norm": 0.4883720930232558,
+      "cer_norm": 0.18966908797417273,
+      "strict_we": 111,
+      "strict_rw": 214,
+      "strict_ce": 250,
+      "strict_rc": 1275,
+      "norm_we": 105,
+      "norm_rw": 215,
+      "norm_ce": 235,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 34,
+      "pred_words": 177,
+      "text": "dentes, descendentes, so e genro, nan e centrado\ndurante o cunhado tio e sobrinho e soc das\nmesma firma, o vereador a quem a suporte\ninteressar nao poderá votar.\nArtigo 15º\nAos Vereadores que ~~m causa justificada\nafastarem a duas cessar consecutivas, be~\ncото n sustente convoca que nӑ\ncomparecer sera importa, pelo Presidente\nar multa de dez mil reis (10000) (Reg. art 6o\n§4°). O Presidente quando tres de discutir\nqualquer assumptos on apresentar e defender\nindicação sua, passava a psiu a su\nimediato.\nCapitulo 4°\nDo numero das sessão\nArtigo 16º\nA Camara municipal fara uu cada anno\nseis essas marias, de dois u dois meses\nnos pomares dias úteis de Outro, Descubro,\nFevereiro Abril, Junho e agosto que durava\nos dias ne ensaios, nunca menos de tru.\n\nArtigo 17baviera\nu cada anno tantas esse extraordinarias\nquantas prem exigida pelo\nви mисраl§/°\nAs essa romanas sera como\ncada pelo Presente e sempre ~or em\nsuperior, iniciativa do proprio presidente\nin a Requerimento 8o Intendente. Em qual~ur\ncaro o presidente declarar. motivo\nба Cопсасаб.\nDupont girls",
+      "wer_strict": 0.47752808988764045,
+      "cer_strict": 0.18441558441558442,
+      "wer_norm": 0.44751381215469616,
+      "cer_norm": 0.17752007136485282,
+      "strict_we": 85,
+      "strict_rw": 178,
+      "strict_ce": 213,
+      "strict_rc": 1155,
+      "norm_we": 81,
+      "norm_rw": 181,
+      "norm_ce": 199,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 244,
+      "text": "amadas quando a camara o exigir, pretendo\nani a mesma cm seis meses pelo menor de\nintendencia, mna uu que o niners de tampa\nlas exigido nao excita a capacidade i forca\ndos nomes, caso em que se obriga a teseu\ndentro de praso de doe meses contado da\ndata do arco nao podendo elle ter logan antes\nle ser maquiada e acta a saca\ncortante de presente contrate.\n§2r A clausula 18e do contracto fica aii\nintimida: clausula 18e Se o desabando que\nocasional a terreno da su durar mais\nde que dias, porra a camara responder o\ncontracto, sato caso a pra maior que\nsera vestida por art profissionais\nnomeado pela forma de direito.\n3°~ 1 clausula 16e fica asim: t pira\ndeverá ter sempre e deposite o mero de\nlâmpadas ne cesare para substituir imediatamente\nqualquer lâmpada que se queime,\nse utilize on se apague, sob pena de pagar\ndez mil is de muita abatida nas pelado\nmensais por lâmpada que ester apagada\nduas noite come ativas, cato caso a forca\nmaior a juiso de fiscal professional da Camara\n£42 A clausula 14 ficava date modo:- Na\nexpressa\" maça publica fica comprei\na lucas do cas do camara com seis lâmpadas\ne a da base com ual ~~nero, d~triindo\nde acendo com a mesa camara.\n£5o A Clausula 20e ficava ass: - A Empire\nsera ada ~ ~ar e curar a\nça da cidade da data desta lei a seis mesa",
+      "wer_strict": 0.5352697095435685,
+      "cer_strict": 0.21463757916959889,
+      "wer_norm": 0.49372384937238495,
+      "cer_norm": 0.20518358531317496,
+      "strict_we": 129,
+      "strict_rw": 241,
+      "strict_ce": 305,
+      "strict_rc": 1421,
+      "norm_we": 118,
+      "norm_rw": 239,
+      "norm_ce": 285,
+      "norm_rc": 1389
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "metric": "wer_norm",
+  "configs": 1078,
+  "image_draws": 60,
+  "quantiles": {
+    "0.0": 0.4401805869074492,
+    "0.1": 0.5451467268623025,
+    "0.25": 0.587471783295711,
+    "0.5": 0.6382618510158014
+  },
+  "best_so_far": [
+    [
+      10,
+      0.6941309255079007
+    ],
+    [
+      25,
+      0.5203160270880361
+    ],
+    [
+      50,
+      0.5203160270880361
+    ],
+    [
+      100,
+      0.5203160270880361
+    ],
+    [
+      200,
+      0.5203160270880361
+    ],
+    [
+      400,
+      0.4401805869074492
+    ],
+    [
+      800,
+      0.4401805869074492
+    ],
+    [
+      1078,
+      0.4401805869074492
+    ]
+  ],
+  "best": {
+    "image_draw": 21,
+    "text_draw": 18,
+    "choices": [
+      "seg_image:clahe",
+      "seg_image:contrast",
+      "seg_image:grayscale",
+      "seg_image:sharpen",
+      "seg_image:denoise",
+      "geometry:upscale_15",
+      "line_filter:min_px_30",
+      "rec_image:illumination",
+      "rec_image:clahe",
+      "rec_image:gamma_07",
+      "rec_image:grayscale",
+      "rec_params:new_polygons",
+      "text:conventions",
+      "lexicon:period",
+      "lexicon_params:ratio_50",
+      "lexicon_params:min_len_3",
+      "lexicon_params:period_50k",
+      "decoder:ctc_edit",
+      "decoder_params:alpha_16",
+      "decoder_params:candidates_30"
+    ],
+    "config": {
+      "geometric_ops": [
+        "upscale"
+      ],
+      "seg_ops": [
+        "clahe",
+        "contrast",
+        "grayscale",
+        "sharpen",
+        "denoise"
+      ],
+      "rec_ops": [
+        "illumination",
+        "clahe",
+        "gamma",
+        "grayscale"
+      ],
+      "params": {
+        "upscale_factor": 1.5,
+        "deskew_limit": 5.0,
+        "deskew_step": 0.25,
+        "contrast_factor": 1.8,
+        "clahe_clip": 2.0,
+        "clahe_grid": 8,
+        "denoise_strength": 7.0,
+        "background_sigma": 25.0,
+        "nlbin_threshold": 0.5,
+        "nlbin_zoom": 0.5,
+        "sharpen_amount": 1.0,
+        "gamma": 0.7,
+        "rule_kernel_frac": 0.08
+      },
+      "seg": {
+        "model": null,
+        "min_line_frac": 0.0,
+        "min_line_px": 30,
+        "drop_top_frac": 0.0
+      },
+      "rec": {
+        "model": "medium",
+        "padding": 16,
+        "no_legacy_polygons": true
+      },
+      "post": {
+        "conventions": true,
+        "dehyphenate": false,
+        "lexicon": null,
+        "lexicon_size": 20000,
+        "period_lexicon": "models/lexicon/pt_hist_gutenberg.txt",
+        "period_lexicon_size": 50000,
+        "domain_lexicon": false,
+        "lexicon_max_ratio": 0.5,
+        "lexicon_min_len": 3,
+        "decoder": "ctc+edit",
+        "ctc_alpha": 16,
+        "ctc_candidates": 30
+      }
+    }
+  },
+  "scores": {
+    "random_best": {
+      "tuning": {
+        "wer_strict": 0.48722316865417375,
+        "cer_strict": 0.19356036002598126,
+        "wer_norm": 0.4401805869074492,
+        "cer_norm": 0.18262933080208826
+      }
+    },
+    "final": {
+      "tuning": {
+        "wer_strict": 0.5025553662691652,
+        "cer_strict": 0.2132318827131855,
+        "wer_norm": 0.46952595936794583,
+        "cer_norm": 0.2059800664451827
+      }
+    }
+  },
+  "beaten_by_random": {
+    "random_best": 0,
+    "final": 3
+  }
+}

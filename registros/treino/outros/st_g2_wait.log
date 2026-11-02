@@ -1,0 +1,21 @@
+fetched st_g2 after 109 min: READY=
+batch_gem.txt
+batch_mix.txt
+compile_all.log
+compile_transcribed.log
+eval_tuning.json
+eval.log
+FETCHED
+job.log
+label.log
+labels
+metrics.json
+model_gem_b16
+model_mix_b16
+result.zip
+select.log
+train_gem_b16.log
+train_gem_b32.log
+train_mix_b16.log
+train_mix_b32.log
+transcripts.log

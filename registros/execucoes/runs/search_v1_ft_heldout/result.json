@@ -1,0 +1,118 @@
+{
+  "config": {
+    "geometric_ops": [
+      "upscale",
+      "deskew"
+    ],
+    "seg_ops": [
+      "illumination",
+      "clahe"
+    ],
+    "rec_ops": [
+      "illumination",
+      "gamma"
+    ],
+    "params": {
+      "upscale_factor": 1.5,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 0.7,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "ft_v1",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 2,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.41706161137440756,
+    "cer_strict": 0.14853284861075045,
+    "wer_norm": 0.3889763779527559,
+    "cer_norm": 0.1411042944785276
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 34,
+      "pred_words": 221,
+      "text": "§ 3º O Nice Pendente d'o natural substituto do Preside le\n§4º Saberem do Nice.-Presidente os demais Vereadores\nna ordem de sua votação. Em caso de empate sessão\no mais velo.\nCapitulo 3e\nDa ordem do, trabalhos\n6o 3\nNo dia marcado para as sessão se sumiram os Vereador\nreis no falar municipal da municipalidade, as ouve\nhoras da manha, e havendo mero legal, o presidente\nassino oe seu luzes, que l'à cabeceira da sos ma de\ntrabalhos, dave principio as sessão pelos palavras.- Esta\nabusa o sessão.\nArtigo 4º\nAs sessão, durarão o tempo maximo de quatro ho\nas. Parada a sessão, o presidente encenar\nos trabalhos pelas palavras:- Esta encerrado a sessão.\nRr tipo 5\nAberta a sessão, o presidente declarar a material en\ndiscussão, manterá a ordem durante ei trabalhos, da.\ndo à palavra ao que primeiro a pedir, fases cavar\na decencia e a civilidade ente os vereadores e os\nespectadores.\n\n§1º No Recinto dos trabalhos c'vedondo o sigresa̧o\na pessoa que não pertença a corporação mal\nal\n§2º s empregados es não podemos intervir os debates\npos qualquer frio, e nem dor bigode de approvada\nsão on desagrado, 106 pesa de serem obrigados, e\nespertos da sala, ems caso de residência.\nArtigo 6.º\nAo Presidente simba: §1e\nChamar a ordem, ate tres vezes, o vereador que",
+      "wer_strict": 0.4439252336448598,
+      "cer_strict": 0.1607843137254902,
+      "wer_norm": 0.42790697674418604,
+      "cer_norm": 0.15415657788539144,
+      "strict_we": 95,
+      "strict_rw": 214,
+      "strict_ce": 205,
+      "strict_rc": 1275,
+      "norm_we": 92,
+      "norm_rw": 215,
+      "norm_ce": 191,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 35,
+      "pred_words": 179,
+      "text": "dentes, descendente, sogro e gesso, limpamos e contados\ndurante o contado, tio e sobrinho e sócios da\nmesma firma, o Vereador a quem a hypothese\ninteressar nao poderá votar.\nArtigo 152\nAos Vereadores que, cem causa justificada\nafastarem a duas sessões consecutivas, bem\ncomo dos Supplente convocados que não\ncomparecer, será suposta, pelo Presidente\nor multa de dez sil reis l10:000) (Reg. art 6º\n§4º. O Presidente quando tiver de dieter\nqualquer assumptos os apresentar e defender\nmedicação sena, passará a presidencial a su\nnovato.\nCapiter̄lo 4º\nDo miss das sessões.\nArtigo 16º\nA Camara municipal fará em cada anno\nseis sessões ordinarias, de dis em dois meses\nnos primeiros das sitio de Outubro, Dezembro,\nFevereiro, Abril, Junho e Agosto que durarão\nos dias necessarios, nunca menos de tre.\nArtigo\n\nHaverá um cada anno tantas sessão extra\nEstarias quantas prem exigida pelo\nbem municipal.\n\n§1º As sessões extraordinarias serão como\ncada pelo Presidente e sempre por ordem\nsuperior, iniciativa do proprio presidente\none a Requerimento 8o Intendente. Emi qual\nquer Caro o presidente declarado motivo\nda Comunicação.\nDisposições gerado.",
+      "wer_strict": 0.33707865168539325,
+      "cer_strict": 0.09610389610389611,
+      "wer_norm": 0.292817679558011,
+      "cer_norm": 0.08742194469223907,
+      "strict_we": 60,
+      "strict_rw": 178,
+      "strict_ce": 111,
+      "strict_rc": 1155,
+      "norm_we": 53,
+      "norm_rw": 181,
+      "norm_ce": 98,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 243,
+      "text": "lâmpadas quando a Rosemary o exigir, precisando\nanno á mesma com seis meses, pelo menos, de\nintendencia, soa e que o james de Cama\ndas exigido não escada a capacidade e força\nEis digamos, caso eo que se obriga a dispor\ndentro do praso de dose osso contados da\ndata do aviso, cão podendo elle ter logan antes\nde ser sagrada e aceita a insinuação\ncortante de presente contrato.\n§2º Clausula 18º de contrato fica pro\nsubstituída: Clausula 18º Se o desempenho que\nocasional d unterrpȩã̧o da ug durar maio\nde quiz das, podivá’a Camara esconder a\ncontracto, sabão caso de força maior que\nserá descida por azeitonas performances\nnomeados pela forma de direito.\n§ 3º2 1 conserta 16ᵉ. fica assim:- et empresa\ndeverá ter sempre em deposito o numero de\nlâmpadas necessario para substituir moe\nexatamente qualquer lâmpadas que se queime,\nse sentisse en se apague, sob pena de pagar\ndez mil reis de multa abatida nas desta\nmentes por lâmpada que esther acordada\nduas noites consecutivas, salvo caso de força\nmaior a reis de fiscal professional da Compra\n§4º A clausula 14ª ficará lute modo: — Na\nexpressão \"annual publica fica comprehende\nd eilunaca̧ão do Casa do Camara com seis lam\npiadas e a da Caduco com igual numero, petri\nlindos de acordo cor a mesma Camara.\n§5º A Clausula 20º ficará assim. - A Esperem\nserá Brigada a si-lalar e mangueira sl\nao daCidade.da dat det lei a seis meses",
+      "wer_strict": 0.45228215767634855,
+      "cer_strict": 0.18015482054890922,
+      "wer_norm": 0.42677824267782427,
+      "cer_norm": 0.17278617710583152,
+      "strict_we": 109,
+      "strict_rw": 241,
+      "strict_ce": 256,
+      "strict_rc": 1421,
+      "norm_we": 102,
+      "norm_rw": 239,
+      "norm_ce": 240,
+      "norm_rc": 1389
+    }
+  ]
+}

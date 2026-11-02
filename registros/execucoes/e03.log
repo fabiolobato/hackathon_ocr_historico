@@ -1,0 +1,22 @@
+2026-10-22 03:07:38,641 INFO rec_raw: WERs 60.93 WERn 59.20 CERn 23.27
+2026-10-22 03:10:05,170 INFO rec_gray: WERs 65.30 WERn 63.60 CERn 24.88
+2026-10-22 03:12:28,475 INFO rec_clahe: WERs 60.99 WERn 58.97 CERn 23.33
+2026-10-22 03:14:41,685 INFO rec_contrast: WERs 60.42 WERn 58.18 CERn 23.34
+2026-10-22 03:16:55,113 INFO rec_illum: WERs 60.36 WERn 59.20 CERn 23.37
+2026-10-22 03:19:13,191 INFO rec_denoise: WERs 75.01 WERn 72.86 CERn 31.19
+2026-10-22 03:21:28,374 INFO rec_sharpen: WERs 60.48 WERn 58.52 CERn 23.22
+2026-10-22 03:23:42,377 INFO rec_gamma07: WERs 64.28 WERn 62.58 CERn 24.62
+2026-10-22 03:25:55,829 INFO rec_gamma15: WERs 65.53 WERn 64.05 CERn 25.70
+2026-10-22 03:28:11,006 INFO rec_rules: WERs 77.46 WERn 75.62 CERn 33.80
+variant                                     WERs    WERn    CERn
+rec_contrast                               60.42   58.18   23.34
+rec_sharpen                                60.48   58.52   23.22
+rec_clahe                                  60.99   58.97   23.33
+rec_raw                                    60.93   59.20   23.27
+rec_illum                                  60.36   59.20   23.37
+rec_gamma07                                64.28   62.58   24.62
+rec_gray                                   65.30   63.60   24.88
+rec_gamma15                                65.53   64.05   25.70
+rec_denoise                                75.01   72.86   31.19
+rec_rules                                  77.46   75.62   33.80
+EXIT 0

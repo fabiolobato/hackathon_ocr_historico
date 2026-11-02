@@ -1,0 +1,118 @@
+{
+  "config": {
+    "geometric_ops": [
+      "upscale",
+      "deskew"
+    ],
+    "seg_ops": [
+      "illumination",
+      "clahe"
+    ],
+    "rec_ops": [
+      "illumination",
+      "gamma"
+    ],
+    "params": {
+      "upscale_factor": 1.5,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 0.7,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 2,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.46445497630331756,
+    "cer_strict": 0.16619059984419632,
+    "wer_norm": 0.4393700787401575,
+    "cer_norm": 0.16110962923446254
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 34,
+      "pred_words": 220,
+      "text": "§3o Ovos Presente é a natural substituto de Presidente\n§ 4º Subiram ae vice Coerente as demais Vereadores,\nna ordem de sua estava. Em caso de empate serie\no mais vee\nCapitulo 3e\nDa oren dos trabalhos\nArtigo 3e\nNo dia marcado para as sessões se entrar o Virado\nreis no salas principal da municipalidade, as onze\nhoras da manha, e havendo nero legal, a presidente\nsumindo a seu luger, que c'a cabeceira da mera do\ntrabalhos, dava principais as cessar pelos palavras: Esta\naberta a sessão.\nchris 4o\nAs sessões duraram a tempo maximo de quatro ho\nas. Terminada a sessão, o presidente encenar\nos trabalhos pelas palavras:- Esta en cirrose a sessão.\nArtigo 52\nAberta a sessão, a presidente declarar a material en\ndiscursar, manter a ordem durante o trabalhos, dan\ndo a palmo as que apoiei a pedir, fasenda levar\na decencia e a civilidade ente os vereadores e os\nespectadores\n\n§1^° No recite de trabalhos elevado o ingresso\na pessoa que nao pertença a corporação moe\npal.\n§2° Os espectadores nao loren intervir an debates,\npor qualquer forma, e nem dor sinais de rapper\nça on desagrado, vo6 pera de seven observados, e\nexpulsos da sala, eo caro de providencie.\nArtigo 6.o\nto Presidente dembe:\n§ 1e Chamar a ou, ate tre vezes, a vereador que",
+      "wer_strict": 0.48598130841121495,
+      "cer_strict": 0.16627450980392156,
+      "wer_norm": 0.4511627906976744,
+      "cer_norm": 0.15899919289749798,
+      "strict_we": 104,
+      "strict_rw": 214,
+      "strict_ce": 212,
+      "strict_rc": 1275,
+      "norm_we": 97,
+      "norm_rw": 215,
+      "norm_ce": 197,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 35,
+      "pred_words": 174,
+      "text": "dentes, descendentes, sobre genro, union e andrade\ndurante o cunhado, tive sobrinho e soco da\nmesma firma, o vereador a quem a hypothese\ninteressar nao poderá votar.\nArtigo 15º\nAos Vereadores que, sem causa justificada\nafastarem a duas sessões consecutivas, ben\ncomo cn supplente convoca que nao\ncomparecer, sera importa, pelo Presidente\na multa de dez mil reis (10:000) (Reg. art 60\n4o. O Presidente quando tres de discutir\nqualquer assumptos on apresentar e defender\nmedicação sua, passava a puder a su\nimediato.\nCapitulo 4°\nDo membro das sessões\nArtigo 16º\nA Camara municipal fara un cada anno\nseis sessão tomaria, de dois un dois meses,\nnos ponteiros dias úteis de Outubro, Descubro,\nFevereiro, Abril, Junho e gosto que durarão\nos dias necessarios, nunca menos de tre.\nArtigo\n\nHaverá un cada anno tantas sessão extraordinarias\nquantas prem exigida pelo\nbe municipal.\n\n§1 As sessão extraordinarias sera colocaram\npelo Prudente e sempre por onde\nsuperior, iniciativa do popo presidente\nen a Requerimento do Intendente. Em qual~ue\ncaro o presidente declarar. motivo\nба соннсас̧аи.\nDisposições germes.",
+      "wer_strict": 0.39325842696629215,
+      "cer_strict": 0.1316017316017316,
+      "wer_norm": 0.39226519337016574,
+      "cer_norm": 0.1302408563782337,
+      "strict_we": 70,
+      "strict_rw": 178,
+      "strict_ce": 152,
+      "strict_rc": 1155,
+      "norm_we": 71,
+      "norm_rw": 181,
+      "norm_ce": 146,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 243,
+      "text": "lâmpadas quando a Camara o exigir, pretendo\ncirie à mesma con seis meier, pelo menos, de\nintendencia, anna uu que a nos de lâmpadas\nexigido na emenda a capacidade e força\nde digamos, caso en que se obriga a nisso\ndentro de praso de dose meses contado da\ndata do aviso, and podendo elle ter logan antes\nde ser amargurada e aceita a semana\ncortante de presente contrate.\n§ 2º A clausula 18e de contracto fica assim\nsubstituída: Clausula 18e Se a desabando que\nocasional a interromper da Luz durar mais\nde quite dias, podia a camara esconder a\ncontracto, sarro caso de área maior que\nsera recebida por art brennan\nnomeado pela forma de direito.\n3° 1 clausula 16e fica assumi:- et empire\ndeverá ter sempre un deposite a numero de\nlâmpadas necessario para substituir imediatamente\nqualquer lâmpada que se queime,\nse muitas on se apague, sob pena de pagar\ndez mil vis de muita abatida nas pedaço\nmentes por lâmpada que entre apagada\nruas noites come mentiras, sarro caso de força\nmain a juiso do fiscal professional da Camara\n§4/ A clausula 14a ficava lute modo: Na\nexpressa\" maça publica fica comprehende\na praças de case de camara com seis lam~adas\ne a da cada com ual numero, d~tribnidos\nde acordo com a mesma camara.\n£5º eA Clausula 20e ficava assine:- et Empire\nsera ada a star e inaugurar a ia\nas da cidade da data desta lei a seis meses",
+      "wer_strict": 0.4979253112033195,
+      "cer_strict": 0.19422941590429274,
+      "wer_norm": 0.46443514644351463,
+      "cer_norm": 0.1879049676025918,
+      "strict_we": 120,
+      "strict_rw": 241,
+      "strict_ce": 276,
+      "strict_rc": 1421,
+      "norm_we": 111,
+      "norm_rw": 239,
+      "norm_ce": 261,
+      "norm_rc": 1389
+    }
+  ]
+}

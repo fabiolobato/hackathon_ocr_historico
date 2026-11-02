@@ -1,0 +1,25 @@
+17:11:57 cores 12
+17:13:56 label: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels label --config configs/v4_pass1.json --images imagens_extra/ldl1_crop --out /content/st_v1/labels --device cuda:0 --workers 12
+18:15:39 label: exit 0
+18:15:39 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_v1/labels --min-chars 10 --min-mean-prob 0.85 --max-change 1.0 --min-known 0.9
+18:15:42 select: exit 0
+18:15:42 compile: ketos compile -f page --workers 12 -o /content/st_v1/train.arrow /content/st_v1/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_v1/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99-101
+18:15:44 compile: exit 2
+18:15:44 READY 1
+18:17:51 cores 12
+18:17:52 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_v1/labels --min-chars 10 --min-mean-prob 0.85 --max-change 1.0 --min-known 0.9
+18:17:54 select: exit 0
+18:17:54 compile: ketos --workers 12 compile -f page -o /content/st_v1/train.arrow /content/st_v1/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_v1/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99-101
+18:18:08 compile: exit 0
+18:18:08 train_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v1/model_b32 --logger tensorboard --log-dir /content/st_v1/tb_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20 -p 0.9 -u NFD --resize
+18:18:15 train_b32: exit 2
+18:18:16 READY 2
+18:50:16 cores 12
+18:50:17 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_v1/labels --min-chars 10 --min-mean-prob 0.85 --max-change 1.0 --min-known 0.9
+18:50:19 select: exit 0
+18:50:19 compile: ketos --workers 12 compile -f page -o /content/st_v1/train.arrow /content/st_v1/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_v1/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99-101
+18:50:33 compile: exit 0
+18:50:33 train_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v1/model_b32 --logger tensorboard --log-dir /content/st_v1/tb_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20
+18:51:39 train_b32: exit 1
+18:51:39 train_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v1/model_b16 --logger tensorboard --log-dir /content/st_v1/tb_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20
+19:19:22 train_b16: exit 0

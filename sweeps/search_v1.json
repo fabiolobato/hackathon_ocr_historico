@@ -1,0 +1,189 @@
+{
+  "base": { "seg_ops": "", "rec_ops": "" },
+  "metric": "wer_norm",
+  "min_gain": 0.0,
+  "stages": [
+    {
+      "name": "recognizer",
+      "candidates": {
+        "small": { "rec.model": "small" }
+      }
+    },
+    {
+      "name": "seg_image",
+      "candidates": {
+        "illumination": { "seg_ops": "illumination" },
+        "clahe": { "seg_ops": "clahe" },
+        "contrast": { "seg_ops": "contrast" },
+        "grayscale": { "seg_ops": "grayscale" },
+        "otsu": { "seg_ops": "otsu" },
+        "nlbin": { "seg_ops": "kraken_nlbin" }
+      }
+    },
+    {
+      "name": "seg_params",
+      "candidates": {
+        "nlbin_t04": {
+          "set": { "params.nlbin_threshold": 0.4 },
+          "requires": [
+            { "seg_ops": "kraken_nlbin" },
+            { "rec_ops": "kraken_nlbin" }
+          ]
+        },
+        "nlbin_t06": {
+          "set": { "params.nlbin_threshold": 0.6 },
+          "requires": [
+            { "seg_ops": "kraken_nlbin" },
+            { "rec_ops": "kraken_nlbin" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "geometry",
+      "candidates": {
+        "upscale_15": {
+          "geometric_ops": "upscale",
+          "params.upscale_factor": 1.5
+        },
+        "upscale_20": {
+          "geometric_ops": "upscale",
+          "params.upscale_factor": 2.0
+        },
+        "deskew": { "geometric_ops": "deskew" }
+      }
+    },
+    {
+      "name": "line_filter",
+      "candidates": {
+        "min_frac_05": { "seg.min_line_frac": 0.05 },
+        "min_frac_10": { "seg.min_line_frac": 0.1 },
+        "min_px_30": { "seg.min_line_px": 30 }
+      }
+    },
+    {
+      "name": "rec_image",
+      "candidates": {
+        "illumination": { "rec_ops": "illumination" },
+        "clahe": { "rec_ops": "clahe" },
+        "contrast": { "rec_ops": "contrast" },
+        "gamma_07": { "rec_ops": "gamma", "params.gamma": 0.7 },
+        "gamma_15": { "rec_ops": "gamma", "params.gamma": 1.5 },
+        "sharpen": { "rec_ops": "sharpen" },
+        "grayscale": { "rec_ops": "grayscale" },
+        "denoise": { "rec_ops": "denoise" },
+        "remove_rules": { "rec_ops": "remove_rules" },
+        "nlbin": { "rec_ops": "kraken_nlbin" }
+      }
+    },
+    {
+      "name": "rec_params",
+      "candidates": {
+        "pad_8": { "rec.padding": 8 },
+        "pad_24": { "rec.padding": 24 },
+        "pad_32": { "rec.padding": 32 },
+        "new_polygons": { "rec.no_legacy_polygons": true }
+      }
+    },
+    {
+      "name": "text",
+      "candidates": {
+        "conventions": { "post.conventions": true },
+        "dehyphenate": { "post.dehyphenate": true }
+      }
+    },
+    {
+      "name": "lexicon",
+      "candidates": {
+        "domain": { "post.domain_lexicon": true },
+        "generic": { "post.lexicon": "models/lexicon/pt_br_50k.txt" }
+      }
+    },
+    {
+      "name": "lexicon_params",
+      "candidates": {
+        "ratio_20": {
+          "set": { "post.lexicon_max_ratio": 0.2 },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        },
+        "ratio_40": {
+          "set": { "post.lexicon_max_ratio": 0.4 },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        },
+        "ratio_50": {
+          "set": { "post.lexicon_max_ratio": 0.5 },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        },
+        "min_len_3": {
+          "set": { "post.lexicon_min_len": 3 },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        },
+        "min_len_5": {
+          "set": { "post.lexicon_min_len": 5 },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        },
+        "generic_all": {
+          "set": { "post.lexicon_size": 0 },
+          "requires": { "post.lexicon": "*" }
+        },
+        "generic_5k": {
+          "set": { "post.lexicon_size": 5000 },
+          "requires": { "post.lexicon": "*" }
+        }
+      }
+    },
+    {
+      "name": "decoder",
+      "candidates": {
+        "ctc": {
+          "set": { "post.decoder": "ctc" },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        },
+        "ctc_edit": {
+          "set": { "post.decoder": "ctc+edit" },
+          "requires": [{ "post.domain_lexicon": true }, { "post.lexicon": "*" }]
+        }
+      }
+    },
+    {
+      "name": "decoder_params",
+      "candidates": {
+        "alpha_2": {
+          "set": { "post.ctc_alpha": 2 },
+          "requires": [
+            { "post.decoder": "ctc" },
+            { "post.decoder": "ctc+edit" }
+          ]
+        },
+        "alpha_8": {
+          "set": { "post.ctc_alpha": 8 },
+          "requires": [
+            { "post.decoder": "ctc" },
+            { "post.decoder": "ctc+edit" }
+          ]
+        },
+        "alpha_16": {
+          "set": { "post.ctc_alpha": 16 },
+          "requires": [
+            { "post.decoder": "ctc" },
+            { "post.decoder": "ctc+edit" }
+          ]
+        },
+        "alpha_32": {
+          "set": { "post.ctc_alpha": 32 },
+          "requires": [
+            { "post.decoder": "ctc" },
+            { "post.decoder": "ctc+edit" }
+          ]
+        },
+        "candidates_30": {
+          "set": { "post.ctc_candidates": 30 },
+          "requires": [
+            { "post.decoder": "ctc" },
+            { "post.decoder": "ctc+edit" }
+          ]
+        }
+      }
+    }
+  ]
+}

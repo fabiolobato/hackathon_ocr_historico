@@ -1,0 +1,112 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "illumination",
+      "clahe"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 1.5,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 0.7,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "ft_v1",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 2,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.334913112164297,
+    "cer_strict": 0.11036094520903661,
+    "wer_norm": 0.29763779527559053,
+    "cer_norm": 0.10456121632435315
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 36,
+      "pred_words": 215,
+      "text": "§ 3º Vice Presidente éo natural substituto do Presidente.\n§4º Subirem ao Vice.-Presidente os demais Vereadores\nna ordem de sua estação. Em caso de empate será\no mais velho.e\n\n\nCapitulo 3º\nDa ordem dos trabalhos\nstig 3ª\nPodia marcado para as sessão? se retirar os Vereador\nreis no salas principal da municipalidade, as ouve\nhoras da manha, e havendo moro legal, o presidente\narmin o seu luzes, que é à cabeceira da mara dos\ntrabalhos, dará iniciei. as sessões pelos palavras:- Està\nabusa a sessão.\nArtigo 4º\nAs sessões durarão o tempo maximo de quatro ho\nas. Terminada a sessão, o presidente encerrar\nos trabalhos pelas palavras: - Está encerrado a sessão.\ntrigo 52\nAberta a sessão, o presidente declarar a material em\ndiscussão, manterá a ordem durante os trabalhos,daqd\ndo a palmo do que primeira a pedir, fasenda levar\na decencia e a civilidade entre os vereadores e os\nespectadores.\n\n§1º No recite dos trabalhos e'vedado o ingresso\na pessoa que não pertença a corporação manos\nal.\n§2º Os espectadores não podemos intervir nos debates,\npor qualquer forma, e nem dor simples de approvado\nsão on desagrado, 16 pena de serem obrigados, e\nexpulsos da sala, em caso de coincidência.\nArtigo 6.º\nAo Presidente ncumbe:§1e\nChamar o ordem, ate tres vezes, o vereador que",
+      "wer_strict": 0.37383177570093457,
+      "cer_strict": 0.1192156862745098,
+      "wer_norm": 0.3209302325581395,
+      "cer_norm": 0.11299435028248588,
+      "strict_we": 80,
+      "strict_rw": 214,
+      "strict_ce": 152,
+      "strict_rc": 1275,
+      "norm_we": 69,
+      "norm_rw": 215,
+      "norm_ce": 140,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 35,
+      "pred_words": 178,
+      "text": "dentes, descendentes, sogro e genro, uma e contados\ndurante o contado, tio e sobrinho e sócios da\nmesma firma, o Vereador a quem a postes\ninteressar não poderá votar.\nArtigo 15º\nAos Vereadores que, sem causa justificada,\nafastarem a duas sessões consecutivas, bem\ncomo dos supplente convocados que não\ncomparecer, será suposta, pelo Presidente,\nar multa de dez mil reis (10:000) (Reg. art 6º\n§4º). O Presidente quando tiver de dieter\nqualquer assumptos os apresentar e defender\nradiação sean, passará a presidência a seu\nimediato.\nCapitulo 4º\nDo membro das sessões\nArtigo 16º\nA Camara municipal fará em cada anno\nseis sessões ordinarias, de dois em dois meses,\nnos ponteiros dias peters de Outubro, Dezembro,\nFevereiro, Abril, Junho e Agosto que durarão\nos dias necessarios, nunca menos de tre.\nArtigo\n\nHaverá em cada anno tantas sessões extraordinarias\nquantas rem exigida pelo\nbem municipal.\n§º As sessões extraordinarias serão como\ncada pelo Presidente e sempre por ordem\nsuperior, iniciativa do posso presidente\none a Requerimento do Intendente. Em qual\nquer Caro o presidente declarar. motivo\nda Confiscada,\n\nDisposições gerado.",
+      "wer_strict": 0.25280898876404495,
+      "cer_strict": 0.07965367965367966,
+      "wer_norm": 0.23204419889502761,
+      "cer_norm": 0.07404103479036575,
+      "strict_we": 45,
+      "strict_rw": 178,
+      "strict_ce": 92,
+      "strict_rc": 1155,
+      "norm_we": 42,
+      "norm_rw": 181,
+      "norm_ce": 83,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 243,
+      "text": "lâmpadas quando a Camara o exigir, perdendo\nanis. à́ mesma coma seis meses, pelo menos, de\nintendencia, ina eu que o numero de limpar\ndas exigido não excede a capacidade e força\ndos digamos, caso em que se obriga a tiver\ndentro do prazo de dose meses contados da\ndata do aviso, não podendo elle ter comandantes\nde ser amargurada e aceita a situação\ncortante do presente contracto.\n§2º Clausula 18º do contracto fica frio\nsubstituída: Clausula 18º ese o arranjo que\nocasional a nnterrpȩã̧o da Luz durar mais\nde queime dias, poderá a Camara esconder a\ncontracto, sabão caso de força maior que\nserá recebida por árbitros professores\nnomeados pela forma de direito.\n§ 3º2 A clausula 16e fica assim:- et empresa\ndeverá ter sempre em deposito o numero de\nlâmpadas necessario para substituir imediatamente\nqualquer lâmpada que de queime,\nse muitas on se apague, sob pena de pagar\ndez mil reis de multa abatida nas estado\nmentes por lâmpada que estiver apagada\nduas noites consecutivas, salvo caso de força\nmaior a juiso do fiscal professional da Camara.\n§4º Clausula 14º ficará deste modo: - Na\nexpressão \"iluminação publica - fica compreendida\na eilunaçã̧o do Caso de Camara com seis lam\npiadas e a da Cadeia com igual numero, destrua\nbanidos de acordo com a mesma Camara.\n§5º A Clausula 20ª ficará assim: - eA Morrem\nserá obrigada a similar e inaugurar island\nao da Cidade.da data desta lei a seis meses",
+      "wer_strict": 0.36099585062240663,
+      "cer_strict": 0.12737508796622096,
+      "wer_norm": 0.3263598326359833,
+      "cer_norm": 0.1216702663786897,
+      "strict_we": 87,
+      "strict_rw": 241,
+      "strict_ce": 181,
+      "strict_rc": 1421,
+      "norm_we": 78,
+      "norm_rw": 239,
+      "norm_ce": 169,
+      "norm_rc": 1389
+    }
+  ]
+}

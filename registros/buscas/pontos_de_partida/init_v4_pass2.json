@@ -1,0 +1,27 @@
+{
+  "final": [
+    "decoder:ctc_edit",
+    "geometry:upscale_20",
+    "decoder_params:alpha_16",
+    "decoder_params:candidates_30",
+    "seg_image:remove_rules",
+    "seg_image:contrast",
+    "text:dehyphenate",
+    "text:conventions",
+    "text:ordinals",
+    "lexicon_params:fold_accents",
+    "lexicon_params:min_len_3",
+    "lexicon_params:ratio_50",
+    "context:lm_legal_w4",
+    "context_params:open_known",
+    "context_params:short_60",
+    "context_params:nbest_5",
+    "context_params:trigram",
+    "rec_params:pad_8",
+    "lexicon:period_legal_w1",
+    "lexicon:generic"
+  ],
+  "metric": "wer_norm",
+  "final_value": 0.2963,
+  "source": "greedy v4 pass 2 (medium)"
+}

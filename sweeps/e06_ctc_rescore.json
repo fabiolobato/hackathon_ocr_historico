@@ -1,0 +1,25 @@
+{
+  "base": {
+    "seg_ops": "kraken_nlbin",
+    "rec_ops": "",
+    "post.conventions": true,
+    "post.dehyphenate": true,
+    "post.domain_lexicon": true,
+    "post.lexicon": "models/lexicon/pt_br_50k.txt",
+    "post.lexicon_max_ratio": 0.4,
+    "post.lexicon_min_len": 3,
+    "post.lexicon_size": 0,
+    "post.decoder": "ctc"
+  },
+  "variants": {
+    "sanity_alpha_neg": { "post.ctc_alpha": -1000 },
+    "alpha0": { "post.ctc_alpha": 0 },
+    "alpha2": { "post.ctc_alpha": 2 },
+    "alpha4": { "post.ctc_alpha": 4 },
+    "alpha8": { "post.ctc_alpha": 8 },
+    "alpha16": { "post.ctc_alpha": 16 },
+    "alpha100": { "post.ctc_alpha": 100 },
+    "alpha8_r50": { "post.ctc_alpha": 8, "post.lexicon_max_ratio": 0.5 },
+    "alpha8_c30": { "post.ctc_alpha": 8, "post.ctc_candidates": 30 }
+  }
+}

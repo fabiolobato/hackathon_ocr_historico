@@ -1,0 +1,114 @@
+{
+  "final.json (gulosa v1)": {
+    "tuning": {
+      "wer_norm": 46.95,
+      "cer_norm": 20.6
+    },
+    "heldout": {
+      "wer_norm": 48.66,
+      "cer_norm": 17.79
+    },
+    "heldout_pages": {
+      "7": [
+        49.3,
+        17.9
+      ],
+      "10": [
+        45.3,
+        15.5
+      ],
+      "12": [
+        50.6,
+        19.5
+      ]
+    },
+    "all": {
+      "wer_norm": 47.4,
+      "cer_norm": 19.86
+    }
+  },
+  "final + texto novo": {
+    "tuning": {
+      "wer_norm": 38.04,
+      "cer_norm": 16.38
+    },
+    "heldout": {
+      "wer_norm": 37.17,
+      "cer_norm": 14.19
+    },
+    "heldout_pages": {
+      "7": [
+        40.5,
+        14.4
+      ],
+      "10": [
+        32.6,
+        11.7
+      ],
+      "12": [
+        37.7,
+        16.0
+      ]
+    },
+    "all": {
+      "wer_norm": 37.81,
+      "cer_norm": 15.81
+    }
+  },
+  "aleatória v3 melhor": {
+    "tuning": {
+      "wer_norm": 43.62,
+      "cer_norm": 19.32
+    },
+    "heldout": {
+      "wer_norm": 45.67,
+      "cer_norm": 20.62
+    },
+    "heldout_pages": {
+      "7": [
+        49.8,
+        21.3
+      ],
+      "10": [
+        42.0,
+        16.1
+      ],
+      "12": [
+        44.8,
+        23.6
+      ]
+    },
+    "all": {
+      "wer_norm": 44.16,
+      "cer_norm": 19.66
+    }
+  },
+  "gulosa v3 (vencedora)": {
+    "tuning": {
+      "wer_norm": 36.0,
+      "cer_norm": 15.09
+    },
+    "heldout": {
+      "wer_norm": 36.85,
+      "cer_norm": 14.0
+    },
+    "heldout_pages": {
+      "7": [
+        40.0,
+        14.7
+      ],
+      "10": [
+        29.8,
+        9.8
+      ],
+      "12": [
+        39.3,
+        16.8
+      ]
+    },
+    "all": {
+      "wer_norm": 36.23,
+      "cer_norm": 14.81
+    }
+  }
+}

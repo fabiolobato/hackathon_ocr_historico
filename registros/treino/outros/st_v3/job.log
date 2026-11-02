@@ -1,0 +1,11 @@
+00:01:32 cores 12
+00:04:07 label: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels label --config configs/v4_pass1_st_v2.json --images imagens_extra/ldl1_crop --out /content/st_v3/labels --device cuda:0 --workers 12
+01:00:35 label: exit 0
+01:00:35 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_v3/labels --min-chars 10 --min-mean-prob 0.90 --max-change 1.0 --min-known 0.9
+01:00:38 select: exit 0
+01:00:38 compile: ketos --workers 12 compile -f page -o /content/st_v3/train.arrow /content/st_v3/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_v3/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99-101
+01:00:54 compile: exit 0
+01:00:54 train_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v3/model_b32 --logger tensorboard --log-dir /content/st_v3/tb_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20
+01:02:03 train_b32: exit 1
+01:02:03 train_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v3/model_b16 --logger tensorboard --log-dir /content/st_v3/tb_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20
+01:37:52 train_b16: exit 0

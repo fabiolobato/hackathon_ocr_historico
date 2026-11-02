@@ -1,0 +1,67 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "medium",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "dehyphenate": false,
+      "lexicon": null,
+      "lexicon_max_ratio": 0.34,
+      "lexicon_min_len": 4
+    }
+  },
+  "pages_subset": "11",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.5964912280701754,
+    "cer_strict": 0.24587706146926536,
+    "wer_norm": 0.6060606060606061,
+    "cer_norm": 0.2402148887183423
+  },
+  "pages": [
+    {
+      "page": 11,
+      "lines": 34,
+      "pred_words": 231,
+      "text": "\n180\nArtigs 18\ncasos omissos n'ecte rgmicuto sevao regulado\npelo drsporto no Dec de 15 de Jancio de 1890, na\nlei n^o 16 de 13 de Novunbro de 1891, no Reg. de 29\nd Jusho de 1872 (Dec N^o 86) e mais leguilacad un\nvigor. Sadbarle do Pinhal, 30 de Seseutr de 1892.\nJoagne Joe Goncalres Braga. Augunt de Sauga\nFanco. D^r Joaque Rodrique dSiquein. Etias dCamar\ngo Penteado. Joagn Var do Amaral Cauuch. Asad\nFeruvia da sitn Cabral. Eugen dnocaor Egos.\nEus Jaqui Auymt Ribivr de lone, le eutau.\npresente regritr fri que vai conforme o originae\nas qual m repurte don fe: S. Cad de Prolal 30 de\nlescut d 1842. Joaj suymt Ribserye.\nLei N.\n2\neA Camara de Scobart do Pinhal vesolue:\nArtigo 12 A Caman lercipal gavante à Empeu\nLui Electrea a venda liquida ammal de 6% sobre\nun capital de cente e sessenta conto de veia\n1160:000) que fr effectivamente empuyado na\nnistallaças da isamaças publica e particulor\nPerta eivade.\n⁋ 1^o A vuuda garantida pela camara come card́\na rigorar da dato du untuclaçaed official du ichi-\nminacad publicu e particulor.\nArtigo 22 Privalice para n effeitis de dicita o antrac\nte celebrado pela eunicipalidade en 22 de Abril\nde 1890.\n§1^e et clausula 10^e do referid contracto fica\nassmi sutstituiva: - Clausula 10^e A Empis a\nfica obrigada a augmenter o numnero de",
+      "wer_strict": 0.5964912280701754,
+      "cer_strict": 0.24587706146926536,
+      "wer_norm": 0.6060606060606061,
+      "cer_norm": 0.2402148887183423,
+      "strict_we": 136,
+      "strict_rw": 228,
+      "strict_ce": 328,
+      "strict_rc": 1334,
+      "norm_we": 140,
+      "norm_rw": 231,
+      "norm_ce": 313,
+      "norm_rc": 1303
+    }
+  ]
+}

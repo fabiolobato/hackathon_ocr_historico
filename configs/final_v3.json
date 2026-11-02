@@ -1,0 +1,59 @@
+{
+  "geometric_ops": [
+    "upscale"
+  ],
+  "seg_ops": [
+    "contrast",
+    "remove_rules"
+  ],
+  "rec_ops": [
+    "illumination"
+  ],
+  "params": {
+    "upscale_factor": 2.0,
+    "deskew_limit": 5.0,
+    "deskew_step": 0.25,
+    "contrast_factor": 1.8,
+    "clahe_clip": 2.0,
+    "clahe_grid": 8,
+    "denoise_strength": 7.0,
+    "background_sigma": 25.0,
+    "nlbin_threshold": 0.5,
+    "nlbin_zoom": 0.5,
+    "sharpen_amount": 1.0,
+    "gamma": 1.0,
+    "rule_kernel_frac": 0.08
+  },
+  "seg": {
+    "model": null,
+    "min_line_frac": 0.1,
+    "min_line_px": 0,
+    "drop_top_frac": 0.0
+  },
+  "rec": {
+    "model": "medium",
+    "padding": 24,
+    "no_legacy_polygons": false
+  },
+  "post": {
+    "conventions": true,
+    "dehyphenate": true,
+    "lexicon": null,
+    "lexicon_size": 20000,
+    "period_lexicon": "models/lexicon/pt_hist_gutenberg.txt",
+    "period_lexicon_size": 0,
+    "domain_lexicon": false,
+    "lexicon_max_ratio": 0.5,
+    "lexicon_min_len": 3,
+    "fold_accents": true,
+    "decoder": "ctc+edit",
+    "ctc_alpha": 16,
+    "ctc_candidates": 30,
+    "context_lm": "models/lexicon/pt_hist_gutenberg.ngrams.npz",
+    "context_order": 3,
+    "context_beta": 0.5,
+    "context_open_known": true,
+    "context_min_edits": 2,
+    "context_pool": 300
+  }
+}

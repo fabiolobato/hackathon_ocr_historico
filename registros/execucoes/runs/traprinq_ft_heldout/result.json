@@ -1,0 +1,111 @@
+{
+  "config": {
+    "geometric_ops": [],
+    "seg_ops": [
+      "kraken_nlbin"
+    ],
+    "rec_ops": [],
+    "params": {
+      "upscale_factor": 2.0,
+      "deskew_limit": 5.0,
+      "deskew_step": 0.25,
+      "contrast_factor": 1.8,
+      "clahe_clip": 2.0,
+      "clahe_grid": 8,
+      "denoise_strength": 7.0,
+      "background_sigma": 25.0,
+      "nlbin_threshold": 0.5,
+      "nlbin_zoom": 0.5,
+      "sharpen_amount": 1.0,
+      "gamma": 1.0,
+      "rule_kernel_frac": 0.08
+    },
+    "seg": {
+      "model": null,
+      "min_line_frac": 0.0,
+      "min_line_px": 0,
+      "drop_top_frac": 0.0
+    },
+    "rec": {
+      "model": "/private/tmp/claude-501/-Users-felipe-azambuja-hackathon-ocr-historico/b71d8b86-7d21-4970-b4b1-304018c4ec52/scratchpad/ft_traprinq/model/best_0.8354.safetensors",
+      "padding": 16,
+      "no_legacy_polygons": false
+    },
+    "post": {
+      "conventions": true,
+      "dehyphenate": true,
+      "lexicon": "models/lexicon/pt_br_50k.txt",
+      "lexicon_size": 0,
+      "domain_lexicon": true,
+      "lexicon_max_ratio": 0.5,
+      "lexicon_min_len": 3,
+      "decoder": "ctc+edit",
+      "ctc_alpha": 16,
+      "ctc_candidates": 10
+    }
+  },
+  "pages_subset": "heldout",
+  "seed": 42,
+  "corpus": {
+    "wer_strict": 0.353870458135861,
+    "cer_strict": 0.11841080238898988,
+    "wer_norm": 0.30393700787401573,
+    "cer_norm": 0.11096292344625233
+  },
+  "pages": [
+    {
+      "page": 7,
+      "lines": 38,
+      "pred_words": 220,
+      "text": "§3º O Re Pendente e o natural titulo do Presidente.\n§9º Substituem ao Vice Presidente os demais vereadores,\nna ordem de sua votação. Em caso de empate servirá\nmais velho.\nCapitulo3\nDa ordem dos trabalhos\nArtigo 3º\nNo dia marcado para as sessões se revisão os veados\ndes no calar municipal da municipalidade, as onze\ncuras da manhã, e havendo moses legal, o presidente\nassumindo o seu lugar, que éa cabeceira da mesa dos\ntrabalhos, dará principio as sessões pelas palavras: Estao\nalerta a sessão.\nArtigo 4º As\nsessão durarão o tempo maximo de quatro ho\nas. terminada a sessão, o presidente encerrar\nos trabalhos pelas palavras:- Está encerrado a sessão.\nArtigo 5º\nAlerta a sessão, o presidente declarar a mataria em\ndiscussão, manterá a ordem durante os trabalhos, dan\ndo palavra ao que primeiro a pedir, fasenda oliver\na decencia e a civilidade entre os vereadores e os\nespectadores.\n1\n2\n\n§1º No tento dos trabalhos é veado o regresso\na pessoa que não pertença a corporação mune\npal.\n§2º Os espectadores não podem intervir es debates.\npor qualquer forma, e nem dor signos de aperta\ncão en desagrado, sob pena de terem observados, e\nespectros da sala, em caso de residência.\nArtigo 6º\nAo Presidente nele: -\n\n2\n§1º Chamar o ordem, ate tres vezes, o vereador que",
+      "wer_strict": 0.3317757009345794,
+      "cer_strict": 0.10666666666666667,
+      "wer_norm": 0.2744186046511628,
+      "cer_norm": 0.10008071025020178,
+      "strict_we": 71,
+      "strict_rw": 214,
+      "strict_ce": 136,
+      "strict_rc": 1275,
+      "norm_we": 59,
+      "norm_rw": 215,
+      "norm_ce": 124,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 34,
+      "pred_words": 177,
+      "text": "entes, descendentes, roer e gesso, irmãos e cunhado\ndurante o cunhado dis e sobrinho e coisas das\nmesma forma, o vereador a quem a supostas\ninteressado poderá votar.\nArtigo 1i\nAos vereadores que sem causa justificada\ncantarem a duas sessões concentrar, bem\ncomo aos supplente convocados que não\ncomparecer, será imposta, pelo Presidente\na muita de des mil reis 11000 (Reg.o art6º\n7 O Presidente quanto tres de discutir\nqualquer assumptos ou apresentar e defender\nmarcação sa, passará a presidencial a seu\nimediato.\nCapitulo 4º\nDo numero das sessões.\nArtigo 16º\nA Camara municipal fará em cada anno\neis sessão ordinarias, de dois em dois meses\nnos primeiros dias estes de Outubro, Dezembro\nFevereiro Abril, Junho e Agosto que durarão\nos dias necessarios, nunca menos de tres.\n1\nArtigo 17Haverá\nem cada anno tantas seres cobra\nordinarias quantas primeiras pelo\nmunicipal\n§1º As sessões extraordinarias serão como\ncasas pelo Presidente e sempre por ordem\nsuperior, iniciativa do proprio presidente\ne a Requerimento do Intendente. Em qual\nr Caso o presidente declarar o motivo\nda convocação\nDisposições gerais.",
+      "wer_strict": 0.3539325842696629,
+      "cer_strict": 0.10822510822510822,
+      "wer_norm": 0.292817679558011,
+      "cer_norm": 0.09545049063336307,
+      "strict_we": 63,
+      "strict_rw": 178,
+      "strict_ce": 125,
+      "strict_rc": 1155,
+      "norm_we": 53,
+      "norm_rw": 181,
+      "norm_ce": 107,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 241,
+      "text": "Camadas quando a Camara o exigir, recebendo\nm a mesma com seis meses, pelo menos, de\nantecedência, ina ue que o numero de Cama\ndas exigido não excede a capacidade e forca\ndos dinares, caso em que se obriga a satisfaz\ndentro do praso de dose maus contados da\ndata do aino, não podendo elle ter Logo antes\nle ser amargurada e acta a iluminação\nconstante do presente contrato.\n§2º A clausula 18º do contracto fica assim\nsubstitua: Clausula 18º Sequestrado que\nocasional a intenção da lu durar mais\nde quedas, poderá a Camara reacender o\ncontracto, atraso de pra maior que\nserá resolvida por árbitros professoras\nnomeados pela forma de direito.\n§3º 2 clausula 16º fica assim: - A empresa\ndeverá ter sempre em Deposito o numero de\nCamadas necessario para substituir mime\nexatamente qualquer lâmpada que se queime,\nse millie en se apague, sob pena de pagar\ndez mil reis de muita abatida nas petição\nmusas por lâmpada que estiver apagada\nduas noites consecutivas, abro caso de força\nmaior a juiso do fiscal professional da Camara\n§º A clausula 142 ficará deste modo: - Na\nexpressão iluminação publica- fica compreendida\natuação da Casa da Camara com secam\npiadas e a da Cadeia com qual numero, outro\ntidos de acendo com a mesma Camara:\n§5º A Clausula 29:º ficará assine:- A Empresa\nsera obrigada a matar e sangrar a silva\nação da Cidade da data desta lei a seis me",
+      "wer_strict": 0.37344398340248963,
+      "cer_strict": 0.13722730471498945,
+      "wer_norm": 0.3389121338912134,
+      "cer_norm": 0.1331893448524118,
+      "strict_we": 90,
+      "strict_rw": 241,
+      "strict_ce": 195,
+      "strict_rc": 1421,
+      "norm_we": 81,
+      "norm_rw": 239,
+      "norm_ce": 185,
+      "norm_rc": 1389
+    }
+  ]
+}

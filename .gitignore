@@ -1,9 +1,24 @@
+# shared
 .env
-models/
-resultados/simulacao/
+.venv/
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 .DS_Store
 outputs/
 finetuning/
+resultados/simulacao/
+/cache/
+docs/artigo/
+# models: only the final OCR pipeline's files are tracked (same blobs as entrega_ocr/models)
+models/*
+!models/finetuned/
+models/finetuned/*
+!models/finetuned/st_c1m.safetensors
+!models/finetuned/st_g3m.safetensors
+!models/lexicon/
+models/lexicon/*
+!models/lexicon/pt_hist_legal_w1.txt
+!models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz
+!entrega_ocr/models/
+entrega_ocr/cache/

@@ -1,0 +1,12 @@
+2026-10-28 16:14:24,642 INFO 443 books match the catalog rule
+2026-10-28 16:14:25,215 INFO 50/443 books, 87040 distinct words
+2026-10-28 16:14:25,690 INFO 100/443 books, 118236 distinct words
+2026-10-28 16:14:26,105 INFO 150/443 books, 136824 distinct words
+2026-10-28 16:14:26,592 INFO 200/443 books, 156180 distinct words
+2026-10-28 16:14:27,101 INFO 250/443 books, 173208 distinct words
+2026-10-28 16:14:28,272 INFO 300/443 books, 313286 distinct words
+2026-10-28 16:14:28,852 INFO 350/443 books, 329651 distinct words
+2026-10-28 16:14:29,741 INFO 400/443 books, 350535 distinct words
+2026-10-28 16:14:31,554 INFO 3565 extra texts (weight 1)
+2026-10-28 16:14:43,113 INFO 1309065 bigrams, 1636757 trigrams kept
+2026-10-28 16:14:43,118 INFO 18486607 tokens, 199906 words kept -> models/lexicon/pt_hist_legal_w1.txt

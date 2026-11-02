@@ -1,2 +1,6 @@
+# ocr_historico (integração do time) e ocr_pipeline (pipeline de OCR adaptado).
+# Os pinos comuns (kraken, torch, numpy, ...) ficam em test_kraken/requirements.txt.
+# Tuning, cadernos e testes do ocr_pipeline: requirements-dev.txt.
 -r test_kraken/requirements.txt
 jiwer==4.0.0
+rapidfuzz==3.14.1

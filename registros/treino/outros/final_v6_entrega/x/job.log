@@ -1,0 +1,2 @@
+17:18:58 build_entrega: /usr/bin/python3 tools/build_entrega.py --out entrega_ocr --execute
+17:19:02 build_entrega: exit 1

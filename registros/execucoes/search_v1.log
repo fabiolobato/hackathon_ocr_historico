@@ -1,0 +1,43 @@
+2026-10-24 21:54:30,990 INFO [recognizer] incumbent                                          wer_norm 63.15 (Δ +0.00)
+2026-10-24 21:54:31,147 INFO [recognizer] single   small                                    wer_norm 67.10 (Δ +3.95)
+2026-10-24 21:54:31,148 INFO [recognizer] picks: none
+2026-10-24 21:54:31,149 INFO [seg_image] incumbent                                          wer_norm 63.15 (Δ +0.00)
+2026-10-24 21:54:44,009 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/coremltools/models/model.py:628: RuntimeWarning: You will not be able to run predict() on this Core ML model. Underlying exception message was: Error compiling model: "compiler error: Error reading protobuf spec. validator error: Input MLMultiArray to neural networks must have dimension 1 (vector) or 3 (image-like arrays).".
+  _warnings.warn(
+
+2026-10-24 22:11:46,190 INFO [seg_image] single   illumination                             wer_norm 61.85 (Δ -1.30)
+2026-10-24 22:26:32,987 INFO [seg_image] single   clahe                                    wer_norm 62.75 (Δ -0.40)
+2026-10-24 22:26:33,172 INFO [seg_image] single   contrast                                 wer_norm 63.88 (Δ +0.73)
+2026-10-24 22:42:09,961 INFO [seg_image] single   grayscale                                wer_norm 61.79 (Δ -1.35)
+2026-10-24 23:00:57,591 INFO [seg_image] single   otsu                                     wer_norm 63.15 (Δ +0.00)
+2026-10-24 23:01:02,456 INFO [seg_image] single   nlbin                                    wer_norm 60.95 (Δ -2.20)
+2026-10-24 23:16:27,378 INFO [seg_image] combo    nlbin+grayscale                          wer_norm 60.95 (Δ -2.20)
+2026-10-24 23:34:29,003 INFO [seg_image] combo    nlbin+illumination                       wer_norm 61.96 (Δ -1.19)
+2026-10-24 23:34:35,014 INFO [seg_image] combo    nlbin+clahe                              wer_norm 61.46 (Δ -1.69)
+2026-10-24 23:34:35,018 INFO [seg_image] picks: ['nlbin']
+2026-10-24 23:34:35,019 INFO [seg_params] incumbent                                          wer_norm 60.95 (Δ +0.00)
+2026-10-24 23:34:40,776 INFO [seg_params] single   nlbin_t04                                wer_norm 59.71 (Δ -1.24)
+2026-10-24 23:34:46,683 INFO [seg_params] single   nlbin_t06                                wer_norm 61.40 (Δ +0.45)
+2026-10-24 23:34:46,687 INFO [seg_params] picks: ['nlbin_t04']
+2026-10-24 23:34:46,687 INFO [geometry] incumbent                                          wer_norm 59.71 (Δ +0.00)
+2026-10-24 23:51:29,038 INFO [geometry] single   upscale_15                               wer_norm 59.42 (Δ -0.28)
+2026-10-25 00:11:22,345 INFO [geometry] single   upscale_20                               wer_norm 60.21 (Δ +0.51)
+2026-10-25 00:12:17,476 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/kraken/lib/segmentation.py:1098: RuntimeWarning: divide by zero encountered in divide
+  t1 = (v[:, 0] * u[:, 1] - v[:, 1] * u[:, 0]) / (z + np.finfo(float).eps)
+
+2026-10-25 00:12:17,485 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/kraken/lib/segmentation.py:1099: RuntimeWarning: divide by zero encountered in divide
+  t2 = np.dot(u, w) / (z + np.finfo(float).eps)
+
+2026-10-25 00:29:53,727 INFO [geometry] single   deskew                                   wer_norm 61.29 (Δ +1.58)
+2026-10-25 00:29:53,737 INFO [geometry] picks: ['upscale_15']
+2026-10-25 00:29:53,738 INFO [line_filter] incumbent                                          wer_norm 59.42 (Δ +0.00)
+2026-10-25 00:45:27,285 INFO [line_filter] single   min_frac_05                              wer_norm 59.42 (Δ +0.00)
+2026-10-25 00:59:35,847 INFO [line_filter] single   min_frac_10                              wer_norm 59.48 (Δ +0.06)
+2026-10-25 01:12:25,677 INFO [line_filter] single   min_px_30                                wer_norm 59.42 (Δ +0.00)
+2026-10-25 01:12:25,685 INFO [line_filter] picks: none
+2026-10-25 01:12:25,686 INFO [rec_image] incumbent                                          wer_norm 59.42 (Δ +0.00)
+2026-10-25 01:26:14,507 INFO [rec_image] single   illumination                             wer_norm 58.86 (Δ -0.56)
+2026-10-25 01:40:03,301 INFO [rec_image] single   clahe                                    wer_norm 59.88 (Δ +0.45)
+2026-10-25 01:53:37,552 INFO [rec_image] single   contrast                                 wer_norm 59.42 (Δ +0.00)
+2026-10-25 02:10:14,288 INFO [rec_image] single   gamma_07                                 wer_norm 61.51 (Δ +2.09)
+2026-10-25 02:14:48,556 INFO [rec_image] single   gamma_15                                 wer_norm 64.45 (Δ +5.02)

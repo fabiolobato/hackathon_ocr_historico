@@ -1,0 +1,86 @@
+2026-11-01 17:18:59,019 INFO assembled entrega_ocr
+/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  _validate(nbdict, ref, version, version_minor, relax_add_props)
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+2026-11-01 17:19:02,023 INFO Executing notebook with kernel: python3
+Cloning into '/content/hackathon_ocr_historico'...
+warning: Could not find remote branch feat/random_search_period_lexicon to clone.
+fatal: Remote branch feat/random_search_period_lexicon not found in upstream origin
+Traceback (most recent call last):
+  File "/content/repo/tools/build_entrega.py", line 128, in <module>
+    main()
+    ~~~~^^
+  File "/content/repo/tools/build_entrega.py", line 124, in main
+    execute(args.out.resolve(), args.timeout)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/repo/tools/build_entrega.py", line 97, in execute
+    NotebookClient(notebook, timeout=timeout, kernel_name='python3', resources={'metadata': {'path': str(out)}}).execute()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/usr/local/lib/python3.13/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.13/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Ambiente. No Colab: obtém o código, entra na pasta e instala as dependências (o torch do Colab é mantido).
+# Localmente, abra o caderno de dentro da pasta entrega_ocr; esta célula não faz nada.
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+ORIGEM = 'github'  # 'github': clona o repositório público | 'drive': usa a pasta Meu Drive/entrega_ocr
+REPOSITORIO = 'https://github.com/fabiolobato/hackathon_ocr_historico.git'
+RAMO = 'feat/random_search_period_lexicon'
+
+if 'google.colab' in sys.modules:
+    if ORIGEM == 'drive':
+        from google.colab import drive
+        drive.mount('/content/drive')
+        pasta = Path('/content/drive/MyDrive/entrega_ocr')  # ajuste se a pasta estiver em outro lugar
+    else:
+        clone = Path('/content/hackathon_ocr_historico')
+        if not clone.is_dir():
+            subprocess.run(['git', 'clone', '--depth', '1', '-b', RAMO, REPOSITORIO, str(clone)], check=True)
+        pasta = clone / 'entrega_ocr'
+    os.chdir(pasta)
+    subprocess.run([sys.executable, 'setup_pipeline.py'], check=True)  # instala o Kraken, baixa e confere modelo e léxico
+print('pasta de trabalho:', Path.cwd())
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mCalledProcessError[0m                        Traceback (most recent call last)
+[0;32m/tmp/ipykernel_244448/3215665978.py[0m in [0;36m<cell line: 0>[0;34m()[0m
+[1;32m     18[0m         [0mclone[0m [0;34m=[0m [0mPath[0m[0;34m([0m[0;34m'/content/hackathon_ocr_historico'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m         [0;32mif[0m [0;32mnot[0m [0mclone[0m[0;34m.[0m[0mis_dir[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m             [0msubprocess[0m[0;34m.[0m[0mrun[0m[0;34m([0m[0;34m[[0m[0;34m'git'[0m[0;34m,[0m [0;34m'clone'[0m[0;34m,[0m [0;34m'--depth'[0m[0;34m,[0m [0;34m'1'[0m[0;34m,[0m [0;34m'-b'[0m[0;34m,[0m [0mRAMO[0m[0;34m,[0m [0mREPOSITORIO[0m[0;34m,[0m [0mstr[0m[0;34m([0m[0mclone[0m[0;34m)[0m[0;34m][0m[0;34m,[0m [0mcheck[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     21[0m         [0mpasta[0m [0;34m=[0m [0mclone[0m [0;34m/[0m [0;34m'entrega_ocr'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m     [0mos[0m[0;34m.[0m[0mchdir[0m[0;34m([0m[0mpasta[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.13/subprocess.py[0m in [0;36mrun[0;34m(input, capture_output, timeout, check, *popenargs, **kwargs)[0m
+[1;32m    576[0m         [0mretcode[0m [0;34m=[0m [0mprocess[0m[0;34m.[0m[0mpoll[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    577[0m         [0;32mif[0m [0mcheck[0m [0;32mand[0m [0mretcode[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 578[0;31m             raise CalledProcessError(retcode, process.args,
+[0m[1;32m    579[0m                                      output=stdout, stderr=stderr)
+[1;32m    580[0m     [0;32mreturn[0m [0mCompletedProcess[0m[0;34m([0m[0mprocess[0m[0;34m.[0m[0margs[0m[0;34m,[0m [0mretcode[0m[0;34m,[0m [0mstdout[0m[0;34m,[0m [0mstderr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mCalledProcessError[0m: Command '['git', 'clone', '--depth', '1', '-b', 'feat/random_search_period_lexicon', 'https://github.com/fabiolobato/hackathon_ocr_historico.git', '/content/hackathon_ocr_historico']' returned non-zero exit status 128.
+

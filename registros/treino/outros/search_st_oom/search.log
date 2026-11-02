@@ -1,0 +1,363 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.720398    2607 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.720582    2602 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340362.720586    2612 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.720619    2613 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.720619    2609 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340362.720631    2611 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.720658    2614 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340362.720658    2615 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.720993    2606 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.722095    2605 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.722553    2608 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340362.724289    2610 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340362.836441    2608 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836441    2611 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836441    2609 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836441    2607 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836445    2602 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836440    2606 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836441    2615 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836441    2614 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.836440    2612 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.842158    2605 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.842503    2610 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793340362.852546    2613 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.753583    2609 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.754505    2609 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.765706    2610 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.765865    2612 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.766360    2606 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.766525    2610 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1793340366.766685    2612 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+I0000 00:00:1793340366.767081    2606 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.767258    2607 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.767961    2607 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.771895    2614 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.772621    2614 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.776347    2608 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.777081    2608 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.777274    2615 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.778011    2615 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.778677    2613 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.779421    2613 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.789594    2605 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.790357    2605 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.808470    2602 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.809253    2602 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793340366.811496    2611 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793340366.812282    2611 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-10-30 06:17:22,545 INFO [geometry] incumbent                                          wer_norm 28.27 (Δ +0.00)
+2026-10-30 06:32:25,287 INFO [geometry] single   upscale_15                               wer_norm 26.98 (Δ -1.30)
+2026-10-30 06:32:25,288 INFO [geometry] single   upscale_20                               wer_norm 26.07 (Δ -2.20)
+2026-10-30 06:32:25,289 INFO [geometry] single   deskew                                   wer_norm 28.84 (Δ +0.56)
+2026-10-30 06:32:25,289 INFO [geometry] single   upscale_25                               wer_norm 26.35 (Δ -1.92)
+_RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/concurrent/futures/process.py", line 255, in 
+_process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/lib/python3.13/concurrent/futures/process.py", line 204, in 
+_process_chunk
+    return [fn(*args) for args in chunk]
+            ~~^^^^^^^
+  File "/content/repo/ocr_pipeline/pipeline.py", line 167, in _run_page_worker
+    return run_page(worker_engine(), *args)
+  File "/content/repo/ocr_pipeline/pipeline.py", line 142, in run_page
+    return score_trace(page, trace_page(engine, page, config, domain), config, 
+domain)
+                             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/repo/ocr_pipeline/pipeline.py", line 63, in trace_page
+    segmentation = filter_lines(engine.segment(seg_image, config.seg, seg_key), 
+config.seg, *base.size)
+                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/repo/ocr_pipeline/engine.py", line 89, in segment
+    return self._cached('seg', key, compute)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/content/repo/ocr_pipeline/engine.py", line 78, in _cached
+    value = compute()
+  File "/content/repo/ocr_pipeline/engine.py", line 88, in compute
+    return self._segmenter(config.model).predict(image, 
+self._seg_config_cls(**self._common))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py", 
+line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/kraken/tasks/segmentation.py", 
+line 112, in predict
+    segs.append(net.predict(im=im))
+                ~~~~~~~~~~~^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py", 
+line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/kraken/lib/vgsl/model.py", line 
+546, in predict
+    return self._segmentation_pred(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py", 
+line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/kraken/lib/vgsl/spred.py", line 
+180, in _segmentation_pred
+    rets = self._compute_segmentation_map(im)
+  File "/usr/local/lib/python3.13/dist-packages/kraken/lib/vgsl/spred.py", line 
+268, in _compute_segmentation_map
+    o, _ = self.nn(tensor_im.unsqueeze(0))
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", 
+line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", 
+line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/kraken/lib/vgsl/layers.py", line
+49, in forward
+    inputs = module(*inputs, output_shape=output_shape if i == len(modules) - 1 
+else None)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", 
+line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", 
+line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/kraken/lib/vgsl/layers.py", line
+534, in forward
+    o, _ = self.layer(inputs)
+           ~~~~~~~~~~^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", 
+line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", 
+line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/rnn.py", line 
+1169, in forward
+    result = _VF.lstm(
+        input,
+    ...<7 lines>...
+        self.batch_first,
+    )
+  File "/usr/local/lib/python3.13/dist-packages/torch/utils/_device.py", line 
+116, in __torch_function__
+    return func(*args, **kwargs)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 540.00 MiB. GPU 0 
+has a total capacity of 22.03 GiB of which 480.56 MiB is free. Process 2602 has 
+1.68 GiB memory in use. Process 2614 has 1.97 GiB memory in use. Process 2606 
+has 1.69 GiB memory in use. Process 2613 has 2.22 GiB memory in use. Process 
+2610 has 1.68 GiB memory in use. Process 2612 has 1.45 GiB memory in use. 
+Process 2615 has 2.10 GiB memory in use. Process 2611 has 1.70 GiB memory in 
+use. Process 2609 has 1.56 GiB memory in use. Including non-PyTorch memory, this
+process has 1.27 GiB memory in use. Process 2607 has 2.08 GiB memory in use. 
+Process 2605 has 2.10 GiB memory in use. Of the allocated memory 728.77 MiB is 
+allocated by PyTorch, and 345.23 MiB is reserved by PyTorch but unallocated. If 
+reserved but unallocated memory is large try setting 
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See 
+documentation for Memory Management  
+(https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-wi
+th-pytorch-cuda-alloc-conf)
+"""
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ in _run_module_as_main:203                                                   │
+│ in _run_code:88                                                              │
+│                                                                              │
+│ /content/repo/ocr_pipeline/tuning/search.py:323 in <module>                  │
+│                                                                              │
+│   320                                                                        │
+│   321                                                                        │
+│   322 if __name__ == '__main__':                                             │
+│ ❱ 323 │   main()                                                             │
+│   324                                                                        │
+│                                                                              │
+│ /content/repo/ocr_pipeline/tuning/search.py:312 in main                      │
+│                                                                              │
+│   309 │   │   │   │   │   out / 'evaluations.jsonl', tuple(args.reuse))      │
+│   310 │   if args.workers > 1:                                               │
+│   311 │   │   search.executor = page_executor(engine, args.workers)          │
+│ ❱ 312 │   final = search.run(args.passes, initial_choices(spec, args.init))  │
+│   313 │   write_outputs(out, search, final)                                  │
+│   314 │   logger.info('final:   %s -> %s %.2f', [f'{c.stage}:{c.name}' for c │
+│   315 │   │   │   │   100 * search.score(search.build(final)))               │
+│                                                                              │
+│ /content/repo/ocr_pipeline/tuning/search.py:245 in run                       │
+│                                                                              │
+│   242 │   │   │   before = {(c.stage, c.name) for c in chosen}               │
+│   243 │   │   │   for stage, candidates in self.spec.stages:                 │
+│   244 │   │   │   │   if stage not in self.spec.frozen:                      │
+│ ❱ 245 │   │   │   │   │   chosen = self.run_stage(stage, candidates, chosen) │
+│   246 │   │   │   chosen = self.backward(chosen)                             │
+│   247 │   │   │   logger.info('pass %d: %s -> %s %.2f', self.pass_no, [f'{c. │
+│   248 │   │   │   │   │   │   self.spec.metric, 100 * self.score(self.build( │
+│                                                                              │
+│ /content/repo/ocr_pipeline/tuning/search.py:204 in run_stage                 │
+│                                                                              │
+│   201 │   │   tested = self.singles(stage, candidates, kept, ref)            │
+│   202 │   │   result = kept if ref <= current - self.spec.min_gain or kept = │
+│   203 │   │   if tested and tested[0][0] < ref - self.spec.min_gain:         │
+│ ❱ 204 │   │   │   best, picked = self.combine(stage, tested, kept, ref)      │
+│   205 │   │   │   if best < current - self.spec.min_gain or kept == chosen:  │
+│   206 │   │   │   │   self.mark(stage, [c.name for c in picked])             │
+│   207 │   │   │   │   result = kept + picked                                 │
+│                                                                              │
+│ /content/repo/ocr_pipeline/tuning/search.py:185 in combine                   │
+│                                                                              │
+│   182 │   │   rest = [c for _, c in tested[1:]]                              │
+│   183 │   │   while rest:                                                    │
+│   184 │   │   │   configs = [(x, self.build(kept + picked + [x])) for x in r │
+│ ❱ 185 │   │   │   self.prefetch([cfg for _, cfg in configs])                 │
+│   186 │   │   │   trials = [(self.record(stage, 'combo', [c.name for c in pi │
+│   187 │   │   │   │   │     for x, cfg in configs if cfg is not None]        │
+│   188 │   │   │   if not trials or min(t[0] for t in trials) >= best - self. │
+│                                                                              │
+│ /content/repo/ocr_pipeline/tuning/search.py:145 in prefetch                  │
+│                                                                              │
+│   142 │   │   todo = {k: c for k, c in todo.items() if k not in self.memo}   │
+│   143 │   │   if not todo:                                                   │
+│   144 │   │   │   return                                                     │
+│ ❱ 145 │   │   results = evaluate_many(self.engine, self.pages, list(todo.val │
+│   146 │   │   with self.log_path.open('a', encoding='utf-8') as stream:      │
+│   147 │   │   │   for (key, config), result in zip(todo.items(), results):   │
+│   148 │   │   │   │   self.memo[key] = result                                │
+│                                                                              │
+│ /content/repo/ocr_pipeline/pipeline.py:191 in evaluate_many                  │
+│                                                                              │
+│   188 │   pool = lexicon_pool if lexicon_pool is not None else []            │
+│   189 │   jobs = [(page, config, domain_for(page, pool) if config.post.domai │
+│   190 │   │   │   for config in configs for page in pages]                   │
+│ ❱ 191 │   rows = list(executor.map(_run_page_worker, jobs)) if executor else │
+│   192 │   per = [rows[i:i + len(pages)] for i in range(0, len(rows), len(pag │
+│   193 │   return [{'corpus': corpus(r), 'pages': r} for r in per]            │
+│   194                                                                        │
+│                                                                              │
+│ /usr/lib/python3.13/concurrent/futures/process.py:621 in                     │
+│ _chain_from_iterable_of_lists                                                │
+│                                                                              │
+│   618 │   Each item in *iterable* should be a list.  This function is        │
+│   619 │   careful not to keep references to yielded objects.                 │
+│   620 │   """                                                                │
+│ ❱ 621 │   for element in iterable:                                           │
+│   622 │   │   element.reverse()                                              │
+│   623 │   │   while element:                                                 │
+│   624 │   │   │   yield element.pop()                                        │
+│                                                                              │
+│ /usr/lib/python3.13/concurrent/futures/_base.py:625 in result_iterator       │
+│                                                                              │
+│   622 │   │   │   │   while fs:                                              │
+│   623 │   │   │   │   │   # Careful not to keep a reference to the popped fu │
+│   624 │   │   │   │   │   if timeout is None:                                │
+│ ❱ 625 │   │   │   │   │   │   yield _result_or_cancel(fs.pop())              │
+│   626 │   │   │   │   │   else:                                              │
+│   627 │   │   │   │   │   │   yield _result_or_cancel(fs.pop(), end_time - t │
+│   628 │   │   │   finally:                                                   │
+│                                                                              │
+│ /usr/lib/python3.13/concurrent/futures/_base.py:318 in _result_or_cancel     │
+│                                                                              │
+│   315 def _result_or_cancel(fut, timeout=None):                              │
+│   316 │   try:                                                               │
+│   317 │   │   try:                                                           │
+│ ❱ 318 │   │   │   return fut.result(timeout)                                 │
+│   319 │   │   finally:                                                       │
+│   320 │   │   │   fut.cancel()                                               │
+│   321 │   finally:                                                           │
+│                                                                              │
+│ /usr/lib/python3.13/concurrent/futures/_base.py:460 in result                │
+│                                                                              │
+│   457 │   │   │   │   if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]: │
+│   458 │   │   │   │   │   raise CancelledError()                             │
+│   459 │   │   │   │   elif self._state == FINISHED:                          │
+│ ❱ 460 │   │   │   │   │   return self.__get_result()                         │
+│   461 │   │   │   │   else:                                                  │
+│   462 │   │   │   │   │   raise TimeoutError()                               │
+│   463 │   │   finally:                                                       │
+│                                                                              │
+│ /usr/lib/python3.13/concurrent/futures/_base.py:402 in __get_result          │
+│                                                                              │
+│   399 │   def __get_result(self):                                            │
+│   400 │   │   if self._exception is not None:                                │
+│   401 │   │   │   try:                                                       │
+│ ❱ 402 │   │   │   │   raise self._exception                                  │
+│   403 │   │   │   finally:                                                   │
+│   404 │   │   │   │   # Break a reference cycle with the exception in self._ │
+│   405 │   │   │   │   self = None                                            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+OutOfMemoryError: CUDA out of memory. Tried to allocate 540.00 MiB. GPU 0 has a 
+total capacity of 22.03 GiB of which 480.56 MiB is free. Process 2602 has 1.68 
+GiB memory in use. Process 2614 has 1.97 GiB memory in use. Process 2606 has 
+1.69 GiB memory in use. Process 2613 has 2.22 GiB memory in use. Process 2610 
+has 1.68 GiB memory in use. Process 2612 has 1.45 GiB memory in use. Process 
+2615 has 2.10 GiB memory in use. Process 2611 has 1.70 GiB memory in use. 
+Process 2609 has 1.56 GiB memory in use. Including non-PyTorch memory, this 
+process has 1.27 GiB memory in use. Process 2607 has 2.08 GiB memory in use. 
+Process 2605 has 2.10 GiB memory in use. Of the allocated memory 728.77 MiB is 
+allocated by PyTorch, and 345.23 MiB is reserved by PyTorch but unallocated. If 
+reserved but unallocated memory is large try setting 
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See 
+documentation for Memory Management  
+(https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-wi
+th-pytorch-cuda-alloc-conf)

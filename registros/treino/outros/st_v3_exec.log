@@ -1,0 +1,111 @@
+
+[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+00:01:32 cores 12
+00:04:07 label: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels label --config configs/v4_pass1_st_v2.json --images imagens_extra/ldl1_crop --out /content/st_v3/labels --device cuda:0 --workers 12
+01:00:35 label: exit 0
+01:00:35 select: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_v3/labels --min-chars 10 --min-mean-prob 0.90 --max-change 1.0 --min-known 0.9
+01:00:38 select: exit 0
+01:00:38 compile: ketos --workers 12 compile -f page -o /content/st_v3/train.arrow /content/st_v3/labels/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_v3/labels/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-99-101
+01:00:54 compile: exit 0
+01:00:54 train_b32: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v3/model_b32 --logger tensorboard --log-dir /content/st_v3/tb_b32 -B 32 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20
+01:02:03 train_b32: exit 1
+01:02:03 train_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_v3/model_b16 --logger tensorboard --log-dir /content/st_v3/tb_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 20
+01:37:52 train_b16: exit 0
+01:37:59 READY 0
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1353 in _recv_reply                                 │
+│                                                                              │
+│   1350 │   │   │   │   if channel == "control":                              │
+│   1351 │   │   │   │   │   reply = self.control_channel.get_msg(timeout=time │
+│   1352 │   │   │   │   else:                                                 │
+│ ❱ 1353 │   │   │   │   │   reply = self.shell_channel.get_msg(timeout=timeou │
+│   1354 │   │   │   except queue.Empty as e:                                  │
+│   1355 │   │   │   │   msg = "Timeout waiting for reply"                     │
+│   1356 │   │   │   │   raise TimeoutError(msg) from e                        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:411 in get_msg                                      │
+│                                                                              │
+│    408 │   │   ------                                                        │
+│    409 │   │   Empty exception if no message is received before the timeout. │
+│    410 │   │   """                                                           │
+│ ❱  411 │   │   return self._messages.get(timeout=timeout)                    │
+│    412 │                                                                     │
+│    413 │   def get_msgs(self) -> list[dict[str, t.Any]]:                     │
+│    414 │   │   """Get all available messages.                                │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/queue.py:179 in get     │
+│                                                                              │
+│   176 │   │   │   │   while not self._qsize():                               │
+│   177 │   │   │   │   │   remaining = endtime - time()                       │
+│   178 │   │   │   │   │   if remaining <= 0.0:                               │
+│ ❱ 179 │   │   │   │   │   │   raise Empty                                    │
+│   180 │   │   │   │   │   self.not_empty.wait(remaining)                     │
+│   181 │   │   │   item = self._get()                                         │
+│   182 │   │   │   self.not_full.notify()                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Empty
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/colab_cli │
+│ /commands/execution.py:258 in exec_command                                   │
+│                                                                              │
+│   255 │   │   │   )                                                          │
+│   256 │   │   │   state.store.add(s)                                         │
+│   257 │   │   │                                                              │
+│ ❱ 258 │   │   │   outputs = runtime.execute_code(                            │
+│   259 │   │   │   │   code,                                                  │
+│   260 │   │   │   │   output_hook=lambda o: display_output(o, output_image), │
+│   261 │   │   │   │   timeout=timeout,                                       │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/colab_cli │
+│ /runtime.py:237 in execute_code                                              │
+│                                                                              │
+│   234 │   │   │   │   │   │   if idx < len(outputs):                         │
+│   235 │   │   │   │   │   │   │   output_hook(outputs[idx])                  │
+│   236 │   │   │                                                              │
+│ ❱ 237 │   │   │   reply = self.kernel_client.execute_interactive(            │
+│   238 │   │   │   │   code, output_hook=wrapped_output_hook, **kwargs        │
+│   239 │   │   │   )                                                          │
+│   240 │   │   │   # execute_interactive returns the raw reply message        │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/client.py:364 in execute_interactive                            │
+│                                                                              │
+│   361 │   │   │   The reply message for this request                         │
+│   362 │   │   """                                                            │
+│   363 │   │   self._set_variables(variables)                                 │
+│ ❱ 364 │   │   return self._manager.client.execute_interactive(               │
+│   365 │   │   │   code,                                                      │
+│   366 │   │   │   silent=silent,                                             │
+│   367 │   │   │   store_history=store_history,                               │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1112 in execute_interactive                         │
+│                                                                              │
+│   1109 │   │   │   # output is done, get the reply                           │
+│   1110 │   │   │   if timeout is not None:                                   │
+│   1111 │   │   │   │   timeout = max(0, deadline - time.monotonic())         │
+│ ❱ 1112 │   │   │   return self._recv_reply(msg_id, timeout=timeout)          │
+│   1113 │                                                                     │
+│   1114 │   def is_alive(self) -> bool:                                       │
+│   1115 │   │   """Is the kernel process still running?"""                    │
+│                                                                              │
+│ /opt/homebrew/Caskroom/miniforge/base/lib/python3.12/site-packages/jupyter_k │
+│ ernel_client/wsclient.py:1356 in _recv_reply                                 │
+│                                                                              │
+│   1353 │   │   │   │   │   reply = self.shell_channel.get_msg(timeout=timeou │
+│   1354 │   │   │   except queue.Empty as e:                                  │
+│   1355 │   │   │   │   msg = "Timeout waiting for reply"                     │
+│ ❱ 1356 │   │   │   │   raise TimeoutError(msg) from e                        │
+│   1357 │   │   │   if reply["parent_header"].get("msg_id") != msg_id:        │
+│   1358 │   │   │   │   self.log.debug("Ignoring message not from request: %s │
+│   1359 │   │   │   │   continue                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+TimeoutError: Timeout waiting for reply

@@ -1,0 +1,21 @@
+17:50:40 branch s, cores 12
+17:52:59 label_labels_r1: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels label --config configs/v4_pass1.json --images imagens_extra/ldl1_clean --out /content/st_c_s/labels_r1 --device cuda:0 --workers 12
+18:48:31 label_labels_r1: exit 0
+18:48:31 select_pseudo: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_c_s/labels_r1 --min-chars 10 --min-mean-prob 0.85 --max-change 1.0 --min-known 0.9
+18:48:34 select_pseudo: exit 0
+18:48:34 compile_pseudo: ketos --workers 12 compile -f page -o /content/st_c_s/train_pseudo.arrow /content/st_c_s/labels_r1/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_c_s/labels_r1/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1
+18:48:47 compile_pseudo: exit 0
+18:48:47 train_st_c0_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/10.5281_zenodo.21788410/medium.safetensors -o /content/st_c_s/model_st_c0_b16 --logger tensorboard --log-dir /content/st_c_s/tb_st_c0_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment 
+19:13:51 train_st_c0_b16: exit 0
+19:13:51 st_c0: best_0.9016.safetensors sha256 dc3143b52f576ab61f4583172d74548a4c7178dd73351c39e6ca6b9b8df1ca35
+19:13:51 transcripts_gem_r1: /usr/bin/python3 -m ocr_pipeline.tuning.transcripts /content/st_c_s/labels_r1 --transcripts imagens_extra/transcricoes/treino
+19:13:52 transcripts_gem_r1: exit 0
+19:13:52 select_gem_r1: /usr/bin/python3 -m ocr_pipeline.tuning.pseudo_labels select /content/st_c_s/labels_r1 --min-chars 10 --max-transcript-cer 0.4 --transcripts-only
+19:13:55 select_gem_r1: exit 0
+19:13:55 compile_gem_r1: ketos --workers 12 compile -f page -o /content/st_c_s/train_gem_r1.arrow /content/st_c_s/labels_r1/train/100br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1984-pgina-98-100_52766248994_l.xml /content/st_c_s/labels_r1/train/101br-fpmsc-fun-cam-ldl---livro-de-registro-de-leis-n-1-1892---1
+19:14:13 compile_gem_r1: exit 0
+19:14:13 train_st_c1s_b16: ketos -d cuda:0 -s 42 --workers 8 --threads 12 --precision bf16-mixed train -f binary -i /content/repo/models/finetuned/st_c0.safetensors -o /content/st_c_s/model_st_c1s_b16 --logger tensorboard --log-dir /content/st_c_s/tb_st_c1s_b16 -B 16 --accumulate-grad-batches 1 -r 1e-4 --augment -q fixed -N 2
+19:58:15 train_st_c1s_b16: exit 0
+19:58:15 st_c1s: best_0.9663.safetensors sha256 34538668f8032156aa47e1237d0b6c413fab2df7fdbf7e8de8dbf90da78279fa
+19:58:15 eval: /usr/bin/python3 colab/eval_clean.py /content/st_c_s/eval_tuning.json st_c0 st_c1s
+20:10:06 eval: exit 0

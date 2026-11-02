@@ -1,0 +1,44 @@
+2026-10-22 12:18:33,054 INFO ref: WERs 52.30 WERn 49.04 CERn 22.96
+2026-10-22 12:18:36,240 INFO rec_contrast: WERs 52.47 WERn 49.10 CERn 23.19
+2026-10-22 12:20:43,693 INFO rec_contrast_sharp: WERs 54.68 WERn 50.85 CERn 23.87
+2026-10-22 12:22:47,026 INFO minline_10: WERs 52.36 WERn 49.10 CERn 23.10
+2026-10-22 12:24:49,602 INFO minline_20: WERs 52.92 WERn 49.89 CERn 24.62
+2026-10-22 12:27:02,055 INFO pad_8: WERs 51.96 WERn 48.98 CERn 22.84
+2026-10-22 12:29:16,025 INFO pad_32: WERs 52.75 WERn 49.27 CERn 22.83
+2026-10-22 12:29:16,253 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/coremltools/models/model.py:628: RuntimeWarning: You will not be able to run predict() on this Core ML model. Underlying exception message was: Error compiling model: "compiler error: Error reading protobuf spec. validator error: Input MLMultiArray to neural networks must have dimension 1 (vector) or 3 (image-like arrays).".
+  _warnings.warn(
+
+2026-10-22 12:29:29,274 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/kraken/lib/segmentation.py:1098: RuntimeWarning: divide by zero encountered in divide
+  t1 = (v[:, 0] * u[:, 1] - v[:, 1] * u[:, 0]) / (z + np.finfo(float).eps)
+
+2026-10-22 12:29:29,275 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/kraken/lib/segmentation.py:1099: RuntimeWarning: divide by zero encountered in divide
+  t2 = np.dot(u, w) / (z + np.finfo(float).eps)
+
+2026-10-22 12:32:49,500 INFO nlbin_t04: WERs 52.64 WERn 48.81 CERn 22.46
+2026-10-22 12:33:00,058 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/kraken/lib/segmentation.py:1098: RuntimeWarning: divide by zero encountered in divide
+  t1 = (v[:, 0] * u[:, 1] - v[:, 1] * u[:, 0]) / (z + np.finfo(float).eps)
+
+2026-10-22 12:33:00,058 WARNING /Users/felipe_azambuja/hackathon_ocr_historico/.venv/lib/python3.12/site-packages/kraken/lib/segmentation.py:1099: RuntimeWarning: divide by zero encountered in divide
+  t2 = np.dot(u, w) / (z + np.finfo(float).eps)
+
+2026-10-22 12:36:23,849 INFO nlbin_t06: WERs 52.64 WERn 48.98 CERn 22.75
+2026-10-22 12:39:59,556 INFO seg_clahe_nlbin: WERs 53.49 WERn 50.17 CERn 22.98
+2026-10-22 12:43:04,362 INFO seg_contrast: WERs 54.12 WERn 50.73 CERn 22.00
+2026-10-22 12:46:49,862 INFO up15: WERs 53.15 WERn 49.27 CERn 23.08
+2026-10-22 12:51:04,264 INFO up20: WERs 51.90 WERn 48.53 CERn 23.08
+2026-10-22 12:55:05,190 INFO deskew: WERs 52.53 WERn 49.49 CERn 23.25
+variant                                     WERs    WERn    CERn
+up20                                       51.90   48.53   23.08
+nlbin_t04                                  52.64   48.81   22.46
+pad_8                                      51.96   48.98   22.84
+nlbin_t06                                  52.64   48.98   22.75
+ref                                        52.30   49.04   22.96
+rec_contrast                               52.47   49.10   23.19
+minline_10                                 52.36   49.10   23.10
+pad_32                                     52.75   49.27   22.83
+up15                                       53.15   49.27   23.08
+deskew                                     52.53   49.49   23.25
+minline_20                                 52.92   49.89   24.62
+seg_clahe_nlbin                            53.49   50.17   22.98
+seg_contrast                               54.12   50.73   22.00
+rec_contrast_sharp                         54.68   50.85   23.87

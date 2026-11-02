@@ -1,0 +1,1 @@
+{"thresholds": {"min_chars": 10, "min_mean_prob": 0.85, "min_min_prob": 0.0, "max_change": 1.0, "min_known": 0.9, "max_transcript_cer": null}, "lines": 2535, "kept": 1165, "pages": 78, "kept_chars": 44864}

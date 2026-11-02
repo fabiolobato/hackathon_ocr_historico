@@ -15,6 +15,11 @@ Todas as branches (`chore/add_dataset_files`, `feat/add_imagens_preprocessadas`,
 | Gabarito | `ground_truth/` | um `.txt` por página, extraído do DOCX; revisão em `comparison_review.md` |
 | **Integração** | `ocr_historico/`, `pipeline_integrado.ipynb` | liga as partes acima |
 | **Fine-tuning** | `ocr_historico/finetuning.py`, `finetuning_kraken.ipynb` | ajusta o Kraken à letra do livro |
+| **Pipeline de OCR adaptado** | `ocr_pipeline/`, `entrega_ocr/`, `registros/` | pipeline final de OCR (v6): reconhecedor adaptado ao livro, dicionário de época, contexto por trigramas e busca gulosa condicional; ver [`PIPELINE_OCR.md`](PIPELINE_OCR.md) |
+
+## Pipeline de OCR adaptado
+
+O pipeline final de OCR fica em `ocr_pipeline/` e é independente do `ocr_historico/`. Ele roda localmente, sem LLM, e chega a WER 18,74 / CER 4,43 contra o GT oficial nas páginas reservadas. A documentação completa (resultados, etapas, como rodar) está em [`PIPELINE_OCR.md`](PIPELINE_OCR.md). A pasta [`entrega_ocr/`](entrega_ocr/) reúne o pipeline pronto e o caderno de apresentação executado, e [`registros/`](registros/) guarda os registros das buscas e dos treinos.
 
 ## Como rodar
 

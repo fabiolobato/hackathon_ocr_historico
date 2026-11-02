@@ -1,0 +1,128 @@
+{
+ "base": {
+  "overrides": {},
+  "wer": 24.774266365688487,
+  "cer": 9.776934029425725,
+  "pages": [
+   57.8,
+   20.5,
+   19.5,
+   22.9,
+   26.8,
+   31.3,
+   23.6,
+   29.0,
+   16.8
+  ]
+ },
+ "lex_g10": {
+  "overrides": {
+   "post.period_lexicon": "models/lexicon/pt_hist_legal_w1_g10.txt"
+  },
+  "wer": 24.774266365688487,
+  "cer": 9.776934029425725,
+  "pages": [
+   57.8,
+   20.5,
+   19.5,
+   22.9,
+   26.8,
+   31.3,
+   23.6,
+   29.0,
+   16.8
+  ]
+ },
+ "lm_g10": {
+  "overrides": {
+   "post.context_lm": "models/lexicon/pt_hist_legal_w4_g10.ngrams.npz"
+  },
+  "wer": 23.419864559819416,
+  "cer": 9.349786426198387,
+  "pages": [
+   51.1,
+   20.0,
+   19.5,
+   22.9,
+   25.5,
+   28.8,
+   21.1,
+   26.2,
+   16.8
+  ]
+ },
+ "both_g10": {
+  "overrides": {
+   "post.period_lexicon": "models/lexicon/pt_hist_legal_w1_g10.txt",
+   "post.context_lm": "models/lexicon/pt_hist_legal_w4_g10.ngrams.npz"
+  },
+  "wer": 23.419864559819416,
+  "cer": 9.349786426198387,
+  "pages": [
+   51.1,
+   20.0,
+   19.5,
+   22.9,
+   25.5,
+   28.8,
+   21.1,
+   26.2,
+   16.8
+  ]
+ },
+ "lex_g50": {
+  "overrides": {
+   "post.period_lexicon": "models/lexicon/pt_hist_legal_w1_g50.txt"
+  },
+  "wer": 24.774266365688487,
+  "cer": 9.776934029425725,
+  "pages": [
+   57.8,
+   20.5,
+   19.5,
+   22.9,
+   26.8,
+   31.3,
+   23.6,
+   29.0,
+   16.8
+  ]
+ },
+ "lm_g50": {
+  "overrides": {
+   "post.context_lm": "models/lexicon/pt_hist_legal_w4_g50.ngrams.npz"
+  },
+  "wer": 23.363431151241535,
+  "cer": 9.311817750355956,
+  "pages": [
+   51.1,
+   19.5,
+   19.5,
+   22.9,
+   25.1,
+   28.8,
+   21.6,
+   26.2,
+   16.8
+  ]
+ },
+ "both_g50": {
+  "overrides": {
+   "post.period_lexicon": "models/lexicon/pt_hist_legal_w1_g50.txt",
+   "post.context_lm": "models/lexicon/pt_hist_legal_w4_g50.ngrams.npz"
+  },
+  "wer": 23.419864559819416,
+  "cer": 9.349786426198387,
+  "pages": [
+   51.1,
+   19.5,
+   19.5,
+   22.9,
+   25.1,
+   28.8,
+   22.1,
+   26.2,
+   16.8
+  ]
+ }
+}

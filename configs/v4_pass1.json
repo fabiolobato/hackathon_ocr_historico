@@ -1,0 +1,79 @@
+{
+  "geometric_ops": [
+    "upscale"
+  ],
+  "seg_ops": [
+    "contrast",
+    "remove_rules"
+  ],
+  "rec_ops": [],
+  "rec_tta": [],
+  "params": {
+    "upscale_factor": 2.0,
+    "deskew_limit": 5.0,
+    "deskew_step": 0.25,
+    "contrast_factor": 1.8,
+    "clahe_clip": 2.0,
+    "clahe_grid": 8,
+    "denoise_strength": 7.0,
+    "background_sigma": 25.0,
+    "nlbin_threshold": 0.5,
+    "nlbin_zoom": 0.5,
+    "sharpen_amount": 1.0,
+    "gamma": 1.0,
+    "rule_kernel_frac": 0.08,
+    "slant_limit": 15.0,
+    "slant_gain": 1.0,
+    "channel": "b",
+    "stroke_size": 3
+  },
+  "seg": {
+    "model": null,
+    "min_line_frac": 0.1,
+    "min_line_px": 0,
+    "drop_top_frac": 0.0
+  },
+  "rec": {
+    "model": "medium",
+    "padding": 16,
+    "no_legacy_polygons": false
+  },
+  "post": {
+    "conventions": true,
+    "ordinals": true,
+    "dehyphenate": true,
+    "lexicon": null,
+    "lexicon_size": 20000,
+    "period_lexicon": "models/lexicon/pt_hist_legal_w1.txt",
+    "period_lexicon_size": 0,
+    "domain_lexicon": false,
+    "lexicon_max_ratio": 0.5,
+    "lexicon_min_len": 3,
+    "fold_accents": true,
+    "decoder": "ctc+edit",
+    "ctc_alpha": 16,
+    "ctc_candidates": 30,
+    "context_lm": "models/lexicon/pt_hist_legal_w4.ngrams.npz",
+    "context_order": 3,
+    "context_beta": 1.0,
+    "context_open_known": true,
+    "context_min_edits": 1,
+    "context_pool": 0,
+    "context_short": 60,
+    "context_nbest": 5,
+    "beam": 0,
+    "beam_oov": -6.0,
+    "beam_bonus": 4.0,
+    "beam_mode": "candidates",
+    "beam_region_margin": 0.0,
+    "beam_beta": -1.0,
+    "beam_free_digits": false,
+    "beam_length_norm": false,
+    "beam_boundary_min": 0.0,
+    "context_protect": 0.0,
+    "context_coherent": false,
+    "edit_costs": null,
+    "edit_costs_weight": 1.0,
+    "edit_costs_max": 1.0
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "corpus": {
+    "wer_strict": 0.334913112164297,
+    "cer_strict": 0.10516748896390547,
+    "wer_norm": 0.28503937007874014,
+    "cer_norm": 0.09895972259269138
+  },
+  "picks": {
+    "7": [
+      23,
+      15
+    ],
+    "10": [
+      17,
+      17
+    ],
+    "12": [
+      13,
+      20
+    ]
+  },
+  "models": [
+    "ft_v1",
+    "/private/tmp/claude-501/-Users-felipe-azambuja-hackathon-ocr-historico/b71d8b86-7d21-4970-b4b1-304018c4ec52/scratchpad/ft_traprinq/model/best_0.8354.safetensors"
+  ],
+  "pages": [
+    {
+      "page": 7,
+      "lines": 38,
+      "pred_words": 218,
+      "text": "§3º O Re Pendente e o natural titulo do Presidente.\n§4º Substituem ao Vice. Presidente os demais Vereadores\nna ordem de sua votação. Em caso de empate servirá\nmais velo.\nCapitulo3\nDa ordem dos trabalhos\nA3\nNo dia marcado para as sessões se revisão os veados\nre no salão principal da municipalidade, as onze\nhoras da manha, e havendo eso legal, o presidente\nassumindo o seu lugar, que éa cabeceira da mesa dos\ntrabalhos, dará principio as sessões pelas palavras: Estao\naberta a sessão.\nArtigo 4º As\nsessão durarão o tempo maximo de quatro ho\nnas. Perdoada a sessão, o presidente encerraram\nos trabalhos pelas palavras:- Está encerrado a sessão.\nArtigo 5\nAberta a sessão, o presidente declararam a material em\ndiscussão, manterá a ordem durante os trabalhos, dan\ndo a palavra do que primeira a pedir, fases observar\na decencia e a civilidade entre os vereadores e os\nespectadores.\n\n\n\n§1º No tento dos trabalhos é veado o regresso\na pessoa que não pertença a corporação mani\npal.\n§2º Os espectadores não podem intervir es debates.\npor qualquer forma, e nem dor signos de aperta\ncão en desagrado, sob pena de terem observados, e\nexpulsos da sala, em caso de residência.\nArtigo 6.º\nAo Presidente nicole; –\n\n2\n§1º Chamar o ordem, ate tres vezes, o vereador que",
+      "wer_strict": 0.32710280373831774,
+      "cer_strict": 0.1003921568627451,
+      "wer_norm": 0.2744186046511628,
+      "cer_norm": 0.09362389023405973,
+      "strict_we": 70,
+      "strict_rw": 214,
+      "strict_ce": 128,
+      "strict_rc": 1275,
+      "norm_we": 59,
+      "norm_rw": 215,
+      "norm_ce": 116,
+      "norm_rc": 1239
+    },
+    {
+      "page": 10,
+      "lines": 34,
+      "pred_words": 179,
+      "text": "destes, descendentes, sogro e genro, umas e contados\ndurante o cunhado, tio e sobrinho e socos dar\nmesma forma, o vereador a quem a supostas\ninteressar não poderá votar.\nArtigo 15º\nAos vereadores que, sem causa justificada\nfaltaram a duas sessões consecutivas, bem\ncomo aos supplente convocados que não\ncomparecer, será imposta, pelo Presidente\na muita de des mil reis 11000 (Reg.o art6º\n§4º). O Presidente quando tiver de desertar\nqualquer assumo on apresentar e defender\nmarcação sa, passará a presidencial a seu\nimediato.\nCapitulo 4º\nDo numero das sessões\nArtigo 16º\nA Camara municipal fará em cada anno\nseis sessões ordinarias, de dois co dois meses\nnos primeiros dias estes de Outubro, Dezembro\nFevereiro Abril, Junho e Agosto que durarão\nos dias necessarios, nunca menos de tres.\n\nArtigo 17Caberá\nem cada anno tantas sessões extra\nordinarias quantas primeiras pelo\nbem municipal .\n§/º As sessões extraordinarias serão como\ncada pelo Presidente e sempre por ordem\nsuperior, iniciativa do proprio presidente\ne a Requerimento do Intendente. Em qual\nr Caso o presidente declarar o motivo\nda convocação\nDisposições gerais.",
+      "wer_strict": 0.29213483146067415,
+      "cer_strict": 0.07792207792207792,
+      "wer_norm": 0.23204419889502761,
+      "cer_norm": 0.0695807314897413,
+      "strict_we": 52,
+      "strict_rw": 178,
+      "strict_ce": 90,
+      "strict_rc": 1155,
+      "norm_we": 42,
+      "norm_rw": 181,
+      "norm_ce": 78,
+      "norm_rc": 1121
+    },
+    {
+      "page": 12,
+      "lines": 33,
+      "pred_words": 243,
+      "text": "amadas quando a Camara o exigir, prendendo\nani a mesma cm seis meses, pelo menos,de\nantecedência, sona lee que o numero de tampa\ndas exigido não excede a capacidade e forca\ndos dinares, caso em que se obriga a satisfaz\ndentro do praso de dose moses contadas da\ndata do aino, não podendo elle ter Logo antes\nde ser amargurada e acerta a iluminação\nconstante do presente contrato.\n§2º A clausula 18º do contracto fica afim\nsubstitua: Clausula 18º Sequestrado que\nocasional a intenção da lu durar mais\nde quedas, poderá a Camara reacender o\ncontracto, atraso de pra maior que\nserá resolvida por árbitros pessoais\nnomeados pela forma de direito.\n§ 3º A clausula 16º fica assim:- A empresa\ndeverá ter sempre em Deposito o numero de\namadas necessario para substituir mime\nexatamente qualquer lâmpada que se queime,\nse millie en se apague, sob pena de pagar\ndez mil reis de muita abatida nas petição\nmusas por lâmpada que estiver apagada\nduas noites consecutivas, salvo caso de forca\nmaior a juiso do fiscal professional da Camara\n§4º A clausula 14º ficará deste modo: - Na\nexpressão \"iluminação publica - fica compreendida\na exumação da Casa da Camara com seis lama\npiadas e a da Cadeia com qual numero, outro\ntidos de acendo com a mesma Camara:\n§5º A Clausula 29:º ficará assine:- A Empresa\nsera obrigada a matar e sangrar a silva\nação da Cidade da data desta lei a seis me",
+      "wer_strict": 0.37344398340248963,
+      "cer_strict": 0.13159746657283602,
+      "wer_norm": 0.33472803347280333,
+      "cer_norm": 0.12742980561555076,
+      "strict_we": 90,
+      "strict_rw": 241,
+      "strict_ce": 187,
+      "strict_rc": 1421,
+      "norm_we": 80,
+      "norm_rw": 239,
+      "norm_ce": 177,
+      "norm_rc": 1389
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "transcripts": "imagens_extra/transcriptions_txt",
+  "pages": 48,
+  "lines": 1542,
+  "matched": 1531,
+  "median_cer": 0.0233
+}

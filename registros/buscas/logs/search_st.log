@@ -1,0 +1,560 @@
+2026-10-30 06:40:58,958 INFO [geometry] incumbent                                          wer_norm 28.27 (Δ +0.00)
+2026-10-30 06:40:58,963 INFO [geometry] single   upscale_15                               wer_norm 26.98 (Δ -1.30)
+2026-10-30 06:40:58,964 INFO [geometry] single   upscale_20                               wer_norm 26.07 (Δ -2.20)
+2026-10-30 06:40:58,964 INFO [geometry] single   deskew                                   wer_norm 28.84 (Δ +0.56)
+2026-10-30 06:40:58,965 INFO [geometry] single   upscale_25                               wer_norm 26.35 (Δ -1.92)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342470.380088    3962 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342470.380089    3963 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342470.396606    3956 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342470.396631    3964 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342470.451047    3963 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793342470.451047    3962 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793342470.465694    3956 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793342470.465698    3964 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342470.501010    3961 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342470.501009    3959 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342470.579090    3965 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342470.579091    3960 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342470.616313    3959 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793342470.616312    3961 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793342470.692733    3960 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+I0000 00:00:1793342470.692733    3965 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342473.094856    3964 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342473.095514    3964 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342473.096121    3956 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342473.096639    3956 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342473.328210    3963 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342473.329035    3963 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342473.362834    3962 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342473.363615    3962 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342473.916929    3959 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342473.917484    3959 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342473.981309    3960 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342473.981862    3960 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342474.355176    3965 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342474.355772    3965 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793342474.537951    3961 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793342474.538515    3961 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+INFO:lightning.pytorch.utilities.rank_zero:You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-10-30 06:47:11,977 INFO [geometry] combo    upscale_20+deskew                        wer_norm 26.52 (Δ -1.75)
+2026-10-30 06:47:11,978 INFO [geometry] picks: ['upscale_20']
+2026-10-30 06:47:11,982 INFO [line_filter] incumbent                                          wer_norm 26.07 (Δ +0.00)
+2026-10-30 07:01:55,455 INFO [line_filter] single   min_frac_05                              wer_norm 26.07 (Δ +0.00)
+2026-10-30 07:01:55,456 INFO [line_filter] single   min_frac_10                              wer_norm 26.07 (Δ +0.00)
+2026-10-30 07:01:55,457 INFO [line_filter] single   min_px_30                                wer_norm 26.07 (Δ +0.00)
+2026-10-30 07:01:55,458 INFO [line_filter] picks: none
+2026-10-30 07:01:55,462 INFO [rec_image] incumbent                                          wer_norm 26.07 (Δ +0.00)
+2026-10-30 07:48:57,845 INFO [rec_image] single   illumination                             wer_norm 33.52 (Δ +7.45)
+2026-10-30 07:48:57,846 INFO [rec_image] single   clahe                                    wer_norm 28.67 (Δ +2.60)
+2026-10-30 07:48:57,847 INFO [rec_image] single   contrast                                 wer_norm 27.71 (Δ +1.64)
+2026-10-30 07:48:57,848 INFO [rec_image] single   gamma_07                                 wer_norm 27.43 (Δ +1.35)
+2026-10-30 07:48:57,849 INFO [rec_image] single   gamma_15                                 wer_norm 28.67 (Δ +2.60)
+2026-10-30 07:48:57,850 INFO [rec_image] single   sharpen                                  wer_norm 30.42 (Δ +4.35)
+2026-10-30 07:48:57,850 INFO [rec_image] single   grayscale                                wer_norm 27.54 (Δ +1.47)
+2026-10-30 07:48:57,851 INFO [rec_image] single   denoise                                  wer_norm 32.34 (Δ +6.26)
+2026-10-30 07:48:57,852 INFO [rec_image] single   remove_rules                             wer_norm 27.65 (Δ +1.58)
+2026-10-30 07:48:57,853 INFO [rec_image] single   nlbin                                    wer_norm 64.67 (Δ +38.60)
+2026-10-30 07:48:57,854 INFO [rec_image] single   channel_b                                wer_norm 28.67 (Δ +2.60)
+2026-10-30 07:48:57,855 INFO [rec_image] picks: none
+2026-10-30 07:54:17,667 INFO [rec_params] incumbent                                          wer_norm 26.13 (Δ +0.00)
+2026-10-30 08:08:18,596 INFO [rec_params] single   pad_8                                    wer_norm 26.07 (Δ -0.06)
+2026-10-30 08:08:18,597 INFO [rec_params] single   pad_24                                   wer_norm 25.79 (Δ -0.34)
+2026-10-30 08:08:18,598 INFO [rec_params] single   pad_32                                   wer_norm 25.73 (Δ -0.40)
+2026-10-30 08:08:18,599 INFO [rec_params] single   new_polygons                             wer_norm 26.13 (Δ +0.00)
+2026-10-30 08:13:42,200 INFO [rec_params] combo    pad_32+new_polygons                      wer_norm 25.73 (Δ -0.40)
+2026-10-30 08:13:42,201 INFO [rec_params] picks: ['pad_32']
+2026-10-30 08:13:42,586 INFO [lexicon] incumbent                                          wer_norm 40.01 (Δ +0.00)
+2026-10-30 08:31:02,896 INFO [lexicon] single   generic                                  wer_norm 39.56 (Δ -0.45)
+2026-10-30 08:31:02,897 INFO [lexicon] single   period                                   wer_norm 26.30 (Δ -13.71)
+2026-10-30 08:31:02,898 INFO [lexicon] single   period_legal_w1                          wer_norm 25.73 (Δ -14.28)
+2026-10-30 08:31:02,899 INFO [lexicon] single   period_legal_w4                          wer_norm 25.73 (Δ -14.28)
+2026-10-30 08:31:02,900 INFO [lexicon] combo    period_legal_w1+generic                  wer_norm 25.73 (Δ -14.28)
+2026-10-30 08:31:02,901 INFO [lexicon] picks: ['period_legal_w1', 'generic']
+2026-10-30 08:32:25,369 INFO [lexicon_params] incumbent                                          wer_norm 25.85 (Δ +0.00)
+2026-10-30 08:48:11,652 INFO [lexicon_params] single   ratio_20                                 wer_norm 27.09 (Δ +1.24)
+2026-10-30 08:48:11,653 INFO [lexicon_params] single   ratio_40                                 wer_norm 25.73 (Δ -0.11)
+2026-10-30 08:48:11,654 INFO [lexicon_params] single   ratio_50                                 wer_norm 25.45 (Δ -0.40)
+2026-10-30 08:48:11,655 INFO [lexicon_params] single   min_len_3                                wer_norm 25.90 (Δ +0.06)
+2026-10-30 08:48:11,656 INFO [lexicon_params] single   min_len_5                                wer_norm 26.98 (Δ +1.13)
+2026-10-30 08:48:11,656 INFO [lexicon_params] single   generic_all                              wer_norm 25.85 (Δ +0.00)
+2026-10-30 08:48:11,657 INFO [lexicon_params] single   generic_5k                               wer_norm 25.85 (Δ +0.00)
+2026-10-30 08:48:11,658 INFO [lexicon_params] single   period_20k                               wer_norm 28.89 (Δ +3.05)
+2026-10-30 08:48:11,659 INFO [lexicon_params] single   period_50k                               wer_norm 26.41 (Δ +0.56)
+2026-10-30 08:48:11,660 INFO [lexicon_params] single   fold_accents                             wer_norm 26.07 (Δ +0.23)
+2026-10-30 08:48:11,661 INFO [lexicon_params] single   ratio_60                                 wer_norm 25.45 (Δ -0.40)
+2026-10-30 09:05:39,433 INFO [lexicon_params] combo    ratio_50+generic_all                     wer_norm 25.51 (Δ -0.34)
+2026-10-30 09:05:39,434 INFO [lexicon_params] combo    ratio_50+generic_5k                      wer_norm 25.45 (Δ -0.40)
+2026-10-30 09:05:39,434 INFO [lexicon_params] combo    ratio_50+min_len_3                       wer_norm 25.51 (Δ -0.34)
+2026-10-30 09:05:39,434 INFO [lexicon_params] combo    ratio_50+fold_accents                    wer_norm 25.68 (Δ -0.17)
+2026-10-30 09:05:39,434 INFO [lexicon_params] combo    ratio_50+period_50k                      wer_norm 26.02 (Δ +0.17)
+2026-10-30 09:05:39,435 INFO [lexicon_params] combo    ratio_50+min_len_5                       wer_norm 26.52 (Δ +0.68)
+2026-10-30 09:05:39,435 INFO [lexicon_params] combo    ratio_50+period_20k                      wer_norm 28.50 (Δ +2.65)
+2026-10-30 09:05:39,436 INFO [lexicon_params] picks: ['ratio_50']
+2026-10-30 09:06:15,556 INFO [decoder_params] incumbent                                          wer_norm 25.73 (Δ +0.00)
+2026-10-30 09:12:40,692 INFO [decoder_params] single   alpha_2                                  wer_norm 25.73 (Δ +0.00)
+2026-10-30 09:12:40,693 INFO [decoder_params] single   alpha_8                                  wer_norm 25.73 (Δ +0.00)
+2026-10-30 09:12:40,694 INFO [decoder_params] single   alpha_16                                 wer_norm 25.68 (Δ -0.06)
+2026-10-30 09:12:40,695 INFO [decoder_params] single   alpha_32                                 wer_norm 25.68 (Δ -0.06)
+2026-10-30 09:12:40,696 INFO [decoder_params] single   candidates_30                            wer_norm 25.62 (Δ -0.11)
+2026-10-30 09:12:40,696 INFO [decoder_params] skip alpha_4 (requirement unmet or no-op)
+2026-10-30 09:12:40,697 INFO [decoder_params] single   alpha_12                                 wer_norm 25.68 (Δ -0.06)
+2026-10-30 09:12:40,698 INFO [decoder_params] single   alpha_24                                 wer_norm 25.68 (Δ -0.06)
+2026-10-30 09:25:20,018 INFO [decoder_params] combo    candidates_30+alpha_16                   wer_norm 25.45 (Δ -0.28)
+2026-10-30 09:25:20,018 INFO [decoder_params] combo    candidates_30+alpha_32                   wer_norm 25.45 (Δ -0.28)
+2026-10-30 09:25:20,019 INFO [decoder_params] combo    candidates_30+alpha_12                   wer_norm 25.45 (Δ -0.28)
+2026-10-30 09:25:20,019 INFO [decoder_params] combo    candidates_30+alpha_24                   wer_norm 25.45 (Δ -0.28)
+2026-10-30 09:25:20,019 INFO [decoder_params] combo    candidates_30+alpha_2                    wer_norm 25.62 (Δ -0.11)
+2026-10-30 09:25:20,019 INFO [decoder_params] combo    candidates_30+alpha_8                    wer_norm 25.45 (Δ -0.28)
+2026-10-30 09:25:20,022 INFO [decoder_params] picks: ['alpha_16', 'candidates_30']
+2026-10-30 09:25:25,808 INFO [context] incumbent                                          wer_norm 30.93 (Δ +0.00)
+2026-10-30 09:30:31,734 INFO [context] single   bigram_lm                                wer_norm 27.26 (Δ -3.67)
+2026-10-30 09:30:31,735 INFO [context] single   lm_legal_w1                              wer_norm 25.73 (Δ -5.19)
+2026-10-30 09:30:31,736 INFO [context] single   lm_legal_w4                              wer_norm 25.45 (Δ -5.47)
+2026-10-30 09:30:31,737 INFO [context] picks: ['lm_legal_w4']
+2026-10-30 09:30:38,014 INFO [context_params] incumbent                                          wer_norm 28.95 (Δ +0.00)
+2026-10-30 09:32:10,184 INFO [context_params] single   beta_05                                  wer_norm 29.63 (Δ +0.68)
+2026-10-30 09:32:10,185 INFO [context_params] single   beta_2                                   wer_norm 29.12 (Δ +0.17)
+2026-10-30 09:32:10,186 INFO [context_params] single   open_known                               wer_norm 27.26 (Δ -1.69)
+2026-10-30 09:32:10,186 INFO [context_params] single   min_edits_2                              wer_norm 28.95 (Δ +0.00)
+2026-10-30 09:32:10,187 INFO [context_params] single   pool_100                                 wer_norm 28.44 (Δ -0.51)
+2026-10-30 09:32:10,188 INFO [context_params] single   pool_300                                 wer_norm 28.39 (Δ -0.56)
+2026-10-30 09:32:10,188 INFO [context_params] single   trigram                                  wer_norm 29.12 (Δ +0.17)
+2026-10-30 09:32:10,189 INFO [context_params] single   short_30                                 wer_norm 28.84 (Δ -0.11)
+2026-10-30 09:32:10,190 INFO [context_params] single   short_60                                 wer_norm 28.78 (Δ -0.17)
+2026-10-30 09:32:10,191 INFO [context_params] single   short_120                                wer_norm 28.78 (Δ -0.17)
+2026-10-30 09:32:10,191 INFO [context_params] single   nbest_3                                  wer_norm 28.27 (Δ -0.68)
+2026-10-30 09:32:10,192 INFO [context_params] single   nbest_5                                  wer_norm 28.27 (Δ -0.68)
+2026-10-30 09:32:10,193 INFO [context_params] single   beam_64                                  wer_norm 28.56 (Δ -0.40)
+2026-10-30 09:35:46,202 INFO [context_params] combo    open_known+nbest_3                       wer_norm 26.52 (Δ -2.43)
+2026-10-30 09:35:46,202 INFO [context_params] combo    open_known+nbest_5                       wer_norm 26.41 (Δ -2.54)
+2026-10-30 09:35:46,202 INFO [context_params] combo    open_known+pool_300                      wer_norm 26.58 (Δ -2.37)
+2026-10-30 09:35:46,203 INFO [context_params] combo    open_known+pool_100                      wer_norm 26.58 (Δ -2.37)
+2026-10-30 09:35:46,203 INFO [context_params] combo    open_known+beam_64                       wer_norm 26.69 (Δ -2.26)
+2026-10-30 09:35:46,203 INFO [context_params] combo    open_known+short_60                      wer_norm 26.69 (Δ -2.26)
+2026-10-30 09:35:46,203 INFO [context_params] combo    open_known+short_120                     wer_norm 26.69 (Δ -2.26)
+2026-10-30 09:35:46,204 INFO [context_params] combo    open_known+short_30                      wer_norm 27.09 (Δ -1.86)
+2026-10-30 09:35:46,204 INFO [context_params] combo    open_known+min_edits_2                   wer_norm 27.26 (Δ -1.69)
+2026-10-30 09:35:46,204 INFO [context_params] combo    open_known+beta_2                        wer_norm 28.27 (Δ -0.68)
+2026-10-30 09:35:46,204 INFO [context_params] combo    open_known+trigram                       wer_norm 27.37 (Δ -1.58)
+2026-10-30 09:35:46,204 INFO [context_params] combo    open_known+beta_05                       wer_norm 28.05 (Δ -0.90)
+2026-10-30 09:41:12,084 INFO [context_params] combo    open_known+nbest_5+pool_300              wer_norm 26.47 (Δ -2.48)
+2026-10-30 09:41:12,084 INFO [context_params] combo    open_known+nbest_5+pool_100              wer_norm 26.47 (Δ -2.48)
+2026-10-30 09:41:12,085 INFO [context_params] combo    open_known+nbest_5+beam_64               wer_norm 26.41 (Δ -2.54)
+2026-10-30 09:41:12,085 INFO [context_params] combo    open_known+nbest_5+short_60              wer_norm 25.79 (Δ -3.16)
+2026-10-30 09:41:12,085 INFO [context_params] combo    open_known+nbest_5+short_120             wer_norm 25.79 (Δ -3.16)
+2026-10-30 09:41:12,085 INFO [context_params] combo    open_known+nbest_5+short_30              wer_norm 26.13 (Δ -2.82)
+2026-10-30 09:41:12,086 INFO [context_params] combo    open_known+nbest_5+min_edits_2           wer_norm 26.35 (Δ -2.60)
+2026-10-30 09:41:12,086 INFO [context_params] combo    open_known+nbest_5+beta_2                wer_norm 27.65 (Δ -1.30)
+2026-10-30 09:41:12,086 INFO [context_params] combo    open_known+nbest_5+trigram               wer_norm 26.35 (Δ -2.60)
+2026-10-30 09:41:12,086 INFO [context_params] combo    open_known+nbest_5+beta_05               wer_norm 27.54 (Δ -1.41)
+2026-10-30 09:43:59,500 INFO [context_params] combo    open_known+nbest_5+short_60+pool_300     wer_norm 25.85 (Δ -3.10)
+2026-10-30 09:43:59,500 INFO [context_params] combo    open_known+nbest_5+short_60+pool_100     wer_norm 25.85 (Δ -3.10)
+2026-10-30 09:43:59,501 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64      wer_norm 25.34 (Δ -3.61)
+2026-10-30 09:43:59,501 INFO [context_params] combo    open_known+nbest_5+short_60+min_edits_2  wer_norm 25.73 (Δ -3.22)
+2026-10-30 09:43:59,501 INFO [context_params] combo    open_known+nbest_5+short_60+beta_2       wer_norm 27.48 (Δ -1.47)
+2026-10-30 09:43:59,501 INFO [context_params] combo    open_known+nbest_5+short_60+trigram      wer_norm 25.45 (Δ -3.50)
+2026-10-30 09:43:59,502 INFO [context_params] combo    open_known+nbest_5+short_60+beta_05      wer_norm 26.69 (Δ -2.26)
+2026-10-30 09:48:58,717 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+pool_300 wer_norm 25.40 (Δ -3.56)
+2026-10-30 09:48:58,717 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+pool_100 wer_norm 25.40 (Δ -3.56)
+2026-10-30 09:48:58,717 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+min_edits_2 wer_norm 25.28 (Δ -3.67)
+2026-10-30 09:48:58,718 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+beta_2 wer_norm 27.14 (Δ -1.81)
+2026-10-30 09:48:58,718 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram wer_norm 24.83 (Δ -4.12)
+2026-10-30 09:48:58,718 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+beta_05 wer_norm 26.52 (Δ -2.43)
+2026-10-30 09:58:00,281 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+pool_300 wer_norm 24.89 (Δ -4.06)
+2026-10-30 09:58:00,281 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+pool_100 wer_norm 24.89 (Δ -4.06)
+2026-10-30 09:58:00,282 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2 wer_norm 24.77 (Δ -4.18)
+2026-10-30 09:58:00,282 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+beta_2 wer_norm 26.69 (Δ -2.26)
+2026-10-30 09:58:00,282 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+beta_05 wer_norm 26.19 (Δ -2.77)
+2026-10-30 10:04:32,596 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2+pool_300 wer_norm 24.83 (Δ -4.12)
+2026-10-30 10:04:32,596 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2+pool_100 wer_norm 24.83 (Δ -4.12)
+2026-10-30 10:04:32,596 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2+beta_2 wer_norm 26.64 (Δ -2.31)
+2026-10-30 10:04:32,596 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2+beta_05 wer_norm 26.19 (Δ -2.77)
+2026-10-30 10:04:32,597 INFO [context_params] picks: ['open_known', 'nbest_5', 'short_60', 'beam_64', 'trigram', 'min_edits_2']
+2026-10-30 10:24:58,319 INFO [backward] backward -geometry:upscale_20                     wer_norm 27.43 (Δ +2.65)
+2026-10-30 10:24:58,319 INFO [backward] backward -decoder_params:alpha_16                 wer_norm 24.94 (Δ +0.17)
+2026-10-30 10:24:58,319 INFO [backward] backward -decoder_params:candidates_30            wer_norm 25.00 (Δ +0.23)
+2026-10-30 10:24:58,320 INFO [backward] backward -context:lm_legal_w4                     wer_norm 30.93 (Δ +6.15)
+2026-10-30 10:24:58,320 INFO [backward] backward -lexicon:period_legal_w1                 wer_norm 38.77 (Δ +14.00)
+2026-10-30 10:24:58,320 INFO [backward] backward -lexicon:generic                         wer_norm 24.77 (Δ +0.00)
+2026-10-30 10:24:58,320 INFO [backward] backward -rec_params:pad_32                       wer_norm 25.28 (Δ +0.51)
+2026-10-30 10:24:58,321 INFO [backward] backward -lexicon_params:ratio_50                 wer_norm 25.00 (Δ +0.23)
+2026-10-30 10:24:58,321 INFO [backward] backward -context_params:open_known               wer_norm 27.88 (Δ +3.10)
+2026-10-30 10:24:58,321 INFO [backward] backward -context_params:nbest_5                  wer_norm 25.28 (Δ +0.51)
+2026-10-30 10:24:58,321 INFO [backward] backward -context_params:short_60                 wer_norm 26.30 (Δ +1.52)
+2026-10-30 10:24:58,322 INFO [backward] backward -context_params:beam_64                  wer_norm 25.40 (Δ +0.62)
+2026-10-30 10:24:58,322 INFO [backward] backward -context_params:trigram                  wer_norm 25.28 (Δ +0.51)
+2026-10-30 10:24:58,322 INFO [backward] backward -context_params:min_edits_2              wer_norm 24.83 (Δ +0.06)
+2026-10-30 10:24:58,322 INFO [backward] dropping lexicon:generic (removal Δ +0.00)
+2026-10-30 10:43:45,075 INFO [backward] backward -geometry:upscale_20                     wer_norm 27.43 (Δ +2.65)
+2026-10-30 10:43:45,076 INFO [backward] backward -decoder_params:alpha_16                 wer_norm 24.94 (Δ +0.17)
+2026-10-30 10:43:45,076 INFO [backward] backward -decoder_params:candidates_30            wer_norm 25.00 (Δ +0.23)
+2026-10-30 10:43:45,076 INFO [backward] backward -context:lm_legal_w4                     wer_norm 30.87 (Δ +6.09)
+2026-10-30 10:43:45,076 INFO [backward] backward -lexicon:period_legal_w1                 wer_norm 40.01 (Δ +15.24)
+2026-10-30 10:43:45,077 INFO [backward] backward -rec_params:pad_32                       wer_norm 25.28 (Δ +0.51)
+2026-10-30 10:43:45,077 INFO [backward] backward -lexicon_params:ratio_50                 wer_norm 25.00 (Δ +0.23)
+2026-10-30 10:43:45,077 INFO [backward] backward -context_params:open_known               wer_norm 27.88 (Δ +3.10)
+2026-10-30 10:43:45,077 INFO [backward] backward -context_params:nbest_5                  wer_norm 25.28 (Δ +0.51)
+2026-10-30 10:43:45,078 INFO [backward] backward -context_params:short_60                 wer_norm 26.30 (Δ +1.52)
+2026-10-30 10:43:45,078 INFO [backward] backward -context_params:beam_64                  wer_norm 25.40 (Δ +0.62)
+2026-10-30 10:43:45,078 INFO [backward] backward -context_params:trigram                  wer_norm 25.28 (Δ +0.51)
+2026-10-30 10:43:45,078 INFO [backward] backward -context_params:min_edits_2              wer_norm 24.83 (Δ +0.06)
+2026-10-30 10:43:45,079 INFO pass 1: ['decoder:ctc_edit', 'geometry:upscale_20', 'decoder_params:alpha_16', 'decoder_params:candidates_30', 'seg_image:remove_rules', 'seg_image:contrast', 'text:dehyphenate', 'text:conventions', 'text:ordinals', 'context:lm_legal_w4', 'lexicon:period_legal_w1', 'rec_params:pad_32', 'lexicon_params:ratio_50', 'context_params:open_known', 'context_params:nbest_5', 'context_params:short_60', 'context_params:beam_64', 'context_params:trigram', 'context_params:min_edits_2'] -> wer_norm 24.77
+2026-10-30 10:43:45,082 INFO [geometry] incumbent                                          wer_norm 27.43 (Δ +0.00)
+2026-10-30 10:54:29,315 INFO [geometry] single   upscale_15                               wer_norm 26.19 (Δ -1.24)
+2026-10-30 10:54:29,315 INFO [geometry] single   upscale_20                               wer_norm 24.77 (Δ -2.65)
+2026-10-30 10:54:29,316 INFO [geometry] single   deskew                                   wer_norm 27.65 (Δ +0.23)
+2026-10-30 10:54:29,317 INFO [geometry] single   upscale_25                               wer_norm 26.02 (Δ -1.41)
+2026-10-30 10:57:35,782 INFO [geometry] combo    upscale_20+deskew                        wer_norm 25.73 (Δ -1.69)
+2026-10-30 10:57:35,783 INFO [geometry] picks: ['upscale_20']
+2026-10-30 10:57:35,786 INFO [line_filter] incumbent                                          wer_norm 24.77 (Δ +0.00)
+2026-10-30 11:05:50,593 INFO [line_filter] single   min_frac_05                              wer_norm 24.77 (Δ +0.00)
+2026-10-30 11:05:50,594 INFO [line_filter] single   min_frac_10                              wer_norm 24.77 (Δ +0.00)
+2026-10-30 11:05:50,595 INFO [line_filter] single   min_px_30                                wer_norm 24.77 (Δ +0.00)
+2026-10-30 11:05:50,596 INFO [line_filter] picks: none
+2026-10-30 11:05:50,599 INFO [rec_image] incumbent                                          wer_norm 24.77 (Δ +0.00)
+2026-10-30 11:35:16,912 INFO [rec_image] single   illumination                             wer_norm 32.34 (Δ +7.56)
+2026-10-30 11:35:16,913 INFO [rec_image] single   clahe                                    wer_norm 27.54 (Δ +2.77)
+2026-10-30 11:35:16,914 INFO [rec_image] single   contrast                                 wer_norm 27.26 (Δ +2.48)
+2026-10-30 11:35:16,915 INFO [rec_image] single   gamma_07                                 wer_norm 26.13 (Δ +1.35)
+2026-10-30 11:35:16,916 INFO [rec_image] single   gamma_15                                 wer_norm 27.60 (Δ +2.82)
+2026-10-30 11:35:16,916 INFO [rec_image] single   sharpen                                  wer_norm 29.12 (Δ +4.35)
+2026-10-30 11:35:16,917 INFO [rec_image] single   grayscale                                wer_norm 26.30 (Δ +1.52)
+2026-10-30 11:35:16,918 INFO [rec_image] single   denoise                                  wer_norm 31.09 (Δ +6.32)
+2026-10-30 11:35:16,919 INFO [rec_image] single   remove_rules                             wer_norm 26.69 (Δ +1.92)
+2026-10-30 11:35:16,920 INFO [rec_image] single   nlbin                                    wer_norm 61.06 (Δ +36.29)
+2026-10-30 11:35:16,921 INFO [rec_image] single   channel_b                                wer_norm 27.71 (Δ +2.93)
+2026-10-30 11:35:16,922 INFO [rec_image] picks: none
+2026-10-30 11:35:16,925 INFO [rec_params] incumbent                                          wer_norm 25.28 (Δ +0.00)
+2026-10-30 11:43:18,567 INFO [rec_params] single   pad_8                                    wer_norm 25.28 (Δ +0.00)
+2026-10-30 11:43:18,567 INFO [rec_params] single   pad_24                                   wer_norm 24.66 (Δ -0.62)
+2026-10-30 11:43:18,568 INFO [rec_params] single   pad_32                                   wer_norm 24.77 (Δ -0.51)
+2026-10-30 11:43:18,569 INFO [rec_params] single   new_polygons                             wer_norm 25.28 (Δ +0.00)
+2026-10-30 11:46:22,118 INFO [rec_params] combo    pad_24+new_polygons                      wer_norm 24.66 (Δ -0.62)
+2026-10-30 11:46:22,119 INFO [rec_params] picks: ['pad_24']
+2026-10-30 11:46:22,416 INFO [lexicon] incumbent                                          wer_norm 40.18 (Δ +0.00)
+2026-10-30 11:53:37,250 INFO [lexicon] single   generic                                  wer_norm 38.83 (Δ -1.35)
+2026-10-30 11:53:37,251 INFO [lexicon] single   period                                   wer_norm 25.06 (Δ -15.12)
+2026-10-30 11:53:37,252 INFO [lexicon] single   period_legal_w1                          wer_norm 24.66 (Δ -15.52)
+2026-10-30 11:53:37,253 INFO [lexicon] single   period_legal_w4                          wer_norm 24.72 (Δ -15.46)
+2026-10-30 11:56:35,786 INFO [lexicon] combo    period_legal_w1+generic                  wer_norm 24.66 (Δ -15.52)
+2026-10-30 11:56:35,787 INFO [lexicon] picks: ['period_legal_w1']
+2026-10-30 11:58:47,105 INFO [lexicon_params] incumbent                                          wer_norm 24.94 (Δ +0.00)
+2026-10-30 12:13:32,856 INFO [lexicon_params] single   ratio_20                                 wer_norm 25.00 (Δ +0.06)
+2026-10-30 12:13:32,857 INFO [lexicon_params] single   ratio_40                                 wer_norm 24.83 (Δ -0.11)
+2026-10-30 12:13:32,858 INFO [lexicon_params] single   ratio_50                                 wer_norm 24.66 (Δ -0.28)
+2026-10-30 12:13:32,858 INFO [lexicon_params] single   min_len_3                                wer_norm 25.11 (Δ +0.17)
+2026-10-30 12:13:32,859 INFO [lexicon_params] single   min_len_5                                wer_norm 25.17 (Δ +0.23)
+2026-10-30 12:13:32,860 INFO [lexicon_params] skip generic_all (requirement unmet or no-op)
+2026-10-30 12:13:32,861 INFO [lexicon_params] skip generic_5k (requirement unmet or no-op)
+2026-10-30 12:13:32,861 INFO [lexicon_params] single   period_20k                               wer_norm 28.56 (Δ +3.61)
+2026-10-30 12:13:32,862 INFO [lexicon_params] single   period_50k                               wer_norm 25.45 (Δ +0.51)
+2026-10-30 12:13:32,863 INFO [lexicon_params] single   fold_accents                             wer_norm 25.23 (Δ +0.28)
+2026-10-30 12:13:32,864 INFO [lexicon_params] single   ratio_60                                 wer_norm 24.66 (Δ -0.28)
+2026-10-30 12:26:27,794 INFO [lexicon_params] combo    ratio_50+min_len_3                       wer_norm 24.89 (Δ -0.06)
+2026-10-30 12:26:27,795 INFO [lexicon_params] combo    ratio_50+min_len_5                       wer_norm 24.89 (Δ -0.06)
+2026-10-30 12:26:27,795 INFO [lexicon_params] combo    ratio_50+fold_accents                    wer_norm 25.00 (Δ +0.06)
+2026-10-30 12:26:27,795 INFO [lexicon_params] combo    ratio_50+period_50k                      wer_norm 25.28 (Δ +0.34)
+2026-10-30 12:26:27,795 INFO [lexicon_params] combo    ratio_50+period_20k                      wer_norm 28.27 (Δ +3.33)
+2026-10-30 12:26:27,796 INFO [lexicon_params] picks: ['ratio_50']
+2026-10-30 12:27:07,918 INFO [decoder_params] incumbent                                          wer_norm 24.89 (Δ +0.00)
+2026-10-30 12:33:56,191 INFO [decoder_params] single   alpha_2                                  wer_norm 24.89 (Δ +0.00)
+2026-10-30 12:33:56,192 INFO [decoder_params] single   alpha_8                                  wer_norm 24.77 (Δ -0.11)
+2026-10-30 12:33:56,193 INFO [decoder_params] single   alpha_16                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 12:33:56,193 INFO [decoder_params] single   alpha_32                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 12:33:56,194 INFO [decoder_params] single   candidates_30                            wer_norm 24.77 (Δ -0.11)
+2026-10-30 12:33:56,195 INFO [decoder_params] skip alpha_4 (requirement unmet or no-op)
+2026-10-30 12:33:56,196 INFO [decoder_params] single   alpha_12                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 12:33:56,196 INFO [decoder_params] single   alpha_24                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 12:33:56,199 INFO [decoder_params] combo    alpha_16+candidates_30                   wer_norm 24.66 (Δ -0.23)
+2026-10-30 12:33:56,201 INFO [decoder_params] picks: ['alpha_16', 'candidates_30']
+2026-10-30 12:34:01,870 INFO [context] incumbent                                          wer_norm 31.09 (Δ +0.00)
+2026-10-30 12:39:41,309 INFO [context] single   bigram_lm                                wer_norm 26.81 (Δ -4.29)
+2026-10-30 12:39:41,309 INFO [context] single   lm_legal_w1                              wer_norm 25.11 (Δ -5.98)
+2026-10-30 12:39:41,310 INFO [context] single   lm_legal_w4                              wer_norm 24.66 (Δ -6.43)
+2026-10-30 12:39:41,312 INFO [context] picks: ['lm_legal_w4']
+2026-10-30 12:39:47,626 INFO [context_params] incumbent                                          wer_norm 29.12 (Δ +0.00)
+2026-10-30 12:41:18,794 INFO [context_params] single   beta_05                                  wer_norm 29.85 (Δ +0.73)
+2026-10-30 12:41:18,795 INFO [context_params] single   beta_2                                   wer_norm 29.23 (Δ +0.11)
+2026-10-30 12:41:18,796 INFO [context_params] single   open_known                               wer_norm 27.26 (Δ -1.86)
+2026-10-30 12:41:18,797 INFO [context_params] single   min_edits_2                              wer_norm 29.12 (Δ +0.00)
+2026-10-30 12:41:18,797 INFO [context_params] single   pool_100                                 wer_norm 28.61 (Δ -0.51)
+2026-10-30 12:41:18,798 INFO [context_params] single   pool_300                                 wer_norm 28.44 (Δ -0.68)
+2026-10-30 12:41:18,799 INFO [context_params] single   trigram                                  wer_norm 29.23 (Δ +0.11)
+2026-10-30 12:41:18,799 INFO [context_params] single   short_30                                 wer_norm 29.01 (Δ -0.11)
+2026-10-30 12:41:18,800 INFO [context_params] single   short_60                                 wer_norm 28.95 (Δ -0.17)
+2026-10-30 12:41:18,801 INFO [context_params] single   short_120                                wer_norm 28.95 (Δ -0.17)
+2026-10-30 12:41:18,801 INFO [context_params] single   nbest_3                                  wer_norm 28.33 (Δ -0.79)
+2026-10-30 12:41:18,802 INFO [context_params] single   nbest_5                                  wer_norm 28.27 (Δ -0.85)
+2026-10-30 12:41:18,803 INFO [context_params] single   beam_64                                  wer_norm 28.61 (Δ -0.51)
+2026-10-30 12:44:53,321 INFO [context_params] combo    open_known+nbest_5                       wer_norm 26.30 (Δ -2.82)
+2026-10-30 12:44:53,321 INFO [context_params] combo    open_known+nbest_3                       wer_norm 26.47 (Δ -2.65)
+2026-10-30 12:44:53,321 INFO [context_params] combo    open_known+pool_300                      wer_norm 26.52 (Δ -2.60)
+2026-10-30 12:44:53,322 INFO [context_params] combo    open_known+pool_100                      wer_norm 26.64 (Δ -2.48)
+2026-10-30 12:44:53,322 INFO [context_params] combo    open_known+beam_64                       wer_norm 26.58 (Δ -2.54)
+2026-10-30 12:44:53,322 INFO [context_params] combo    open_known+short_60                      wer_norm 26.41 (Δ -2.71)
+2026-10-30 12:44:53,322 INFO [context_params] combo    open_known+short_120                     wer_norm 26.41 (Δ -2.71)
+2026-10-30 12:44:53,323 INFO [context_params] combo    open_known+short_30                      wer_norm 26.81 (Δ -2.31)
+2026-10-30 12:44:53,323 INFO [context_params] combo    open_known+min_edits_2                   wer_norm 27.26 (Δ -1.86)
+2026-10-30 12:44:53,323 INFO [context_params] combo    open_known+beta_2                        wer_norm 28.27 (Δ -0.85)
+2026-10-30 12:44:53,323 INFO [context_params] combo    open_known+trigram                       wer_norm 27.31 (Δ -1.81)
+2026-10-30 12:44:53,324 INFO [context_params] combo    open_known+beta_05                       wer_norm 28.16 (Δ -0.96)
+2026-10-30 12:50:34,441 INFO [context_params] combo    open_known+nbest_5+pool_300              wer_norm 26.30 (Δ -2.82)
+2026-10-30 12:50:34,441 INFO [context_params] combo    open_known+nbest_5+pool_100              wer_norm 26.30 (Δ -2.82)
+2026-10-30 12:50:34,441 INFO [context_params] combo    open_known+nbest_5+beam_64               wer_norm 26.30 (Δ -2.82)
+2026-10-30 12:50:34,442 INFO [context_params] combo    open_known+nbest_5+short_60              wer_norm 25.56 (Δ -3.56)
+2026-10-30 12:50:34,442 INFO [context_params] combo    open_known+nbest_5+short_120             wer_norm 25.56 (Δ -3.56)
+2026-10-30 12:50:34,442 INFO [context_params] combo    open_known+nbest_5+short_30              wer_norm 25.90 (Δ -3.22)
+2026-10-30 12:50:34,442 INFO [context_params] combo    open_known+nbest_5+min_edits_2           wer_norm 26.24 (Δ -2.88)
+2026-10-30 12:50:34,442 INFO [context_params] combo    open_known+nbest_5+beta_2                wer_norm 27.43 (Δ -1.69)
+2026-10-30 12:50:34,443 INFO [context_params] combo    open_known+nbest_5+trigram               wer_norm 26.13 (Δ -2.99)
+2026-10-30 12:50:34,443 INFO [context_params] combo    open_known+nbest_5+beta_05               wer_norm 27.48 (Δ -1.64)
+2026-10-30 12:56:02,337 INFO [context_params] combo    open_known+nbest_5+short_60+pool_300     wer_norm 25.56 (Δ -3.56)
+2026-10-30 12:56:02,337 INFO [context_params] combo    open_known+nbest_5+short_60+pool_100     wer_norm 25.56 (Δ -3.56)
+2026-10-30 12:56:02,337 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64      wer_norm 25.11 (Δ -4.01)
+2026-10-30 12:56:02,338 INFO [context_params] combo    open_known+nbest_5+short_60+min_edits_2  wer_norm 25.51 (Δ -3.61)
+2026-10-30 12:56:02,338 INFO [context_params] combo    open_known+nbest_5+short_60+beta_2       wer_norm 27.48 (Δ -1.64)
+2026-10-30 12:56:02,338 INFO [context_params] combo    open_known+nbest_5+short_60+trigram      wer_norm 25.28 (Δ -3.84)
+2026-10-30 12:56:02,338 INFO [context_params] combo    open_known+nbest_5+short_60+beta_05      wer_norm 26.69 (Δ -2.43)
+2026-10-30 13:01:08,938 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+pool_300 wer_norm 25.11 (Δ -4.01)
+2026-10-30 13:01:08,938 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+pool_100 wer_norm 25.11 (Δ -4.01)
+2026-10-30 13:01:08,939 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+min_edits_2 wer_norm 25.06 (Δ -4.06)
+2026-10-30 13:01:08,939 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+beta_2 wer_norm 27.09 (Δ -2.03)
+2026-10-30 13:01:08,939 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram wer_norm 24.60 (Δ -4.51)
+2026-10-30 13:01:08,939 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+beta_05 wer_norm 26.52 (Δ -2.60)
+2026-10-30 13:08:05,777 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+pool_300 wer_norm 24.60 (Δ -4.51)
+2026-10-30 13:08:05,777 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+pool_100 wer_norm 24.60 (Δ -4.51)
+2026-10-30 13:08:05,778 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2 wer_norm 24.66 (Δ -4.46)
+2026-10-30 13:08:05,778 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+beta_2 wer_norm 26.81 (Δ -2.31)
+2026-10-30 13:08:05,778 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+beta_05 wer_norm 26.13 (Δ -2.99)
+2026-10-30 13:08:05,779 INFO [context_params] picks: ['open_known', 'nbest_5', 'short_60', 'beam_64', 'trigram']
+2026-10-30 13:20:45,058 INFO [backward] backward -geometry:upscale_20                     wer_norm 27.03 (Δ +2.43)
+2026-10-30 13:20:45,058 INFO [backward] backward -decoder_params:alpha_16                 wer_norm 24.83 (Δ +0.23)
+2026-10-30 13:20:45,058 INFO [backward] backward -decoder_params:candidates_30            wer_norm 24.72 (Δ +0.11)
+2026-10-30 13:20:45,058 INFO [backward] backward -context:lm_legal_w4                     wer_norm 31.09 (Δ +6.49)
+2026-10-30 13:20:45,059 INFO [backward] backward -lexicon:period_legal_w1                 wer_norm 40.18 (Δ +15.58)
+2026-10-30 13:20:45,059 INFO [backward] backward -lexicon_params:ratio_50                 wer_norm 24.89 (Δ +0.28)
+2026-10-30 13:20:45,059 INFO [backward] backward -rec_params:pad_24                       wer_norm 25.23 (Δ +0.62)
+2026-10-30 13:20:45,059 INFO [backward] backward -context_params:open_known               wer_norm 27.93 (Δ +3.33)
+2026-10-30 13:20:45,059 INFO [backward] backward -context_params:nbest_5                  wer_norm 24.94 (Δ +0.34)
+2026-10-30 13:20:45,060 INFO [backward] backward -context_params:short_60                 wer_norm 26.13 (Δ +1.52)
+2026-10-30 13:20:45,060 INFO [backward] backward -context_params:beam_64                  wer_norm 25.28 (Δ +0.68)
+2026-10-30 13:20:45,060 INFO [backward] backward -context_params:trigram                  wer_norm 25.11 (Δ +0.51)
+2026-10-30 13:20:45,061 INFO pass 2: ['decoder:ctc_edit', 'geometry:upscale_20', 'decoder_params:alpha_16', 'decoder_params:candidates_30', 'seg_image:remove_rules', 'seg_image:contrast', 'text:dehyphenate', 'text:conventions', 'text:ordinals', 'context:lm_legal_w4', 'lexicon:period_legal_w1', 'lexicon_params:ratio_50', 'rec_params:pad_24', 'context_params:open_known', 'context_params:nbest_5', 'context_params:short_60', 'context_params:beam_64', 'context_params:trigram'] -> wer_norm 24.60
+2026-10-30 13:20:45,064 INFO [geometry] incumbent                                          wer_norm 27.03 (Δ +0.00)
+2026-10-30 13:29:03,555 INFO [geometry] single   upscale_15                               wer_norm 26.02 (Δ -1.02)
+2026-10-30 13:29:03,556 INFO [geometry] single   upscale_20                               wer_norm 24.60 (Δ -2.43)
+2026-10-30 13:29:03,556 INFO [geometry] single   deskew                                   wer_norm 27.88 (Δ +0.85)
+2026-10-30 13:29:03,557 INFO [geometry] single   upscale_25                               wer_norm 25.73 (Δ -1.30)
+2026-10-30 13:32:18,769 INFO [geometry] combo    upscale_20+deskew                        wer_norm 25.73 (Δ -1.30)
+2026-10-30 13:32:18,770 INFO [geometry] picks: ['upscale_20']
+2026-10-30 13:32:18,773 INFO [line_filter] incumbent                                          wer_norm 24.60 (Δ +0.00)
+2026-10-30 13:40:37,503 INFO [line_filter] single   min_frac_05                              wer_norm 24.60 (Δ +0.00)
+2026-10-30 13:40:37,504 INFO [line_filter] single   min_frac_10                              wer_norm 24.60 (Δ +0.00)
+2026-10-30 13:40:37,505 INFO [line_filter] single   min_px_30                                wer_norm 24.60 (Δ +0.00)
+2026-10-30 13:40:37,506 INFO [line_filter] picks: none
+2026-10-30 13:40:37,509 INFO [rec_image] incumbent                                          wer_norm 24.60 (Δ +0.00)
+2026-10-30 14:09:47,916 INFO [rec_image] single   illumination                             wer_norm 32.56 (Δ +7.96)
+2026-10-30 14:09:47,917 INFO [rec_image] single   clahe                                    wer_norm 27.65 (Δ +3.05)
+2026-10-30 14:09:47,918 INFO [rec_image] single   contrast                                 wer_norm 27.43 (Δ +2.82)
+2026-10-30 14:09:47,919 INFO [rec_image] single   gamma_07                                 wer_norm 25.96 (Δ +1.35)
+2026-10-30 14:09:47,920 INFO [rec_image] single   gamma_15                                 wer_norm 27.71 (Δ +3.10)
+2026-10-30 14:09:47,920 INFO [rec_image] single   sharpen                                  wer_norm 29.40 (Δ +4.80)
+2026-10-30 14:09:47,921 INFO [rec_image] single   grayscale                                wer_norm 26.02 (Δ +1.41)
+2026-10-30 14:09:47,922 INFO [rec_image] single   denoise                                  wer_norm 31.09 (Δ +6.49)
+2026-10-30 14:09:47,923 INFO [rec_image] single   remove_rules                             wer_norm 26.58 (Δ +1.98)
+2026-10-30 14:09:47,924 INFO [rec_image] single   nlbin                                    wer_norm 61.91 (Δ +37.30)
+2026-10-30 14:09:47,924 INFO [rec_image] single   channel_b                                wer_norm 27.88 (Δ +3.27)
+2026-10-30 14:09:47,925 INFO [rec_image] picks: none
+2026-10-30 14:09:47,928 INFO [rec_params] incumbent                                          wer_norm 25.23 (Δ +0.00)
+2026-10-30 14:15:14,064 INFO [rec_params] single   pad_8                                    wer_norm 25.34 (Δ +0.11)
+2026-10-30 14:15:14,065 INFO [rec_params] single   pad_24                                   wer_norm 24.60 (Δ -0.62)
+2026-10-30 14:15:14,066 INFO [rec_params] single   pad_32                                   wer_norm 24.83 (Δ -0.40)
+2026-10-30 14:15:14,066 INFO [rec_params] single   new_polygons                             wer_norm 25.23 (Δ +0.00)
+2026-10-30 14:18:26,195 INFO [rec_params] combo    pad_24+new_polygons                      wer_norm 24.60 (Δ -0.62)
+2026-10-30 14:18:26,196 INFO [rec_params] picks: ['pad_24']
+2026-10-30 14:18:26,199 INFO [lexicon] incumbent                                          wer_norm 40.18 (Δ +0.00)
+2026-10-30 14:25:22,674 INFO [lexicon] single   generic                                  wer_norm 38.77 (Δ -1.41)
+2026-10-30 14:25:22,675 INFO [lexicon] single   period                                   wer_norm 25.00 (Δ -15.18)
+2026-10-30 14:25:22,676 INFO [lexicon] single   period_legal_w1                          wer_norm 24.60 (Δ -15.58)
+2026-10-30 14:25:22,677 INFO [lexicon] single   period_legal_w4                          wer_norm 24.66 (Δ -15.52)
+2026-10-30 14:28:25,799 INFO [lexicon] combo    period_legal_w1+generic                  wer_norm 24.60 (Δ -15.58)
+2026-10-30 14:28:25,800 INFO [lexicon] picks: ['period_legal_w1']
+2026-10-30 14:28:25,804 INFO [lexicon_params] incumbent                                          wer_norm 24.89 (Δ +0.00)
+2026-10-30 14:39:30,141 INFO [lexicon_params] single   ratio_20                                 wer_norm 25.51 (Δ +0.62)
+2026-10-30 14:39:30,142 INFO [lexicon_params] single   ratio_40                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 14:39:30,143 INFO [lexicon_params] single   ratio_50                                 wer_norm 24.60 (Δ -0.28)
+2026-10-30 14:39:30,143 INFO [lexicon_params] single   min_len_3                                wer_norm 25.06 (Δ +0.17)
+2026-10-30 14:39:30,144 INFO [lexicon_params] single   min_len_5                                wer_norm 25.23 (Δ +0.34)
+2026-10-30 14:39:30,145 INFO [lexicon_params] skip generic_all (requirement unmet or no-op)
+2026-10-30 14:39:30,145 INFO [lexicon_params] skip generic_5k (requirement unmet or no-op)
+2026-10-30 14:39:30,146 INFO [lexicon_params] single   period_20k                               wer_norm 28.56 (Δ +3.67)
+2026-10-30 14:39:30,147 INFO [lexicon_params] single   period_50k                               wer_norm 25.34 (Δ +0.45)
+2026-10-30 14:39:30,148 INFO [lexicon_params] single   fold_accents                             wer_norm 25.23 (Δ +0.34)
+2026-10-30 14:39:30,149 INFO [lexicon_params] single   ratio_60                                 wer_norm 24.60 (Δ -0.28)
+2026-10-30 14:52:11,559 INFO [lexicon_params] combo    ratio_50+min_len_3                       wer_norm 24.77 (Δ -0.11)
+2026-10-30 14:52:11,559 INFO [lexicon_params] combo    ratio_50+min_len_5                       wer_norm 24.89 (Δ +0.00)
+2026-10-30 14:52:11,559 INFO [lexicon_params] combo    ratio_50+fold_accents                    wer_norm 25.06 (Δ +0.17)
+2026-10-30 14:52:11,560 INFO [lexicon_params] combo    ratio_50+period_50k                      wer_norm 25.23 (Δ +0.34)
+2026-10-30 14:52:11,560 INFO [lexicon_params] combo    ratio_50+period_20k                      wer_norm 28.22 (Δ +3.33)
+2026-10-30 14:52:11,561 INFO [lexicon_params] picks: ['ratio_50']
+2026-10-30 14:52:50,619 INFO [decoder_params] incumbent                                          wer_norm 24.89 (Δ +0.00)
+2026-10-30 14:56:30,478 INFO [decoder_params] single   alpha_2                                  wer_norm 24.89 (Δ +0.00)
+2026-10-30 14:56:30,479 INFO [decoder_params] single   alpha_8                                  wer_norm 24.77 (Δ -0.11)
+2026-10-30 14:56:30,480 INFO [decoder_params] single   alpha_16                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 14:56:30,481 INFO [decoder_params] single   alpha_32                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 14:56:30,482 INFO [decoder_params] single   candidates_30                            wer_norm 24.83 (Δ -0.06)
+2026-10-30 14:56:30,482 INFO [decoder_params] skip alpha_4 (requirement unmet or no-op)
+2026-10-30 14:56:30,483 INFO [decoder_params] single   alpha_12                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 14:56:30,484 INFO [decoder_params] single   alpha_24                                 wer_norm 24.72 (Δ -0.17)
+2026-10-30 14:56:30,486 INFO [decoder_params] combo    alpha_16+candidates_30                   wer_norm 24.60 (Δ -0.28)
+2026-10-30 14:56:30,488 INFO [decoder_params] picks: ['alpha_16', 'candidates_30']
+2026-10-30 14:56:30,491 INFO [context] incumbent                                          wer_norm 31.09 (Δ +0.00)
+2026-10-30 15:02:07,612 INFO [context] single   bigram_lm                                wer_norm 26.75 (Δ -4.35)
+2026-10-30 15:02:07,613 INFO [context] single   lm_legal_w1                              wer_norm 25.11 (Δ -5.98)
+2026-10-30 15:02:07,614 INFO [context] single   lm_legal_w4                              wer_norm 24.60 (Δ -6.49)
+2026-10-30 15:02:07,615 INFO [context] picks: ['lm_legal_w4']
+2026-10-30 15:02:07,618 INFO [context_params] incumbent                                          wer_norm 29.12 (Δ +0.00)
+2026-10-30 15:02:07,625 INFO [context_params] single   beta_05                                  wer_norm 29.85 (Δ +0.73)
+2026-10-30 15:02:07,626 INFO [context_params] single   beta_2                                   wer_norm 29.23 (Δ +0.11)
+2026-10-30 15:02:07,626 INFO [context_params] single   open_known                               wer_norm 27.26 (Δ -1.86)
+2026-10-30 15:02:07,627 INFO [context_params] single   min_edits_2                              wer_norm 29.12 (Δ +0.00)
+2026-10-30 15:02:07,628 INFO [context_params] single   pool_100                                 wer_norm 28.61 (Δ -0.51)
+2026-10-30 15:02:07,628 INFO [context_params] single   pool_300                                 wer_norm 28.44 (Δ -0.68)
+2026-10-30 15:02:07,629 INFO [context_params] single   trigram                                  wer_norm 29.23 (Δ +0.11)
+2026-10-30 15:02:07,630 INFO [context_params] single   short_30                                 wer_norm 29.01 (Δ -0.11)
+2026-10-30 15:02:07,630 INFO [context_params] single   short_60                                 wer_norm 28.95 (Δ -0.17)
+2026-10-30 15:02:07,631 INFO [context_params] single   short_120                                wer_norm 28.95 (Δ -0.17)
+2026-10-30 15:02:07,632 INFO [context_params] single   nbest_3                                  wer_norm 28.33 (Δ -0.79)
+2026-10-30 15:02:07,632 INFO [context_params] single   nbest_5                                  wer_norm 28.27 (Δ -0.85)
+2026-10-30 15:02:07,633 INFO [context_params] single   beam_64                                  wer_norm 28.61 (Δ -0.51)
+2026-10-30 15:02:07,639 INFO [context_params] combo    open_known+nbest_5                       wer_norm 26.30 (Δ -2.82)
+2026-10-30 15:02:07,639 INFO [context_params] combo    open_known+nbest_3                       wer_norm 26.47 (Δ -2.65)
+2026-10-30 15:02:07,639 INFO [context_params] combo    open_known+pool_300                      wer_norm 26.52 (Δ -2.60)
+2026-10-30 15:02:07,640 INFO [context_params] combo    open_known+pool_100                      wer_norm 26.64 (Δ -2.48)
+2026-10-30 15:02:07,640 INFO [context_params] combo    open_known+beam_64                       wer_norm 26.58 (Δ -2.54)
+2026-10-30 15:02:07,640 INFO [context_params] combo    open_known+short_60                      wer_norm 26.41 (Δ -2.71)
+2026-10-30 15:02:07,640 INFO [context_params] combo    open_known+short_120                     wer_norm 26.41 (Δ -2.71)
+2026-10-30 15:02:07,640 INFO [context_params] combo    open_known+short_30                      wer_norm 26.81 (Δ -2.31)
+2026-10-30 15:02:07,641 INFO [context_params] combo    open_known+min_edits_2                   wer_norm 27.26 (Δ -1.86)
+2026-10-30 15:02:07,641 INFO [context_params] combo    open_known+beta_2                        wer_norm 28.27 (Δ -0.85)
+2026-10-30 15:02:07,641 INFO [context_params] combo    open_known+trigram                       wer_norm 27.31 (Δ -1.81)
+2026-10-30 15:02:07,641 INFO [context_params] combo    open_known+beta_05                       wer_norm 28.16 (Δ -0.96)
+2026-10-30 15:02:07,647 INFO [context_params] combo    open_known+nbest_5+pool_300              wer_norm 26.30 (Δ -2.82)
+2026-10-30 15:02:07,647 INFO [context_params] combo    open_known+nbest_5+pool_100              wer_norm 26.30 (Δ -2.82)
+2026-10-30 15:02:07,647 INFO [context_params] combo    open_known+nbest_5+beam_64               wer_norm 26.30 (Δ -2.82)
+2026-10-30 15:02:07,648 INFO [context_params] combo    open_known+nbest_5+short_60              wer_norm 25.56 (Δ -3.56)
+2026-10-30 15:02:07,648 INFO [context_params] combo    open_known+nbest_5+short_120             wer_norm 25.56 (Δ -3.56)
+2026-10-30 15:02:07,648 INFO [context_params] combo    open_known+nbest_5+short_30              wer_norm 25.90 (Δ -3.22)
+2026-10-30 15:02:07,648 INFO [context_params] combo    open_known+nbest_5+min_edits_2           wer_norm 26.24 (Δ -2.88)
+2026-10-30 15:02:07,648 INFO [context_params] combo    open_known+nbest_5+beta_2                wer_norm 27.43 (Δ -1.69)
+2026-10-30 15:02:07,649 INFO [context_params] combo    open_known+nbest_5+trigram               wer_norm 26.13 (Δ -2.99)
+2026-10-30 15:02:07,649 INFO [context_params] combo    open_known+nbest_5+beta_05               wer_norm 27.48 (Δ -1.64)
+2026-10-30 15:02:07,654 INFO [context_params] combo    open_known+nbest_5+short_60+pool_300     wer_norm 25.56 (Δ -3.56)
+2026-10-30 15:02:07,654 INFO [context_params] combo    open_known+nbest_5+short_60+pool_100     wer_norm 25.56 (Δ -3.56)
+2026-10-30 15:02:07,654 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64      wer_norm 25.11 (Δ -4.01)
+2026-10-30 15:02:07,655 INFO [context_params] combo    open_known+nbest_5+short_60+min_edits_2  wer_norm 25.51 (Δ -3.61)
+2026-10-30 15:02:07,655 INFO [context_params] combo    open_known+nbest_5+short_60+beta_2       wer_norm 27.48 (Δ -1.64)
+2026-10-30 15:02:07,655 INFO [context_params] combo    open_known+nbest_5+short_60+trigram      wer_norm 25.28 (Δ -3.84)
+2026-10-30 15:02:07,655 INFO [context_params] combo    open_known+nbest_5+short_60+beta_05      wer_norm 26.69 (Δ -2.43)
+2026-10-30 15:02:07,660 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+pool_300 wer_norm 25.11 (Δ -4.01)
+2026-10-30 15:02:07,660 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+pool_100 wer_norm 25.11 (Δ -4.01)
+2026-10-30 15:02:07,660 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+min_edits_2 wer_norm 25.06 (Δ -4.06)
+2026-10-30 15:02:07,661 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+beta_2 wer_norm 27.09 (Δ -2.03)
+2026-10-30 15:02:07,661 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram wer_norm 24.60 (Δ -4.51)
+2026-10-30 15:02:07,661 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+beta_05 wer_norm 26.52 (Δ -2.60)
+2026-10-30 15:02:07,665 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+pool_300 wer_norm 24.60 (Δ -4.51)
+2026-10-30 15:02:07,666 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+pool_100 wer_norm 24.60 (Δ -4.51)
+2026-10-30 15:02:07,666 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+min_edits_2 wer_norm 24.66 (Δ -4.46)
+2026-10-30 15:02:07,666 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+beta_2 wer_norm 26.81 (Δ -2.31)
+2026-10-30 15:02:07,666 INFO [context_params] combo    open_known+nbest_5+short_60+beam_64+trigram+beta_05 wer_norm 26.13 (Δ -2.99)
+2026-10-30 15:02:07,667 INFO [context_params] picks: ['open_known', 'nbest_5', 'short_60', 'beam_64', 'trigram']
+2026-10-30 15:02:07,674 INFO [backward] backward -geometry:upscale_20                     wer_norm 27.03 (Δ +2.43)
+2026-10-30 15:02:07,674 INFO [backward] backward -decoder_params:alpha_16                 wer_norm 24.83 (Δ +0.23)
+2026-10-30 15:02:07,675 INFO [backward] backward -decoder_params:candidates_30            wer_norm 24.72 (Δ +0.11)
+2026-10-30 15:02:07,675 INFO [backward] backward -context:lm_legal_w4                     wer_norm 31.09 (Δ +6.49)
+2026-10-30 15:02:07,675 INFO [backward] backward -lexicon:period_legal_w1                 wer_norm 40.18 (Δ +15.58)
+2026-10-30 15:02:07,675 INFO [backward] backward -lexicon_params:ratio_50                 wer_norm 24.89 (Δ +0.28)
+2026-10-30 15:02:07,676 INFO [backward] backward -rec_params:pad_24                       wer_norm 25.23 (Δ +0.62)
+2026-10-30 15:02:07,676 INFO [backward] backward -context_params:open_known               wer_norm 27.93 (Δ +3.33)
+2026-10-30 15:02:07,676 INFO [backward] backward -context_params:nbest_5                  wer_norm 24.94 (Δ +0.34)
+2026-10-30 15:02:07,676 INFO [backward] backward -context_params:short_60                 wer_norm 26.13 (Δ +1.52)
+2026-10-30 15:02:07,676 INFO [backward] backward -context_params:beam_64                  wer_norm 25.28 (Δ +0.68)
+2026-10-30 15:02:07,677 INFO [backward] backward -context_params:trigram                  wer_norm 25.11 (Δ +0.51)
+2026-10-30 15:02:07,677 INFO pass 3: ['decoder:ctc_edit', 'geometry:upscale_20', 'decoder_params:alpha_16', 'decoder_params:candidates_30', 'seg_image:remove_rules', 'seg_image:contrast', 'text:dehyphenate', 'text:conventions', 'text:ordinals', 'context:lm_legal_w4', 'lexicon:period_legal_w1', 'lexicon_params:ratio_50', 'rec_params:pad_24', 'context_params:open_known', 'context_params:nbest_5', 'context_params:short_60', 'context_params:beam_64', 'context_params:trigram'] -> wer_norm 24.60
+2026-10-30 15:02:07,691 INFO final:   ['decoder:ctc_edit', 'geometry:upscale_20', 'decoder_params:alpha_16', 'decoder_params:candidates_30', 'seg_image:remove_rules', 'seg_image:contrast', 'text:dehyphenate', 'text:conventions', 'text:ordinals', 'context:lm_legal_w4', 'lexicon:period_legal_w1', 'lexicon_params:ratio_50', 'rec_params:pad_24', 'context_params:open_known', 'context_params:nbest_5', 'context_params:short_60', 'context_params:beam_64', 'context_params:trigram'] -> wer_norm 24.60
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793372530.385101    3927 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793372530.458311    3927 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793372533.009164    3927 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793372533.009755    3927 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+INFO: You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-10-30 15:02:17,182 INFO You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2026-10-30 15:17:53,725 INFO report: pass 1 stage geometry rendered
+2026-10-30 15:28:15,505 INFO report: pass 1 stage line_filter rendered
+2026-10-30 15:59:22,105 INFO report: pass 1 stage rec_image rendered
+2026-10-30 16:14:05,638 INFO report: pass 1 stage rec_params rendered
+2026-10-30 16:25:24,795 INFO report: pass 1 stage lexicon rendered
+2026-10-30 16:47:24,732 INFO report: pass 1 stage lexicon_params rendered
+2026-10-30 17:00:34,091 INFO report: pass 1 stage decoder_params rendered
+2026-10-30 17:05:14,883 INFO report: pass 1 stage context rendered
+2026-10-30 17:24:38,629 INFO report: pass 1 stage context_params rendered
+2026-10-30 17:24:38,629 INFO report: pass 2 stage geometry rendered
+2026-10-30 17:24:38,629 INFO report: pass 2 stage line_filter rendered
+2026-10-30 17:24:38,630 INFO report: pass 2 stage rec_image rendered
+2026-10-30 17:34:11,607 INFO report: pass 2 stage rec_params rendered
+2026-10-30 17:41:25,754 INFO report: pass 2 stage lexicon rendered
+2026-10-30 17:41:25,754 INFO report: pass 2 stage lexicon_params rendered
+2026-10-30 17:41:25,754 INFO report: pass 2 stage decoder_params rendered
+2026-10-30 17:41:25,754 INFO report: pass 2 stage context rendered
+2026-10-30 17:56:15,512 INFO report: pass 2 stage context_params rendered
+2026-10-30 17:56:15,512 INFO report: pass 3 stage geometry rendered
+2026-10-30 17:56:15,512 INFO report: pass 3 stage line_filter rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage rec_image rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage rec_params rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage lexicon rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage lexicon_params rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage decoder_params rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage context rendered
+2026-10-30 17:56:15,513 INFO report: pass 3 stage context_params rendered
+2026-10-30 17:56:15,544 INFO report -> /content/search_st/search/search_st__tuning/report.html

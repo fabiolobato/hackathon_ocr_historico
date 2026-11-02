@@ -1,0 +1,6 @@
+01:06:09 score_oficial: /usr/bin/python3 tools/score_final.py configs/final_v6.json --labels final_v6 --images imagens --references test_kraken/ground_truth --out /content/final_v6_score/final_scores_oficial.json --cache /content/cache --device cuda:0 --workers 8
+01:06:16 score_oficial: exit 1
+01:06:16 score_gemini: /usr/bin/python3 tools/score_final.py configs/final_v6.json --labels final_v6 --images imagens --references test_kraken/ground_truth_gemini --out /content/final_v6_score/final_scores_gemini.json --cache /content/cache --device cuda:0 --workers 8
+01:10:50 score_gemini: exit 0
+01:10:50 score_teste_gemini: /usr/bin/python3 tools/score_final.py configs/final_v6.json --labels final_v6 --images imagens_extra/teste/imagens --references imagens_extra/teste/referencias --out /content/final_v6_score/final_scores_teste_gemini.json --cache /content/cache --device cuda:0 --workers 8
+01:14:50 score_teste_gemini: exit 0

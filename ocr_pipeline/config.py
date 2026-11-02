@@ -1,0 +1,167 @@
+"""Typed configuration for the integrated OCR pipeline.
+
+The pipeline separates three image streams that share one geometry:
+  base  = original -> geometric ops (upscale, deskew)          (defines coordinates)
+  seg   = base -> seg_ops (photometric, e.g. nlbin)            (fed to the line segmenter)
+  rec   = base -> rec_ops (photometric, e.g. grayscale/clahe)  (fed to the recognizer)
+Photometric ops never move pixels, so segmentation polygons stay valid on the rec image.
+"""
+import hashlib
+import json
+from dataclasses import asdict, dataclass, field, fields, replace
+from pathlib import Path
+from typing import Any
+
+GEOMETRIC_OPS = frozenset({'upscale', 'deskew', 'deslant'})
+PHOTOMETRIC_OPS = frozenset({'channel', 'thicken', 'thin', 'grayscale', 'contrast', 'clahe', 'denoise', 'illumination',
+                             'otsu', 'kraken_nlbin', 'sharpen', 'remove_rules', 'gamma'})
+
+
+@dataclass(frozen=True)
+class OpParams:
+    upscale_factor: float = 2.0
+    deskew_limit: float = 5.0
+    deskew_step: float = 0.25
+    contrast_factor: float = 1.8
+    clahe_clip: float = 2.0
+    clahe_grid: int = 8
+    denoise_strength: float = 7.0
+    background_sigma: float = 25.0
+    nlbin_threshold: float = 0.5
+    nlbin_zoom: float = 0.5
+    sharpen_amount: float = 1.0
+    gamma: float = 1.0
+    rule_kernel_frac: float = 0.08
+    slant_limit: float = 15.0  # deslant: largest stroke tilt corrected, in degrees
+    slant_gain: float = 1.0  # deslant: shear = gain * estimated tilt
+    channel: str = 'b'  # channel: which RGB channel ('r', 'g', 'b') or 'min' (darkest of the three)
+    stroke_size: int = 3  # thicken / thin: min / max filter size in pixels
+
+
+@dataclass(frozen=True)
+class SegConfig:
+    model: str | None = None  # None -> Kraken default blla.mlmodel
+    min_line_frac: float = 0.0  # drop lines whose baseline spans less than this fraction of page width
+    min_line_px: int = 0  # drop lines whose baseline is shorter than this many base-image pixels
+    drop_top_frac: float = 0.0  # drop lines whose baseline lies in the top fraction (rubrics/page numbers)
+
+
+@dataclass(frozen=True)
+class RecConfig:
+    model: str = 'medium'
+    padding: int = 16
+    no_legacy_polygons: bool = False
+
+
+@dataclass(frozen=True)
+class PostConfig:
+    conventions: bool = False  # map model notation (n^o, ⁋) to GT notation (nº, §)
+    ordinals: bool = False  # digit + o/a read as a letter -> ordinal sign (2o -> 2º, 1a -> 1ª)
+    dehyphenate: bool = False  # join word split by a line-final hyphen
+    lexicon: str | None = None  # path to a generic wordlist (most frequent first); None disables it
+    lexicon_size: int = 20000  # keep the N most frequent generic words (0 = all)
+    period_lexicon: str | None = None  # 19th-century wordlist (external corpus, never this book)
+    period_lexicon_size: int = 0  # keep the N most frequent period words (0 = all)
+    domain_lexicon: bool = False  # add words from tuning-page GT, never from the evaluated page
+    lexicon_max_ratio: float = 0.34  # max normalized edit distance accepted for a correction
+    lexicon_min_len: int = 4
+    fold_accents: bool = False  # compare words without accents, write the lexicon's accented spelling
+    decoder: str = 'edit'  # 'edit' | 'ctc' (rescore with CTC posteriors) | 'ctc+edit' (then edit pass)
+    ctc_alpha: float = 4.0  # log-likelihood bonus for in-lexicon candidates
+    ctc_candidates: int = 10
+    context_lm: str | None = None  # n-gram LM (.ngrams.npz) to choose a line's words jointly; ctc decoders only
+    context_order: int = 2  # 2 = bigrams, 3 = trigrams (backing off to bigrams)
+    context_beta: float = 1.0  # weight of the LM log-probability against the CTC score
+    context_open_known: bool = False  # also offer lexicon alternatives for in-lexicon words (real-word errors)
+    context_min_edits: int = 1  # with context_lm: candidates within at least this many edits, even for short words
+    context_pool: int = 0  # with context_lm: CTC-score this many nearest words, keep the best ctc_candidates
+    context_short: int = 0  # with context_lm: words shorter than lexicon_min_len get candidates (1 edit) from
+    #                         the N most frequent short lexicon words (o -> os, du -> da); 0 = left as read
+    context_nbest: int = 0  # with context_lm: also candidates near the word's N most likely readings (beam search)
+    beam: int = 0  # with context_lm: decode each line by CTC prefix beam search of this width (beam_decode)
+    beam_oov: float = -6.0  # beam search: log penalty per word not in the lexicon
+    beam_bonus: float = 4.0  # beam search: log bonus per lexicon word
+    beam_mode: str = 'candidates'  # 'candidates': beam words join the rescoring candidates | 'replace' |
+    #                                'regions': beam stretches replace rescored ones where they score better
+    beam_region_margin: float = 0.0  # beam_mode regions: how much better (CTC log-lik + beta * LM) the beam must be
+    beam_beta: float = -1.0  # LM weight inside the beam search; < 0 = context_beta
+    beam_free_digits: bool = False  # beam search: digits and ordinal marks pass without OOV penalty or gating
+    beam_length_norm: bool = False  # beam search: LM score divided by the number of words
+    beam_boundary_min: float = 0.0  # beam search: spaces/punctuation only where their posterior reaches this
+    context_protect: float = 0.0  # with context_lm: in-lexicon words read with every letter >= this stay as read
+    context_coherent: bool = False  # with context_lm: in-lexicon words attested next to both read neighbours stay
+    edit_costs: str | None = None  # learned edit costs (.json, tools/learn_edit_costs.py) for candidate generation
+    edit_costs_weight: float = 1.0  # 0 = plain edits, 1 = the learned costs
+    edit_costs_max: float = 1.0  # lexicon words reached by undoing learned confusions at most this costly
+
+
+@dataclass(frozen=True)
+class PipelineConfig:
+    geometric_ops: tuple[str, ...] = ()
+    seg_ops: tuple[str, ...] = ('kraken_nlbin',)
+    rec_ops: tuple[str, ...] = ()
+    rec_tta: tuple[str, ...] = ()  # extra rec images ('op+op' chains, 'raw' = no op): CTC posteriors are averaged
+    params: OpParams = field(default_factory=OpParams)
+    seg: SegConfig = field(default_factory=SegConfig)
+    rec: RecConfig = field(default_factory=RecConfig)
+    post: PostConfig = field(default_factory=PostConfig)
+
+    def __post_init__(self) -> None:
+        bad_geo = set(self.geometric_ops) - GEOMETRIC_OPS
+        tta = {op for chain in self.rec_tta for op in chain.split('+') if op and op != 'raw'}
+        bad_photo = (set(self.seg_ops) | set(self.rec_ops) | tta) - PHOTOMETRIC_OPS
+        if bad_geo or bad_photo:
+            raise ValueError(f'Unknown or misplaced ops: geometric={bad_geo}, photometric={bad_photo}')
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+def stable_hash(payload: Any) -> str:
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()[:16]
+
+
+def _coerce(value: Any, current: Any) -> Any:
+    if isinstance(current, tuple):
+        if isinstance(value, str):
+            return tuple(v for v in value.split(',') if v)
+        return tuple(value)
+    if isinstance(current, bool):
+        return value if isinstance(value, bool) else str(value).lower() in {'1', 'true', 'yes'}
+    if isinstance(current, (int, float)) and isinstance(value, str):
+        return type(current)(value)
+    if value in ('None', 'none', 'null'):
+        return None
+    return value
+
+
+def with_overrides(config: PipelineConfig, overrides: dict[str, Any]) -> PipelineConfig:
+    """Apply dotted-key overrides, e.g. {'params.upscale_factor': 2.5, 'rec_ops': 'grayscale'}."""
+    for key, value in overrides.items():
+        head, _, tail = key.partition('.')
+        if tail:
+            child = getattr(config, head)
+            if tail not in {f.name for f in fields(child)}:
+                raise KeyError(key)
+            config = replace(config, **{head: replace(child, **{tail: _coerce(value, getattr(child, tail))})})
+        else:
+            if head not in {f.name for f in fields(config)}:
+                raise KeyError(key)
+            config = replace(config, **{head: _coerce(value, getattr(config, head))})
+    return config
+
+
+def from_dict(payload: dict[str, Any]) -> PipelineConfig:
+    flat: dict[str, Any] = {}
+    for key, value in payload.items():
+        if isinstance(value, dict):
+            flat.update({f'{key}.{k}': v for k, v in value.items()})
+        else:
+            flat[key] = value
+    return with_overrides(PipelineConfig(), flat)
+
+
+def load_config(path: Path | None) -> PipelineConfig:
+    if path is None:
+        return PipelineConfig()
+    return from_dict(json.loads(path.read_text(encoding='utf-8')))

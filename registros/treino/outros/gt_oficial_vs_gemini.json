@@ -1,0 +1,1931 @@
+{
+ "words": 2407,
+ "counts": {
+  "palavra diferente": 170,
+  "junção/separação": 162,
+  "só num dos dois (palavra ou linha a mais)": 28,
+  "grafia (modernização)": 49,
+  "acento": 15,
+  "abreviatura/número": 4
+ },
+ "rows": [
+  {
+   "page": 5,
+   "kind": "palavra diferente",
+   "oficial": "os registros",
+   "gemini": "o registro",
+   "ctx": "servirá este livro para os registros das leis municipais cujas"
+  },
+  {
+   "page": 5,
+   "kind": "palavra diferente",
+   "oficial": "municipais",
+   "gemini": "municipaes",
+   "ctx": "os registros das leis municipais cujas folhas pelo cidadão"
+  },
+  {
+   "page": 5,
+   "kind": "palavra diferente",
+   "oficial": "comarca não",
+   "gemini": "camara vão",
+   "ctx": "pelo cidadão presidente da comarca não numeradas e rubricadas eu"
+  },
+  {
+   "page": 5,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "s carlos do pinhal 1º de outubro de 1892"
+  },
+  {
+   "page": 5,
+   "kind": "palavra diferente",
+   "oficial": "jm p",
+   "gemini": "j m g z",
+   "ctx": "de outubro de 1892 jm p gonçalves braga"
+  },
+  {
+   "page": 6,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "1 gonçalves braga",
+   "ctx": "lei nº 1 regimento"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "lei nº 1 regimento interno da"
+  },
+  {
+   "page": 6,
+   "kind": "grafia (modernização)",
+   "oficial": "acordo",
+   "gemini": "accordo",
+   "ctx": "do pinhal organisado de acordo com o artigo 9º"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "9º",
+   "gemini": "9 º",
+   "ctx": "acordo com o artigo 9º do regulamento que baixou"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "baixou com o decreto nº 86 de 29 de"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "junho",
+   "gemini": "julho",
+   "ctx": "86 de 29 de junho de 1892 e approvado"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "setembro de 1892 capitulo 1º da forma do reconhecimento"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "reconhecimento dos vereadores artigo 1º reunidos os cidadãos eleitos"
+  },
+  {
+   "page": 6,
+   "kind": "grafia (modernização)",
+   "oficial": "acordo",
+   "gemini": "accordo",
+   "ctx": "do governo municipal de acordo com o edital da"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "municipal 1º",
+   "gemini": "apuradora 1 º",
+   "ctx": "o edital da junta municipal 1º no caso de recesso"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "recesso",
+   "gemini": "recurso",
+   "ctx": "1º no caso de recesso eleitoral os vereadores de"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "recesso",
+   "gemini": "recurso",
+   "ctx": "eleição não tiver havido recesso aguardarão a decisão do"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "aos",
+   "gemini": "ou",
+   "ctx": "ao reconhecimento do membro aos membros do governo municipal"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "tiverem de servir capitulo 2º da eleição do presidente"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "e vice presidente artigo 2º feito o reconhecimento de"
+  },
+  {
+   "page": 6,
+   "kind": "grafia (modernização)",
+   "oficial": "fala",
+   "gemini": "falla",
+   "ctx": "o reconhecimento de que fala o artigo 1ª se"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "1ª",
+   "gemini": "1 º",
+   "ctx": "que fala o artigo 1ª se procederá a eleição"
+  },
+  {
+   "page": 6,
+   "kind": "acento",
+   "oficial": "a",
+   "gemini": "á",
+   "ctx": "artigo 1ª se procederá a eleição do presidente vice"
+  },
+  {
+   "page": 6,
+   "kind": "palavra diferente",
+   "oficial": "maneira",
+   "gemini": "maioria",
+   "ctx": "por escrutinio secreto e maneira de votos presentes em"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "presentes em cedulas diversas 1º no caso de empate"
+  },
+  {
+   "page": 6,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "se procederá a sorteio 2º o presidente e vice"
+  },
+  {
+   "page": 6,
+   "kind": "grafia (modernização)",
+   "oficial": "funções",
+   "gemini": "funcções",
+   "ctx": "de bem servir as funções de seu cargo defendendo"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "3º",
+   "gemini": "gonçalves braga 2 3 º",
+   "ctx": "3º o vice presidente é"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "4º",
+   "gemini": "4 º",
+   "ctx": "natural substituto do presidente 4º substituem ao vice presidente"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "o mais velho capitulo 3º da ordem dos trabalhos"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "ordem dos trabalhos artigo 3º no dia marcado para"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "de reunião",
+   "gemini": "se reunirão",
+   "ctx": "marcado para as sessões de reunião os vereadores no salão"
+  },
+  {
+   "page": 7,
+   "kind": "acento",
+   "oficial": "as",
+   "gemini": "ás",
+   "ctx": "salão principal da municipalidade as onze horas da manhã"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "meio",
+   "gemini": "numero",
+   "ctx": "da manhã e havendo meio legal o presidente assumindo"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "cadeira",
+   "gemini": "cabeceira",
+   "ctx": "lugar que é a cadeira da sessão dos trabalhos"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "sessão",
+   "gemini": "mesa",
+   "ctx": "é a cadeira da sessão dos trabalhos dará principio"
+  },
+  {
+   "page": 7,
+   "kind": "acento",
+   "oficial": "as",
+   "gemini": "ás",
+   "ctx": "dos trabalhos dará principio as sessões pelas palavras está"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "4º",
+   "gemini": "4 º",
+   "ctx": "aberta a sessão artigo 4º as sessões deixarão o"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "deixarão",
+   "gemini": "durarão",
+   "ctx": "artigo 4º as sessões deixarão o tempo maximo de"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "5º",
+   "gemini": "5 º",
+   "ctx": "encerrada a sessão artigo 5º aberta a sessão o"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "ante",
+   "gemini": "entre",
+   "ctx": "decencia e a civilidade ante os vereadores e os"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "vereadores e os espectadores 1º no recinto dos trabalhos"
+  },
+  {
+   "page": 7,
+   "kind": "acento",
+   "oficial": "a",
+   "gemini": "á",
+   "ctx": "pessoa que não pertença a corporação municipal 2º os"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "pertença a corporação municipal 2º os espectadores não podem"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "aos",
+   "gemini": "nos",
+   "ctx": "espectadores não podem intervir aos debates por qualquer forma"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "em desacordos",
+   "gemini": "ou desagrado",
+   "ctx": "dar signaes de approvação em desacordos sob pena de serem"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "observados",
+   "gemini": "chamados",
+   "ctx": "sob pena de serem observados e expulsos da sala"
+  },
+  {
+   "page": 7,
+   "kind": "junção/separação",
+   "oficial": "6º",
+   "gemini": "6 º",
+   "ctx": "caso de reincidencia artigo 6º ao presidente incube 1º"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "incube 1º",
+   "gemini": "incumbe 1 º",
+   "ctx": "artigo 6º ao presidente incube 1º chamar a ordem até"
+  },
+  {
+   "page": 7,
+   "kind": "acento",
+   "oficial": "a",
+   "gemini": "á",
+   "ctx": "presidente incube 1º chamar a ordem até ter voses"
+  },
+  {
+   "page": 7,
+   "kind": "palavra diferente",
+   "oficial": "ter voses",
+   "gemini": "tres vezes",
+   "ctx": "chamar a ordem até ter voses o vereador que"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "prostrar",
+   "gemini": "portar",
+   "ctx": "que não se prostrar com a devida decencia"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "no corrente",
+   "gemini": "inconveniente",
+   "ctx": "civilidade convidar o vereador no corrente a retirar palavras improprias"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "que proferir",
+   "gemini": "proferido",
+   "ctx": "palavras improprias que tiver que proferir e suspender a sessão"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "que se tornar tumultuosa 2º requisitar praça publica em"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "praça",
+   "gemini": "força",
+   "ctx": "tornar tumultuosa 2º requisitar praça publica em casos extremos"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "casos extremos",
+   "gemini": "caso extremo",
+   "ctx": "requisitar praça publica em casos extremos para manter a ordem"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "7º",
+   "gemini": "7 º",
+   "ctx": "durante as sessões artigo 7º a qualquer vereador é"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "marcar",
+   "gemini": "indicar",
+   "ctx": "vereador é licito propor marcar e discutir o que"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "suas funcções e attribuições 1º as propostas en marcações"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "en marcações",
+   "gemini": "ou indicações",
+   "ctx": "attribuições 1º as propostas en marcações serão sempre por escripto"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "rejeitadas",
+   "gemini": "regeitadas",
+   "ctx": "no caso de serem rejeitadas só poderão de novo"
+  },
+  {
+   "page": 8,
+   "kind": "grafia (modernização)",
+   "oficial": "aparecer",
+   "gemini": "apparecer",
+   "ctx": "só poderão de novo aparecer em tres sessões consecutivas"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "em tres sessões consecutivas 2º apresentada a proposta en"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "en marcação",
+   "gemini": "ou indicação",
+   "ctx": "2º apresentada a proposta en marcação será pelo presidente posta"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "encerrada esta em votação 3º no caso de empate"
+  },
+  {
+   "page": 8,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "º",
+   "ctx": "sessão seguinte lei art 11 reg art 7º"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "7º",
+   "gemini": "7 º",
+   "ctx": "art 11 reg art 7º em caso de segundo"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "4º",
+   "gemini": "4 º",
+   "ctx": "o voto de qualidade 4º o secretario que estará"
+  },
+  {
+   "page": 8,
+   "kind": "acento",
+   "oficial": "à",
+   "gemini": "á",
+   "ctx": "secretario que estará junto à mesa dos trabalhos durante"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "circunstanciada",
+   "gemini": "circumstanciada",
+   "ctx": "apontamentos para lavrar acta circunstanciada do ocorrido artigo 8º"
+  },
+  {
+   "page": 8,
+   "kind": "grafia (modernização)",
+   "oficial": "ocorrido",
+   "gemini": "occorrido",
+   "ctx": "lavrar acta circunstanciada do ocorrido artigo 8º a votação"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "8º",
+   "gemini": "8 º",
+   "ctx": "circunstanciada do ocorrido artigo 8º a votação nos trabalhos"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "municipais",
+   "gemini": "municipaes",
+   "ctx": "a votação nos trabalhos municipais será secreta em regra"
+  },
+  {
+   "page": 8,
+   "kind": "palavra diferente",
+   "oficial": "o",
+   "gemini": "a",
+   "ctx": "mas poderá ser nominal o requerimento de algum vereador"
+  },
+  {
+   "page": 8,
+   "kind": "junção/separação",
+   "oficial": "9º",
+   "gemini": "9 º",
+   "ctx": "approvação da camara artigo 9º as actas dos trabalhos"
+  },
+  {
+   "page": 8,
+   "kind": "grafia (modernização)",
+   "oficial": "ssesões",
+   "gemini": "sessões",
+   "ctx": "approvadas e assignadas nas ssesões seguintes"
+  },
+  {
+   "page": 9,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "gonçalves braga 3",
+   "ctx": "excepto as das sessões"
+  },
+  {
+   "page": 9,
+   "kind": "junção/separação",
+   "oficial": "10º",
+   "gemini": "10 º",
+   "ctx": "na mesma sessão artigo 10º as actas tomarão a"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "e",
+   "gemini": "ou",
+   "ctx": "denominação das sessões ordinarias e extraordinarias artigo 11º os"
+  },
+  {
+   "page": 9,
+   "kind": "junção/separação",
+   "oficial": "11º",
+   "gemini": "11 º",
+   "ctx": "ordinarias e extraordinarias artigo 11º os trabalhos das sessões"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "funcionarios",
+   "gemini": "funccionarios",
+   "ctx": "posse a autoridades e funcionarios publicos e mais assumptos"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "naturesa 1º",
+   "gemini": "natureza 1 º",
+   "ctx": "e mais assumptos desta naturesa 1º as petições serão despachadas"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "assinadas",
+   "gemini": "ouvidas",
+   "ctx": "serão despachadas depois de assinadas as comissões competentes e"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "comissões",
+   "gemini": "commissões",
+   "ctx": "depois de assinadas as comissões competentes e qualquer funcionario"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "funcionario",
+   "gemini": "funccionario",
+   "ctx": "comissões competentes e qualquer funcionario municipal que deva esclarecer"
+  },
+  {
+   "page": 9,
+   "kind": "junção/separação",
+   "oficial": "12º",
+   "gemini": "12 º",
+   "ctx": "esclarecer a hypothese artigo 12º a camara tera as"
+  },
+  {
+   "page": 9,
+   "kind": "acento",
+   "oficial": "tera",
+   "gemini": "terá",
+   "ctx": "artigo 12º a camara tera as seguintes comissões permanentes"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "comissões",
+   "gemini": "commissões",
+   "ctx": "camara tera as seguintes comissões permanentes provendo ainda crear"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "provendo",
+   "gemini": "podendo",
+   "ctx": "as seguintes comissões permanentes provendo ainda crear as que"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "foram preciso",
+   "gemini": "forem precisas",
+   "ctx": "ainda crear as que foram preciso para assumptos officiaes e"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "officiaes",
+   "gemini": "especiaes",
+   "ctx": "foram preciso para assumptos officiaes e extraordinarios comissão de"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "comissão",
+   "gemini": "commissão",
+   "ctx": "assumptos officiaes e extraordinarios comissão de fasenda de obras"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "fasenda",
+   "gemini": "fazenda",
+   "ctx": "e extraordinarios comissão de fasenda de obras politicas de"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "politicas",
+   "gemini": "publicas",
+   "ctx": "de fasenda de obras politicas de justiça e votacção"
+  },
+  {
+   "page": 9,
+   "kind": "palavra diferente",
+   "oficial": "votacção",
+   "gemini": "redacção",
+   "ctx": "politicas de justiça e votacção de saude publica 1º"
+  },
+  {
+   "page": 9,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "votacção de saude publica 1º cada comissão terá pelo"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "comissão",
+   "gemini": "commissão",
+   "ctx": "saude publica 1º cada comissão terá pelo menos dois"
+  },
+  {
+   "page": 9,
+   "kind": "junção/separação",
+   "oficial": "13º",
+   "gemini": "13 º",
+   "ctx": "durará um anno artigo 13º ao vereador é licito"
+  },
+  {
+   "page": 9,
+   "kind": "acento",
+   "oficial": "à",
+   "gemini": "á",
+   "ctx": "é licito pedir licença à camara para ausentar se"
+  },
+  {
+   "page": 9,
+   "kind": "acento",
+   "oficial": "porém",
+   "gemini": "porem",
+   "ctx": "por tempo determinado fundamentando porém o seu pedido concedida"
+  },
+  {
+   "page": 9,
+   "kind": "grafia (modernização)",
+   "oficial": "auzente",
+   "gemini": "ausente",
+   "ctx": "no impedimento do vereador auzente artigo 14º em caso"
+  },
+  {
+   "page": 9,
+   "kind": "junção/separação",
+   "oficial": "14º",
+   "gemini": "14 º",
+   "ctx": "do vereador auzente artigo 14º em caso de suspeição"
+  },
+  {
+   "page": 10,
+   "kind": "abreviatura/número",
+   "oficial": "irmãos",
+   "gemini": "irmão",
+   "ctx": "descendentes sogro e genro irmãos e cunhados durante o"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "15º",
+   "gemini": "15 º",
+   "ctx": "não poderá votar artigo 15º aos vereadores que com"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "com",
+   "gemini": "sem",
+   "ctx": "15º aos vereadores que com causa justificada faltarem a"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "dos",
+   "gemini": "aos",
+   "ctx": "sessões consecutivas bem como dos supplentes convocados que não"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "reais",
+   "gemini": "reis",
+   "ctx": "multa de dez mil reais 10 000 reg artº"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "artº 6º 4º",
+   "gemini": "art º 6 º 4 º",
+   "ctx": "reais 10 000 reg artº 6º 4º o presidente quando tiver"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "será",
+   "gemini": "sua",
+   "ctx": "apresentar e defender indicação será passará a presidencia o"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "o",
+   "gemini": "a",
+   "ctx": "será passará a presidencia o seu imediato capitulo 4º"
+  },
+  {
+   "page": 10,
+   "kind": "grafia (modernização)",
+   "oficial": "imediato",
+   "gemini": "immediato",
+   "ctx": "a presidencia o seu imediato capitulo 4º do numero"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "4º",
+   "gemini": "4 º",
+   "ctx": "o seu imediato capitulo 4º do numero das sessões"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "16º",
+   "gemini": "16 º",
+   "ctx": "numero das sessões artigo 16º a camara municipal fará"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "17º",
+   "gemini": "17 º",
+   "ctx": "menos de tres artigo 17º haverá em cada anno"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "extra ordinarias",
+   "gemini": "extraordinarias",
+   "ctx": "cada anno tantas sessões extra ordinarias quantas forem exigidas pelo"
+  },
+  {
+   "page": 10,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "exigidas pelo bem municipal 1º as sessões extraordinarias serão"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "come cadas",
+   "gemini": "convocadas",
+   "ctx": "as sessões extraordinarias serão come cadas pelo presidente e sempre"
+  },
+  {
+   "page": 10,
+   "kind": "palavra diferente",
+   "oficial": "com o",
+   "gemini": "ou a",
+   "ctx": "iniciativa do proprio presidente com o requerimento do intendente em"
+  },
+  {
+   "page": 11,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "gonçalves braga 4",
+   "ctx": "artigo 18º os casos"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "18º",
+   "gemini": "18 º",
+   "ctx": "artigo 18º os casos omissos neste"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "neste",
+   "gemini": "n este",
+   "ctx": "18º os casos omissos neste regimento serão regulados pelo"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "de 1890 na lei nº 16 de 13 de"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "junho",
+   "gemini": "julho",
+   "ctx": "reg de 29 de junho de 1892 dec nº"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "junho de 1892 dec nº 86 e mais legislação"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "sãocarlos",
+   "gemini": "são carlos",
+   "ctx": "mais legislação em vigor sãocarlos do pinhal 30 de"
+  },
+  {
+   "page": 11,
+   "kind": "acento",
+   "oficial": "jose",
+   "gemini": "josé",
+   "ctx": "setembro de 1892 joaquim jose gonçalves braga augusto de"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "oliveira",
+   "gemini": "de siqueira",
+   "ctx": "franco dr joaquim rodrigues oliveira elias camargo penteado joaquim"
+  },
+  {
+   "page": 11,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "de",
+   "ctx": "joaquim rodrigues oliveira elias camargo penteado joaquim vaz"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "alas",
+   "gemini": "adão",
+   "ctx": "vaz do amaral carvalho alas ferreira da silva cabral"
+  },
+  {
+   "page": 11,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "d",
+   "ctx": "da silva cabral eugenio andrade egas e eu"
+  },
+  {
+   "page": 11,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "e",
+   "gemini": "",
+   "ctx": "cabral eugenio andrade egas e eu joaquim augusto ribeiro"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "o",
+   "gemini": "a",
+   "ctx": "ribeiro de souza secretario o presente registro foi que"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "registro foi",
+   "gemini": "registei fiel",
+   "ctx": "souza secretario o presente registro foi que vai confirmar o"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "confirmar",
+   "gemini": "conforme",
+   "ctx": "registro foi que vai confirmar o original ao qual"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "30",
+   "gemini": "1 º",
+   "ctx": "s carlos do pinhal 30 de setembro de 1892"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "joaquim",
+   "gemini": "joaq m",
+   "ctx": "de setembro de 1892 joaquim augusto ribeiro de souza"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "ribeiro",
+   "gemini": "rib º",
+   "ctx": "de 1892 joaquim augusto ribeiro de souza lei nº"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "nº 2º",
+   "gemini": "n º 2 º",
+   "ctx": "ribeiro de souza lei nº 2º a camara de são"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "do pinhal resolve artigo 1º a camara municipal garante"
+  },
+  {
+   "page": 11,
+   "kind": "acento",
+   "oficial": "à",
+   "gemini": "á",
+   "ctx": "a camara municipal garante à empresa cia electrica a"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "cia",
+   "gemini": "luz",
+   "ctx": "municipal garante à empresa cia electrica a reserva liquida"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "reserva",
+   "gemini": "renda",
+   "ctx": "empresa cia electrica a reserva liquida annual de 6"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "seu",
+   "gemini": "um",
+   "ctx": "annual de 6 sobre seu capital de cento e"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "foi efectivamente",
+   "gemini": "for effectivamente",
+   "ctx": "160 000 000 que foi efectivamente empregado na instalação da"
+  },
+  {
+   "page": 11,
+   "kind": "grafia (modernização)",
+   "oficial": "instalação",
+   "gemini": "installação",
+   "ctx": "foi efectivamente empregado na instalação da iluminação publica e"
+  },
+  {
+   "page": 11,
+   "kind": "grafia (modernização)",
+   "oficial": "iluminação",
+   "gemini": "illuminação",
+   "ctx": "empregado na instalação da iluminação publica e particular desta"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "e particular desta cidade 1º a reserva garantida pela"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "reserva",
+   "gemini": "renda",
+   "ctx": "desta cidade 1º a reserva garantida pela camara começará"
+  },
+  {
+   "page": 11,
+   "kind": "grafia (modernização)",
+   "oficial": "instalação",
+   "gemini": "installação",
+   "ctx": "vigorar da data da instalação official da iluminação publica"
+  },
+  {
+   "page": 11,
+   "kind": "grafia (modernização)",
+   "oficial": "iluminação",
+   "gemini": "illuminação",
+   "ctx": "da instalação official da iluminação publica e particular artigo"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "publica e particular artigo 2º prevalece para os efeitos"
+  },
+  {
+   "page": 11,
+   "kind": "grafia (modernização)",
+   "oficial": "efeitos",
+   "gemini": "effeitos",
+   "ctx": "2º prevalece para os efeitos de direito o contrato"
+  },
+  {
+   "page": 11,
+   "kind": "grafia (modernização)",
+   "oficial": "contrato",
+   "gemini": "contracto",
+   "ctx": "efeitos de direito o contrato celebrado pela municipalidade em"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "de abril de 1890 1º a clausula 10º do"
+  },
+  {
+   "page": 11,
+   "kind": "palavra diferente",
+   "oficial": "10º",
+   "gemini": "10 ª",
+   "ctx": "1890 1º a clausula 10º do referido contracto fica"
+  },
+  {
+   "page": 11,
+   "kind": "acento",
+   "oficial": "substituída",
+   "gemini": "substituida",
+   "ctx": "referido contracto fica assim substituída clausula 10ª a empresa"
+  },
+  {
+   "page": 11,
+   "kind": "junção/separação",
+   "oficial": "10ª",
+   "gemini": "10 ª",
+   "ctx": "fica assim substituída clausula 10ª a empresa fica obrigada"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "a",
+   "gemini": "o",
+   "ctx": "lampadas quando a camara a exigir precisando aviso à"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "precisando",
+   "gemini": "precedendo",
+   "ctx": "a camara a exigir precisando aviso à mesma com"
+  },
+  {
+   "page": 12,
+   "kind": "acento",
+   "oficial": "à",
+   "gemini": "á",
+   "ctx": "a exigir precisando aviso à mesma com seis meses"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "exigir",
+   "gemini": "exigido",
+   "ctx": "o numero de lampadas exigir não exceda a capacidade"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "função das",
+   "gemini": "força dos",
+   "ctx": "exceda a capacidade e função das dynamos caso em que"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "notificar",
+   "gemini": "satisfazer",
+   "ctx": "que se obriga a notificar dentro do praso de"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "anno",
+   "gemini": "aviso",
+   "ctx": "contados da data do anno não podendo elle ter"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "constante do presente contracto 2º a clausula 18ª do"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "18ª",
+   "gemini": "18 ª",
+   "ctx": "contracto 2º a clausula 18ª do contracto fica assim"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "18ª",
+   "gemini": "18 ª",
+   "ctx": "fica assim substituida clausula 18ª se o desarranjo que"
+  },
+  {
+   "page": 12,
+   "kind": "grafia (modernização)",
+   "oficial": "ocasionar",
+   "gemini": "occasionar",
+   "ctx": "se o desarranjo que ocasionar a interrupção da luz"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "mais",
+   "gemini": "maior",
+   "ctx": "salvo caso de força mais que será resolvida por"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "firma",
+   "gemini": "forma",
+   "ctx": "arbitros profissionaes nomeados pela firma de direito 3º a"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "pela firma de direito 3º a clausula 16ª fica"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "16ª",
+   "gemini": "16 ª",
+   "ctx": "direito 3º a clausula 16ª fica assim a empresa"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "e",
+   "gemini": "ou",
+   "ctx": "se queime se inutilise e se apague sob pena"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "normaes",
+   "gemini": "mensaes",
+   "ctx": "multa abatida nas prestações normaes por lampada que estiver"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "juiso de",
+   "gemini": "juizo do",
+   "ctx": "de força maior a juiso de fiscal profissional da camara"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "4º",
+   "gemini": "4 º",
+   "ctx": "fiscal profissional da camara 4º a clausula 14ª ficará"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "14ª",
+   "gemini": "14 ª",
+   "ctx": "camara 4º a clausula 14ª ficará deste modo na"
+  },
+  {
+   "page": 12,
+   "kind": "grafia (modernização)",
+   "oficial": "iluminação",
+   "gemini": "illuminação",
+   "ctx": "deste modo na expressão iluminação publica fica comprehendida a"
+  },
+  {
+   "page": 12,
+   "kind": "grafia (modernização)",
+   "oficial": "iluminação",
+   "gemini": "illuminação",
+   "ctx": "publica fica comprehendida a iluminação da casa da camara"
+  },
+  {
+   "page": 12,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "a",
+   "ctx": "com seis lampadas e da cadeia com igual"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "igual",
+   "gemini": "egual",
+   "ctx": "e da cadeia com igual numero distribuidos de accordo"
+  },
+  {
+   "page": 12,
+   "kind": "palavra diferente",
+   "oficial": "distribuidos",
+   "gemini": "distribuidas",
+   "ctx": "cadeia com igual numero distribuidos de accordo com a"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "5º",
+   "gemini": "5 º",
+   "ctx": "com a mesma camara 5º a clausula 20ª ficará"
+  },
+  {
+   "page": 12,
+   "kind": "junção/separação",
+   "oficial": "20ª",
+   "gemini": "20 ª",
+   "ctx": "camara 5º a clausula 20ª ficará assim a empresa"
+  },
+  {
+   "page": 12,
+   "kind": "grafia (modernização)",
+   "oficial": "instalar",
+   "gemini": "installar",
+   "ctx": "empresa será obrigada a instalar e inaugurar a iluminação"
+  },
+  {
+   "page": 12,
+   "kind": "grafia (modernização)",
+   "oficial": "iluminação",
+   "gemini": "illuminação",
+   "ctx": "instalar e inaugurar a iluminação da cidade da data"
+  },
+  {
+   "page": 12,
+   "kind": "abreviatura/número",
+   "oficial": "leia",
+   "gemini": "lei",
+   "ctx": "cidade da data desta leia a seis meses"
+  },
+  {
+   "page": 13,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "gonçalves braga 5",
+   "ctx": "no maximo sob pena"
+  },
+  {
+   "page": 13,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "força maior justificado artigo 3º a camara por quem"
+  },
+  {
+   "page": 13,
+   "kind": "grafia (modernização)",
+   "oficial": "fiscalizará",
+   "gemini": "fiscalisará",
+   "ctx": "por quem a represente fiscalizará como julgar conveniente a"
+  },
+  {
+   "page": 13,
+   "kind": "grafia (modernização)",
+   "oficial": "empreza",
+   "gemini": "empresa",
+   "ctx": "conveniente a escripturação da empreza na parte que se"
+  },
+  {
+   "page": 13,
+   "kind": "junção/separação",
+   "oficial": "4º",
+   "gemini": "4 º",
+   "ctx": "lucros e perdas artigo 4º na renda da empresa"
+  },
+  {
+   "page": 13,
+   "kind": "grafia (modernização)",
+   "oficial": "produsida",
+   "gemini": "produzida",
+   "ctx": "de força electrica motora produsida em suas usinas artigo"
+  },
+  {
+   "page": 13,
+   "kind": "junção/separação",
+   "oficial": "5º",
+   "gemini": "5 º",
+   "ctx": "em suas usinas artigo 5º revogam se as disposições"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "jm",
+   "gemini": "josé",
+   "ctx": "novembro de 1892 joaquim jm gonçalves braga adão ferreira"
+  },
+  {
+   "page": 13,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "d",
+   "ctx": "da silva cabral eugenio andrade egas hermam von"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "hermam",
+   "gemini": "hermann",
+   "ctx": "cabral eugenio andrade egas hermam von pulkamo joaquim vaz"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "pulkamo",
+   "gemini": "puttkamer",
+   "ctx": "andrade egas hermam von pulkamo joaquim vaz do amaral"
+  },
+  {
+   "page": 13,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "de",
+   "ctx": "penteado dr joaquim rodrigues siqueira eu joaquim augusto"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "registro",
+   "gemini": "registo",
+   "ctx": "souza secretario o presente registro fiz que vai conforme"
+  },
+  {
+   "page": 13,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "de",
+   "ctx": "carlos do pinhal 11 novembro 1892 joaquim augusto"
+  },
+  {
+   "page": 13,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "de",
+   "ctx": "do pinhal 11 novembro 1892 joaquim augusto ribeiro"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "joaquim",
+   "gemini": "joaq m",
+   "ctx": "pinhal 11 novembro 1892 joaquim augusto ribeiro lei nº"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "ribeiro",
+   "gemini": "rib º de s za",
+   "ctx": "novembro 1892 joaquim augusto ribeiro lei nº 3 a"
+  },
+  {
+   "page": 13,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "joaquim augusto ribeiro lei nº 3 a camara municipal"
+  },
+  {
+   "page": 13,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "do pinhal resolve artigo 1º fica declarado caduco o"
+  },
+  {
+   "page": 13,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "s",
+   "ctx": "intendencia com os senhores malfatti e hygino para"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "hygino",
+   "gemini": "huggins",
+   "ctx": "os senhores malfatti e hygino para o abastecimento d"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "exgostos à",
+   "gemini": "exgottos á",
+   "ctx": "abastecimento d agua e exgostos à cidade de são carlos"
+  },
+  {
+   "page": 13,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "carlos do pinhal artigo 2º revogam se as reposições"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "reposições",
+   "gemini": "disposições",
+   "ctx": "2º revogam se as reposições em contrário são carlos"
+  },
+  {
+   "page": 13,
+   "kind": "acento",
+   "oficial": "contrário",
+   "gemini": "contrario",
+   "ctx": "se as reposições em contrário são carlos do pinhal"
+  },
+  {
+   "page": 13,
+   "kind": "palavra diferente",
+   "oficial": "jm",
+   "gemini": "josé",
+   "ctx": "janeiro de 1893 joaquim jm gonçalves braga approvada em"
+  },
+  {
+   "page": 14,
+   "kind": "palavra diferente",
+   "oficial": "perante registro foi",
+   "gemini": "presente registo fiz",
+   "ctx": "ribeiro de souza o perante registro foi segundo o original ao"
+  },
+  {
+   "page": 14,
+   "kind": "palavra diferente",
+   "oficial": "fe gaugusto",
+   "gemini": "fé j augusto",
+   "ctx": "e do que dou fe gaugusto lei nº 4 a"
+  },
+  {
+   "page": 14,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "dou fe gaugusto lei nº 4 a camara municipal"
+  },
+  {
+   "page": 14,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "do pinhal resolve artigo 1º a municipalidade mantem a"
+  },
+  {
+   "page": 14,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "termos da lei artigo 2º tendo em consideração o"
+  },
+  {
+   "page": 14,
+   "kind": "grafia (modernização)",
+   "oficial": "instalação",
+   "gemini": "installação",
+   "ctx": "e a urgencia da instalação da iluminação electrica n"
+  },
+  {
+   "page": 14,
+   "kind": "grafia (modernização)",
+   "oficial": "iluminação",
+   "gemini": "illuminação",
+   "ctx": "urgencia da instalação da iluminação electrica n esta cidade"
+  },
+  {
+   "page": 14,
+   "kind": "palavra diferente",
+   "oficial": "de",
+   "gemini": "da",
+   "ctx": "dias contados da data de publicação desta lei o"
+  },
+  {
+   "page": 14,
+   "kind": "acento",
+   "oficial": "eléctrica",
+   "gemini": "electrica",
+   "ctx": "que a companhia luz eléctrica sem embaraço possa colocar"
+  },
+  {
+   "page": 14,
+   "kind": "abreviatura/número",
+   "oficial": "embaraço",
+   "gemini": "embaraços",
+   "ctx": "companhia luz eléctrica sem embaraço possa colocar os seus"
+  },
+  {
+   "page": 14,
+   "kind": "grafia (modernização)",
+   "oficial": "colocar",
+   "gemini": "collocar",
+   "ctx": "eléctrica sem embaraço possa colocar os seus de acordo"
+  },
+  {
+   "page": 14,
+   "kind": "grafia (modernização)",
+   "oficial": "acordo",
+   "gemini": "accordo",
+   "ctx": "colocar os seus de acordo com as alterações feitas"
+  },
+  {
+   "page": 14,
+   "kind": "palavra diferente",
+   "oficial": "das partes",
+   "gemini": "dos postes",
+   "ctx": "paragrapho unico a mudança das partes das linhas telephonicas será"
+  },
+  {
+   "page": 14,
+   "kind": "palavra diferente",
+   "oficial": "indenisação",
+   "gemini": "indemnisação",
+   "ctx": "pelo respectivo empresario mediante indenisação por parte da camara"
+  },
+  {
+   "page": 14,
+   "kind": "palavra diferente",
+   "oficial": "indenisação",
+   "gemini": "indemnisação",
+   "ctx": "parte da camara essa indenisação será arbitrada em juiso"
+  },
+  {
+   "page": 14,
+   "kind": "grafia (modernização)",
+   "oficial": "juiso",
+   "gemini": "juizo",
+   "ctx": "indenisação será arbitrada em juiso na forma da lei"
+  },
+  {
+   "page": 15,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "gonçalves braga 6",
+   "ctx": "artigo 3º revogam se"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "artigo 3º revogam se as disposições"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "jm",
+   "gemini": "josé",
+   "ctx": "fevereiro de 1893 joaquim jm gonçalves braga eugenio augusto"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "augusto",
+   "gemini": "d andrade",
+   "ctx": "jm gonçalves braga eugenio augusto egas u rutthamos adão"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "u rutthamos",
+   "gemini": "h puttkamer",
+   "ctx": "braga eugenio augusto egas u rutthamos adão ferreira da silva"
+  },
+  {
+   "page": 15,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "de",
+   "ctx": "penteado dr joaquim rodrigues siqueira approvada registre se"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "do pinhal",
+   "gemini": "21 de fever º de",
+   "ctx": "cumpra se s carlos do pinhal 1893 gonçalves braga eu"
+  },
+  {
+   "page": 15,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "de",
+   "ctx": "eu joaquim augusto ribeiro souza secretario o presente"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "registro fis",
+   "gemini": "registo fiz",
+   "ctx": "souza secretario o presente registro fis segundo o original ao"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "representa",
+   "gemini": "reporto",
+   "ctx": "original ao qual me representa e de que dou"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "jaugusto",
+   "gemini": "j augusto",
+   "ctx": "de que dou fé jaugusto lei nº 5 codigo"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "nº",
+   "gemini": "n º",
+   "ctx": "dou fé jaugusto lei nº 5 codigo de posturas"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "codigo de posturas titulo 1º dezembro 5 de 1893"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "1893 economia municipal capitulo 1º perimetro da cidade alinhamento"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "edificação",
+   "gemini": "edificações",
+   "ctx": "da cidade alinhamento nivelamento edificação artigo 1º em quanto"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "1º",
+   "gemini": "1 º",
+   "ctx": "alinhamento nivelamento edificação artigo 1º em quanto não se"
+  },
+  {
+   "page": 15,
+   "kind": "grafia (modernização)",
+   "oficial": "fiser",
+   "gemini": "fizer",
+   "ctx": "em quanto não se fiser regular tombamento do patrimonio"
+  },
+  {
+   "page": 15,
+   "kind": "grafia (modernização)",
+   "oficial": "compreenderá",
+   "gemini": "comprehenderá",
+   "ctx": "s carlos do pinhal compreenderá a área contidas nos"
+  },
+  {
+   "page": 15,
+   "kind": "abreviatura/número",
+   "oficial": "contidas",
+   "gemini": "contida",
+   "ctx": "pinhal compreenderá a área contidas nos limites tidos actualmente"
+  },
+  {
+   "page": 15,
+   "kind": "grafia (modernização)",
+   "oficial": "efeitos",
+   "gemini": "effeitos",
+   "ctx": "como divisas para os efeitos do imposto predial as"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "situação",
+   "gemini": "situações",
+   "ctx": "as propriedades particulares e situação de servidão en uso"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "en",
+   "gemini": "ou",
+   "ctx": "e situação de servidão en uso publico adjacentes ao"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "refe rem",
+   "gemini": "referem",
+   "ctx": "que a ellas se refe rem expressamente e em todo"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "as dispostas taxas",
+   "gemini": "aos impostos taxados",
+   "ctx": "o caso ficarão sujeitas as dispostas taxas no presente codigo artigo"
+  },
+  {
+   "page": 15,
+   "kind": "junção/separação",
+   "oficial": "2º",
+   "gemini": "2 º",
+   "ctx": "no presente codigo artigo 2º nenhum edificio alicerce calçamento"
+  },
+  {
+   "page": 15,
+   "kind": "palavra diferente",
+   "oficial": "acesso",
+   "gemini": "muro",
+   "ctx": "nenhum edificio alicerce calçamento acesso ou trabalho que dependa"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "materiais",
+   "gemini": "materiaes",
+   "ctx": "rua ou praça os materiais necessarios mediante o pagamento"
+  },
+  {
+   "page": 16,
+   "kind": "grafia (modernização)",
+   "oficial": "mes",
+   "gemini": "mez",
+   "ctx": "dez mil reis por mes multa de quarenta mil"
+  },
+  {
+   "page": 16,
+   "kind": "grafia (modernização)",
+   "oficial": "faser",
+   "gemini": "fazer",
+   "ctx": "caso com obrigação de faser cessar a infracção paragrafo"
+  },
+  {
+   "page": 16,
+   "kind": "grafia (modernização)",
+   "oficial": "paragrafo",
+   "gemini": "paragrapho",
+   "ctx": "faser cessar a infracção paragrafo unico cada andaime pagará"
+  },
+  {
+   "page": 16,
+   "kind": "grafia (modernização)",
+   "oficial": "des",
+   "gemini": "dez",
+   "ctx": "unico cada andaime pagará des mil reis por semestre"
+  },
+  {
+   "page": 16,
+   "kind": "junção/separação",
+   "oficial": "3º",
+   "gemini": "3 º",
+   "ctx": "andaimes e materiaes artigo 3º as casas que se"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "e",
+   "gemini": "ou",
+   "ctx": "se reedificarem na cidade e suburbios terão pelo menos"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "en",
+   "gemini": "ou",
+   "ctx": "a linha do telhado en sendo sobraes oito metros"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "sobraes",
+   "gemini": "sobrado",
+   "ctx": "do telhado en sendo sobraes oito metros e oitenta"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "mas",
+   "gemini": "não",
+   "ctx": "oitenta centimetros na frente mas podendo ter o pavimento"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "centimentros",
+   "gemini": "centimetros",
+   "ctx": "quatro metros e quarenta centimentros quando taes edificações tenham"
+  },
+  {
+   "page": 16,
+   "kind": "só num dos dois (palavra ou linha a mais)",
+   "oficial": "",
+   "gemini": "ou",
+   "ctx": "alinhamento entre a construcção reconstrucção e este alinhamento"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "sobre",
+   "gemini": "salvo",
+   "ctx": "no alinhamento da rua sobre nos lugares onde forem"
+  },
+  {
+   "page": 16,
+   "kind": "grafia (modernização)",
+   "oficial": "permitidas",
+   "gemini": "permittidas",
+   "ctx": "nos lugares onde forem permitidas as cercas com que"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "1ª",
+   "gemini": "1 º",
+   "ctx": "feitos os respectivos fechos 1ª ficam prohibidas as cercas"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "a lei",
+   "gemini": "alem",
+   "ctx": "reis por cada metro a lei da obrigação de ser"
+  },
+  {
+   "page": 16,
+   "kind": "grafia (modernização)",
+   "oficial": "infração 2º",
+   "gemini": "infracção 2 º",
+   "ctx": "removido o objecto da infração 2º as portas e janellas"
+  },
+  {
+   "page": 16,
+   "kind": "palavra diferente",
+   "oficial": "reconstruirão",
+   "gemini": "reconstruirem",
+   "ctx": "que se construirem ou reconstruirão na cidade ou suburbios"
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "final v4 (st_v3)": {
+  "config": "configs/final_v4.json",
+  "tuning": {
+   "wer_norm": 24.77,
+   "cer_norm": 9.78
+  },
+  "heldout": {
+   "wer_norm": 22.05,
+   "cer_norm": 8.16
+  },
+  "all": {
+   "wer_norm": 24.05,
+   "cer_norm": 9.35
+  },
+  "pages": {
+   "5": [
+    57.8,
+    29.9
+   ],
+   "6": [
+    20.5,
+    6.7
+   ],
+   "7": [
+    24.7,
+    9.0
+   ],
+   "8": [
+    19.5,
+    6.9
+   ],
+   "9": [
+    22.9,
+    6.5
+   ],
+   "10": [
+    19.3,
+    7.0
+   ],
+   "11": [
+    26.8,
+    13.4
+   ],
+   "12": [
+    21.8,
+    8.4
+   ],
+   "13": [
+    31.3,
+    14.1
+   ],
+   "14": [
+    23.6,
+    9.4
+   ],
+   "15": [
+    29.0,
+    12.0
+   ],
+   "16": [
+    16.8,
+    4.7
+   ]
+  },
+  "texts": {
+   "5": "\nTermo de abertura\nServirá este livro para o registro\nMun cair,\n\n\ncujas folhas pelo cidadão\nPresidente da camara vão nomeados\ne rubricada\nE joaquim sagunto. Ribero\nde San, sentar eram:\n1 de Outubro de 1592\n\n\n\nd lat de Lance\n\n\n\n\n",
+   "6": "\n\n\nRegimento interno da Camara Municipal\nde Carlos do Pinhal, organizado de accordo\ncom o artigo 9º do Regulamento que baixou com\no Decreto Nº 86 de 29 de julho de 1892e ao\nvado em sessão de 30 de Setembro de 1892.\nCapitulo 1\nDa forma do reconhecimento dos vereadores.\nArtigo 1\nReunidos os cidadãos eleitos Vereadores, em sua\nprimeira sessão procederão ao reconhecimento\ndos membros do Genero Municipal de accordo\ncom o edital da Junta Apuradora.\nNo caso de recurso eleitoral, o vereador\nde cuja eleição não tiver havido recusa, ao\ndarão a de são do Tribunal competente para\nprocederem ao reconhecimento do membro\nou membros do Governo Municipal que teve\nem de servir.\nCapitulo 2\nDa eleição do Presidente e Vice Presidente\nArtigo 2\nFeito o reconhecimento de que falla e artigo 1º se\nprocederá á eleição do Presidente, Vice Presidente\nda Camara, por escrutinio secreto, e maioria\nde votos presentes, em cedulas diversas.\nNo caso de empate se procederá a sorteio.\n§2º O Presidente e Vice Presidente eleitos esta\nao o compromisso de bem servir as funcções\nde seu cargo, defendendo a Constituição Federal,\nde Estado e as leis municipaes.",
+   "7": "§3º O Presidente do natural substituto do Presidente.\n§4° Subir ao Vice. Presidente os demais Vereador,\nna ordem de sua estação. Em caso de empate será\no mais velho.\nCapitulo 3\nDa ordem dos trabalhos\ni 3e\nNo dia marcado para as sessões se serão os Versado\nres no sala principal da municipalidade, as onze\nhoras da manha, e havendo era legal, o presidente\namido o seu lugar, que á cabeceira da me dos\ntrabalhos, dará principio as se pelos palavras: Esta\naberta a sessão.\nArtigo 4º\nAs sessões durarão o tempo maximo de quatro o\nas. Terminada a sessão, o presidente encerrará\nos trabalhos pelas palavras: Está encerrada a sessão.\nArtigo 5e\nAberta a sessão, o presidente declarará a materia em\ndiscussão, manterá a ordem durante os trabalhos, da\ndo a palavra do que primeira a pedir, fazendo observar\na decencia e a cidade entre os vereadores e os\nespectadores\n§º No recinto dos trabalhos vedado o ingresso\na pessoa que não pertença a corporação me\na.\n2º Os espectadores não pode intervir os debates,\npor qualquer fórma, e nem dar signaes de ar\nção ou desagrado, sob pena de serem observados, e\nexpulsos da sala, em caso de reincidencia.\nArtigo 6.\nA Presidente incumbe:\ne Chamar a ordem, até tres vezes, o Vereador que",
+   "8": "que não se postar com a devida decencia e civilidade,\ncomida o vereador inconveniente a retirar palavras\nproprias que tiver proferido e suspender a sessão,\nque se tornar tumultuosa.\n2 Requisitar força publica, em casos extremos,\npara manter a ordem entre os espectadores dentro\ndo edificio da Camara, e durante as sessões.\nArtigo\nA qualquer Vereador é licito propor, indicar e\ndiscutir o que lhe parecer conveniente ao de\npelo de suas funcções e attribuições.\nAs propostas ou indicações serão sempre por\nescripto, datadas e assignadas, e no caso de\nserem regeitados só poderão de novo appar\ne em tres sessões consecutivas.\n2º Apresentada a proposta ou indicação será\npelo Presidente posta em discussão e encerrada\nesta em votação.\n3 No caso de empate será a votação adiada\npara a sessão seguinte (Lei art11e Reg. art 7) Em\ncaso de segundo empate, o presidente caberá o\nvoto de qualidade.\n56O Secretaria que estará junto á mesa\nde trabalhos, durante a sessão, tomará os rece\nos apontamentos para lavrar acta circumstancia\nda do occorrido.\nArtigo 8\nA votação nos trabalhos municipaes será secreta, em\nregra, mas poderá ser nominal a requerimento\nde algum Vereador e com approvação da Camara.\nArtigo 9º\nA actas dos trabalhos serão sempre decididas,\napprovadas, e assignadas nas seres seguintes,",
+   "9": "excepto as das sessões extraordinarias que serão lavrada\ne assignadas na mesma sessão.\nArtigo 10\nAs actas tomarão a denominação das sessões: ordinarias\no extraordinaria\ne. 11\nos trabalhos das sessões dividem se em Expediente\nOrdem do dia: O Expediente comprehende: esposa\nas a officios, despachos em petições e em geral\nactos que não dependam de discussão. A Ordem do\ndia comprehende apresentação e discussão de\npropostas e indicações, discussão de para ceres, jura\nmento e posse a auctoridades e funccionarios pobre\nos e mais assumptos Desta natureza.\nas petições serão despachadas depois de ouvida\nas commissões competentes e qualquer terciario\nmunicipal, que deva esclarecer a hypothese.\ntiq 12\nA Camara terá as seguintes commissões permanente,\npodendo anda crear as que forem precisas\npara assumptos especiaes e extraordinarios:\nCommissão de Fazenda; de Obras Publicas, de Justiça\ne redacção; de Saude Publica.\nº cada commissão terá pelo menos dos membros\ne seu mandato durará um anno.\nArtigo 13º\nAo Vereador é licito pedir licença á Camara para\nausentar se por tempo determinado, fundamental\ndo, porem, o seu pedido. Concedida a licença será\nconvidado o supplente que tiver de servir no\nimpedimento do Vereador Dentes\nArtigo 14\nEm caso de suspeição, ou de interesse de as",
+   "10": "dentes, descendentes, sogro genro, uma e cunhados\ndurante o cunhadio, tio e sobrinho e socios da\nmesma firma, o Vereador a quem a sorte\ninteressar não poderá votar.\nArtigo 15\nAos Vereadores que, sem causa justificada,\nfaltarem a duas sessões consecutivas, em\ncomo aos supplentes convocados que não\ncomparecerem, será imposta, pelo Presidente,\ne multa de dez mil réis (1 (Reg. as 6º\n°. O Presidente quando tiver de discutir\nqualquer acto ou apresentar e defender\nindicação sua, passará a presidencia a se\nimmediato.\nCapitulo 4º\nDo meio das sessões\nArtigo 16º\nA Camara municipal fará em cada anno\nseis sessões ordinarias, de dois em dois mezes,\nnos primeiros dias uteis de Outubro, Dezembro,\nFevereiro, Abril, Junho e Agosto que durarão\nos dias necessarios, nunca menos de tres.\nA\nHaverá em cada anno tantas sessões extra\nordinarias quantas forem exigidas pelo\nem municipal.\nAs sessões extraordinarias serão com\ncada pelo Presidente e sempre por ordem\nsuperior, iniciativa do proprio presidente\no a Requerimento do Intendente. Em qual\nquer caso o presidente declarará. motivo\na na a.\nDiposições geraes.",
+   "11": "\nArtigo 18%\nOs casos omissos neste regimento serão regulados\npelo disposto no Dec de 15 de janeiro de 1890, na\nLei Nº 16 de 13 de Novembro de 1891, no Reg. de 29\nde Julho de 1892 (Dec o 86) e mais legislação em\nvigor. Carlos do Pinhal, 30 de Setembro de 1892.\nJoaquim Jose Gonçalves Braga. Augusto de Souza\nFranco. De Joaquim Rodrigues Seu. Elias a\no Penteado. Joana Nas do Amaral Carvalho. A\nFerreira da De Cabral. Quem Não Ega.\nE e Joaquim Augusto Ribeiro de Souza, De cota.\npresente registro foi que vai conforme o original\nao qual me reporto.e dou fé: S. Cado de Pia de\ntem de 1892. Ja surena.\n\n\ne De\nA Camara de Carlos do Pinhal resolve:\nArtigo 1 A Camara Municipal garante a Era\nQue Electrica a venda liquida amal de 6% sobre\num capital de cento e sessenta contos de réis\n) que fôr effectivamente empregado na\ninstallação da inhumação publica e particular\nDesta cidade.\nA renda garantida pela camara com cara\na vigorar da data da installação official da ii\nnação publica e particular.\nArtigo 2º Prevalece para os effeitos de direito o contra\no celebrado pela Municipalidade em 22 de Abril\nde 1890\nº clausula 10 do referido contracto fica\nassim substituida: Clausula 10e A Empresa\nfica obrigada a augmentar o numero de",
+   "12": "lampadas quando a camara o exigir, precedendo\nao á mesma com seis mezes, pelo menos, de\nantecedencia, uma e que o numero de lama\ndas exigido não exceda a capacidade e força\nde dynamo, caso em que se obriga a satisfazer\ndentro do prazo de doze mezes contados da\ndata do aviso, não podendo elle ter logar antes\nde ser inaugurada e acceita a intimação\nconstante do presente contracto.\n§ 2º A clausula 18ª do contracto fica assim\nsubstituida: Clausula 18ª Se o desarranjo que\noccasionar a interrupção da Luz durar mais\nde quinze dias, poderá a camara rescindir o\ncontracto, salvo caso de força maior que\né resolvida por arbitros profissionaes\nnomeados pela fórma de direito.\n3 A clausula 16e fica assim: e empresa\ndeverá ter sempre em deposito a numero de\nlampadas necessario para substituir o\ndiariamente qualquer lampada que se queime,\nse inutilise ou se apague, sob pena de pagar\ndez mil réis de multa abatida nas estações\nmensaes por lampada que estiver apagada\nduas noites com estivas, salvo caso de força\nmaior a juizo do fiscal profissional da Camara.\n§ A clausula 14 ficará deste modo: Na\nexpressão estação publica fica comprehendida\na situação da casa da camara com seis da\npadas e a da Cadeia com egual numero, desta\neidos de accordo com a mesma camara.\n£5 A clausula 20 ficará assim: A Empresa\nserá obrigada a i ar e inaugurar\na da cidade. da data desta lei a seis mezes",
+   "13": "no maximo, sob pena de pagar por cada semana que\nexceder do prazo, duzentos mil réis de multa, no caso\nde força maior justificado.\nArtigo 3 A Camara, por que a represente, fiscalizar,\ncomo julgar conveniente, a escripturação da Empreza\nna parte que se relacionar com a conta de seu\nlucro e perdas\nArtigo 4 Na venda da Empresa se comprehender\ntodo e qualquer resultado que lhe dizer do emprego\nde força electrica motora produzida em sua\nNa.\nArtigo 5 Revogam se as disposições em contrario.\nSabado de Pinhal 11 de Novembro de 1892. Joaquim\no Gale Braga. Adão Ferreira de Se Cabral. E\nem Andrade Ega. Ha Vo Por a\nVas do Amaral Carvalho. Elias de Camargo Penteado\nDe Joaquim Rodrigues que. Eu Joaquim Augusto Rib\nde, decreta o presente registro foi que vai confere\no original ao qual me reporto de que dou fé: Da Cada\nde Pinhal 11ao de 1892 au3.\n\nDe . .\nA Camara Municipal de São Carlos do Pinhal\nresolve:\nArtigo 1ª Fica declarado caduco o contracto foi\no pela Intendencia com os Senhores S. Matante\na Huns para o abastecimento dagua e e\notos cidade de S Carlos do Pinhal.\nArtigo 2º Revogam se as disposições em contra\n\nSarar do Pinhal 21 de Janeiro de 1893. J\nque Ja Gonçalo Braga. Approvada em essa\n21 a jane de 1893 Gonçalo, Braga. Registre se",
+   "14": "e compra e. O Intendente a faça publicar\nexecutor. Gonçalo Praga. Eu João Segundo Beber\na lar, o perante registro foi segundo o original\nao qual me reporto e do que dou fé: Judeu.\n\ne\n\nA Camara Municipal de Carlos do Pinhal\n\nArtigo 1° A Municipalidade mantem a\nconcessão feita a Manoel Cabral dos Santos\npara assentar postes para linhas telephone\nas nas ruas e praças da cidade e no m\nnicipio de Carlos do Pinhal.\nParagrapho Unico A Municipalidade revela se\no direito de cassar essa concessão e opposto\nmamente a regulamentar, nos termos da lei:\nArtigo 2º Tendo em consideração o bem publico\nmunicipal e a urgencia da installação\nda nação electrica nesta cidade, a\nmunicipalidade determina que dentro\nde trinta dias contados da data da publia\ncação desta lei, o empresario das linhas\ntelephonicas mude os postes de sua\nempresa a fim de que a companhia Luz\nElectrica, sem embaraço, possa collocar\nos seus de accordo com as alterações feitas\nna planta primitiva.\nParagrapho Unico. A mudança de postes das\nLinhas telephonicas será feita pelo espectro\nempresario mediante indemnização por\nparte da camara. Essa ideiaş\narbitrada em juizo, na fórma da\n",
+   "15": "Artigo 3º Revogam se as disposições em contrario. São\nCada do Pinhal 21 de Fevereiro de 1575. Joaquim já gonçalo\nBraga, Eu andrade E, Pae, A Ferre\ndata Cabral, Joaquim Var do Amaral carvalho, Elias de\nCamargo Penteado, D a Rodrigues dique. Approvada\nRegistre se e Compra de. S. Cada 21de fever de1893 Gonçalo\nBraga. E Joaquim Augusto Pedir a ou, secretaria\no presente registro fim segundo o original ao qual\ne reposto, do que de de: ponto.\nLei N.\n\nCodigo de Posturas\n\nTitulo 1° 5 de 1893\nEconomia Municipal\nCapitulo 1º\nPerimetro da cidade, alinhamento, nivelamento, edificação\nArtigo 1 Em quanto não se fizer regular tombe\nmento do patrimonio de São Carlos do Pinhal, o em\ndo da cidade a Carlos do Pinhal comprehenderá\na area contidas nos limites tidos actualmente\ncomo divisas para os effeitos do imposto predial.\nAs propriedades particulares e situação de\nservidão ou uso publico adjacentes do patrimonio,\nserão regidos pelas disposições que a ellas se rede\nem expressamente e, em todo o caso, ficarão\nsujeitas aos impostos taxados no presente codigo.\nArtigo 2º Nenhum edificio, alicerce, calçamento\n, muro ou trabalho que dependa de vento\nde terra, será feito em frente das ruas ou\npraças da cidade ou suburbios sem previo ala\namento e nivelamento do arruador da\nCamara Municipal e licença para depositar",
+   "16": "na rua ou praça os materiaes necessarios, e\ndiante o pagamento de dez mil réis por mez.\nMulta de quarenta mil réis no primeiro e vinte\nmil reis no segundo caso com obrigação de\nfazer cessar a infracção.\nParagrapho unico: Cada andae pagará de\nmil reis por semestre. No talão de alinhamento\ne nivelamento se incluira o imposto para\nandaimes e materiaes.\nArtigo 3 As casas que se construirem ou se\nreedificar na cidade ou suburbios terão,\npelo menos, quatro metros e quarenta cento\nmetros de altura na frente, até a linha do\ntelhado, ou, sendo sobrado, oito metros e oitenta\ncentimetros, na frente, não podendo ser o a\npimento terreo menos de quatro metros e\nquarenta centimetros. Quando taes edificações\ntenham de ficar para dentro do alinhamento,\nentre a construcção ou reconstrucção e este\nalinhamento medear espaço de quatro\nmetros e quarenta centimetros, pelo menos,\ndevendo ser convenientemente murado ou\ngradeado no alinhamento da rua, salvo\nnos lugares onde forem emittidas as cercas\ncom que poderão ser feitos os respectivos fechos.\n£1º Ficam prohibidas as cercas nas ruas\ne praças servidas pela luz electrica. Multa\nde um mil réis por cada metro, além da obriga\nao de ser removido o objecto da infracção.\n2º As portas e janellas das casas que se contra\ne reconstruir, na cidade ou suburbios, terão\nas seguintes dimensões minas: as portas dois\nmetros e sessenta centimetros de altura por"
+  }
+ },
+ "final v5 (st_g3m + livro78 + deskew)": {
+  "config": "configs/final_v5.json",
+  "tuning": {
+   "wer_norm": 19.98,
+   "cer_norm": 5.74
+  },
+  "heldout": {
+   "wer_norm": 18.43,
+   "cer_norm": 4.13
+  },
+  "all": {
+   "wer_norm": 19.57,
+   "cer_norm": 5.32
+  },
+  "pages": {
+   "5": [
+    35.6,
+    19.0
+   ],
+   "6": [
+    20.5,
+    4.9
+   ],
+   "7": [
+    19.1,
+    4.3
+   ],
+   "8": [
+    14.9,
+    4.2
+   ],
+   "9": [
+    20.4,
+    4.5
+   ],
+   "10": [
+    15.5,
+    2.6
+   ],
+   "11": [
+    24.2,
+    6.5
+   ],
+   "12": [
+    20.1,
+    5.3
+   ],
+   "13": [
+    25.8,
+    7.8
+   ],
+   "14": [
+    16.1,
+    4.3
+   ],
+   "15": [
+    23.5,
+    8.2
+   ],
+   "16": [
+    10.8,
+    2.6
+   ]
+  },
+  "texts": {
+   "5": "Termo de abertura\nServirá este livro para os registros das\nMuni cipres,\n\ncujas folhas pelo cidadão\nPresidente da Camara vão numeradas\ne rubricadas.\nEu Joaquim Augusto Ribeiro\nde Souza, Secretario o escrevi:\n1.º de Outro. de 1892\n\n\n\nS. Carlos do Pinhal\nGonçalves Braga a\n\nI\n\n",
+   "6": "e\n\n\nRegimento interno da Camara Municipal\nde São Carlos do Pinhal, organizado de accordo\ncom o artigo 9.º do Regulamento que baixou com\no Decreto N.º 86 de 29 de Julho de 1892 e approvado\nem sessão de 30 de S'tubo de 1892.\nCapitulo 1.º\nDa forma do reconhecimento dos vereadores.\nArtigo 1.º\nRemidos os cidadãos eleitos Vereadores, em sua\nprimeira sessão procederão ao reconhecimento\ndos membros do Governo Municipal de accordo\ncom o edital da Junta Apuradora.\n§ 1.º No caso de recurso eleitoral, os vereadores\ncuja eleição não tiver havido recusa, tardarão\na decisão do Tribunal competente para\nprocederem ao reconhecimento do membro\nou membros do Governo Municipal que tiverem\nde servir.\nCapitulo 2.º\nDa eleição do Presidente e Vice-Presidente\nArtigo 2.º\nFeito o reconhecimento de que falla o artigo 1.º se\nprocederá á eleição do Presidente, Vice Presidente\nda Camara, por escrutinio secreto, e maioria\nde votos presentes, em cedulas diversas.\n§ 1.º No caso de empate se procederá a sorteio.\n§ 2.º O Presidente e Vice-Presidente eleitos prestarão\no compromisso de bem servir as funcções\nde seu cargo, defendendo a Constituição Federal\na do Estado e as leis municipaes.",
+   "7": "§ 3.º O Vice Presidente é o natural substituto do Presidente.\n§ 4.º Substituem ao Vice. Presidente os demais Vereadores,\nna ordem de sua estação. Em caso de empate servirá\no mais velho.\nCapitulo 3\nDa ordem dos trabalhos\nArtigo 3.º\nNo dia marcado para as sessões se reunirão os Vereadores\nno salão principal da municipalidade, as onze\nhoras da manha, e havendo numero legal, o presidente\nassumindo o seu lugar, que é á cabeceira da mesa dos\ntrabalhos, dará principio as sessões pelas palavras: - Estreita\na sessão.\nArtigo 4.º\nÁs sessões durarão o tempo maximo de quatro horas.\nTerminada a sessão, o presidente encerrará\nos trabalhos pelas palavras: - Está encerrada a sessão.\nArtigo 5.º\nAberta a sessão, o presidente declarará a materia em\ndiscussão, manterá a ordem durante os trabalhos, dado\na palavra do que primeiro a pedir, fazendo observar\na decencia e a civilidade entre os vereadores e os\nespectadores.\n§ 1.º No recinto dos trabalhos é vedado o ingresso\na pessoa que não pertença á corporação municipal.\n§ 2.º Os espectadores não podem intervir nos debates,\npor qualquer forma, e nem dar signaes de approvação\nou desagrado, sob pena de serem observados, e\nexpulsos da sala, em caso de reincidencia.\nArtigo 6.º\nAo Presidente incumbe: §\n1.e Chamar a ordem, até tres vezes, o Vereador que",
+   "8": "que não se postar com a devida decencia e civilidade,\nconvidar o Vereador inconveniente a retirar palavras\nimproprias que tiver proferido e suspender a sessão,\nque -se tornar tumultuosa.\n§ 2.º Requisitar força publica, em casos extremos,\npara manter a ordem entre os espectadores dentro\ndo edificio da Camara, e durante as sessões.\nArtigo 7º\nA qualquer Vereador é licito propor, indicar e\ndiscutir o que lhe parecer conveniente ao desempenho\nde suas funcções e attribuições.\n§ 1.º As propostas ou indicações serão sempre por\nescripto, datadas e assignadas, e no caso de\nserem regeitada só poderão de novo apparecer\nem tres sessões consecutivas.\n§ 2.º Apresentada a proposta ou indicação será\npelo Presidente posta em discussão e encerrada\nesta em votação.\n§ 3.º No caso de empate será a votação adiada\npara a sessão seguinte (Lei art.º 11- Reg. art.º 7º) Em\ncaso de segundo empate, ao presidente caberá o\nvoto de qualidade.\n§ 4.º O Secretario que estará junto á mesa\ndos trabalhos, durante a sessão, tomará os necessarios\napontamentos para lavrar acta circunstanciada\ndo occorrido.\nArtigo 8.º\nA votação nos trabalhos municipaes será secreta, em\nregra, mas poderá ser nominal a requerimento\nde algum Vereador e com approvação da Camara.\nArtigo 9º\nAs actas dos trabalhos serão sempre discutidas,\napprovadas, e assignadas nas seres seguintes,",
+   "9": "excepto as das sessões extraordinarias que serão lavrados\ne assignadas na mesma sessão.\nArtigo 10.º\nAs actas tomarão a denominação das sessões: - ordinarias\nou extraordinarias.\ntiti. 11.º\nOs trabalhos das sessões dividem se em \" Expediente\" e\n\"Ordem do dia\" O Expediente comprehende:- repostas\na officios, despachos em petições e em geral\nactos que não dependam de discussão. A º Ordem do\ndia\" comprehende - apresentação e discussão de\npropostas e indicações, discussão de pareceres, juramento\ne posse a auctoridades e funccionarios publicos\ne mais assumptos desta natureza.\n§ 1.º As petições serão despachadas depois de ouvidas\nas commissões competentes e qualquer funccionario\nmunicipal, que deva esclarecer a hypothese.\nArtigo 12º\nA Camara terá as seguintes commissões permanente,\npodendo ainda crear as que forem precisas\npara assumptos especiaes e extraordinarios:\nCommissão de Fazenda; de Obras Publicas, de Justiça\ne redacção; de Saude Publica.\n§ 1.º Cada commissão terá pelo menos dois membros\ne seu mandato durará o anno.\nArtigo 13.º\nAo Vereador é licito pedir licença á Camara para\nausentar-se por tempo determinado, fundamentado,\nporem, o seu pedido. Concedida a licença será\nconvidado o supplente que tiver de servir no\nimpedimento do Vereador Auzentes\nArtigo 14.º\nEm caso de suspeição, ou de interesse de seu=",
+   "10": "dentes, descendentes, sogro e genro, irmãos e cunhados\ndurante o cunhadio, tio e sobrinho e socios da\nmesma firma, o Vereador a quem a hypothese\ninteressar não poderá votar.\nArtigo 15º\nAos Vereadores que, sem causa justificada,\nfaltarem a duas sessões consecutivas, bem\ncomo aos supplentes convocados que não\ncomparecerem, será imposta, pelo Presidente,\na multa de dez mil reis (10:000) (Reg. art.º 6.º\n§ 4.º). O Presidente quando tiver de discutir\nqualquer assumpto ou apresentar e defender\nindicação sua, passará a presidencia a se\nimmediato.\nCapitulo 4.º\nDo numero das sessões.\nArtigo 16.º\nA Camara municipal fará em cada anno\nseis sessões ordinarias, de dois em dois mezes,\nnos primeiros dias uteis de Outubro, Dezembro,\nFevereiro, Abril, Julho e Agosto que durarão\nos dias necessarios, nunca menos de tres.\nArtigo\nHaverá em cada anno tantas sessões extraordinarias\nquantas forem exigidas pelo\nbem municipal.\n§ 1.º As sessões extraordinarias serão colocadas\npelo Presidente e sempre por ordem\nsuperior, iniciativa do proprio presidente\nou a Requerimento do Intendente. Em qualquer\ncaso o presidente declarará o motivo\nda convocação.\nDisposições geraes.",
+   "11": "\nArtigo 18.º\nOs casos omissos n'este regimento serão regulados\npelo disposto no Dec de 15 de Janeiro de 1890, na\nLei N.º 16 de 13 de Novembro de 1891, no Reg. de 29\nde Julho de 1892 (Dec N.º 86) e mais legislação em\nvigor. São Carlos do Pinhal, 30 de Setembro de 1892.\nJoaquim José Gonçalves Braga. Augusto de Souza\nFranco. D.r. Joaquim Rodrigues de Siqueira. Elias de' Camargo\nPenteado. Joaquim Vaz do Amaral Carvalho. Adão\nFerreira da Silva Cabral. Eugenio andrade Egas.\nE eu Joaquim Augusto Ribeiro de Souza, Secret-lei.o\npresente registro foi que vai conforme o original\nao qual me reporto. e dou fé. S. Carlos do Pinhal 30 de\nSedento de 1892. Joga.a Augusto Reb Souza.\n\n\n\ne r.. 2.\nA Camara de São Carlos do Pinhal resolve:\nArtigo 1.º A Camara Municipal garante- á Empresa\nLuz Electrica a venda liquida animal de 6% sobre\num capital de cento e sessenta contos de reis\n1160:000:000) que for effectivamente empregado na\ninstallação da illuminação publica e particular\ndesta cidade.\n§ 1.º A renda garantida pela Camara começará\na vigorar da data da installação official da allucinação\npublica e particular.\nArtigo 2.º Prevalece para os effeitos de direito o contrato\ncelebrado pela Municipalidade em 22 de Abril\nde 1890.\n§ 1.º A clausula 10.º do referido contracto fica\nassim substituida: - Clausula 10.º A Empresa\nfica obrigada a augmentar o numero de",
+   "12": "lampadas quando a Camara o exigir, precedendo\naviso á mesma com seis mezes, pelo menos, de\nantecedencia, uma vez que o numero de lampadas\nexigido não exceda a capacidade e força\ndos dunamos, caso em que se obriga a satisfazer\ndentro do praso de doze mezes contados da\ndata do aviso, não podendo elle ter lugar antes\nde ser inaugurada e acceita a illuminação\nconstante do presente contracto.\n§ 2.º A clausula 18.º do contracto fica assim\nsubstituida: Clausula 18.º Se o desarranjo que\noccasionar a interrupção da Luz durar mais\nde quinze dias, poderá a Camara rescindir o\ncontracto, salvo caso de força maior que\nserá resolvida por arbitros profissionaes\nnomeados pela forma de direito.\n§ 3.º A clausula 16.º fica assim: - A empresa\ndeverá ter sempre em deposito o numero de\nlampadas necessario para substituir mediatamente\nqualquer lampada que se queime,\nse inutilise ou se apague, sob pena de pagar\ndez mil reis de multa abatida nas prestações.\nmensaes por lampada que estiver apagada\nduas noites consecutivas, salvo caso de força\nmaior a juizo do fiscal profissional da Camara.\n§ 4.º A clausula 14.ª ficará deste modo: - Na\nexpressão \" intimação publicá - fica comprehendida\na situação da Casa da Camara com seis lampadas\ne a da Cadeia com egual numero, distribuidas\nde accordo com a mesma Camara.\n§ 5.º A Clausula 20.º ficará assim: - A Empresa\nserá obrigada a installar e inaugurar a illação\nda -Cidade- da data desta lei a seis mezes",
+   "13": "no maximo, sob pena de pagar por cada semana que\nexceder do prazo, duzentos mil reis de multa, salvo caso\nde força maior justificado.\nArtigo 3.º A Camara, por que a represente, fiscalisará,\ncomo julgar conveniente, a escripturação da Empreza\nna parte que se relacionar com a conta de seus\nlucros e perdas.\nArtigo 4.º Na renda da Empresa se comprehenderá\ntodo e qualquer resultado que lhe adicar do emprego\nde força electrica motora produzida em sua\nMinas.\nAr tigo 5.º Revogam-se as disposições em contrario.\nSão Carlos do Pinhal 11 de Novembro de 1892. Joaquim\nJou Gonzales Braga. Adão Ferira de Selo Cabral. Rugem\nde' Andrade Egas. Hermann Von Pull Fazer. Joaquim\nVaz do Amaral Carvalho. Elias de Camargo Penteado\nD.r. Joaquim Rodrigues de' Siqueira. Eu Joaquim Augusto Revelou,\nsecretario o presente registro fim que vai conforme\no original ao qual me reporto e de que dou fé. Sa Cados\ndo Pinhal 11 de Noventos de 1892. J a Aug.& ib.e S3.\nLei 1.º 3.\nA Camara Municipal de São Carlos do Pinhal\nresolve:\nArtigo 1.º Fica declarado caduco o contracto feito\npela Intendencia com os Senhores S. Maratti\nf Hugies para o abastecimento d'agua e exgottos\ná cidade de São Carlos do Pinhal.\nArtigo 2.º Revogam-se as disposições em contrario\nSão Carlos do Pinhal 21 de Janeiro de 1893. Jaqué\nJou Gonçalves Braga. Approvada em sessão\n21 de Janeiro de 1893 - Gonçalo Braga. Registre-se",
+   "14": "e cumpra-se. O Intendente a faça publicar e\nexecutor. Gonçalo Braga. Eu Joaquim Augusto Ribeiro\nde Souza, o presente regista fiz segundo o original\nao qual me reporto e do que dou fé: Fuerunt.\n\n\n4\nA Camara Municipal de São Carlos do Pinhal\nresolve:\nArtigo 1.º A Municipalidade mantem a\nconcessão feita a Manoel Cabral dos Santos\npara assentar postes para linhas telephonicas\nnas ruas e praças da cidade e no municipio\nde São Carlos do Pinhal.\nParagrapho Unico - A Municipalidade receio-se\no direito de cassar essa concessão e opportunamente\na regulamentar, nos termos da lei.\nArtigo 2.º Tendo em consideração o bem publico\nmunicipal e a urgencia da installação\nda illuminação electrica na'esta cidade, a\nMunicipalidade determina que d'entro.\nde trinta dias contados da data da publia\ncação desta lei, o empresario das linhas\ntelephonicas mude os postes de sua\nempresa a fim de que a Companhia Luz\nElectrica, sem embaraço, possa collocar\nos seus de accordo com as alterações feitas\nna planta primitiva.\nParagrapho Unico. A mudança dos postes das\nlinhas telephonicas será feita pelo respectivo\nempresario mediante indemnisação por\nparte da Camara. Essa indemnisação\nserá arbitrada em juizo, na forma da\n",
+   "15": "Artigo 3.º Revogam-se as disposições em contrario. São\nCarlos do Pinhal 21 de Fevereiro de 1893. Joaquim jo gonçalo\nBraga, Eugenio d' Andrade Egas, H. Patamar, Adão Ferreiros\nCabral, Joaquim Vaz do Amaral Carvalho, Elias de\nCamargo Penteado, D.r. Joaquim Rodrigues debiqueiro. Approvada\nRegistre-se e Cumpra-se. S. Carlos 21 de Fever de 1893 - Gonçalo\nBraga. Eu Joaquim Augusto Ribeiro de Souza, Secretario\no presente registro fim segundo o original ao quel\nme reporto e do que dou fé. pergunto.\nLei N.\n\nCodigo de Posturas\nde as\nTitulo 1.março 5 de 1893Econonna\nMunicipal\nCapitulo 1.º\nPerimetro da cidade, alinhamento, nivelamento, edificação\nArtigo 1.º Em quanto não se fizer regular tombamento\ndo patrimonio de São Carlos do Pinhal, o feretro\nda cidade de S. Carlos do Pinhal comprehenderá\na área contidas nos limites tidos actualmente\ncomo divisas para os effeitos do imposto predial.\nAs propriedades particulares e situações de\nservidão ou uso publico adjacentes do patrimonio,\nserão regidas pelas disposições que a ellas se referem\nexpressamente e, em todo o caso, ficarão\nsujeitas aos impostos taxados no presente codigo.\nArtigo 2.º Nenhum edificio, alicerce, calçamento,\nmuro ou trabalho que dependa de movimento\nde terra, será feito em frente das ruas ou\npraças da cidade ou suburbios sem previo alinhamento\ne nivelamento do arruador da\nCamara Municipal e licença para depositar",
+   "16": "na rua ou praça os materiaes necessarios, mediante\no pagamento de dez mil reis por mez.\nMulta de quarenta mil reis no primeiro e vinte\nmil reis no segundo caso com obrigação de\nfazer cessar a infracção.\nParagrapho unico: - Cada andaime pagará de\nmil reis por semestre. No talão de alinhamento\ne nivelamento se incluira o imposto para\nandaimes e materiaes.\nArtigo 3.º As casas que se construirem ou se\nedificarem na cidade ou suburbios terão,\npelo menos, quatro metros e quarenta centimetros\nde altura na frente, até a linha do\ntelhado, ou, sendo sobrado, oito metros e oitenta\ncentimetros, na frente, não podendo ter o pavimento\nterreo menos de quatro metros e\nquarenta centimetros. Quando taes edificações\ntenham de ficar para dentro do alinhamento,\nentre a construcção ou reconstrucção e este\nalinhamento medear o espaço de quatro\nmetros e quarenta centimetros, pelo menos,\ndevendo ser convenientemente murado ou\ngradeado no alinhamento da rua, salvo\nnos lugares onde forem permittidas as cercas\ncom que poderão ser feitos os respectivos fechos.\n§ 1.º Ficam prohibidas as cercas nas ruas\ne praças servidas pela luz electrica. Multa\nde um mil reis por cada metro, a lei da obrigação\nde ser removido o objecto da infracção.\n§ 2.º As portas e janellas das casas que se construirem\nou reconstruiram, na cidade ou suburbios, terão\nas seguintes dimensões minimas: as postas dois\nmetros e sessenta centimetros de altura por"
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+  "base": {
+    "seg_ops": "kraken_nlbin",
+    "rec_ops": "",
+    "post.conventions": true,
+    "post.dehyphenate": true
+  },
+  "variants": {
+    "ref": {},
+    "domain_r20": {
+      "post.domain_lexicon": true,
+      "post.lexicon_max_ratio": 0.2
+    },
+    "domain_r34": {
+      "post.domain_lexicon": true,
+      "post.lexicon_max_ratio": 0.34
+    },
+    "domain_r45": {
+      "post.domain_lexicon": true,
+      "post.lexicon_max_ratio": 0.45
+    },
+    "generic_r20": {
+      "post.lexicon": "models/lexicon/pt_br_50k.txt",
+      "post.lexicon_max_ratio": 0.2
+    },
+    "generic_r34": {
+      "post.lexicon": "models/lexicon/pt_br_50k.txt",
+      "post.lexicon_max_ratio": 0.34
+    },
+    "both_r20": {
+      "post.domain_lexicon": true,
+      "post.lexicon": "models/lexicon/pt_br_50k.txt",
+      "post.lexicon_max_ratio": 0.2
+    },
+    "both_r34": {
+      "post.domain_lexicon": true,
+      "post.lexicon": "models/lexicon/pt_br_50k.txt",
+      "post.lexicon_max_ratio": 0.34
+    },
+    "both_r34_5k": {
+      "post.domain_lexicon": true,
+      "post.lexicon": "models/lexicon/pt_br_50k.txt",
+      "post.lexicon_max_ratio": 0.34,
+      "post.lexicon_size": 5000
+    },
+    "domain_r34_min3": {
+      "post.domain_lexicon": true,
+      "post.lexicon_max_ratio": 0.34,
+      "post.lexicon_min_len": 3
+    }
+  }
+}

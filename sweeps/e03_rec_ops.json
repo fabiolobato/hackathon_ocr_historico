@@ -1,0 +1,15 @@
+{
+  "base": {"seg_ops": "kraken_nlbin", "post.conventions": true, "post.dehyphenate": true},
+  "variants": {
+    "rec_raw":          {"rec_ops": ""},
+    "rec_gray":         {"rec_ops": "grayscale"},
+    "rec_clahe":        {"rec_ops": "clahe"},
+    "rec_contrast":     {"rec_ops": "contrast"},
+    "rec_illum":        {"rec_ops": "illumination"},
+    "rec_denoise":      {"rec_ops": "denoise"},
+    "rec_sharpen":      {"rec_ops": "sharpen"},
+    "rec_gamma07":      {"rec_ops": "gamma", "params.gamma": 0.7},
+    "rec_gamma15":      {"rec_ops": "gamma", "params.gamma": 1.5},
+    "rec_rules":        {"rec_ops": "remove_rules"}
+  }
+}

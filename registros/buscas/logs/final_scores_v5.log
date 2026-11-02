@@ -1,0 +1,2 @@
+2026-10-31 08:43:18,812 INFO final v4 (st_v3): {'tuning': {'wer_norm': 24.77, 'cer_norm': 9.78}, 'heldout': {'wer_norm': 22.05, 'cer_norm': 8.16}, 'all': {'wer_norm': 24.05, 'cer_norm': 9.35}}
+2026-10-31 08:48:13,153 INFO final v5 (st_g3m + livro78 + deskew): {'tuning': {'wer_norm': 19.98, 'cer_norm': 5.74}, 'heldout': {'wer_norm': 18.43, 'cer_norm': 4.13}, 'all': {'wer_norm': 19.57, 'cer_norm': 5.32}}
