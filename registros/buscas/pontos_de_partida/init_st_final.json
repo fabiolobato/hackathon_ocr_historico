@@ -1,0 +1,25 @@
+{
+  "final": [
+    "decoder:ctc_edit",
+    "geometry:upscale_20",
+    "decoder_params:alpha_16",
+    "decoder_params:candidates_30",
+    "seg_image:remove_rules",
+    "seg_image:contrast",
+    "text:dehyphenate",
+    "text:conventions",
+    "text:ordinals",
+    "context:lm_livro8",
+    "lexicon:period_legal_w1",
+    "lexicon_params:ratio_50",
+    "rec_params:pad_24",
+    "context_params:open_known",
+    "context_params:nbest_5",
+    "context_params:short_60",
+    "context_params:beam_64",
+    "context_params:trigram"
+  ],
+  "metric": "wer_norm",
+  "final_value": 0.24604966139954854,
+  "source": "reduced search with st_v3 (search_st), context LM switched to lm_livro8 (E15)"
+}

@@ -1,0 +1,226 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793472505.608775   22519 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793472505.685069   22519 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793472507.914499   22519 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1793472507.915003   22519 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+Loading from checkpoint /content/repo/models/10.5281_zenodo.21788410/medium.safetensors.
+You are using a CUDA device ('NVIDIA L4') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+WARNING:py.warnings:/usr/local/lib/python3.13/dist-packages/lightning/pytorch/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+
+WARNING:py.warnings:/usr/local/lib/python3.13/dist-packages/lightning/pytorch/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+
+┏━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃    ┃ Name                          ┃ Type           ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0  │ net                           │ PPOCRv6Model   │ 15.9 M │ train │     0 │
+│ 1  │ net.nn                        │ PPOCRv6Recogn… │ 15.9 M │ train │     0 │
+│ 2  │ criterion                     │ CTCLoss        │      0 │ train │     0 │
+│ 3  │ nrtr_criterion                │ CrossEntropyL… │      0 │ train │     0 │
+│ 4  │ val_cer                       │ CharErrorRate  │      0 │ train │     0 │
+│ 5  │ val_wer                       │ WordErrorRate  │      0 │ train │     0 │
+│ 6  │ nrtr_head                     │ NRTRHead       │ 18.9 M │ train │     0 │
+│ 7  │ nrtr_head.input_proj          │ Linear         │  393 K │ train │     0 │
+│ 8  │ nrtr_head.embedding           │ Embeddings     │  832 K │ train │     0 │
+│ 9  │ nrtr_head.positional_encoding │ PositionalEnc… │      0 │ train │     0 │
+│ 10 │ nrtr_head.decoder             │ ModuleList     │ 16.8 M │ train │     0 │
+│ 11 │ nrtr_head.tgt_word_prj        │ Linear         │  832 K │ train │     0 │
+└────┴───────────────────────────────┴────────────────┴────────┴───────┴───────┘
+Trainable params: 34.7 M                                                        
+Non-trainable params: 0                                                         
+Total params: 34.7 M                                                            
+Total estimated model params size (MB): 138.923                                 
+Modules in train mode: 414                                                      
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+W1031 18:48:53.154000 22519 torch/_inductor/utils.py:1731] [0/0_1] Not enough SMs to use max_autotune_gemm mode
+stage 0/19 ━━━━━━━━━━━━━━━━ 137/137 0:05:24 • 0:00:00 0.00it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               7.866            
+                                                               val_accuracy:    
+                                                               0.768            
+                                                               val_word_accurac…
+                                                               0.377            
+                                                               train_loss_epoch:
+                                                               8.832            
+stage 1/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               5.256            
+                                                               val_accuracy:    
+                                                               0.869            
+                                                               val_word_accurac…
+                                                               0.555            
+                                                               train_loss_epoch:
+                                                               6.576            
+stage 2/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               3.570            
+                                                               val_accuracy:    
+                                                               0.927            
+                                                               val_word_accurac…
+                                                               0.714            
+                                                               train_loss_epoch:
+                                                               4.166            
+stage 3/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               3.459            
+                                                               val_accuracy:    
+                                                               0.941            
+                                                               val_word_accurac…
+                                                               0.759            
+                                                               train_loss_epoch:
+                                                               3.529            
+stage 4/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               3.122            
+                                                               val_accuracy:    
+                                                               0.951            
+                                                               val_word_accurac…
+                                                               0.795            
+                                                               train_loss_epoch:
+                                                               3.332            
+stage 5/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               3.214            
+                                                               val_accuracy:    
+                                                               0.953            
+                                                               val_word_accurac…
+                                                               0.805            
+                                                               train_loss_epoch:
+                                                               3.218            
+stage 6/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               2.959            
+                                                               val_accuracy:    
+                                                               0.957            
+                                                               val_word_accurac…
+                                                               0.820            
+                                                               train_loss_epoch:
+                                                               3.127            
+stage 7/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               3.025            
+                                                               val_accuracy:    
+                                                               0.959            
+                                                               val_word_accurac…
+                                                               0.828            
+                                                               train_loss_epoch:
+                                                               3.036            
+stage 8/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               2.892            
+                                                               val_accuracy:    
+                                                               0.959            
+                                                               val_word_accurac…
+                                                               0.828            
+                                                               train_loss_epoch:
+                                                               2.948            
+stage 9/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 • 0:00:00 1.21it/s v_num: 0.000     
+                                                               train_loss_step: 
+                                                               2.867            
+                                                               val_accuracy:    
+                                                               0.959            
+                                                               val_word_accurac…
+                                                               0.829            
+                                                               train_loss_epoch:
+                                                               2.852            
+stage 10/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.752            
+                                                               val_accuracy:    
+                                                               0.960            
+                                                               val_word_accurac…
+                                                               0.836            
+                                                               train_loss_epoch:
+                                                               2.760            
+stage 11/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.667            
+                                                               val_accuracy:    
+                                                               0.961            
+                                                               val_word_accurac…
+                                                               0.837            
+                                                               train_loss_epoch:
+                                                               2.679            
+stage 12/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.636            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.841            
+                                                               train_loss_epoch:
+                                                               2.606            
+stage 13/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.501            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.843            
+                                                               train_loss_epoch:
+                                                               2.545            
+stage 14/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.331            
+                                                               val_accuracy:    
+                                                               0.963            
+                                                               val_word_accurac…
+                                                               0.844            
+                                                               train_loss_epoch:
+                                                               2.494            
+stage 15/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.590            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.840            
+                                                               train_loss_epoch:
+                                                               2.453            
+stage 16/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.348            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.840            
+                                                               train_loss_epoch:
+                                                               2.425            
+stage 17/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.581            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.838            
+                                                               train_loss_epoch:
+                                                               2.403            
+stage 18/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.361            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.838            
+                                                               train_loss_epoch:
+                                                               2.395            
+`Trainer.fit` stopped: `max_epochs=20` reached.
+stage 19/19 ━━━━━━━━━━━━━━━━ 137/137 0:01:55 •        1.21it/s v_num: 0.000     
+                                     0:00:00                   train_loss_step: 
+                                                               2.370            
+                                                               val_accuracy:    
+                                                               0.962            
+                                                               val_word_accurac…
+                                                               0.838            
+                                                               train_loss_epoch:
+                                                               2.387            
+Converting best model /content/st_c_m/model_st_c1m_b16/checkpoint_14-0.9629.ckpt (score: 0.9629) to weights file /content/st_c_m/model_st_c1m_b16/best_0.9629.safetensors

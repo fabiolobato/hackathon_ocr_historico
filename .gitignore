@@ -1,6 +1,14 @@
 .venv/
 __pycache__/
-models/
+models/*
+# the final pipeline's files (same blobs as entrega_ocr/models), so final_v6 runs from the repo root
+!models/finetuned/
+models/finetuned/*
+!models/finetuned/st_c1m.safetensors
+!models/lexicon/
+models/lexicon/*
+!models/lexicon/pt_hist_legal_w1.txt
+!models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz
 outputs/
 .DS_Store
 !entrega_ocr/models/
