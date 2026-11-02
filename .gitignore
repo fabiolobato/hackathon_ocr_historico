@@ -5,6 +5,7 @@ models/*
 !models/finetuned/
 models/finetuned/*
 !models/finetuned/st_c1m.safetensors
+!models/finetuned/st_g3m.safetensors
 !models/lexicon/
 models/lexicon/*
 !models/lexicon/pt_hist_legal_w1.txt
