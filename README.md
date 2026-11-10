@@ -1,139 +1,78 @@
-# OCR histórico: Livro de Registro de Leis nº 1 (1892–1894)
+# Demonstração ao vivo: como rodar
 
-Transcrição automática de 12 páginas manuscritas da Câmara de São Carlos do Pinhal. O repositório junta o trabalho de cada frente do time num pipeline só: qualquer imagem de entrada pode ir para qualquer motor, e tudo é medido pelas mesmas métricas.
+Este ramo (`demo-ao-vivo`) é a demonstração ao vivo do projeto: uma folha escrita à caneta é fotografada com o celular e lida pelos dois OCRs do projeto, o pipeline local e o Gemini 3.8 Flash; o resultado é um cartão HTML em slides para pôr no projetor. O projeto em si está descrito no [README do ramo `main`](https://github.com/fabiolobato/hackathon_ocr_historico/blob/main/README.md). Aqui, só o passo a passo para rodar.
 
-> **Demonstração ao vivo** (uma folha escrita à caneta, fotografada e lida pelos dois OCRs do projeto): como rodar, no Colab ou no computador, em [`README_DEMO.md`](README_DEMO.md).
+## O que você vai precisar
 
-## Partes do time e onde cada uma entra
+- **Uma conta Google** (para rodar no Colab, sem instalar nada) **ou** um computador com Python 3.10 a 3.12, Git e VS Code (para rodar localmente).
+- **Uma chave do OpenRouter**, só para a leitura pelo LLM, que é paga (centavos por foto). Sem chave, dá para rodar só o pipeline.
+- **Um celular** para fotografar a folha e um jeito qualquer de passar a foto para o computador (cabo, WhatsApp Web, Drive, e-mail).
 
-Todas as branches (`chore/add_dataset_files`, `feat/add_imagens_preprocessadas`, `feat/OCR`, `llm_implementation`) já estavam integradas na `main`. Não havia commit pendente em nenhuma delas. O que faltava era fazê-las trabalharem juntas.
+Dica para a foto: folha em pé (retrato), fotografada de cima, preenchendo a tela, sem a sombra do celular sobre o texto.
 
-| Parte | Pasta | Papel no pipeline integrado |
+## Caminho 1: no Colab
+
+1. **Abra o caderno** por este link, que já pega a versão atual do ramo:
+   `https://colab.research.google.com/github/fabiolobato/hackathon_ocr_historico/blob/demo-ao-vivo/demo_ao_vivo.ipynb`
+   (ou *Arquivo → Abrir notebook → GitHub*, repositório `fabiolobato/hackathon_ocr_historico`, ramo `demo-ao-vivo`). Não abra cópias antigas da lista "Recentes".
+2. **Ligue a GPU**: *Ambiente de execução → Alterar o tipo de ambiente de execução → T4 GPU → Salvar*.
+3. **Guarde a chave do OpenRouter**: clique no **ícone de chave** na barra lateral esquerda → *Adicionar novo segredo* → em **Nome** escreva `API_KEY` → em **Valor** cole a chave → ligue o botão **Acesso do notebook** ao lado dela. A chave fica na sua conta Google, não no caderno.
+   Sem chave: na célula **Os dois OCRs**, troque `PERMITIR_GASTO = True` por `False` (o LLM só simula).
+4. **Rode a célula "Ambiente"** (botão ▶ à esquerda da célula). Demora de 3 a 6 minutos na primeira vez. No fim devem aparecer `GPU do Colab: Tesla T4`, `CUDA disponível: True` e `pasta de trabalho: /content/hackathon_ocr_historico`.
+5. **Rode a célula "Os dois OCRs"** (10 a 30 s). Deve imprimir `dispositivo: cuda:0 (Tesla T4)` e `OCRs: configs/final_v6.json + google/gemini-3.8-flash (envio autorizado)`.
+6. **Envie a foto**: rode a célula **A foto**; aparece o botão *Escolher arquivos*; escolha a foto (JPEG ou HEIC). Deve imprimir `recebida: dados/demo/<nome da foto>`.
+7. **Rode a célula "Ler a foto"** (10 a 60 s). Ela imprime as duas leituras e **baixa um arquivo `.html`** para o seu computador (pasta de downloads do navegador).
+8. **Abra o `.html` no navegador** (clique duplo). Esse é o cartão: leve essa aba ao projetor (F11 para tela cheia; rolar passa de slide em slide; o botão **tema** no canto alterna claro e escuro).
+
+Para outra foto, repita os passos 6 a 8. Cada foto lida com `PERMITIR_GASTO = True` é uma requisição paga ao OpenRouter.
+
+## Caminho 2: no VS Code, no seu computador
+
+1. **Instale** Python 3.10 a 3.12, Git e VS Code com as extensões **Python** e **Jupyter** (da Microsoft).
+2. **Clone o ramo** num terminal:
+   ```bash
+   git clone -b demo-ao-vivo https://github.com/fabiolobato/hackathon_ocr_historico.git
+   cd hackathon_ocr_historico
+   ```
+3. **Crie o ambiente e instale as dependências** (alguns minutos):
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\pip install -r requirements.txt -r requirements-demo.txt jupyter    # Windows
+   .venv/bin/pip install -r requirements.txt -r requirements-demo.txt jupyter        # Linux ou macOS
+   ```
+   Se o computador tiver GPU NVIDIA, instale antes o torch com CUDA com o comando `pip` que o site pytorch.org gera para a sua máquina (usando o `pip` do `.venv`), e só depois os requisitos acima. Sem GPU também funciona, só demora mais (cerca de um minuto por foto).
+4. **Guarde a chave do OpenRouter**: crie um arquivo chamado `.env` na raiz da pasta (ao lado de `demo_ao_vivo.ipynb`) com uma única linha, sem aspas e sem espaços:
+   ```
+   OPENROUTER_API_KEY=cole_a_sua_chave_aqui
+   ```
+   Esse arquivo é ignorado pelo git e nunca sai do seu computador. Sem chave: na célula **Os dois OCRs**, troque `PERMITIR_GASTO = True` por `False`.
+5. **Abra a pasta no VS Code** (*Arquivo → Abrir pasta*), abra `demo_ao_vivo.ipynb` e, no canto superior direito do caderno, clique em **Selecionar kernel → Ambientes Python → `.venv`**.
+6. **Rode a célula "Ambiente"** (só confere a pasta) e depois **"Os dois OCRs"** (10 a 20 s). Deve imprimir o dispositivo (`cuda:0 (nome da GPU)` ou `cpu`) e `OCRs: configs\final_v6.json + google/gemini-3.8-flash (envio autorizado)`.
+7. **Passe a foto para a pasta `dados/demo/`** do projeto. Pelo cabo: no Android, toque na notificação USB e escolha *Transferência de arquivos*; no Explorador de Arquivos, *Este Computador → celular → DCIM → Camera*, e arraste a foto para `dados/demo/`. No iPhone, toque em *Permitir* no aparelho e vá em *Apple iPhone → Internal Storage → DCIM*. Qualquer outro caminho (WhatsApp Web, Drive, e-mail) serve, desde que a foto termine dentro de `dados/demo/`.
+8. **Rode a célula "Ler a foto"** (10 a 60 s com GPU). Ela imprime as duas leituras e **abre o cartão numa aba do navegador**. Leve essa aba ao projetor (F11 para tela cheia).
+
+Para outra foto, repita os passos 7 e 8: a célula sempre lê a foto mais recente de `dados/demo/`. Se mudar algo no código, use *Reiniciar o kernel* antes de rodar de novo.
+
+## As três chaves da célula "Os dois OCRs"
+
+| variável | padrão | efeito |
 |---|---|---|
-| Dataset | `imagens/` | imagens originais (entrada `original`) |
-| Pré-processamento | `imagens_preprocessadas/` | binarização do time (entrada `binarizada`) |
-| OCR Kraken | `test_kraken/` | motor Kraken: segmentação neural + PP-OCRv6 medium; também fornece a entrada `nlbin` |
-| LLM | `LLM_Transcription.ipynb` | motor LLM (OpenRouter, Gemini 3.1 Pro) e as métricas WER/CER/PER |
-| Gabarito | `ground_truth/` | um `.txt` por página, extraído do DOCX; revisão em `comparison_review.md` |
-| **Integração** | `ocr_historico/`, `pipeline_integrado.ipynb` | liga as partes acima |
-| **Fine-tuning** | `ocr_historico/finetuning.py`, `finetuning_kraken.ipynb` | ajusta o Kraken à letra do livro |
-| **Pipeline de OCR adaptado** | `ocr_pipeline/`, `entrega_ocr/`, `registros/` | pipeline final de OCR (v6): reconhecedor adaptado ao livro, dicionário de época, contexto por trigramas e busca gulosa condicional; ver [`PIPELINE_OCR.md`](PIPELINE_OCR.md) |
-| **Demonstração ao vivo** | `demo_ao_vivo.ipynb`, `ocr_pipeline/demo.py`, `dados/demo/` | uma folha escrita à caneta, fotografada pelo celular, lida pelos dois OCRs do projeto: o pipeline final e o melhor LLM da avaliação (Gemini 3.8 Flash, OpenRouter, pago); caderno para VS Code ou Colab; ver [`docs/DEMO.md`](docs/DEMO.md) |
+| `USAR_LLM` | `True` | o Gemini lê a mesma foto ao lado do pipeline; `False` roda só o pipeline |
+| `PERMITIR_GASTO` | `True` | envia a foto ao OpenRouter (pago; exige a chave); `False` deixa o LLM em simulação, nada é enviado |
+| `EXEMPLO_LLM` | `False` | com `PERMITIR_GASTO = False`, o cartão do LLM mostra um texto de exemplo (marcado "exemplo") para ensaiar a página sem gastar |
 
-## Pipeline de OCR adaptado
+## Pela linha de comando (opcional)
 
-O pipeline final de OCR fica em `ocr_pipeline/` e é independente do `ocr_historico/`. Ele roda localmente, sem LLM, e chega a WER 18,74 / CER 4,43 contra o GT oficial nas páginas reservadas. A documentação completa (resultados, etapas, como rodar) está em [`PIPELINE_OCR.md`](PIPELINE_OCR.md). A pasta [`entrega_ocr/`](entrega_ocr/) reúne o pipeline pronto e o caderno de apresentação executado, e [`registros/`](registros/) guarda os registros das buscas e dos treinos.
-
-## Como rodar
-
-**Colab:** abra `pipeline_integrado.ipynb` (**Arquivo → Abrir notebook → GitHub**), escolha um ambiente com GPU e execute em ordem. O notebook clona o repositório, instala as dependências, roda o Kraken e avalia. As células de LLM ficam em modo simulação até alguém mudar `PERMITIR_GASTO = True`.
-
-**Linha de comando** (com `pip install -r requirements.txt`):
+Na raiz do projeto, com o `.venv` ativado e a foto já em `dados/demo/`:
 
 ```bash
-python -m ocr_historico.executar rodar kraken_original kraken_binarizada --paginas 7 10 12
+python -m ocr_pipeline.demo --foto dados/demo/IMG_1234.jpg --permitir-gasto --abrir   # pipeline + Gemini (pago); o cartão abre no navegador
+python -m ocr_pipeline.demo --foto dados/demo/IMG_1234.jpg --sem-llm --abrir          # só o pipeline
+python -m ocr_pipeline.demo --vigiar --abrir                                           # cada foto nova em dados/demo/ abre um cartão
 ```
 
-```bash
-python -m ocr_historico.executar rodar llm_corrige_kraken_original_2x --simular
-```
+## Onde fica cada coisa
 
-```bash
-python -m ocr_historico.executar avaliar
-```
-
-## Combinações
-
-O nome da combinação diz o que entra e em qual motor. O nome é também o do arquivo em `resultados/`.
-
-| Nome | O que faz | Custo |
-|---|---|---|
-| `kraken_original`, `kraken_nlbin`, `kraken_binarizada` | imagem original / nlbin do Kraken / binarização do time → Kraken | grátis |
-| `kraken_original_2x`, `kraken_binarizada_2x` | idem, ampliada 2× antes | grátis |
-| `llm_original`, `llm_binarizada` | imagem → LLM (o primeiro é o que o `LLM_Transcription.ipynb` já fazia) | ~US$ 0,06/página |
-| `llm_corrige_<combinação kraken>` | imagem original **+ texto do Kraken** → LLM corrige (padrão: `llm_corrige_kraken_original_2x`) | ~US$ 0,06/página |
-
-As entradas aceitam qualquer combinação entre `original`, `binarizada` e `nlbin`, com ou sem `_2x`.
-
-## Formato comum de resultados
-
-Todos os motores gravam o mesmo JSON do `LLM_Transcription.ipynb`, com campos a mais:
-
-```json
-{"combinacao": "kraken_binarizada", "modelo": "kraken/medium", "entrada": "binarizada", "escala": 1.0,
- "imagens": [{"arquivo": "5.BR FPMSC ....jpg", "texto_transcrito": "...", "custo": null}]}
-```
-
-Por isso um JSON já gerado no notebook do LLM pode ser importado sem conversão (`importar_resultado_llm`). A execução grava após cada página e retoma de onde parou. Resultados de outro modelo na mesma pasta não são misturados.
-
-## Métricas
-
-`ocr_historico/metricas.py` reúne as métricas das duas frentes:
-
-- `wer_sem_pontuacao`, `cer_sem_pontuacao`, `wer_com_pontuacao`, `cer_com_pontuacao`, `per`: do notebook do LLM (minúsculas; PER segundo arXiv:2310.02943). A única mudança é a normalização Unicode NFC antes de comparar.
-- `wer_estrito`: a métrica do `test_kraken` (caixa, acentos e pontuação preservados).
-
-Os valores de corpus somam os erros de todas as páginas; não são médias de porcentagens. `resultados/comparacao.csv` tem uma linha por combinação, ordenada por `wer_sem_pontuacao`, e `resultados/metricas_paginas.csv` tem uma linha por página.
-
-O gabarito ainda é provisório. Ele moderniza grafias, expande abreviações e tem erros de leitura listados em `ground_truth/comparison_review.md`. Uma transcrição fiel ao manuscrito perde pontos por isso.
-
-## Resultados atuais (Kraken, 12 páginas)
-
-Kraken medium em CPU, segmentação neural, mesmas 12 páginas e mesmo gabarito (`resultados/comparacao.csv`):
-
-| Combinação | WER estrito | WER s/ pont. | CER s/ pont. | PER |
-|---|---|---|---|---|
-| `kraken_original_2x` | 64,2% | 62,9% | 22,2% | 35,4% |
-| `kraken_original` | 64,7% | 63,3% | 22,8% | 34,7% |
-| `kraken_nlbin` | 73,1% | 71,9% | 33,8% | 59,1% |
-| `kraken_binarizada_2x` | 73,5% | 72,1% | 32,8% | 60,1% |
-| `kraken_binarizada` | 74,9% | 73,7% | 35,0% | 59,2% |
-
-Com a segmentação neural, **binarizar piora o Kraken em ~9 pontos de WER e ~11 de CER**, tanto com a binarização do time quanto com o nlbin do Kraken, que é o `kraken_neural` do `test_kraken`. A ampliação 2× ajuda pouco. Por isso a correção pelo LLM usa por padrão `kraken_original_2x` como base. As combinações de LLM ainda não foram executadas (ver custos abaixo). O código que gerou `imagens_preprocessadas/` não está no repositório; com ele, dá para testar outros parâmetros de binarização.
-
-## Fine-tuning do Kraken
-
-`finetuning_kraken.ipynb` (Colab com GPU) ou `python -m ocr_historico.finetuning --dispositivo cuda:0`:
-
-1. **Dataset:** as 9 páginas de treino passam pela mesma entrada da melhor combinação (original 2×), são segmentadas e reconhecidas pelo modelo base. O gabarito de cada página é cortado nas quebras de linha do OCR (`ocr_historico/alinhamento.py`). Localmente, isso deu 259 linhas usadas e 52 descartadas (rubricas, números de página, linhas mal alinhadas), todas listadas em `finetuning/linhas/manifesto.json`.
-2. **Treino:** `ketos train` a partir do PP-OCRv6 medium (`--resize union`, augmentation, 30 épocas, lote 4 com acumulação 4 = lote efetivo 16, largura máxima calculada a partir das linhas). Cada execução grava em `finetuning/modelo/<data-hora>/`; o melhor checkpoint vira `best_<acurácia>.safetensors`. Lote 16 direto estourou os 15 GB de uma T4.
-3. **Avaliação:** antes × depois nas páginas reservadas 7, 10 e 12, que nunca entram no treino (mesmo sorteio do `test_kraken`).
-
-O caminho completo foi testado em CPU com um treino mínimo (3 linhas, 1 época). O treino de verdade precisa de GPU: em CPU, o lote padrão do ppocrv6 estoura a memória e cada época leva horas. O modelo aprende a grafia do gabarito, então revise `ground_truth/` antes de um treino definitivo.
-
-## Custos e chave do OpenRouter
-
-Nada é cobrado sem autorização explícita: `MotorLLM` recusa enviar sem `permitir_gasto=True` (`--permitir-gasto` na linha de comando). Com `simular=True` (`--simular`), as requisições são montadas e salvas em `resultados/simulacao/`, que fica fora do git, sem sair da máquina. A chave é lida de `OPENROUTER_API_KEY`, do segredo `API_KEY` do Colab ou de um arquivo `.env` na raiz, que também fica fora do git.
-
-## Testes
-
-```bash
-python -m pytest
-```
-
-```bash
-cd test_kraken && python -m pytest
-```
-
-Os testes de integração usam motores falsos e não fazem requisições.
-
-## Seleção dos Modelos (LLMs)
-
-- **Gemini 3.1 Pro Preview** — Pather et al. (2026); Zhang et al. (2026); Semnani et al. (2025); Boillet, Tarride e Kermorvant (2026).
-- **Gemini 3.8 Flash** — Semnani et al. (2025); Zhang et al. (2026).
-- **GPT-5.6 Terra** — Pather et al. (2026); Crosilla, Klic e Colavizza (2025).
-- **Claude Sonnet 5.5** — Humphries et al. (2024); Crosilla, Klic e Colavizza (2025); Pather et al. (2026).
-
-## Referências
-
-BOILLET, Mélodie; TARRIDE, Solène; KERMORVANT, Christopher. **METATR: A Multilingual, Evolving Benchmark for Automatic Text Recognition**. 2026. [Artigo](https://arxiv.org/abs/2605.26712).
-
-CROSILLA, Giorgia; KLIC, Lukas; COLAVIZZA, Giovanni. **Benchmarking Large Language Models for Handwritten Text Recognition**. 2025. [Artigo](https://arxiv.org/abs/2503.15195v2).
-
-HUMPHRIES, Mark et al. **Unlocking the Archives: Using Large Language Models to Transcribe Handwritten Historical Documents**. 2024. [Artigo](https://arxiv.org/abs/2411.03340v1).
-
-PATHER, Nicholas et al. **From Handwriting to Structured Data: Benchmarking AI Digitisation of Handwritten Forms**. 2026. [Artigo](https://arxiv.org/abs/2604.16504v1).
-
-SEMNANI, Sina J. et al. **CHURRO: Making History Readable with an Open-Weight Large Vision-Language Model for High-Accuracy, Low-Cost Historical Text Recognition**. 2025. [Artigo](https://arxiv.org/abs/2509.19768v1).
-
-ZHANG, Jun et al. **WildHandBench: A Benchmark for Handwritten Text Understanding that Challenges MLLMs and Humans**. 2026. [Artigo](https://arxiv.org/abs/2608.22959).
+- `demo_ao_vivo.ipynb`: o caderno. `ocr_pipeline/demo.py`: a lógica da demonstração. `docs/DEMO.md`: o roteiro da apresentação, com o que cada slide mostra.
+- `dados/demo/`: as fotos (ficam fora do git).
+- `outputs/demo/cartoes/`: os cartões `.html` gerados (fora do git); `outputs/demo/textos/`: os textos lidos.

@@ -24,9 +24,9 @@ Tempos medidos: uma folha com poucas linhas leva uns 6 a 14 s no pipeline com GP
 
 ## No Colab
 
-Abra o caderno pelo GitHub (**Arquivo → Abrir notebook → GitHub**, repositório `fabiolobato/hackathon_ocr_historico`, ramo `demo-ao-vivo`), escolha um ambiente com GPU e rode as células em ordem. A célula **Ambiente** clona esse ramo e instala o Kraken e as dependências (alguns minutos; os modelos do pipeline vêm no clone). A foto entra pela célula de upload, que abre o seletor de arquivos e a guarda em `dados/demo/` do clone. Para o LLM, guarde a chave do OpenRouter no segredo `API_KEY` do Colab (ícone de chave na barra lateral). Como o navegador não enxerga os arquivos da máquina virtual do Colab, a célula **Ler a foto** baixa o cartão HTML para o seu computador: abra-o no navegador e deixe essa aba no projetor.
+Abra o caderno pelo GitHub (**Arquivo → Abrir notebook → GitHub**, repositório `fabiolobato/hackathon_ocr_historico`, ramo `demo-ao-vivo`), ligue a GPU (**Ambiente de execução → Alterar o tipo de ambiente de execução → T4 GPU**) e rode as células em ordem. A célula **Ambiente** confere se há GPU (e para, com essa instrução, se não houver; `EXIGIR_GPU = False` deixa seguir em CPU), clona esse ramo e instala o Kraken e as dependências (alguns minutos; os modelos do pipeline vêm no clone). A foto entra pela célula de upload, que abre o seletor de arquivos e a guarda em `dados/demo/` do clone. Para o LLM, guarde a chave do OpenRouter no segredo `API_KEY` do Colab (ícone de chave na barra lateral). Como o navegador não enxerga os arquivos da máquina virtual do Colab, a célula **Ler a foto** baixa o cartão HTML para o seu computador: abra-o no navegador e deixe essa aba no projetor.
 
-O ramo apontado em `REPOSITORIO`/`RAMO`, no início da célula **Ambiente**, precisa ter os arquivos da demo (a célula avisa se não tiver). O passo a passo curto, para quem só quer rodar, está em [`README_DEMO.md`](../README_DEMO.md). O caminho do Colab não foi executado neste computador, só o do VS Code.
+O ramo apontado em `REPOSITORIO`/`RAMO`, no início da célula **Ambiente**, precisa ter os arquivos da demo (a célula avisa se não tiver). O passo a passo curto, para quem só quer rodar, é o [`README.md`](../README.md) deste ramo. O caminho do Colab não foi executado neste computador, só o do VS Code.
 
 ## Pela linha de comando (alternativa)
 
