@@ -189,12 +189,16 @@ python -m ocr_pipeline.batch --config configs/final.json --images <pasta> --out 
 
 `--pages` aceita `all`, `tuning`, `heldout` ou uma lista (`5,8,13`). Saída em `outputs/runs/<nome>/`: métricas, texto por página e, com `--viz`, um relatório HTML imagem ↔ texto.
 
+### Demonstração ao vivo
+
+Para apresentar com uma folha escrita na hora: o caderno [`demo_ao_vivo.ipynb`](demo_ao_vivo.ipynb) (VS Code com o `.venv`, ou Colab com GPU) lê a foto da folha, copiada do celular pelo cabo para `dados/demo/` (ou enviada pela célula de upload, no Colab), com os dois OCRs do projeto, sempre os mesmos: o **pipeline** (a foto é apenas reduzida à escala do pipeline, a das páginas do livro, e entra sem ajuste nenhum em `configs/final_v6.json`) e o **melhor LLM da avaliação** (`Transcription_Evaluation.ipynb`: Gemini 3.8 Flash, esforço `low`, sobre a própria foto, pelo motor `ocr_historico/motor_llm.py` no OpenRouter; pago, só envia com `PERMITIR_GASTO = True`, senão apenas monta e grava a requisição). O cartão abre com uma página reservada do livro para a plateia tentar ler (botões revelam a leitura do pipeline final e a transcrição de referência e destacam as diferenças) e mostra depois, uma seção por tela, a foto etapa por etapa, as duas leituras lado a lado, o cartão completo do pipeline e a resposta do LLM. A lógica está em [`ocr_pipeline/demo.py`](ocr_pipeline/demo.py), que também roda pela linha de comando (`--vigiar --abrir`; `--exemplo-llm` ensaia o cartão do LLM com um texto de exemplo, sem gastar). Roteiro completo em [`docs/DEMO.md`](docs/DEMO.md).
+
 ## Estrutura do repositório
 
 ```
 entrega_ocr/            pasta de apresentação: cadernos, código, configuração, dados, modelos, docs
 docs/entrega/           fontes dos cadernos, README, PROCESSO e setup da pasta de entrega
-ocr_pipeline/           código do pipeline: imagem, segmentação, reconhecimento, pós-processamento, métricas, relatórios
+ocr_pipeline/           código do pipeline: imagem, segmentação, reconhecimento, pós-processamento, métricas, relatórios, demo ao vivo (demo.py)
 ocr_pipeline/tuning/    busca de parâmetros, pseudo-rótulos para o auto-treino e utilitários de experimentos
 colab/                  jobs do Colab: treino limpo (clean_train.py), varredura (sweep_clean.py), avaliação final e entrega (final_job.py)
 configs/                configurações (final_v6.json é a final; greedy_v4_medium.json, a mesma busca com o modelo publicado)

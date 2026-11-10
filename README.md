@@ -2,6 +2,8 @@
 
 Transcrição automática de 12 páginas manuscritas da Câmara de São Carlos do Pinhal. O repositório junta o trabalho de cada frente do time num pipeline só: qualquer imagem de entrada pode ir para qualquer motor, e tudo é medido pelas mesmas métricas.
 
+> **Demonstração ao vivo** (uma folha escrita à caneta, fotografada e lida pelos dois OCRs do projeto): como rodar, no Colab ou no computador, em [`README_DEMO.md`](README_DEMO.md).
+
 ## Partes do time e onde cada uma entra
 
 Todas as branches (`chore/add_dataset_files`, `feat/add_imagens_preprocessadas`, `feat/OCR`, `llm_implementation`) já estavam integradas na `main`. Não havia commit pendente em nenhuma delas. O que faltava era fazê-las trabalharem juntas.
@@ -16,6 +18,7 @@ Todas as branches (`chore/add_dataset_files`, `feat/add_imagens_preprocessadas`,
 | **Integração** | `ocr_historico/`, `pipeline_integrado.ipynb` | liga as partes acima |
 | **Fine-tuning** | `ocr_historico/finetuning.py`, `finetuning_kraken.ipynb` | ajusta o Kraken à letra do livro |
 | **Pipeline de OCR adaptado** | `ocr_pipeline/`, `entrega_ocr/`, `registros/` | pipeline final de OCR (v6): reconhecedor adaptado ao livro, dicionário de época, contexto por trigramas e busca gulosa condicional; ver [`PIPELINE_OCR.md`](PIPELINE_OCR.md) |
+| **Demonstração ao vivo** | `demo_ao_vivo.ipynb`, `ocr_pipeline/demo.py`, `dados/demo/` | uma folha escrita à caneta, fotografada pelo celular, lida pelos dois OCRs do projeto: o pipeline final e o melhor LLM da avaliação (Gemini 3.8 Flash, OpenRouter, pago); caderno para VS Code ou Colab; ver [`docs/DEMO.md`](docs/DEMO.md) |
 
 ## Pipeline de OCR adaptado
 

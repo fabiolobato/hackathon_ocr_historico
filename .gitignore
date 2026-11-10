@@ -22,3 +22,7 @@ models/lexicon/*
 !models/lexicon/pt_hist_legal_w4_livro78.ngrams.npz
 !entrega_ocr/models/
 entrega_ocr/cache/
+
+# fotos da demonstração ao vivo: ficam no computador, fora do git (só o README da pasta é versionado)
+dados/demo/*
+!dados/demo/README.md

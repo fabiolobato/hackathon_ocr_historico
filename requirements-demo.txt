@@ -1,0 +1,3 @@
+# Demonstração (ocr_pipeline.demo). Instale por cima de requirements.txt.
+# O motor pipeline não precisa de nada além do requirements.txt; o motor llm usa o requests que o ocr_historico já usa.
+pillow-heif>=0.18     # fotos HEIC/HEIF do iPhone, se o celular não estiver configurado para JPEG
